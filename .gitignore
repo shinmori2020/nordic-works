@@ -1,0 +1,45 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+#
+# Root-level .gitignore: project-wide exclusions.
+# Next.js project (in web/) has its own .gitignore for Next.js-specific patterns.
+
+# =============================================================================
+# Local WordPress (machine-specific, not committed to Git)
+# Custom plugin "nordic-works-core" is the only WP code we DO track.
+# =============================================================================
+
+# Ignore all of /app/ then re-include our custom plugin path level by level
+/app/*
+!/app/public
+/app/public/*
+!/app/public/wp-content
+/app/public/wp-content/*
+!/app/public/wp-content/plugins
+/app/public/wp-content/plugins/*
+!/app/public/wp-content/plugins/nordic-works-core
+
+# Local app's machine-specific configuration and logs
+/conf/
+/logs/
+
+# =============================================================================
+# Editor / OS
+# =============================================================================
+
+# misc
+.DS_Store
+Thumbs.db
+*.pem
+
+# editor
+.idea/
+*.swp
+*.swo
+
+# =============================================================================
+# Claude Code configuration
+# =============================================================================
+
+# Claude Code のツール設定一式 (汎用スキル定義・ローカル設定)。
+# プロジェクト固有のドキュメント CLAUDE.md はルート直下にあり追跡対象。
+.claude/

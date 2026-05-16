@@ -1,0 +1,100 @@
+{
+    "key": "group_nordic_author_profile",
+    "title": "著者プロフィールフィールド",
+    "fields": [
+        {
+            "key": "field_nordic_author_photo",
+            "label": "顔写真",
+            "name": "photo",
+            "type": "image",
+            "instructions": "著者の顔写真",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "show_in_graphql": 1,
+            "graphql_field_name": "photo"
+        },
+        {
+            "key": "field_nordic_author_position",
+            "label": "肩書き",
+            "name": "position",
+            "type": "text",
+            "instructions": "肩書き・役職",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "例: シニアコンサルタント",
+            "show_in_graphql": 1,
+            "graphql_field_name": "position"
+        },
+        {
+            "key": "field_nordic_author_bio",
+            "label": "自己紹介",
+            "name": "bio",
+            "type": "textarea",
+            "instructions": "著者の自己紹介文",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "rows": 5,
+            "new_lines": "wpautop",
+            "show_in_graphql": 1,
+            "graphql_field_name": "bio"
+        },
+        {
+            "key": "field_nordic_author_twitter_url",
+            "label": "Twitter URL",
+            "name": "twitter_url",
+            "type": "url",
+            "instructions": "Twitter（X）プロフィールURL",
+            "required": 0,
+            "default_value": "",
+            "show_in_graphql": 1,
+            "graphql_field_name": "twitterUrl"
+        },
+        {
+            "key": "field_nordic_author_linkedin_url",
+            "label": "LinkedIn URL",
+            "name": "linkedin_url",
+            "type": "url",
+            "instructions": "LinkedInプロフィールURL",
+            "required": 0,
+            "default_value": "",
+            "show_in_graphql": 1,
+            "graphql_field_name": "linkedinUrl"
+        },
+        {
+            "key": "field_nordic_author_website_url",
+            "label": "個人サイトURL",
+            "name": "website_url",
+            "type": "url",
+            "instructions": "個人サイト・ブログのURL",
+            "required": 0,
+            "default_value": "",
+            "show_in_graphql": 1,
+            "graphql_field_name": "websiteUrl"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "author_profile"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1,
+    "show_in_graphql": 1,
+    "graphql_field_name": "authorProfileFields",
+    "map_graphql_types_from_location_rules": 1,
+    "modified": 1747200000
+}

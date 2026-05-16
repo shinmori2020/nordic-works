@@ -1,0 +1,158 @@
+{
+    "key": "group_nordic_career",
+    "title": "採用情報フィールド",
+    "fields": [
+        {
+            "key": "field_nordic_career_position_type",
+            "label": "雇用形態",
+            "name": "position_type",
+            "type": "select",
+            "instructions": "雇用形態を選択",
+            "required": 1,
+            "choices": {
+                "full_time": "正社員",
+                "contract": "契約社員",
+                "freelance": "業務委託"
+            },
+            "default_value": "full_time",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "show_in_graphql": 1,
+            "graphql_field_name": "positionType"
+        },
+        {
+            "key": "field_nordic_career_location",
+            "label": "勤務地",
+            "name": "location",
+            "type": "text",
+            "instructions": "勤務地（リモート可表記含む）",
+            "required": 1,
+            "default_value": "",
+            "placeholder": "例: 東京（リモート可）",
+            "show_in_graphql": 1,
+            "graphql_field_name": "location"
+        },
+        {
+            "key": "field_nordic_career_salary_range",
+            "label": "給与レンジ",
+            "name": "salary_range",
+            "type": "text",
+            "instructions": "想定年収レンジ",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "例: 600万〜900万円",
+            "show_in_graphql": 1,
+            "graphql_field_name": "salaryRange"
+        },
+        {
+            "key": "field_nordic_career_required_skills",
+            "label": "必須スキル",
+            "name": "required_skills",
+            "type": "repeater",
+            "instructions": "応募に必須のスキル・経験",
+            "required": 0,
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "スキルを追加",
+            "sub_fields": [
+                {
+                    "key": "field_nordic_career_required_skill_text",
+                    "label": "スキル",
+                    "name": "skill",
+                    "type": "text",
+                    "required": 1,
+                    "show_in_graphql": 1,
+                    "graphql_field_name": "skill"
+                }
+            ],
+            "show_in_graphql": 1,
+            "graphql_field_name": "requiredSkills"
+        },
+        {
+            "key": "field_nordic_career_preferred_skills",
+            "label": "歓迎スキル",
+            "name": "preferred_skills",
+            "type": "repeater",
+            "instructions": "あれば望ましいスキル・経験",
+            "required": 0,
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "スキルを追加",
+            "sub_fields": [
+                {
+                    "key": "field_nordic_career_preferred_skill_text",
+                    "label": "スキル",
+                    "name": "skill",
+                    "type": "text",
+                    "required": 1,
+                    "show_in_graphql": 1,
+                    "graphql_field_name": "skill"
+                }
+            ],
+            "show_in_graphql": 1,
+            "graphql_field_name": "preferredSkills"
+        },
+        {
+            "key": "field_nordic_career_benefits",
+            "label": "待遇・福利厚生",
+            "name": "benefits",
+            "type": "repeater",
+            "instructions": "提供される待遇・福利厚生",
+            "required": 0,
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "項目を追加",
+            "sub_fields": [
+                {
+                    "key": "field_nordic_career_benefit_text",
+                    "label": "項目",
+                    "name": "item",
+                    "type": "text",
+                    "required": 1,
+                    "show_in_graphql": 1,
+                    "graphql_field_name": "item"
+                }
+            ],
+            "show_in_graphql": 1,
+            "graphql_field_name": "benefits"
+        },
+        {
+            "key": "field_nordic_career_application_url",
+            "label": "応募フォームURL",
+            "name": "application_url",
+            "type": "url",
+            "instructions": "応募フォームへのリンク",
+            "required": 0,
+            "default_value": "",
+            "show_in_graphql": 1,
+            "graphql_field_name": "applicationUrl"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "career"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1,
+    "show_in_graphql": 1,
+    "graphql_field_name": "careerFields",
+    "map_graphql_types_from_location_rules": 1,
+    "modified": 1747200000
+}

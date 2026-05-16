@@ -1,0 +1,223 @@
+{
+    "key": "group_nordic_service",
+    "title": "サービスフィールド",
+    "fields": [
+        {
+            "key": "field_nordic_service_subtitle",
+            "label": "サブタイトル",
+            "name": "subtitle",
+            "type": "text",
+            "instructions": "サービスのサブタイトル",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "show_in_graphql": 1,
+            "graphql_field_name": "subtitle"
+        },
+        {
+            "key": "field_nordic_service_hero_image",
+            "label": "ヒーロー画像",
+            "name": "hero_image",
+            "type": "image",
+            "instructions": "サービス詳細ページのヒーロー画像",
+            "required": 0,
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "show_in_graphql": 1,
+            "graphql_field_name": "heroImage"
+        },
+        {
+            "key": "field_nordic_service_features",
+            "label": "機能リスト",
+            "name": "features",
+            "type": "repeater",
+            "instructions": "サービスの提供機能",
+            "required": 0,
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "機能を追加",
+            "sub_fields": [
+                {
+                    "key": "field_nordic_service_feature_title",
+                    "label": "機能タイトル",
+                    "name": "title",
+                    "type": "text",
+                    "required": 1,
+                    "show_in_graphql": 1,
+                    "graphql_field_name": "title"
+                },
+                {
+                    "key": "field_nordic_service_feature_description",
+                    "label": "機能説明",
+                    "name": "description",
+                    "type": "textarea",
+                    "required": 0,
+                    "rows": 3,
+                    "show_in_graphql": 1,
+                    "graphql_field_name": "description"
+                }
+            ],
+            "show_in_graphql": 1,
+            "graphql_field_name": "features"
+        },
+        {
+            "key": "field_nordic_service_pricing_plans",
+            "label": "料金プラン",
+            "name": "pricing_plans",
+            "type": "repeater",
+            "instructions": "料金プランの一覧",
+            "required": 0,
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "プランを追加",
+            "sub_fields": [
+                {
+                    "key": "field_nordic_service_plan_name",
+                    "label": "プラン名",
+                    "name": "name",
+                    "type": "text",
+                    "required": 1,
+                    "show_in_graphql": 1,
+                    "graphql_field_name": "name"
+                },
+                {
+                    "key": "field_nordic_service_plan_price",
+                    "label": "価格",
+                    "name": "price",
+                    "type": "text",
+                    "required": 1,
+                    "show_in_graphql": 1,
+                    "graphql_field_name": "price"
+                },
+                {
+                    "key": "field_nordic_service_plan_included",
+                    "label": "含まれる機能",
+                    "name": "included_features",
+                    "type": "textarea",
+                    "required": 0,
+                    "rows": 4,
+                    "show_in_graphql": 1,
+                    "graphql_field_name": "includedFeatures"
+                }
+            ],
+            "show_in_graphql": 1,
+            "graphql_field_name": "pricingPlans"
+        },
+        {
+            "key": "field_nordic_service_faq",
+            "label": "FAQ",
+            "name": "faq",
+            "type": "repeater",
+            "instructions": "よくある質問",
+            "required": 0,
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "質問を追加",
+            "sub_fields": [
+                {
+                    "key": "field_nordic_service_faq_question",
+                    "label": "質問",
+                    "name": "question",
+                    "type": "text",
+                    "required": 1,
+                    "show_in_graphql": 1,
+                    "graphql_field_name": "question"
+                },
+                {
+                    "key": "field_nordic_service_faq_answer",
+                    "label": "回答",
+                    "name": "answer",
+                    "type": "textarea",
+                    "required": 1,
+                    "rows": 4,
+                    "show_in_graphql": 1,
+                    "graphql_field_name": "answer"
+                }
+            ],
+            "show_in_graphql": 1,
+            "graphql_field_name": "faq"
+        },
+        {
+            "key": "field_nordic_service_case_study_links",
+            "label": "導入事例リンク",
+            "name": "case_study_links",
+            "type": "repeater",
+            "instructions": "導入事例ページへのリンク集",
+            "required": 0,
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "リンクを追加",
+            "sub_fields": [
+                {
+                    "key": "field_nordic_service_case_label",
+                    "label": "ラベル",
+                    "name": "label",
+                    "type": "text",
+                    "required": 1,
+                    "show_in_graphql": 1,
+                    "graphql_field_name": "label"
+                },
+                {
+                    "key": "field_nordic_service_case_url",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "required": 1,
+                    "show_in_graphql": 1,
+                    "graphql_field_name": "url"
+                }
+            ],
+            "show_in_graphql": 1,
+            "graphql_field_name": "caseStudyLinks"
+        },
+        {
+            "key": "field_nordic_service_cta_text",
+            "label": "CTAボタンテキスト",
+            "name": "cta_text",
+            "type": "text",
+            "instructions": "サービス詳細ページのCTAボタン文言",
+            "required": 0,
+            "default_value": "お問い合わせはこちら",
+            "show_in_graphql": 1,
+            "graphql_field_name": "ctaText"
+        },
+        {
+            "key": "field_nordic_service_cta_url",
+            "label": "CTAリンク先",
+            "name": "cta_url",
+            "type": "url",
+            "instructions": "CTAボタンの遷移先URL",
+            "required": 0,
+            "default_value": "",
+            "show_in_graphql": 1,
+            "graphql_field_name": "ctaUrl"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "service"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1,
+    "show_in_graphql": 1,
+    "graphql_field_name": "serviceFields",
+    "map_graphql_types_from_location_rules": 1,
+    "modified": 1747200000
+}
