@@ -1,178 +1,163 @@
 /**
- * 暫定トップページ (Week 3 Task 5 動作確認用)
+ * トップページ — /
  *
- * WordPress 接続関数群 (src/lib/wordpress.ts) が動作することを目視確認するための画面。
- * Week 4 でちゃんとしたトップページに置き換える。
+ * ヒーロー、最新記事、注目特集、サービス紹介、採用・お問い合わせ導線で構成する
+ * コーポレート + メディアのランディングページ。
  */
 
 import Link from 'next/link';
-import {
-	getPosts,
-	getServices,
-	getCareers,
-	getFeatures,
-	getAuthors,
-	getIndustries,
-	getTopics,
-	getReadingLevels,
-} from '@/lib/wordpress';
+import { getPosts, getFeatures, getServices } from '@/lib/wordpress';
+import { ArticleCard } from '@/components/media/ArticleCard';
+import { FeatureCard } from '@/components/media/FeatureCard';
+import { ServiceCard } from '@/components/corporate/ServiceCard';
 
+// ISR: 1時間ごとに再生成（docs/06-features.md の方針）
 export const revalidate = 3600;
 
 export default async function Home() {
-	// 並列で全エンドポイントを叩く
-	const [posts, services, careers, features, authors, industries, topics, readingLevels] =
-		await Promise.all([
-			getPosts(),
-			getServices(),
-			getCareers(),
-			getFeatures(),
-			getAuthors(),
-			getIndustries(),
-			getTopics(),
-			getReadingLevels(),
-		]);
+	const [posts, features, services] = await Promise.all([
+		getPosts(),
+		getFeatures(),
+		getServices(),
+	]);
+
+	const latestPosts = posts.slice(0, 6);
+	const featuredItems = features.slice(0, 2);
+	const serviceItems = services.slice(0, 3);
 
 	return (
-		<main className="max-w-3xl mx-auto px-6 py-12 font-sans">
-			<header className="mb-12 border-b border-zinc-200 pb-6">
-				<p className="text-xs uppercase tracking-widest text-zinc-500">
-					Week 3 / Task 5 — Data Flow Verification
-				</p>
-				<h1 className="text-3xl font-semibold mt-2 text-zinc-900">
-					Nordic Works — WP API Connection Test
-				</h1>
-				<p className="mt-2 text-sm text-zinc-600">
-					このページは <code className="bg-zinc-100 px-1 rounded">src/lib/wordpress.ts</code>{' '}
-					の動作確認用です。Week 4 で本物のトップページに置き換わります。
-				</p>
-				<Link
-					href="/articles"
-					className="mt-4 inline-block rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
-				>
-					記事一覧ページを見る →
-				</Link>
-			</header>
-
-			<section className="mb-12">
-				<h2 className="text-xl font-semibold mb-4 text-zinc-900">取得件数サマリ</h2>
-				<table className="w-full text-sm">
-					<tbody>
-						<TableRow label="記事 (post)" count={posts.length} expected={13} />
-						<TableRow label="サービス (service)" count={services.length} expected={3} />
-						<TableRow label="採用情報 (career)" count={careers.length} expected={2} />
-						<TableRow label="特集 (feature)" count={features.length} expected={2} />
-						<TableRow label="著者 (author_profile)" count={authors.length} expected={3} />
-						<TableRow
-							label="業界タクソノミー (industry)"
-							count={industries.length}
-							expected={6}
-						/>
-						<TableRow
-							label="トピックタクソノミー (topic)"
-							count={topics.length}
-							expected={8}
-						/>
-						<TableRow
-							label="読者レベル (reading_level)"
-							count={readingLevels.length}
-							expected={3}
-						/>
-					</tbody>
-				</table>
-			</section>
-
-			<section className="mb-12">
-				<h2 className="text-xl font-semibold mb-4 text-zinc-900">投稿された記事一覧</h2>
-				{posts.length === 0 ? (
-					<p className="text-red-600 text-sm">
-						⚠️ 記事が取得できませんでした。Local の WordPress が起動しているか、
-						<code className="bg-zinc-100 px-1 rounded">WORDPRESS_API_URL</code> の設定を確認してください。
+		<>
+			{/* ヒーロー */}
+			<section className="border-b border-zinc-200 bg-zinc-50">
+				<div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+					<p className="text-sm font-medium uppercase tracking-widest text-zinc-500">
+						Nordic ways of working
 					</p>
-				) : (
-					<ol className="space-y-2">
-						{posts.map((post) => (
-							<li
-								key={post.id}
-								className="flex items-baseline gap-3 text-sm text-zinc-700"
-							>
-								<span className="text-zinc-400 tabular-nums shrink-0">
-									#{String(post.id).padStart(3, '0')}
-								</span>
-								<span className="font-medium text-zinc-900">{post.title.rendered}</span>
-								<span className="text-zinc-400 text-xs ml-auto shrink-0">
-									{post.acf?.reading_time ? `${post.acf.reading_time}分` : '—'}
-								</span>
-							</li>
-						))}
-					</ol>
-				)}
-			</section>
-
-			<section>
-				<h2 className="text-xl font-semibold mb-4 text-zinc-900">サービス・採用・特集</h2>
-				<div className="grid grid-cols-3 gap-4">
-					<ListBlock title="Services" items={services.map((s) => s.title.rendered)} />
-					<ListBlock title="Careers" items={careers.map((c) => c.title.rendered)} />
-					<ListBlock title="Features" items={features.map((f) => f.title.rendered)} />
+					<h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-5xl sm:leading-tight">
+						働き方を、北欧の知恵で設計する。
+					</h1>
+					<p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
+						リモートワーク、心理的安全性、組織デザイン。Nordic Works は、データと北欧の組織文化をもとに、これからの働き方を支援する B2B SaaS 企業です。
+					</p>
+					<div className="mt-8 flex flex-wrap gap-3">
+						<Link
+							href="/services"
+							className="rounded-md bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
+						>
+							サービスを見る
+						</Link>
+						<Link
+							href="/articles"
+							className="rounded-md border border-zinc-300 px-5 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-400 hover:bg-white"
+						>
+							Insights を読む
+						</Link>
+					</div>
 				</div>
 			</section>
 
-			<footer className="mt-16 pt-6 border-t border-zinc-200 text-xs text-zinc-500">
-				<p>
-					Source:{' '}
-					<code className="bg-zinc-100 px-1 rounded">
-						{process.env.WORDPRESS_API_URL ?? '(unset)'}
-					</code>
-				</p>
-				<p className="mt-1">
-					Data source mode:{' '}
-					<code className="bg-zinc-100 px-1 rounded">
-						{process.env.DATA_SOURCE ?? '(unset, defaults to api)'}
-					</code>
-				</p>
-			</footer>
-		</main>
-	);
-}
-
-function TableRow({
-	label,
-	count,
-	expected,
-}: {
-	label: string;
-	count: number;
-	expected: number;
-}) {
-	const ok = count >= expected;
-	return (
-		<tr className="border-b border-zinc-100">
-			<td className="py-2 text-zinc-700">{label}</td>
-			<td className="py-2 text-right tabular-nums font-medium text-zinc-900">{count}</td>
-			<td className="py-2 text-right text-zinc-400 text-xs">期待値: {expected}</td>
-			<td className="py-2 text-right">
-				<span className={ok ? 'text-green-600' : 'text-amber-600'}>{ok ? '✓' : '⚠'}</span>
-			</td>
-		</tr>
-	);
-}
-
-function ListBlock({ title, items }: { title: string; items: string[] }) {
-	return (
-		<div>
-			<h3 className="text-xs uppercase tracking-widest text-zinc-500 mb-2">{title}</h3>
-			<ul className="space-y-1 text-sm text-zinc-700">
-				{items.length === 0 ? (
-					<li className="text-zinc-400">なし</li>
+			{/* 最新記事 */}
+			<section className="mx-auto max-w-6xl px-6 py-16">
+				<div className="mb-8 flex items-baseline justify-between">
+					<div>
+						<p className="text-xs uppercase tracking-widest text-zinc-500">Insights</p>
+						<h2 className="mt-1 text-2xl font-semibold text-zinc-900">最新の記事</h2>
+					</div>
+					<Link
+						href="/articles"
+						className="text-sm text-zinc-500 transition-colors hover:text-zinc-900"
+					>
+						すべて見る →
+					</Link>
+				</div>
+				{latestPosts.length === 0 ? (
+					<p className="text-sm text-zinc-500">記事がまだありません。</p>
 				) : (
-					items.map((label, i) => (
-						<li key={i} className="leading-snug">
-							{label}
-						</li>
-					))
+					<div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+						{latestPosts.map((post) => (
+							<ArticleCard key={post.id} post={post} />
+						))}
+					</div>
 				)}
-			</ul>
-		</div>
+			</section>
+
+			{/* 注目の特集 */}
+			{featuredItems.length > 0 && (
+				<section className="border-t border-zinc-200 bg-zinc-50">
+					<div className="mx-auto max-w-6xl px-6 py-16">
+						<div className="mb-8">
+							<p className="text-xs uppercase tracking-widest text-zinc-500">Features</p>
+							<h2 className="mt-1 text-2xl font-semibold text-zinc-900">注目の特集</h2>
+						</div>
+						<div className="grid gap-10">
+							{featuredItems.map((feature) => (
+								<FeatureCard key={feature.id} feature={feature} />
+							))}
+						</div>
+					</div>
+				</section>
+			)}
+
+			{/* サービス紹介 */}
+			<section className="mx-auto max-w-6xl px-6 py-16">
+				<div className="mb-8 flex items-baseline justify-between">
+					<div>
+						<p className="text-xs uppercase tracking-widest text-zinc-500">Services</p>
+						<h2 className="mt-1 text-2xl font-semibold text-zinc-900">サービス</h2>
+					</div>
+					<Link
+						href="/services"
+						className="text-sm text-zinc-500 transition-colors hover:text-zinc-900"
+					>
+						すべて見る →
+					</Link>
+				</div>
+				{serviceItems.length === 0 ? (
+					<p className="text-sm text-zinc-500">サービスがまだありません。</p>
+				) : (
+					<div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+						{serviceItems.map((service) => (
+							<ServiceCard key={service.id} service={service} />
+						))}
+					</div>
+				)}
+			</section>
+
+			{/* 採用・お問い合わせ導線 */}
+			<section className="border-t border-zinc-200">
+				<div className="mx-auto grid max-w-6xl gap-px bg-zinc-200 sm:grid-cols-2">
+					<Link
+						href="/careers"
+						className="group bg-white p-10 transition-colors hover:bg-zinc-50"
+					>
+						<p className="text-xs uppercase tracking-widest text-zinc-500">Careers</p>
+						<h3 className="mt-2 text-xl font-semibold text-zinc-900">
+							一緒に働きませんか
+						</h3>
+						<p className="mt-2 text-sm text-zinc-600">
+							北欧式の組織づくりを共に推進するメンバーを募集しています。
+						</p>
+						<span className="mt-4 inline-block text-sm text-zinc-900 group-hover:underline">
+							採用情報を見る →
+						</span>
+					</Link>
+					<Link
+						href="/contact"
+						className="group bg-white p-10 transition-colors hover:bg-zinc-50"
+					>
+						<p className="text-xs uppercase tracking-widest text-zinc-500">Contact</p>
+						<h3 className="mt-2 text-xl font-semibold text-zinc-900">
+							お問い合わせ
+						</h3>
+						<p className="mt-2 text-sm text-zinc-600">
+							サービス導入のご相談・取材のご依頼はこちらから。
+						</p>
+						<span className="mt-4 inline-block text-sm text-zinc-900 group-hover:underline">
+							お問い合わせフォームへ →
+						</span>
+					</Link>
+				</div>
+			</section>
+		</>
 	);
 }
