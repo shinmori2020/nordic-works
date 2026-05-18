@@ -1,0 +1,19 @@
+# リポジトリ内の改行コードを LF に正規化する。
+# Windows / macOS / Linux 間で改行差分が出ないようにするための設定。
+
+# デフォルト: テキストファイルは自動判定し、リポジトリ内は LF で保存
+* text=auto eol=lf
+
+# Windows 専用スクリプトは CRLF を維持
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+
+# バイナリファイル（改行変換しない）
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.webp  binary
+*.woff  binary
+*.woff2 binary
