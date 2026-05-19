@@ -56,42 +56,36 @@ export interface WPEmbedded {
 }
 
 // =============================================================================
-// ACF リピーター sub-field 型
+// ACF テキストエリアのパース後の型
+//
+// ACF 無料版にはリピーター機能が無いため、複数行データはテキストエリアに
+// 区切り文字形式（1行1項目、項目内は ` | ` 区切り）で保存する。
+// 下記はフロント側でパースした「後」の型。パースは src/lib/utils.ts。
 // =============================================================================
 
-/** サービス: 機能リストの1項目 */
+/** サービス: 機能リストの1項目（パース後） */
 export interface ServiceFeature {
 	title: string;
 	description: string;
 }
 
-/** サービス: 料金プランの1項目 */
+/** サービス: 料金プランの1項目（パース後） */
 export interface PricingPlan {
 	name: string;
 	price: string;
-	included_features: string;
+	includedFeatures: string[];
 }
 
-/** サービス: FAQ の1項目 */
+/** サービス: FAQ の1項目（パース後） */
 export interface FaqItem {
 	question: string;
 	answer: string;
 }
 
-/** サービス: 導入事例リンクの1項目 */
+/** サービス: 導入事例リンクの1項目（パース後） */
 export interface CaseStudyLink {
 	label: string;
 	url: string;
-}
-
-/** 採用情報: スキル項目 (required_skills / preferred_skills 共通) */
-export interface SkillItem {
-	skill: string;
-}
-
-/** 採用情報: 待遇・福利厚生の1項目 */
-export interface BenefitItem {
-	item: string;
 }
 
 /** 採用情報: 雇用形態 (ACF select フィールドの値) */
@@ -100,8 +94,10 @@ export type PositionType = 'full_time' | 'contract' | 'freelance';
 // =============================================================================
 // ACF フィールドグループ型
 //
-// 注: ACF の post_object / relationship / image フィールドは、未設定時に
-// WordPress が `false` を返すことがあるため、型に `| false` を含める。
+// 注1: ACF の post_object / relationship / image フィールドは、未設定時に
+//      WordPress が `false` を返すことがあるため、型に `| false` を含める。
+// 注2: 旧リピーターフィールド（features 等）は ACF 無料版の制約で textarea に
+//      変更したため、生の値は string。利用側で src/lib/utils.ts のパーサに通す。
 // =============================================================================
 
 /** 記事 (post) の ACF フィールド群 — group_nordic_post */
@@ -116,10 +112,14 @@ export interface PostAcf {
 export interface ServiceAcf {
 	subtitle?: string;
 	hero_image?: WPMedia | false;
-	features?: ServiceFeature[] | false;
-	pricing_plans?: PricingPlan[] | false;
-	faq?: FaqItem[] | false;
-	case_study_links?: CaseStudyLink[] | false;
+	/** textarea 生値。parseServiceFeatures() でパースする */
+	features?: string;
+	/** textarea 生値。parsePricingPlans() でパースする */
+	pricing_plans?: string;
+	/** textarea 生値。parseFaq() でパースする */
+	faq?: string;
+	/** textarea 生値。parseCaseStudyLinks() でパースする */
+	case_study_links?: string;
 	cta_text?: string;
 	cta_url?: string;
 }
@@ -129,9 +129,12 @@ export interface CareerAcf {
 	position_type?: PositionType;
 	location?: string;
 	salary_range?: string;
-	required_skills?: SkillItem[] | false;
-	preferred_skills?: SkillItem[] | false;
-	benefits?: BenefitItem[] | false;
+	/** textarea 生値。parseLines() で行配列にパースする */
+	required_skills?: string;
+	/** textarea 生値。parseLines() で行配列にパースする */
+	preferred_skills?: string;
+	/** textarea 生値。parseLines() で行配列にパースする */
+	benefits?: string;
 	application_url?: string;
 }
 
