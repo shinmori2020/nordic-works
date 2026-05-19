@@ -94,24 +94,31 @@ export type PositionType = 'full_time' | 'contract' | 'freelance';
 // =============================================================================
 // ACF フィールドグループ型
 //
-// 注1: ACF の post_object / relationship / image フィールドは、未設定時に
-//      WordPress が `false` を返すことがあるため、型に `| false` を含める。
+// 注1: ACF の post_object / relationship / image フィールドは、REST API 上では
+//      実体オブジェクトではなく数値 ID（または ID 配列）で返る。未設定時は
+//      `false` が返ることがあるため、型に `| false` を含める。
+//      ID を実体に解決するには src/lib/wordpress.ts の getPostsByIds() /
+//      getAuthorById() を使う。アイキャッチ画像は ACF ではなく `_embedded`
+//      （wp:featuredmedia）から getFeaturedImage() で取得する。
 // 注2: 旧リピーターフィールド（features 等）は ACF 無料版の制約で textarea に
 //      変更したため、生の値は string。利用側で src/lib/utils.ts のパーサに通す。
 // =============================================================================
 
 /** 記事 (post) の ACF フィールド群 — group_nordic_post */
 export interface PostAcf {
-	author_profile?: WPAuthorProfile | number | false;
+	/** 著者プロフィールの投稿ID。getAuthorById() で解決する */
+	author_profile?: number | false;
 	reading_time?: number;
 	featured_image_caption?: string;
-	related_posts?: WPPost[] | false;
+	/** 関連記事の投稿ID配列。getPostsByIds() で解決する */
+	related_posts?: number[] | false;
 }
 
 /** サービス (service) の ACF フィールド群 — group_nordic_service */
 export interface ServiceAcf {
 	subtitle?: string;
-	hero_image?: WPMedia | false;
+	/** メディアID。表示にはアイキャッチ（getFeaturedImage）を使う */
+	hero_image?: number | false;
 	/** textarea 生値。parseServiceFeatures() でパースする */
 	features?: string;
 	/** textarea 生値。parsePricingPlans() でパースする */
@@ -140,16 +147,19 @@ export interface CareerAcf {
 
 /** 特集 (feature) の ACF フィールド群 — group_nordic_feature */
 export interface FeatureAcf {
-	cover_image?: WPMedia | false;
+	/** メディアID。表示にはアイキャッチ（getFeaturedImage）を使う */
+	cover_image?: number | false;
 	lead_text?: string;
-	related_articles?: WPPost[] | false;
+	/** 関連記事の投稿ID配列。getPostsByIds() で解決する */
+	related_articles?: number[] | false;
 	published_period_start?: string;
 	published_period_end?: string;
 }
 
 /** 著者プロフィール (author_profile) の ACF フィールド群 — group_nordic_author_profile */
 export interface AuthorProfileAcf {
-	photo?: WPMedia | false;
+	/** メディアID。表示にはアイキャッチ（getFeaturedImage）を使う */
+	photo?: number | false;
 	position?: string;
 	bio?: string;
 	twitter_url?: string;

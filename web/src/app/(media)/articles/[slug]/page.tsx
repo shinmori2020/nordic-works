@@ -8,7 +8,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getPostBySlug, getPosts } from '@/lib/wordpress';
+import { getPostBySlug, getPosts, getAuthorById } from '@/lib/wordpress';
 import { getFeaturedImage, getTerms, stripHtml, formatDate } from '@/lib/utils';
 import type { SlugPageProps } from '@/types/wordpress';
 
@@ -48,10 +48,10 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 	const topics = getTerms(post, 'topic');
 	const industries = getTerms(post, 'industry');
 
-	// ACF post_object フィールド。設定済みならオブジェクトで返る。
+	// ACF post_object フィールド author_profile は著者の投稿ID。実体に解決する。
 	const author =
-		post.acf?.author_profile && typeof post.acf.author_profile === 'object'
-			? post.acf.author_profile
+		typeof post.acf?.author_profile === 'number'
+			? await getAuthorById(post.acf.author_profile)
 			: null;
 
 	return (

@@ -12,6 +12,7 @@ import type {
 	PricingPlan,
 	FaqItem,
 	CaseStudyLink,
+	PositionType,
 } from '@/types/wordpress';
 
 /** `_embedded` を持つエンティティの最小形 */
@@ -121,4 +122,21 @@ export function parseCaseStudyLinks(text: string | undefined | null): CaseStudyL
 		const [label = '', url = ''] = splitColumns(line);
 		return { label, url };
 	});
+}
+
+// ============================================================================
+// 採用情報ヘルパー
+// ============================================================================
+
+/** ACF select フィールド position_type の値 → 日本語ラベル */
+const POSITION_TYPE_LABELS: Record<PositionType, string> = {
+	full_time: '正社員',
+	contract: '契約社員',
+	freelance: '業務委託',
+};
+
+/** 雇用形態コードを日本語ラベルに変換する。未知の値はそのまま返す。 */
+export function positionTypeLabel(type: string | undefined | null): string {
+	if (!type) return '';
+	return POSITION_TYPE_LABELS[type as PositionType] ?? type;
 }

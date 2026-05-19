@@ -103,6 +103,20 @@ export async function getPostBySlug(slug: string): Promise<WPPost | null> {
 	return data?.[0] ?? null;
 }
 
+/**
+ * 投稿IDの配列から投稿を取得する。
+ * ACF の relationship フィールド（related_articles 等）は ID 配列で返るため、
+ * それを実体の投稿に解決するのに使う。`orderby=include` で指定順を保持する。
+ */
+export async function getPostsByIds(ids: number[]): Promise<WPPost[]> {
+	if (USE_STATIC || ids.length === 0) return [];
+	const data = await wpFetch<WPPost[]>(
+		`posts?include=${ids.join(',')}&orderby=include&_embed&per_page=100`,
+		{ revalidate: 3600, tags: ['posts'] },
+	);
+	return data ?? [];
+}
+
 // =============================================================================
 // Services (CPT: service)
 // =============================================================================
@@ -192,6 +206,19 @@ export async function getAuthorBySlug(slug: string): Promise<WPAuthorProfile | n
 		},
 	);
 	return data?.[0] ?? null;
+}
+
+/**
+ * 著者IDから著者プロフィールを取得する。
+ * 記事の ACF post_object フィールド author_profile は ID で返るため、
+ * それを実体の著者に解決するのに使う。
+ */
+export async function getAuthorById(id: number): Promise<WPAuthorProfile | null> {
+	if (USE_STATIC) return null;
+	return wpFetch<WPAuthorProfile>(`author_profile/${id}?_embed`, {
+		revalidate: 86400,
+		tags: ['authors', `author-${id}`],
+	});
 }
 
 // =============================================================================
