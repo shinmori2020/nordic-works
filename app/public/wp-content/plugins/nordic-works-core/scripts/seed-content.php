@@ -182,6 +182,8 @@ $authors_data = array(
 // DATA: SERVICES
 // ===========================================================================
 
+// 注: features / pricing_plans / faq / case_study_links は ACF 無料版に
+// リピーターが無いため、テキストエリア（区切り文字形式）で投入する。
 $services_data = array(
 	'psychsafe-score'           => array(
 		'title'      => 'PsychSafe Score',
@@ -189,26 +191,10 @@ $services_data = array(
 		'content'    => "<p>チーム単位の心理的安全性を数値で可視化するクラウドツール。月次サーベイの自動化、組織図上のヒートマップ表示、改善アクションの提案までを一気通貫で提供します。</p><p>導入企業の約78%が、3ヶ月以内に少なくとも1つのチーム指標で改善を観測しています。</p>",
 		'fields'     => array(
 			'subtitle'         => 'チームの心理的安全性を数値化する',
-			'features'         => array(
-				array( 'title' => '月次自動サーベイ', 'description' => '匿名性を担保した4軸サーベイを毎月自動配信。回答率向上のためのリマインダーも自動化。' ),
-				array( 'title' => '組織図ヒートマップ', 'description' => 'チーム階層を視覚的に表示し、リスクのあるチームを一目で特定。' ),
-				array( 'title' => '改善アクション提案', 'description' => 'スコアパターンに応じた具体的な打ち手を、社内ナレッジから自動でレコメンド。' ),
-				array( 'title' => 'API・SSO対応', 'description' => 'Slack / Microsoft Teams / Okta / Google Workspace 等の主要ツールと連携可能。' ),
-			),
-			'pricing_plans'    => array(
-				array( 'name' => 'Starter', 'price' => '月額 ¥30,000〜', 'included_features' => "最大50名\n基本サーベイ\nメールサポート" ),
-				array( 'name' => 'Growth', 'price' => '月額 ¥80,000〜', 'included_features' => "最大200名\nカスタムサーベイ\n組織図ヒートマップ\nSlack連携" ),
-				array( 'name' => 'Enterprise', 'price' => 'お問い合わせ', 'included_features' => "無制限\nSSO\n専任カスタマーサクセス\nSLA保証" ),
-			),
-			'faq'              => array(
-				array( 'question' => '回答は本当に匿名ですか？', 'answer' => 'はい。個別回答は経営層を含む誰にも紐づきません。5名以下のチームは集計対象から除外します。' ),
-				array( 'question' => '導入までどのくらいかかりますか？', 'answer' => '最短2週間。SSO連携を含む場合は3〜4週間を目安にしてください。' ),
-				array( 'question' => '既存のサーベイツールから乗り換え可能ですか？', 'answer' => 'CSVインポート機能で過去データの引き継ぎが可能です。' ),
-			),
-			'case_study_links' => array(
-				array( 'label' => '株式会社サンプルテック導入事例', 'url' => 'https://example.com/case/sample-tech' ),
-				array( 'label' => 'グローバル製造業A社の活用法', 'url' => 'https://example.com/case/global-mfg' ),
-			),
+			'features'         => "月次自動サーベイ | 匿名性を担保した4軸サーベイを毎月自動配信。回答率向上のためのリマインダーも自動化。\n組織図ヒートマップ | チーム階層を視覚的に表示し、リスクのあるチームを一目で特定。\n改善アクション提案 | スコアパターンに応じた具体的な打ち手を、社内ナレッジから自動でレコメンド。\nAPI・SSO対応 | Slack / Microsoft Teams / Okta / Google Workspace 等の主要ツールと連携可能。",
+			'pricing_plans'    => "Starter | 月額 ¥30,000〜 | 最大50名, 基本サーベイ, メールサポート\nGrowth | 月額 ¥80,000〜 | 最大200名, カスタムサーベイ, 組織図ヒートマップ, Slack連携\nEnterprise | お問い合わせ | 無制限, SSO, 専任カスタマーサクセス, SLA保証",
+			'faq'              => "回答は本当に匿名ですか？ | はい。個別回答は経営層を含む誰にも紐づきません。5名以下のチームは集計対象から除外します。\n導入までどのくらいかかりますか？ | 最短2週間。SSO連携を含む場合は3〜4週間を目安にしてください。\n既存のサーベイツールから乗り換え可能ですか？ | CSVインポート機能で過去データの引き継ぎが可能です。",
+			'case_study_links' => "株式会社サンプルテック導入事例 | https://example.com/case/sample-tech\nグローバル製造業A社の活用法 | https://example.com/case/global-mfg",
 			'cta_text'         => '無料デモを予約する',
 			'cta_url'          => '/contact?service=psychsafe',
 		),
@@ -219,22 +205,10 @@ $services_data = array(
 		'content'    => "<p>リモートワーク・ハイブリッドワーク下でのチーム文化を診断し、運用改善の優先順位を明示する2週間のコンサルティングプログラム。</p><p>独自フレームワーク「Nordic Remote Index」をベースに、ヒアリング・観察・サーベイの3層で組織の実態を可視化します。</p>",
 		'fields'     => array(
 			'subtitle'         => 'リモート文化の健康診断',
-			'features'         => array(
-				array( 'title' => '2週間集中プログラム', 'description' => 'キックオフから報告会まで14日間。経営層の意思決定スピードに合わせた設計。' ),
-				array( 'title' => 'Nordic Remote Index', 'description' => '北欧企業の運用事例から抽出した32項目の評価軸で組織を診断。' ),
-				array( 'title' => '実行ロードマップ', 'description' => '優先度・難易度・期待効果の3軸でアクションを並べた90日プランを提供。' ),
-			),
-			'pricing_plans'    => array(
-				array( 'name' => 'Standard', 'price' => '¥1,200,000', 'included_features' => "従業員数100名まで\n2週間\n報告会1回" ),
-				array( 'name' => 'Plus', 'price' => '¥2,400,000', 'included_features' => "従業員数300名まで\n3週間\n中間レビュー1回\n報告会2回" ),
-			),
-			'faq'              => array(
-				array( 'question' => '完全リモートでない組織でも依頼できますか？', 'answer' => 'はい。ハイブリッド型・出社中心型の組織でも、それぞれに合わせた診断軸で対応します。' ),
-				array( 'question' => '海外拠点を含む診断は可能ですか？', 'answer' => '英語・スウェーデン語での実施に対応可能です。事前にご相談ください。' ),
-			),
-			'case_study_links' => array(
-				array( 'label' => 'SaaS企業X社の組織変革', 'url' => 'https://example.com/case/saas-x' ),
-			),
+			'features'         => "2週間集中プログラム | キックオフから報告会まで14日間。経営層の意思決定スピードに合わせた設計。\nNordic Remote Index | 北欧企業の運用事例から抽出した32項目の評価軸で組織を診断。\n実行ロードマップ | 優先度・難易度・期待効果の3軸でアクションを並べた90日プランを提供。",
+			'pricing_plans'    => "Standard | ¥1,200,000 | 従業員数100名まで, 2週間, 報告会1回\nPlus | ¥2,400,000 | 従業員数300名まで, 3週間, 中間レビュー1回, 報告会2回",
+			'faq'              => "完全リモートでない組織でも依頼できますか？ | はい。ハイブリッド型・出社中心型の組織でも、それぞれに合わせた診断軸で対応します。\n海外拠点を含む診断は可能ですか？ | 英語・スウェーデン語での実施に対応可能です。事前にご相談ください。",
+			'case_study_links' => "SaaS企業X社の組織変革 | https://example.com/case/saas-x",
 			'cta_text'         => '診断について相談する',
 			'cta_url'          => '/contact?service=remote-diagnosis',
 		),
@@ -245,23 +219,10 @@ $services_data = array(
 		'content'    => "<p>事業フェーズの変化に応じた組織構造・意思決定設計を、経営層と並走しながら再設計する伴走型コンサルティング。</p><p>3ヶ月〜6ヶ月の中期プログラムで、組織図の書き換えだけでなく、運用が定着するまでをサポートします。</p>",
 		'fields'     => array(
 			'subtitle'         => '組織を「動く形」に再設計する',
-			'features'         => array(
-				array( 'title' => '伴走型 3〜6ヶ月', 'description' => '隔週の経営層セッション+月次の全社展開で、設計から定着までを並走。' ),
-				array( 'title' => '意思決定マトリクス', 'description' => 'RACI を発展させた独自フレームで、誰が何を決めるかを明示。' ),
-				array( 'title' => 'ガバナンス再構築', 'description' => '会議体・レポートライン・KPI設計を一括で見直し。' ),
-			),
-			'pricing_plans'    => array(
-				array( 'name' => 'Foundation', 'price' => '¥6,000,000〜', 'included_features' => "3ヶ月\n経営層伴走\n組織設計ドキュメント\n月次レビュー" ),
-				array( 'name' => 'Full Program', 'price' => '¥12,000,000〜', 'included_features' => "6ヶ月\nマネージャー層研修\n運用定着サポート\nKPI設計支援" ),
-			),
-			'faq'              => array(
-				array( 'question' => 'どの規模の企業が対象ですか？', 'answer' => '50名〜500名規模の企業を主な対象としていますが、それ以上の規模でも事業部単位での導入が可能です。' ),
-				array( 'question' => '既存の組織コンサルとの違いは？', 'answer' => '北欧型のフラット組織知見と、実運用への定着支援を組み合わせている点が特徴です。' ),
-			),
-			'case_study_links' => array(
-				array( 'label' => '医療系スタートアップY社', 'url' => 'https://example.com/case/health-y' ),
-				array( 'label' => '製造業Z社の事業部再編', 'url' => 'https://example.com/case/mfg-z' ),
-			),
+			'features'         => "伴走型 3〜6ヶ月 | 隔週の経営層セッション+月次の全社展開で、設計から定着までを並走。\n意思決定マトリクス | RACI を発展させた独自フレームで、誰が何を決めるかを明示。\nガバナンス再構築 | 会議体・レポートライン・KPI設計を一括で見直し。",
+			'pricing_plans'    => "Foundation | ¥6,000,000〜 | 3ヶ月, 経営層伴走, 組織設計ドキュメント, 月次レビュー\nFull Program | ¥12,000,000〜 | 6ヶ月, マネージャー層研修, 運用定着サポート, KPI設計支援",
+			'faq'              => "どの規模の企業が対象ですか？ | 50名〜500名規模の企業を主な対象としていますが、それ以上の規模でも事業部単位での導入が可能です。\n既存の組織コンサルとの違いは？ | 北欧型のフラット組織知見と、実運用への定着支援を組み合わせている点が特徴です。",
+			'case_study_links' => "医療系スタートアップY社 | https://example.com/case/health-y\n製造業Z社の事業部再編 | https://example.com/case/mfg-z",
 			'cta_text'         => 'パートナー相談を申し込む',
 			'cta_url'          => '/contact?service=org-design',
 		),
@@ -280,22 +241,9 @@ $careers_data = array(
 			'position_type'    => 'full_time',
 			'location'         => '東京（リモート週3日可）',
 			'salary_range'     => '700万〜1,200万円（経験により応相談）',
-			'required_skills'  => array(
-				array( 'skill' => '組織開発／人事領域での実務経験5年以上' ),
-				array( 'skill' => '経営層・マネージャー層との対話経験' ),
-				array( 'skill' => '定量データを扱える基礎的なスキル（Excel / SQL いずれか）' ),
-			),
-			'preferred_skills' => array(
-				array( 'skill' => 'コンサルティングファームでの勤務経験' ),
-				array( 'skill' => '英語または北欧言語でのビジネスコミュニケーション' ),
-				array( 'skill' => '自社プロダクト開発組織のマネジメント経験' ),
-			),
-			'benefits'         => array(
-				array( 'item' => '完全週休2日（土日祝）／有給とは別の年6日のリチャージ休暇' ),
-				array( 'item' => 'リモートワーク手当 月20,000円' ),
-				array( 'item' => '書籍購入・カンファレンス参加費 全額会社負担（年上限あり）' ),
-				array( 'item' => 'ストックホルムオフィス短期滞在制度（年1回）' ),
-			),
+			'required_skills'  => "組織開発／人事領域での実務経験5年以上\n経営層・マネージャー層との対話経験\n定量データを扱える基礎的なスキル（Excel / SQL いずれか）",
+			'preferred_skills' => "コンサルティングファームでの勤務経験\n英語または北欧言語でのビジネスコミュニケーション\n自社プロダクト開発組織のマネジメント経験",
+			'benefits'         => "完全週休2日（土日祝）／有給とは別の年6日のリチャージ休暇\nリモートワーク手当 月20,000円\n書籍購入・カンファレンス参加費 全額会社負担（年上限あり）\nストックホルムオフィス短期滞在制度（年1回）",
 			'application_url'  => '/contact?career=senior-org-consultant',
 		),
 	),
@@ -306,20 +254,9 @@ $careers_data = array(
 			'position_type'    => 'freelance',
 			'location'         => 'フルリモート',
 			'salary_range'     => '月額 30万〜80万円（稼働時間と経験による）',
-			'required_skills'  => array(
-				array( 'skill' => 'SaaSプロダクトのUI/UX設計経験 3年以上' ),
-				array( 'skill' => 'Figma を用いた実務経験' ),
-				array( 'skill' => 'エンジニアと協働でデザインシステムを運用した経験' ),
-			),
-			'preferred_skills' => array(
-				array( 'skill' => 'B2B SaaS のUX設計経験' ),
-				array( 'skill' => 'デザインリサーチ（インタビュー設計・分析）の経験' ),
-			),
-			'benefits'         => array(
-				array( 'item' => '完全フルリモート' ),
-				array( 'item' => '稼働時間の柔軟な設定（週20〜40時間）' ),
-				array( 'item' => 'ツール費補助（Figma / Notion 等）' ),
-			),
+			'required_skills'  => "SaaSプロダクトのUI/UX設計経験 3年以上\nFigma を用いた実務経験\nエンジニアと協働でデザインシステムを運用した経験",
+			'preferred_skills' => "B2B SaaS のUX設計経験\nデザインリサーチ（インタビュー設計・分析）の経験",
+			'benefits'         => "完全フルリモート\n稼働時間の柔軟な設定（週20〜40時間）\nツール費補助（Figma / Notion 等）",
 			'application_url'  => '/contact?career=ui-ux-designer',
 		),
 	),
