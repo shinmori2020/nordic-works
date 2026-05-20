@@ -82,6 +82,22 @@ async function wpFetch<T>(resource: string, cache: CacheOptions = {}): Promise<T
 // Posts (通常記事)
 // =============================================================================
 
+/**
+ * 指定タクソノミーのタームに属する記事を取得する。
+ * taxonomy はREST上のキー（topic / industry / reading_level）、termIdはタームのID。
+ */
+export async function getPostsByTerm(
+	taxonomy: string,
+	termId: number,
+): Promise<WPPost[]> {
+	if (USE_STATIC) return [];
+	const data = await wpFetch<WPPost[]>(
+		`posts?${taxonomy}=${termId}&_embed&per_page=100`,
+		{ revalidate: 3600, tags: ['posts', `${taxonomy}-${termId}`] },
+	);
+	return data ?? [];
+}
+
 export async function getPosts(): Promise<WPPost[]> {
 	if (USE_STATIC) {
 		// Week 8 で data/posts.json から読み込む実装に置き換え
@@ -250,4 +266,20 @@ export async function getReadingLevels(): Promise<WPTerm[]> {
 		tags: ['taxonomies', 'reading-levels'],
 	});
 	return data ?? [];
+}
+
+/**
+ * 指定タクソノミーから slug でタームを1件取得する。
+ * URL の [slug] パラメータから実体ターム（ID・name 等）を解決するのに使う。
+ */
+export async function getTermBySlug(
+	taxonomy: string,
+	slug: string,
+): Promise<WPTerm | null> {
+	if (USE_STATIC) return null;
+	const data = await wpFetch<WPTerm[]>(
+		`${taxonomy}?slug=${encodeURIComponent(slug)}`,
+		{ revalidate: 86400, tags: ['taxonomies', taxonomy] },
+	);
+	return data?.[0] ?? null;
 }

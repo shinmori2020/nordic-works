@@ -68,12 +68,13 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 				{industries.length > 0 && (
 					<div className="flex flex-wrap gap-2">
 						{industries.map((term) => (
-							<span
+							<Link
 								key={term.id}
-								className="rounded bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600"
+								href={`/industry/${decodeURIComponent(term.slug)}`}
+								className="rounded bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 transition-colors hover:bg-zinc-200 hover:text-zinc-900"
 							>
 								{term.name}
-							</span>
+							</Link>
 						))}
 					</div>
 				)}
@@ -124,12 +125,13 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 				{topics.length > 0 && (
 					<div className="mt-10 flex flex-wrap gap-2 border-t border-zinc-200 pt-6">
 						{topics.map((term) => (
-							<span
+							<Link
 								key={term.id}
-								className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-600"
+								href={`/topic/${decodeURIComponent(term.slug)}`}
+								className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-600 transition-colors hover:bg-zinc-200 hover:text-zinc-900"
 							>
 								#{term.name}
-							</span>
+							</Link>
 						))}
 					</div>
 				)}
