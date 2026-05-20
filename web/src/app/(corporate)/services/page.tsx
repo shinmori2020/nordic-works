@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 	title: 'サービス',
 	description:
 		'Nordic Works が提供する、北欧式の組織づくり・働き方改善を支援するサービス一覧。',
+	alternates: { canonical: '/services' },
 };
 
 export default async function ServicesPage() {

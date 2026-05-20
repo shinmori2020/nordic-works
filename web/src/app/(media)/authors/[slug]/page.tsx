@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 		title: author.title.rendered,
 		description:
 			author.acf?.bio ?? `${author.title.rendered} が執筆した記事の一覧。`,
+		alternates: { canonical: `/authors/${author.slug}` },
 	};
 }
 

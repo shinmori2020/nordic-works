@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getPostBySlug, getPosts, getAuthorById } from '@/lib/wordpress';
 import { getFeaturedImage, getTerms, stripHtml, formatDate } from '@/lib/utils';
+import { SITE_NAME, absoluteUrl } from '@/lib/site';
 import type { SlugPageProps } from '@/types/wordpress';
 
 // ISR: 個別記事は更新頻度が低いため24時間（docs/06-features.md の方針）
@@ -28,11 +29,30 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	const { slug } = await params;
 	const post = await getPostBySlug(slug);
 	if (!post) {
-		return { title: '記事が見つかりません | Nordic Works' };
+		return { title: '記事が見つかりません' };
 	}
+	const description = stripHtml(post.excerpt.rendered).slice(0, 120);
+	const image = getFeaturedImage(post);
+	const canonical = `/articles/${post.slug}`;
 	return {
-		title: `${post.title.rendered} | Nordic Works`,
-		description: stripHtml(post.excerpt.rendered).slice(0, 120),
+		title: post.title.rendered,
+		description,
+		alternates: { canonical },
+		openGraph: {
+			type: 'article',
+			title: post.title.rendered,
+			description,
+			url: canonical,
+			publishedTime: post.date,
+			modifiedTime: post.modified,
+			images: image ? [image.source_url] : undefined,
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title: post.title.rendered,
+			description,
+			images: image ? [image.source_url] : undefined,
+		},
 	};
 }
 
@@ -54,8 +74,29 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 			? await getAuthorById(post.acf.author_profile)
 			: null;
 
+	// schema.org BlogPosting 構造化データ（Google の記事リッチリザルト対応）
+	const articleJsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'BlogPosting',
+		headline: stripHtml(post.title.rendered),
+		description: stripHtml(post.excerpt.rendered).slice(0, 200),
+		datePublished: post.date,
+		dateModified: post.modified ?? post.date,
+		image: image?.source_url,
+		mainEntityOfPage: absoluteUrl(`/articles/${post.slug}`),
+		author: author
+			? { '@type': 'Person', name: stripHtml(author.title.rendered) }
+			: { '@type': 'Organization', name: SITE_NAME },
+		publisher: { '@type': 'Organization', name: SITE_NAME },
+	};
+
 	return (
 		<main className="mx-auto max-w-3xl px-6 py-12">
+			<script
+				type="application/ld+json"
+				// 自社管理コンテンツ由来の静的JSONなので XSS リスクなし
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+			/>
 			<Link
 				href="/articles"
 				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900"

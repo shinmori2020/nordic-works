@@ -13,6 +13,7 @@ export const revalidate = 86400;
 export const metadata: Metadata = {
 	title: '執筆者一覧',
 	description: 'Nordic Works の記事を執筆するメンバーの一覧。',
+	alternates: { canonical: '/authors' },
 };
 
 export default async function AuthorsPage() {

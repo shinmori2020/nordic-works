@@ -13,9 +13,10 @@ import { ArticleCard } from '@/components/media/ArticleCard';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-	title: '記事一覧 | Nordic Works',
+	title: '記事一覧',
 	description:
 		'リモートワーク・心理的安全性・組織デザイン・北欧の働き方に関する記事の一覧。',
+	alternates: { canonical: '/articles' },
 };
 
 export default async function ArticlesPage() {

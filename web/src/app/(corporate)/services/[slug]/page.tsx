@@ -37,6 +37,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 		title: service.title.rendered,
 		description:
 			service.acf?.subtitle ?? stripHtml(service.content.rendered).slice(0, 120),
+		alternates: { canonical: `/services/${service.slug}` },
 	};
 }
 

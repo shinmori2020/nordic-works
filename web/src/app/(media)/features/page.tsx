@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 	title: '特集一覧',
 	description:
 		'Nordic Works が複数の記事をテーマ別にまとめた特集の一覧。',
+	alternates: { canonical: '/features' },
 };
 
 export default async function FeaturesPage() {

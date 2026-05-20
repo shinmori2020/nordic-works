@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 		description: feature.acf?.lead_text
 			? stripHtml(feature.acf.lead_text).slice(0, 120)
 			: stripHtml(feature.content.rendered).slice(0, 120),
+		alternates: { canonical: `/features/${feature.slug}` },
 	};
 }
 

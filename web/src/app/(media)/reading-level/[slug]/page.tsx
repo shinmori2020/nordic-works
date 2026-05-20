@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	return {
 		title: `${term.name}向けの記事`,
 		description: `読了レベル「${term.name}」の Nordic Works 記事一覧。`,
+		alternates: { canonical: `/reading-level/${decodeURIComponent(term.slug)}` },
 	};
 }
 

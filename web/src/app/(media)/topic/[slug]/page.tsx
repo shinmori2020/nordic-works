@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	return {
 		title: `${term.name} の記事`,
 		description: `「${term.name}」に関連する Nordic Works の記事一覧。`,
+		alternates: { canonical: `/topic/${decodeURIComponent(term.slug)}` },
 	};
 }
 

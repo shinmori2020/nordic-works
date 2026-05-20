@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 	title: '採用情報',
 	description:
 		'Nordic Works の採用情報。北欧式の組織づくりを一緒に広めるメンバーを募集しています。',
+	alternates: { canonical: '/careers' },
 };
 
 export default async function CareersPage() {

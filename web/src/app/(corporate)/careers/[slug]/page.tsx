@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	return {
 		title: career.title.rendered,
 		description: stripHtml(career.content.rendered).slice(0, 120),
+		alternates: { canonical: `/careers/${career.slug}` },
 	};
 }
 
