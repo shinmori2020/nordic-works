@@ -22,15 +22,15 @@ export function TaxonomyArticleList({ taxonomyLabel, term, posts }: Props) {
 			<header className="mb-10">
 				<Link
 					href="/articles"
-					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900"
+					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 				>
 					← 記事一覧に戻る
 				</Link>
 				<p className="mt-2 text-xs uppercase tracking-widest text-zinc-500">
 					{taxonomyLabel}
 				</p>
-				<h1 className="mt-1 text-3xl font-semibold text-zinc-900">{term.name}</h1>
-				<p className="mt-2 text-sm text-zinc-600">
+				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">{term.name}</h1>
+				<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
 					このタームに該当する記事 {posts.length} 件
 				</p>
 			</header>

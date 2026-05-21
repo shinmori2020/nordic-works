@@ -25,13 +25,13 @@ export default async function FeaturesPage() {
 			<header className="mb-10">
 				<Link
 					href="/"
-					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900"
+					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 				>
 					← ホーム
 				</Link>
 				<p className="mt-2 text-xs uppercase tracking-widest text-zinc-500">Features</p>
-				<h1 className="mt-1 text-3xl font-semibold text-zinc-900">特集一覧</h1>
-				<p className="mt-2 text-sm text-zinc-600">{features.length} 件の特集</p>
+				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">特集一覧</h1>
+				<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{features.length} 件の特集</p>
 			</header>
 
 			{features.length === 0 ? (

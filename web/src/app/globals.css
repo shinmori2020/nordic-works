@@ -1,8 +1,18 @@
 @import "tailwindcss";
 
+/* next-themes は <html class="dark"> を切り替える。
+   Tailwind v4 のデフォルト dark: は prefers-color-scheme 連動なので、
+   クラス連動に上書きする。 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -10,13 +20,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {

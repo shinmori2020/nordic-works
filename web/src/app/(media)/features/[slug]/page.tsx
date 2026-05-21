@@ -69,7 +69,7 @@ export default async function FeatureDetailPage({ params }: SlugPageProps) {
 		<main className="mx-auto max-w-4xl px-6 py-12">
 			<Link
 				href="/features"
-				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900"
+				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 			>
 				← 特集一覧に戻る
 			</Link>
@@ -77,21 +77,21 @@ export default async function FeatureDetailPage({ params }: SlugPageProps) {
 			<article className="mt-6">
 				{/* ヘッダー */}
 				<p className="text-xs uppercase tracking-widest text-zinc-500">Feature</p>
-				<h1 className="mt-2 text-3xl font-semibold leading-tight text-zinc-900 sm:text-4xl">
+				<h1 className="mt-2 text-3xl font-semibold leading-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
 					{feature.title.rendered}
 				</h1>
 				{period && (
 					<p className="mt-2 text-sm text-zinc-500">掲載期間: {period}</p>
 				)}
 				{acf?.lead_text && (
-					<p className="mt-3 text-lg leading-relaxed text-zinc-600">
+					<p className="mt-3 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
 						{acf.lead_text}
 					</p>
 				)}
 
 				{/* カバー画像 */}
 				{image && (
-					<div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100">
+					<div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800">
 						<Image
 							src={image.source_url}
 							alt={image.alt_text || feature.title.rendered}
@@ -106,7 +106,7 @@ export default async function FeatureDetailPage({ params }: SlugPageProps) {
 				{/* 本文 */}
 				{feature.content.rendered && (
 					<div
-						className="article-body mt-10 text-zinc-800"
+						className="article-body mt-10 text-zinc-800 dark:text-zinc-200"
 						dangerouslySetInnerHTML={{ __html: feature.content.rendered }}
 					/>
 				)}
@@ -114,7 +114,7 @@ export default async function FeatureDetailPage({ params }: SlugPageProps) {
 				{/* 関連記事 */}
 				{relatedArticles.length > 0 && (
 					<section className="mt-14">
-						<h2 className="text-2xl font-semibold text-zinc-900">この特集の記事</h2>
+						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">この特集の記事</h2>
 						<div className="mt-6 grid gap-x-8 gap-y-10 sm:grid-cols-2">
 							{relatedArticles.map((post) => (
 								<ArticleCard key={post.id} post={post} />

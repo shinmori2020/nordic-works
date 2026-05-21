@@ -36,9 +36,9 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 /** ラベル付きの定義リスト行 */
 function MetaRow({ label, value }: { label: string; value: string }) {
 	return (
-		<div className="flex gap-4 border-b border-zinc-200 py-3">
+		<div className="flex gap-4 border-b border-zinc-200 dark:border-zinc-800 py-3">
 			<dt className="w-24 shrink-0 text-sm text-zinc-500">{label}</dt>
-			<dd className="text-sm text-zinc-900">{value}</dd>
+			<dd className="text-sm text-zinc-900 dark:text-zinc-100">{value}</dd>
 		</div>
 	);
 }
@@ -48,10 +48,10 @@ function ListSection({ title, items }: { title: string; items: string[] }) {
 	if (items.length === 0) return null;
 	return (
 		<section className="mt-10">
-			<h2 className="text-xl font-semibold text-zinc-900">{title}</h2>
+			<h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">{title}</h2>
 			<ul className="mt-4 space-y-2">
 				{items.map((item, i) => (
-					<li key={i} className="flex gap-2 text-sm leading-relaxed text-zinc-700">
+					<li key={i} className="flex gap-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
 						<span className="text-zinc-400">•</span>
 						<span>{item}</span>
 					</li>
@@ -78,7 +78,7 @@ export default async function CareerDetailPage({ params }: SlugPageProps) {
 		<main className="mx-auto max-w-3xl px-6 py-12">
 			<Link
 				href="/careers"
-				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900"
+				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 			>
 				← 採用情報一覧に戻る
 			</Link>
@@ -86,7 +86,7 @@ export default async function CareerDetailPage({ params }: SlugPageProps) {
 			<article className="mt-6">
 				{/* ヘッダー */}
 				<p className="text-xs uppercase tracking-widest text-zinc-500">Careers</p>
-				<h1 className="mt-2 text-3xl font-semibold leading-tight text-zinc-900 sm:text-4xl">
+				<h1 className="mt-2 text-3xl font-semibold leading-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
 					{career.title.rendered}
 				</h1>
 
@@ -102,7 +102,7 @@ export default async function CareerDetailPage({ params }: SlugPageProps) {
 				{/* 募集概要（本文） */}
 				{career.content.rendered && (
 					<div
-						className="article-body mt-10 text-zinc-800"
+						className="article-body mt-10 text-zinc-800 dark:text-zinc-200"
 						dangerouslySetInnerHTML={{ __html: career.content.rendered }}
 					/>
 				)}
@@ -112,13 +112,13 @@ export default async function CareerDetailPage({ params }: SlugPageProps) {
 				<ListSection title="待遇・福利厚生" items={benefits} />
 
 				{/* 応募 CTA */}
-				<section className="mt-14 rounded-lg bg-zinc-900 px-8 py-10 text-center">
-					<p className="text-lg font-medium text-white">
+				<section className="mt-14 rounded-lg bg-zinc-900 dark:bg-zinc-100 px-8 py-10 text-center">
+					<p className="text-lg font-medium text-white dark:text-zinc-900">
 						このポジションに興味がありますか？
 					</p>
 					<Link
 						href={acf?.application_url || '/contact'}
-						className="mt-4 inline-block rounded-md bg-white px-6 py-2.5 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-200"
+						className="mt-4 inline-block rounded-md bg-white dark:bg-zinc-950 px-6 py-2.5 text-sm font-medium text-zinc-900 dark:text-zinc-100 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700"
 						{...(acf?.application_url
 							? { target: '_blank', rel: 'noopener noreferrer' }
 							: {})}

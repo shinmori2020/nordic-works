@@ -16,11 +16,11 @@ export function CareerCard({ career }: { career: WPCareer }) {
 		<article className="group">
 			<Link
 				href={`/careers/${career.slug}`}
-				className="flex h-full flex-col rounded-lg border border-zinc-200 p-6 transition-colors hover:border-zinc-400"
+				className="flex h-full flex-col rounded-lg border border-zinc-200 dark:border-zinc-800 p-6 transition-colors hover:border-zinc-400 dark:hover:border-zinc-500"
 			>
 				<div className="flex flex-wrap items-center gap-2">
 					{acf?.position_type && (
-						<span className="rounded bg-zinc-900 px-2 py-0.5 text-xs text-white">
+						<span className="rounded bg-zinc-900 dark:bg-zinc-100 px-2 py-0.5 text-xs text-white dark:text-zinc-900">
 							{positionTypeLabel(acf.position_type)}
 						</span>
 					)}
@@ -29,15 +29,15 @@ export function CareerCard({ career }: { career: WPCareer }) {
 					)}
 				</div>
 
-				<h2 className="mt-3 font-semibold leading-snug text-zinc-900 transition-colors group-hover:text-zinc-500">
+				<h2 className="mt-3 font-semibold leading-snug text-zinc-900 dark:text-zinc-100 transition-colors group-hover:text-zinc-500">
 					{career.title.rendered}
 				</h2>
 
 				{acf?.salary_range && (
-					<p className="mt-2 text-sm text-zinc-600">{acf.salary_range}</p>
+					<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{acf.salary_range}</p>
 				)}
 
-				<span className="mt-4 text-sm text-zinc-500 transition-colors group-hover:text-zinc-900">
+				<span className="mt-4 text-sm text-zinc-500 transition-colors group-hover:text-zinc-900 dark:hover:text-zinc-100">
 					詳細を見る →
 				</span>
 			</Link>

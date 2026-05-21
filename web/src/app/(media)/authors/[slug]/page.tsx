@@ -66,14 +66,14 @@ export default async function AuthorDetailPage({ params }: SlugPageProps) {
 		<main className="mx-auto max-w-3xl px-6 py-12">
 			<Link
 				href="/authors"
-				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900"
+				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 			>
 				← 執筆者一覧に戻る
 			</Link>
 
 			{/* プロフィール */}
 			<section className="mt-6 flex flex-col items-center text-center sm:flex-row sm:items-start sm:gap-6 sm:text-left">
-				<div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full bg-zinc-100">
+				<div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-800">
 					{photo ? (
 						<Image
 							src={photo.source_url}
@@ -84,7 +84,7 @@ export default async function AuthorDetailPage({ params }: SlugPageProps) {
 							priority
 						/>
 					) : (
-						<div className="flex h-full items-center justify-center text-xs text-zinc-300">
+						<div className="flex h-full items-center justify-center text-xs text-zinc-300 dark:text-zinc-600">
 							No Photo
 						</div>
 					)}
@@ -92,14 +92,14 @@ export default async function AuthorDetailPage({ params }: SlugPageProps) {
 
 				<div className="mt-4 sm:mt-0">
 					<p className="text-xs uppercase tracking-widest text-zinc-500">Author</p>
-					<h1 className="mt-1 text-2xl font-semibold text-zinc-900">
+					<h1 className="mt-1 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
 						{author.title.rendered}
 					</h1>
 					{acf?.position && (
 						<p className="mt-1 text-sm text-zinc-500">{acf.position}</p>
 					)}
 					{acf?.bio && (
-						<p className="mt-3 text-sm leading-relaxed text-zinc-700">{acf.bio}</p>
+						<p className="mt-3 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">{acf.bio}</p>
 					)}
 					{links.length > 0 && (
 						<ul className="mt-3 flex flex-wrap justify-center gap-3 sm:justify-start">
@@ -109,7 +109,7 @@ export default async function AuthorDetailPage({ params }: SlugPageProps) {
 										href={link.url}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="text-sm text-zinc-600 underline underline-offset-2 transition-colors hover:text-zinc-900"
+										className="text-sm text-zinc-600 dark:text-zinc-400 underline underline-offset-2 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 									>
 										{link.label} ↗
 									</a>
@@ -122,7 +122,7 @@ export default async function AuthorDetailPage({ params }: SlugPageProps) {
 
 			{/* 執筆記事 */}
 			<section className="mt-14">
-				<h2 className="text-xl font-semibold text-zinc-900">
+				<h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
 					{author.title.rendered} の記事
 				</h2>
 				{authoredPosts.length === 0 ? (

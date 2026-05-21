@@ -22,7 +22,7 @@ export function FeatureCard({ feature }: { feature: WPFeature }) {
 				href={`/features/${feature.slug}`}
 				className="grid gap-5 sm:grid-cols-2 sm:items-center"
 			>
-				<div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100">
+				<div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800">
 					{image ? (
 						<Image
 							src={image.source_url}
@@ -32,7 +32,7 @@ export function FeatureCard({ feature }: { feature: WPFeature }) {
 							className="object-cover transition-transform duration-300 group-hover:scale-105"
 						/>
 					) : (
-						<div className="flex h-full items-center justify-center text-sm text-zinc-300">
+						<div className="flex h-full items-center justify-center text-sm text-zinc-300 dark:text-zinc-600">
 							No Image
 						</div>
 					)}
@@ -40,10 +40,10 @@ export function FeatureCard({ feature }: { feature: WPFeature }) {
 
 				<div>
 					<p className="text-xs uppercase tracking-widest text-zinc-500">特集</p>
-					<h3 className="mt-2 text-xl font-semibold leading-snug text-zinc-900 transition-colors group-hover:text-zinc-500">
+					<h3 className="mt-2 text-xl font-semibold leading-snug text-zinc-900 dark:text-zinc-100 transition-colors group-hover:text-zinc-500">
 						{feature.title.rendered}
 					</h3>
-					<p className="mt-2 line-clamp-3 text-sm leading-relaxed text-zinc-600">{lead}</p>
+					<p className="mt-2 line-clamp-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{lead}</p>
 				</div>
 			</Link>
 		</article>

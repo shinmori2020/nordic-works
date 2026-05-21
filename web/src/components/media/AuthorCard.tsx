@@ -19,9 +19,9 @@ export function AuthorCard({ author }: { author: WPAuthorProfile }) {
 		<article className="group">
 			<Link
 				href={`/authors/${author.slug}`}
-				className="flex h-full flex-col items-center rounded-lg border border-zinc-200 p-6 text-center transition-colors hover:border-zinc-400"
+				className="flex h-full flex-col items-center rounded-lg border border-zinc-200 dark:border-zinc-800 p-6 text-center transition-colors hover:border-zinc-400 dark:hover:border-zinc-500"
 			>
-				<div className="relative h-24 w-24 overflow-hidden rounded-full bg-zinc-100">
+				<div className="relative h-24 w-24 overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-800">
 					{photo ? (
 						<Image
 							src={photo.source_url}
@@ -31,13 +31,13 @@ export function AuthorCard({ author }: { author: WPAuthorProfile }) {
 							className="object-cover"
 						/>
 					) : (
-						<div className="flex h-full items-center justify-center text-xs text-zinc-300">
+						<div className="flex h-full items-center justify-center text-xs text-zinc-300 dark:text-zinc-600">
 							No Photo
 						</div>
 					)}
 				</div>
 
-				<h2 className="mt-4 font-semibold text-zinc-900 transition-colors group-hover:text-zinc-500">
+				<h2 className="mt-4 font-semibold text-zinc-900 dark:text-zinc-100 transition-colors group-hover:text-zinc-500">
 					{author.title.rendered}
 				</h2>
 				{acf?.position && (

@@ -62,7 +62,7 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 		<main className="mx-auto max-w-4xl px-6 py-12">
 			<Link
 				href="/services"
-				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900"
+				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 			>
 				← サービス一覧に戻る
 			</Link>
@@ -70,15 +70,15 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 			<article className="mt-6">
 				{/* ヒーロー */}
 				<p className="text-xs uppercase tracking-widest text-zinc-500">Service</p>
-				<h1 className="mt-2 text-3xl font-semibold leading-tight text-zinc-900 sm:text-4xl">
+				<h1 className="mt-2 text-3xl font-semibold leading-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
 					{service.title.rendered}
 				</h1>
 				{acf?.subtitle && (
-					<p className="mt-3 text-lg text-zinc-600">{acf.subtitle}</p>
+					<p className="mt-3 text-lg text-zinc-600 dark:text-zinc-400">{acf.subtitle}</p>
 				)}
 
 				{image && (
-					<div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100">
+					<div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800">
 						<Image
 							src={image.source_url}
 							alt={image.alt_text || service.title.rendered}
@@ -92,19 +92,19 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 
 				{/* 概要 */}
 				<div
-					className="article-body mt-10 text-zinc-800"
+					className="article-body mt-10 text-zinc-800 dark:text-zinc-200"
 					dangerouslySetInnerHTML={{ __html: service.content.rendered }}
 				/>
 
 				{/* 機能リスト */}
 				{features.length > 0 && (
 					<section className="mt-14">
-						<h2 className="text-2xl font-semibold text-zinc-900">主な機能</h2>
+						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">主な機能</h2>
 						<div className="mt-6 grid gap-6 sm:grid-cols-2">
 							{features.map((feature, i) => (
-								<div key={i} className="rounded-lg border border-zinc-200 p-5">
-									<h3 className="font-semibold text-zinc-900">{feature.title}</h3>
-									<p className="mt-2 text-sm leading-relaxed text-zinc-600">
+								<div key={i} className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5">
+									<h3 className="font-semibold text-zinc-900 dark:text-zinc-100">{feature.title}</h3>
+									<p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
 										{feature.description}
 									</p>
 								</div>
@@ -116,19 +116,19 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 				{/* 料金プラン */}
 				{pricingPlans.length > 0 && (
 					<section className="mt-14">
-						<h2 className="text-2xl font-semibold text-zinc-900">料金プラン</h2>
+						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">料金プラン</h2>
 						<div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 							{pricingPlans.map((plan, i) => (
 								<div
 									key={i}
-									className="flex flex-col rounded-lg border border-zinc-200 p-6"
+									className="flex flex-col rounded-lg border border-zinc-200 dark:border-zinc-800 p-6"
 								>
-									<h3 className="font-semibold text-zinc-900">{plan.name}</h3>
-									<p className="mt-2 text-xl font-semibold text-zinc-900">
+									<h3 className="font-semibold text-zinc-900 dark:text-zinc-100">{plan.name}</h3>
+									<p className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
 										{plan.price}
 									</p>
 									{plan.includedFeatures.length > 0 && (
-										<ul className="mt-4 space-y-1.5 text-sm text-zinc-600">
+										<ul className="mt-4 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400">
 											{plan.includedFeatures.map((item, j) => (
 												<li key={j} className="flex gap-2">
 													<span className="text-zinc-400">•</span>
@@ -146,12 +146,12 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 				{/* FAQ */}
 				{faq.length > 0 && (
 					<section className="mt-14">
-						<h2 className="text-2xl font-semibold text-zinc-900">よくある質問</h2>
+						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">よくある質問</h2>
 						<div className="mt-6 space-y-6">
 							{faq.map((item, i) => (
-								<div key={i} className="border-b border-zinc-200 pb-6">
-									<h3 className="font-semibold text-zinc-900">Q. {item.question}</h3>
-									<p className="mt-2 text-sm leading-relaxed text-zinc-600">
+								<div key={i} className="border-b border-zinc-200 dark:border-zinc-800 pb-6">
+									<h3 className="font-semibold text-zinc-900 dark:text-zinc-100">Q. {item.question}</h3>
+									<p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
 										A. {item.answer}
 									</p>
 								</div>
@@ -163,7 +163,7 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 				{/* 導入事例 */}
 				{caseStudies.length > 0 && (
 					<section className="mt-14">
-						<h2 className="text-2xl font-semibold text-zinc-900">導入事例</h2>
+						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">導入事例</h2>
 						<ul className="mt-6 space-y-2">
 							{caseStudies.map((cs, i) => (
 								<li key={i}>
@@ -171,7 +171,7 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 										href={cs.url}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="text-sm text-zinc-700 underline underline-offset-2 transition-colors hover:text-zinc-900"
+										className="text-sm text-zinc-700 dark:text-zinc-300 underline underline-offset-2 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 									>
 										{cs.label} ↗
 									</a>
@@ -183,13 +183,13 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 
 				{/* CTA */}
 				{acf?.cta_text && (
-					<section className="mt-14 rounded-lg bg-zinc-900 px-8 py-10 text-center">
-						<p className="text-lg font-medium text-white">
+					<section className="mt-14 rounded-lg bg-zinc-900 dark:bg-zinc-100 px-8 py-10 text-center">
+						<p className="text-lg font-medium text-white dark:text-zinc-900">
 							このサービスにご興味がありますか？
 						</p>
 						<Link
 							href={acf.cta_url || '/contact'}
-							className="mt-4 inline-block rounded-md bg-white px-6 py-2.5 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-200"
+							className="mt-4 inline-block rounded-md bg-white dark:bg-zinc-950 px-6 py-2.5 text-sm font-medium text-zinc-900 dark:text-zinc-100 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700"
 						>
 							{acf.cta_text}
 						</Link>

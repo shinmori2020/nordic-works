@@ -18,11 +18,11 @@ export function Footer() {
 	const year = new Date().getFullYear();
 
 	return (
-		<footer className="mt-20 border-t border-zinc-200 bg-zinc-50">
+		<footer className="mt-20 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900">
 			<div className="mx-auto max-w-6xl px-6 py-12">
 				<div className="flex flex-col gap-8 sm:flex-row sm:justify-between">
 					<div className="max-w-xs">
-						<p className="text-lg font-semibold tracking-tight text-zinc-900">
+						<p className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
 							Nordic Works
 						</p>
 						<p className="mt-2 text-sm leading-relaxed text-zinc-500">
@@ -36,7 +36,7 @@ export function Footer() {
 							<Link
 								key={link.href}
 								href={link.href}
-								className="text-sm text-zinc-600 transition-colors hover:text-zinc-900"
+								className="text-sm text-zinc-600 dark:text-zinc-400 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 							>
 								{link.label}
 							</Link>
@@ -44,7 +44,7 @@ export function Footer() {
 					</nav>
 				</div>
 
-				<div className="mt-10 border-t border-zinc-200 pt-6">
+				<div className="mt-10 border-t border-zinc-200 dark:border-zinc-800 pt-6">
 					<p className="text-xs text-zinc-400">
 						© {year} Nordic Works. This is a fictional company built as a portfolio project.
 					</p>

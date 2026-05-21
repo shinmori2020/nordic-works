@@ -25,13 +25,13 @@ export default async function CareersPage() {
 			<header className="mb-10">
 				<Link
 					href="/"
-					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900"
+					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 				>
 					← ホーム
 				</Link>
 				<p className="mt-2 text-xs uppercase tracking-widest text-zinc-500">Careers</p>
-				<h1 className="mt-1 text-3xl font-semibold text-zinc-900">採用情報</h1>
-				<p className="mt-2 text-sm text-zinc-600">
+				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">採用情報</h1>
+				<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
 					現在 {careers.length} 件のポジションを募集中です。
 				</p>
 			</header>

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
+import { ThemeProvider } from '@/components/common/ThemeProvider';
 import {
 	SITE_URL,
 	SITE_NAME,
@@ -64,17 +65,20 @@ export default function RootLayout({
 	return (
 		<html
 			lang="ja"
+			suppressHydrationWarning
 			className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
 		>
-			<body className="flex min-h-full flex-col bg-white">
+			<body className="flex min-h-full flex-col bg-white dark:bg-zinc-950">
 				<script
 					type="application/ld+json"
 					// 内製の静的JSONで XSS リスクなし
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
 				/>
-				<Header />
-				<div className="flex-1">{children}</div>
-				<Footer />
+				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+					<Header />
+					<div className="flex-1">{children}</div>
+					<Footer />
+				</ThemeProvider>
 			</body>
 		</html>
 	);

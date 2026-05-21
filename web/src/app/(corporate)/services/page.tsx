@@ -23,8 +23,8 @@ export default async function ServicesPage() {
 		<main className="mx-auto max-w-5xl px-6 py-12">
 			<header className="mb-10">
 				<p className="text-xs uppercase tracking-widest text-zinc-500">Services</p>
-				<h1 className="mt-1 text-3xl font-semibold text-zinc-900">サービス</h1>
-				<p className="mt-2 text-sm text-zinc-600">
+				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">サービス</h1>
+				<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
 					北欧式の組織づくりを支援する {services.length} のサービス。
 				</p>
 			</header>

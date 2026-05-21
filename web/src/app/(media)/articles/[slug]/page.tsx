@@ -10,7 +10,11 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getPostBySlug, getPosts, getAuthorById } from '@/lib/wordpress';
 import { getFeaturedImage, getTerms, stripHtml, formatDate } from '@/lib/utils';
+import { buildTableOfContents } from '@/lib/toc';
 import { SITE_NAME, absoluteUrl } from '@/lib/site';
+import { ArticleCard } from '@/components/media/ArticleCard';
+import { ReadingProgress } from '@/components/media/ReadingProgress';
+import { TableOfContents } from '@/components/media/TableOfContents';
 import type { SlugPageProps } from '@/types/wordpress';
 
 // ISR: 個別記事は更新頻度が低いため24時間（docs/06-features.md の方針）
@@ -68,11 +72,25 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 	const topics = getTerms(post, 'topic');
 	const industries = getTerms(post, 'industry');
 
+	// 本文に見出し id を注入し、目次データを取り出す
+	const { html: bodyHtml, headings } = buildTableOfContents(post.content.rendered);
+
 	// ACF post_object フィールド author_profile は著者の投稿ID。実体に解決する。
 	const author =
 		typeof post.acf?.author_profile === 'number'
 			? await getAuthorById(post.acf.author_profile)
 			: null;
+
+	// 関連記事: 同じトピックを持つ他の記事を最大3件
+	const topicIds = topics.map((t) => t.id);
+	const allPosts = await getPosts();
+	const relatedPosts = allPosts
+		.filter(
+			(p) =>
+				p.id !== post.id &&
+				getTerms(p, 'topic').some((t) => topicIds.includes(t.id)),
+		)
+		.slice(0, 3);
 
 	// schema.org BlogPosting 構造化データ（Google の記事リッチリザルト対応）
 	const articleJsonLd = {
@@ -92,6 +110,7 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 
 	return (
 		<main className="mx-auto max-w-3xl px-6 py-12">
+			<ReadingProgress />
 			<script
 				type="application/ld+json"
 				// 自社管理コンテンツ由来の静的JSONなので XSS リスクなし
@@ -99,7 +118,7 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 			/>
 			<Link
 				href="/articles"
-				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900"
+				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 			>
 				← 記事一覧に戻る
 			</Link>
@@ -112,7 +131,7 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 							<Link
 								key={term.id}
 								href={`/industry/${decodeURIComponent(term.slug)}`}
-								className="rounded bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 transition-colors hover:bg-zinc-200 hover:text-zinc-900"
+								className="rounded bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-xs text-zinc-600 dark:text-zinc-400 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-100"
 							>
 								{term.name}
 							</Link>
@@ -121,7 +140,7 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 				)}
 
 				{/* タイトル */}
-				<h1 className="mt-3 text-3xl font-semibold leading-tight text-zinc-900">
+				<h1 className="mt-3 text-3xl font-semibold leading-tight text-zinc-900 dark:text-zinc-100">
 					{post.title.rendered}
 				</h1>
 
@@ -137,7 +156,7 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 				{/* アイキャッチ画像 */}
 				{image && (
 					<figure className="mt-6">
-						<div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100">
+						<div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800">
 							<Image
 								src={image.source_url}
 								alt={image.alt_text || post.title.rendered}
@@ -155,21 +174,29 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 					</figure>
 				)}
 
+				{/* 目次（h2/h3 が2つ以上ある場合のみ表示） */}
+				{headings.length >= 2 && (
+					<div className="mt-8">
+						<TableOfContents headings={headings} />
+					</div>
+				)}
+
 				{/* 本文。WordPress の content.rendered は HTML 文字列。
-				    自社管理コンテンツのため dangerouslySetInnerHTML を使用。 */}
+				    自社管理コンテンツのため dangerouslySetInnerHTML を使用。
+				    bodyHtml は見出しに id を注入済み（目次アンカー用）。 */}
 				<div
-					className="article-body mt-8 text-zinc-800"
-					dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+					className="article-body mt-8 text-zinc-800 dark:text-zinc-200"
+					dangerouslySetInnerHTML={{ __html: bodyHtml }}
 				/>
 
 				{/* トピックタグ */}
 				{topics.length > 0 && (
-					<div className="mt-10 flex flex-wrap gap-2 border-t border-zinc-200 pt-6">
+					<div className="mt-10 flex flex-wrap gap-2 border-t border-zinc-200 dark:border-zinc-800 pt-6">
 						{topics.map((term) => (
 							<Link
 								key={term.id}
 								href={`/topic/${decodeURIComponent(term.slug)}`}
-								className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-600 transition-colors hover:bg-zinc-200 hover:text-zinc-900"
+								className="rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-1 text-xs text-zinc-600 dark:text-zinc-400 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-100"
 							>
 								#{term.name}
 							</Link>
@@ -179,18 +206,32 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 
 				{/* 著者プロフィール */}
 				{author && (
-					<aside className="mt-8 rounded-lg bg-zinc-50 p-5">
+					<aside className="mt-8 rounded-lg bg-zinc-50 dark:bg-zinc-900 p-5">
 						<p className="text-xs uppercase tracking-wide text-zinc-400">著者</p>
-						<p className="mt-1 font-semibold text-zinc-900">{author.title.rendered}</p>
+						<p className="mt-1 font-semibold text-zinc-900 dark:text-zinc-100">{author.title.rendered}</p>
 						{author.acf?.position && (
 							<p className="text-sm text-zinc-500">{author.acf.position}</p>
 						)}
 						{author.acf?.bio && (
-							<p className="mt-2 text-sm leading-relaxed text-zinc-700">{author.acf.bio}</p>
+							<p className="mt-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">{author.acf.bio}</p>
 						)}
 					</aside>
 				)}
 			</article>
+
+			{/* 関連記事 */}
+			{relatedPosts.length > 0 && (
+				<section className="mt-16 border-t border-zinc-200 pt-10 dark:border-zinc-800">
+					<h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+						関連記事
+					</h2>
+					<div className="mt-6 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+						{relatedPosts.map((p) => (
+							<ArticleCard key={p.id} post={p} />
+						))}
+					</div>
+				</section>
+			)}
 		</main>
 	);
 }

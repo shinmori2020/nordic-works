@@ -17,7 +17,7 @@ export function ArticleCard({ post }: { post: WPPost }) {
 	return (
 		<article className="group">
 			<Link href={`/articles/${post.slug}`} className="block">
-				<div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100">
+				<div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800">
 					{image ? (
 						<Image
 							src={image.source_url}
@@ -27,7 +27,7 @@ export function ArticleCard({ post }: { post: WPPost }) {
 							className="object-cover transition-transform duration-300 group-hover:scale-105"
 						/>
 					) : (
-						<div className="flex h-full items-center justify-center text-sm text-zinc-300">
+						<div className="flex h-full items-center justify-center text-sm text-zinc-300 dark:text-zinc-600">
 							No Image
 						</div>
 					)}
@@ -39,10 +39,10 @@ export function ArticleCard({ post }: { post: WPPost }) {
 							{topics[0].name}
 						</p>
 					)}
-					<h2 className="font-semibold leading-snug text-zinc-900 transition-colors group-hover:text-zinc-500">
+					<h2 className="font-semibold leading-snug text-zinc-900 dark:text-zinc-100 transition-colors group-hover:text-zinc-500">
 						{post.title.rendered}
 					</h2>
-					<p className="mt-1 line-clamp-2 text-sm text-zinc-600">{excerpt}</p>
+					<p className="mt-1 line-clamp-2 text-sm text-zinc-600 dark:text-zinc-400">{excerpt}</p>
 					<div className="mt-2 flex items-center gap-2 text-xs text-zinc-400">
 						<time dateTime={post.date}>{formatDate(post.date)}</time>
 						{typeof post.acf?.reading_time === 'number' && (

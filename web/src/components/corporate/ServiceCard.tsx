@@ -15,7 +15,7 @@ export function ServiceCard({ service }: { service: WPService }) {
 	return (
 		<article className="group">
 			<Link href={`/services/${service.slug}`} className="block">
-				<div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100">
+				<div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800">
 					{image ? (
 						<Image
 							src={image.source_url}
@@ -25,18 +25,18 @@ export function ServiceCard({ service }: { service: WPService }) {
 							className="object-cover transition-transform duration-300 group-hover:scale-105"
 						/>
 					) : (
-						<div className="flex h-full items-center justify-center text-sm text-zinc-300">
+						<div className="flex h-full items-center justify-center text-sm text-zinc-300 dark:text-zinc-600">
 							No Image
 						</div>
 					)}
 				</div>
 
 				<div className="mt-4">
-					<h3 className="font-semibold text-zinc-900 transition-colors group-hover:text-zinc-500">
+					<h3 className="font-semibold text-zinc-900 dark:text-zinc-100 transition-colors group-hover:text-zinc-500">
 						{service.title.rendered}
 					</h3>
 					{service.acf?.subtitle && (
-						<p className="mt-1 text-sm text-zinc-600">{service.acf.subtitle}</p>
+						<p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{service.acf.subtitle}</p>
 					)}
 				</div>
 			</Link>

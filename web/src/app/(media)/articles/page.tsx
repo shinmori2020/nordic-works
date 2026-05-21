@@ -25,11 +25,11 @@ export default async function ArticlesPage() {
 	return (
 		<main className="mx-auto max-w-5xl px-6 py-12">
 			<header className="mb-10">
-				<Link href="/" className="text-sm text-zinc-500 transition-colors hover:text-zinc-900">
+				<Link href="/" className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100">
 					← ホーム
 				</Link>
-				<h1 className="mt-2 text-3xl font-semibold text-zinc-900">記事一覧</h1>
-				<p className="mt-1 text-sm text-zinc-600">{posts.length} 件の記事</p>
+				<h1 className="mt-2 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">記事一覧</h1>
+				<p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{posts.length} 件の記事</p>
 			</header>
 
 			{posts.length === 0 ? (

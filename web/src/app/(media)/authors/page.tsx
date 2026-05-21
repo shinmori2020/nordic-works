@@ -24,13 +24,13 @@ export default async function AuthorsPage() {
 			<header className="mb-10">
 				<Link
 					href="/"
-					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900"
+					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 				>
 					← ホーム
 				</Link>
 				<p className="mt-2 text-xs uppercase tracking-widest text-zinc-500">Authors</p>
-				<h1 className="mt-1 text-3xl font-semibold text-zinc-900">執筆者一覧</h1>
-				<p className="mt-2 text-sm text-zinc-600">
+				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">執筆者一覧</h1>
+				<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
 					{authors.length} 名のメンバーが記事を執筆しています。
 				</p>
 			</header>
