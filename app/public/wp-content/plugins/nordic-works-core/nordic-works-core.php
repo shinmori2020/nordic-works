@@ -198,3 +198,84 @@ function nordic_register_taxonomies() {
 	);
 }
 add_action( 'init', 'nordic_register_taxonomies' );
+
+/* =============================================================================
+ * Headless 連携設定（プレビュー / On-demand Revalidation）
+ *
+ * 注: secret と frontend URL は Next.js 側 web/.env.local と一致させること。
+ *     本プロジェクトはローカル運用前提のため、開発用 secret を直書きしている。
+ *     本番運用時は wp-config.php の定数や環境変数から読む構成に変更する。
+ * ---------------------------------------------------------------------------*/
+
+if ( ! defined( 'NORDIC_FRONTEND_URL' ) ) {
+	define( 'NORDIC_FRONTEND_URL', 'http://localhost:3000' );
+}
+if ( ! defined( 'NORDIC_PREVIEW_SECRET' ) ) {
+	define( 'NORDIC_PREVIEW_SECRET', 'local-dev-preview-secret-change-me' );
+}
+if ( ! defined( 'NORDIC_REVALIDATE_SECRET' ) ) {
+	define( 'NORDIC_REVALIDATE_SECRET', 'local-dev-revalidate-secret-change-me' );
+}
+
+/**
+ * 管理画面の「プレビュー」ボタンのリンク先を Next.js の /api/preview に書き換える。
+ */
+function nordic_set_preview_link( $preview_link, $post ) {
+	return sprintf(
+		'%s/api/preview?secret=%s&slug=%s&type=%s',
+		NORDIC_FRONTEND_URL,
+		rawurlencode( NORDIC_PREVIEW_SECRET ),
+		rawurlencode( $post->post_name ),
+		rawurlencode( $post->post_type )
+	);
+}
+add_filter( 'preview_post_link', 'nordic_set_preview_link', 10, 2 );
+
+/**
+ * 公開・更新時に Next.js の /api/revalidate を叩いて該当ページのキャッシュを再検証する。
+ */
+function nordic_trigger_revalidate( $post_id ) {
+	// 自動保存・リビジョンは除外
+	if ( wp_is_post_autosave( $post_id ) || wp_is_post_revision( $post_id ) ) {
+		return;
+	}
+
+	$post = get_post( $post_id );
+	if ( ! $post || 'publish' !== $post->post_status ) {
+		return;
+	}
+
+	$allowed_types = array( 'post', 'service', 'career', 'feature', 'author_profile' );
+	if ( ! in_array( $post->post_type, $allowed_types, true ) ) {
+		return;
+	}
+
+	wp_remote_post(
+		NORDIC_FRONTEND_URL . '/api/revalidate',
+		array(
+			'headers'  => array(
+				'Content-Type'        => 'application/json',
+				'X-Revalidate-Secret' => NORDIC_REVALIDATE_SECRET,
+			),
+			'body'     => wp_json_encode(
+				array(
+					'postType' => $post->post_type,
+					'slug'     => $post->post_name,
+				)
+			),
+			'blocking' => false, // 非同期で投げて待たない
+			'timeout'  => 5,
+		)
+	);
+}
+add_action( 'save_post', 'nordic_trigger_revalidate' );
+add_action(
+	'transition_post_status',
+	function ( $new_status, $old_status, $post ) {
+		if ( 'publish' === $new_status || 'publish' === $old_status ) {
+			nordic_trigger_revalidate( $post->ID );
+		}
+	},
+	10,
+	3
+);

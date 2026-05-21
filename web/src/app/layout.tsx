@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { draftMode } from 'next/headers';
 import './globals.css';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
+import { PreviewBanner } from '@/components/common/PreviewBanner';
 import { ThemeProvider } from '@/components/common/ThemeProvider';
 import {
 	SITE_URL,
@@ -57,11 +59,13 @@ const organizationJsonLd = {
 	description: SITE_DESCRIPTION,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const { isEnabled: isPreview } = await draftMode();
+
 	return (
 		<html
 			lang="ja"
@@ -75,6 +79,7 @@ export default function RootLayout({
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
 				/>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+					{isPreview && <PreviewBanner />}
 					<Header />
 					<div className="flex-1">{children}</div>
 					<Footer />

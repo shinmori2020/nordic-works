@@ -9,6 +9,7 @@
  *   - "static" : data/*.json から読み込み（Week 8 で実装）
  */
 
+import { draftMode } from 'next/headers';
 import type {
 	WPPost,
 	WPService,
@@ -41,7 +42,21 @@ type CacheOptions = {
 	/** Number of seconds, or `false` for permanent cache (force-cache). */
 	revalidate?: number | false;
 	tags?: string[];
+	/** プレビュー（下書き取得）。true なら no-store + Basic 認証ヘッダを付与する。 */
+	draft?: boolean;
 };
+
+/**
+ * プレビュー時の Basic 認証ヘッダ。Application Password を使う。
+ * 未設定の場合は付与しない（公開記事のみ取得できる）。
+ */
+function draftAuthHeaders(): Record<string, string> {
+	const user = process.env.WP_USERNAME;
+	const pass = process.env.WP_APPLICATION_PASSWORD;
+	if (!user || !pass) return {};
+	const token = Buffer.from(`${user}:${pass}`).toString('base64');
+	return { Authorization: `Basic ${token}` };
+}
 
 /**
  * REST API への基本フェッチ。エラーは null を返して呼び出し側で扱う。
@@ -56,7 +71,11 @@ async function wpFetch<T>(resource: string, cache: CacheOptions = {}): Promise<T
 
 	const fetchOpts: RequestInit & { next?: { revalidate?: number; tags?: string[] } } = {};
 
-	if (cache.revalidate === false) {
+	if (cache.draft) {
+		// プレビュー: キャッシュせず、認証付きで下書きを取得する
+		fetchOpts.cache = 'no-store';
+		fetchOpts.headers = draftAuthHeaders();
+	} else if (cache.revalidate === false) {
 		fetchOpts.cache = 'force-cache';
 	} else {
 		fetchOpts.next = {
@@ -76,6 +95,28 @@ async function wpFetch<T>(resource: string, cache: CacheOptions = {}): Promise<T
 		console.error(`[wp] ${resource} fetch error:`, err);
 		return null;
 	}
+}
+
+/**
+ * slug 指定の単一エンティティ取得を、プレビュー（draftMode）対応で行う共通ヘルパー。
+ *
+ * - 通常時: 公開記事のみ。ISR キャッシュ（revalidate + tags）。
+ * - プレビュー時: 下書きも含めて取得（status=draft,publish）。no-store + 認証。
+ */
+async function fetchBySlug<T>(
+	restBase: string,
+	slug: string,
+	tags: string[],
+	revalidate: number,
+): Promise<T | null> {
+	if (USE_STATIC) return null;
+	const { isEnabled: isDraft } = await draftMode();
+	const statusParam = isDraft ? '&status=draft,publish' : '';
+	const data = await wpFetch<T[]>(
+		`${restBase}?slug=${encodeURIComponent(slug)}${statusParam}&_embed`,
+		isDraft ? { draft: true } : { revalidate, tags },
+	);
+	return data?.[0] ?? null;
 }
 
 // =============================================================================
@@ -111,12 +152,7 @@ export async function getPosts(): Promise<WPPost[]> {
 }
 
 export async function getPostBySlug(slug: string): Promise<WPPost | null> {
-	if (USE_STATIC) return null;
-	const data = await wpFetch<WPPost[]>(`posts?slug=${encodeURIComponent(slug)}&_embed`, {
-		revalidate: 86400,
-		tags: ['posts', `post-${slug}`],
-	});
-	return data?.[0] ?? null;
+	return fetchBySlug<WPPost>('posts', slug, ['posts', `post-${slug}`], 86400);
 }
 
 /**
@@ -147,12 +183,7 @@ export async function getServices(): Promise<WPService[]> {
 }
 
 export async function getServiceBySlug(slug: string): Promise<WPService | null> {
-	if (USE_STATIC) return null;
-	const data = await wpFetch<WPService[]>(`service?slug=${encodeURIComponent(slug)}&_embed`, {
-		revalidate: 86400,
-		tags: ['services', `service-${slug}`],
-	});
-	return data?.[0] ?? null;
+	return fetchBySlug<WPService>('service', slug, ['services', `service-${slug}`], 86400);
 }
 
 // =============================================================================
@@ -169,12 +200,7 @@ export async function getCareers(): Promise<WPCareer[]> {
 }
 
 export async function getCareerBySlug(slug: string): Promise<WPCareer | null> {
-	if (USE_STATIC) return null;
-	const data = await wpFetch<WPCareer[]>(`career?slug=${encodeURIComponent(slug)}&_embed`, {
-		revalidate: 86400,
-		tags: ['careers', `career-${slug}`],
-	});
-	return data?.[0] ?? null;
+	return fetchBySlug<WPCareer>('career', slug, ['careers', `career-${slug}`], 86400);
 }
 
 // =============================================================================
@@ -191,12 +217,7 @@ export async function getFeatures(): Promise<WPFeature[]> {
 }
 
 export async function getFeatureBySlug(slug: string): Promise<WPFeature | null> {
-	if (USE_STATIC) return null;
-	const data = await wpFetch<WPFeature[]>(`feature?slug=${encodeURIComponent(slug)}&_embed`, {
-		revalidate: 86400,
-		tags: ['features', `feature-${slug}`],
-	});
-	return data?.[0] ?? null;
+	return fetchBySlug<WPFeature>('feature', slug, ['features', `feature-${slug}`], 86400);
 }
 
 // =============================================================================
