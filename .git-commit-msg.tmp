@@ -1,0 +1,33 @@
+fix: route block editor preview through Next.js, force draft slugs
+
+The Week 5 preview button worked from the classic editor but not from
+Gutenberg: the block editor computes the preview URL in JavaScript from
+the REST API's post.link, bypassing PHP's preview_post_link filter
+entirely. Drafts also have empty post_name by default in WP, so even
+when the filter does fire there is no slug to route on.
+
+Two changes in the nordic-works-core plugin:
+
+- Add nordic_frontend_link hooked on post_link, post_type_link and
+  preview_post_link. Published posts get rewritten to the Next.js
+  public URL (/articles/<slug>, /services/<slug>, ...); everything else
+  (drafts, pending, future) goes through /api/preview with id, slug and
+  type so the editor's preview button reaches Next.js regardless of the
+  code path used to build the link.
+
+- Add nordic_force_draft_slug hooked on wp_insert_post_data so drafts
+  of our managed post types get a slug as soon as they are saved
+  (sanitize_title of the title, falling back to "draft-<id>" when the
+  title is empty or all non-word characters).
+
+/api/preview now accepts an id fallback. When the slug query is empty
+it fetches the post by id over the authenticated REST API to recover
+the slug before enabling draftMode and redirecting, so the
+slug-less-draft edge case still resolves to the right article page.
+
+Verified end-to-end against a Gutenberg draft post 92 ("下書きテスト"):
+post.link in the REST response now points at /api/preview, the preview
+endpoint returns 307 with __prerender_bypass set, and the redirected
+page renders the preview banner together with the draft title.
+
+Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>

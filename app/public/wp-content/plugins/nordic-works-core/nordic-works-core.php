@@ -218,18 +218,73 @@ if ( ! defined( 'NORDIC_REVALIDATE_SECRET' ) ) {
 }
 
 /**
- * 管理画面の「プレビュー」ボタンのリンク先を Next.js の /api/preview に書き換える。
+ * 対象 CPT / 投稿のフロントエンドリンクを Next.js のURLに書き換える。
+ *
+ * - 公開済み: `<frontend>/<base>/<slug>` （フロント公開URL）
+ * - 下書き等: `<frontend>/api/preview?secret&id&slug&type` （プレビューAPI経由）
+ *
+ * post_link / post_type_link / preview_post_link の3つにかけることで、
+ * クラシックエディタ・ブロックエディタ・REST API のいずれの経路でも
+ * フロントエンドへ向くようにする。
  */
-function nordic_set_preview_link( $preview_link, $post ) {
+function nordic_frontend_link( $url, $post ) {
+	$type_paths = array(
+		'post'           => '/articles',
+		'service'        => '/services',
+		'career'         => '/careers',
+		'feature'        => '/features',
+		'author_profile' => '/authors',
+	);
+	if ( ! isset( $type_paths[ $post->post_type ] ) ) {
+		return $url;
+	}
+
+	$base = $type_paths[ $post->post_type ];
+	$slug = (string) $post->post_name;
+
+	// 公開済みかつ slug がある場合はフロント公開URLへ
+	if ( 'publish' === $post->post_status && '' !== $slug ) {
+		return NORDIC_FRONTEND_URL . $base . '/' . $slug;
+	}
+
+	// それ以外（下書き等）はプレビューAPIへ。slug が空でも id で解決できる。
 	return sprintf(
-		'%s/api/preview?secret=%s&slug=%s&type=%s',
+		'%s/api/preview?secret=%s&id=%d&slug=%s&type=%s',
 		NORDIC_FRONTEND_URL,
 		rawurlencode( NORDIC_PREVIEW_SECRET ),
-		rawurlencode( $post->post_name ),
+		(int) $post->ID,
+		rawurlencode( $slug ),
 		rawurlencode( $post->post_type )
 	);
 }
-add_filter( 'preview_post_link', 'nordic_set_preview_link', 10, 2 );
+add_filter( 'post_link', 'nordic_frontend_link', 10, 2 );
+add_filter( 'post_type_link', 'nordic_frontend_link', 10, 2 );
+add_filter( 'preview_post_link', 'nordic_frontend_link', 10, 2 );
+
+/**
+ * 下書きにも slug を自動付与する。
+ *
+ * WP のデフォルトでは下書きの post_name は空のことが多いが、
+ * Headless プレビューでは slug を URL に使うため空だと困る。
+ * タイトルから生成し、サニタイズで空になるなら id ベースで仮 slug を入れる。
+ */
+function nordic_force_draft_slug( $data, $postarr ) {
+	$skip_statuses = array( 'auto-draft', 'inherit', 'trash' );
+	if ( ! empty( $data['post_name'] ) || in_array( $data['post_status'], $skip_statuses, true ) ) {
+		return $data;
+	}
+	$allowed_types = array( 'post', 'service', 'career', 'feature', 'author_profile' );
+	if ( ! in_array( $data['post_type'], $allowed_types, true ) ) {
+		return $data;
+	}
+	$slug = sanitize_title( $data['post_title'] );
+	if ( '' === $slug ) {
+		$slug = 'draft-' . ( isset( $postarr['ID'] ) ? (int) $postarr['ID'] : time() );
+	}
+	$data['post_name'] = $slug;
+	return $data;
+}
+add_filter( 'wp_insert_post_data', 'nordic_force_draft_slug', 10, 2 );
 
 /**
  * 公開・更新時に Next.js の /api/revalidate を叩いて該当ページのキャッシュを再検証する。
