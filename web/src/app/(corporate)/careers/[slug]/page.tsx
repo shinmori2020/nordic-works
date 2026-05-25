@@ -75,7 +75,7 @@ export default async function CareerDetailPage({ params }: SlugPageProps) {
 	const benefits = parseLines(acf?.benefits);
 
 	return (
-		<main className="mx-auto max-w-3xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-12">
 			<Link
 				href="/careers"
 				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"

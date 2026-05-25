@@ -59,7 +59,7 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 	const caseStudies = parseCaseStudyLinks(acf?.case_study_links);
 
 	return (
-		<main className="mx-auto max-w-4xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-12">
 			<Link
 				href="/services"
 				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"

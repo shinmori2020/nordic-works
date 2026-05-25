@@ -42,7 +42,7 @@ export default function AboutPage() {
 		<main>
 			{/* ヒーロー */}
 			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				<div className="mx-auto max-w-4xl px-6 py-20 sm:py-28">
+				<div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
 					<p className="text-sm font-medium uppercase tracking-widest text-zinc-500">
 						About
 					</p>
@@ -59,7 +59,7 @@ export default function AboutPage() {
 			</section>
 
 			{/* ミッション */}
-			<section className="mx-auto max-w-4xl px-6 py-16">
+			<section className="mx-auto max-w-6xl px-6 py-16">
 				<p className="text-xs uppercase tracking-widest text-zinc-500">Mission</p>
 				<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
 					働き方を、再現可能な「設計」にする。
@@ -74,7 +74,7 @@ export default function AboutPage() {
 
 			{/* バリュー */}
 			<section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				<div className="mx-auto max-w-4xl px-6 py-16">
+				<div className="mx-auto max-w-6xl px-6 py-16">
 					<p className="text-xs uppercase tracking-widest text-zinc-500">Values</p>
 					<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
 						私たちが大切にすること
@@ -98,7 +98,7 @@ export default function AboutPage() {
 			</section>
 
 			{/* 会社情報 */}
-			<section className="mx-auto max-w-4xl px-6 py-16">
+			<section className="mx-auto max-w-6xl px-6 py-16">
 				<p className="text-xs uppercase tracking-widest text-zinc-500">Company</p>
 				<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
 					会社情報
@@ -118,7 +118,7 @@ export default function AboutPage() {
 
 			{/* CTA */}
 			<section className="border-t border-zinc-200 dark:border-zinc-800">
-				<div className="mx-auto grid max-w-4xl gap-px bg-zinc-200 sm:grid-cols-2 dark:bg-zinc-800">
+				<div className="mx-auto grid max-w-6xl gap-px bg-zinc-200 sm:grid-cols-2 dark:bg-zinc-800">
 					<Link
 						href="/careers"
 						className="group bg-white p-10 transition-colors hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900"

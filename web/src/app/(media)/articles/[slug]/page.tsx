@@ -109,7 +109,7 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 	};
 
 	return (
-		<main className="mx-auto max-w-3xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-12">
 			<ReadingProgress />
 			<script
 				type="application/ld+json"

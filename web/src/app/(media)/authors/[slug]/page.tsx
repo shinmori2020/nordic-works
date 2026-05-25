@@ -63,7 +63,7 @@ export default async function AuthorDetailPage({ params }: SlugPageProps) {
 	].filter((l): l is { label: string; url: string } => Boolean(l.url));
 
 	return (
-		<main className="mx-auto max-w-3xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-12">
 			<Link
 				href="/authors"
 				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
