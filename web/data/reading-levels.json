@@ -1,0 +1,137 @@
+[
+  {
+    "id": 18,
+    "count": 3,
+    "description": "",
+    "link": "http://nordic-works.local/level/%e4%b8%8a%e7%b4%9a/",
+    "name": "上級",
+    "slug": "%e4%b8%8a%e7%b4%9a",
+    "taxonomy": "reading_level",
+    "meta": [],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/reading_level/18",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/reading_level"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/reading_level"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts?reading_level=18"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "count": 6,
+    "description": "",
+    "link": "http://nordic-works.local/level/%e4%b8%ad%e7%b4%9a/",
+    "name": "中級",
+    "slug": "%e4%b8%ad%e7%b4%9a",
+    "taxonomy": "reading_level",
+    "meta": [],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/reading_level/17",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/reading_level"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/reading_level"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts?reading_level=17"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "count": 3,
+    "description": "",
+    "link": "http://nordic-works.local/level/%e5%88%9d%e7%b4%9a/",
+    "name": "初級",
+    "slug": "%e5%88%9d%e7%b4%9a",
+    "taxonomy": "reading_level",
+    "meta": [],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/reading_level/16",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/reading_level"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/reading_level"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts?reading_level=16"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

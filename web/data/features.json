@@ -1,0 +1,1535 @@
+[
+  {
+    "id": 67,
+    "date": "2026-05-14T11:03:48",
+    "date_gmt": "2026-05-14T11:03:48",
+    "guid": {
+      "rendered": "http://nordic-works.local/features/psych-safety-five-actions/"
+    },
+    "modified": "2026-05-14T11:03:48",
+    "modified_gmt": "2026-05-14T11:03:48",
+    "slug": "psych-safety-five-actions",
+    "status": "publish",
+    "type": "feature",
+    "link": "http://localhost:3000/features/psych-safety-five-actions",
+    "title": {
+      "rendered": "心理的安全性入門：明日からできる5つの実践"
+    },
+    "content": {
+      "rendered": "<p>「心理的安全性」というキーワードに触れたばかりの方に向けた入門特集。理論の深掘りから現場での実践、エンジニア組織への適用まで段階的に学べる構成にしています。</p>\n",
+      "protected": false
+    },
+    "featured_media": 87,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [],
+    "topic": [],
+    "class_list": [
+      "post-67",
+      "feature",
+      "type-feature",
+      "status-publish",
+      "has-post-thumbnail",
+      "hentry"
+    ],
+    "acf": {
+      "cover_image": 87,
+      "lead_text": "心理的安全性をこれから組織に導入したいマネージャー・人事担当者向け。誤解の解消から実践、計測、エンジニア組織への応用まで5本の記事で道筋を示します。",
+      "related_articles": [
+        55,
+        60,
+        63,
+        57
+      ],
+      "published_period_start": "20260415",
+      "published_period_end": null
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature/67",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/feature"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature/67/revisions"
+        }
+      ],
+      "acf:post": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts/57"
+        },
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts/63"
+        },
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts/60"
+        },
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts/55"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/media/87"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=67"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "industry",
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=67"
+        },
+        {
+          "taxonomy": "topic",
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/topic?post=67"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "acf:post": [
+        {
+          "id": 57,
+          "date": "2026-05-14T11:03:42",
+          "slug": "1on1-anti-patterns",
+          "type": "post",
+          "link": "http://localhost:3000/articles/1on1-anti-patterns",
+          "title": {
+            "rendered": "1on1ミーティングが形骸化する5つの兆候"
+          },
+          "excerpt": {
+            "rendered": "<p>導入から半年〜1年で形骸化しがちな1on1。「進捗報告会と化す」「キャンセル率が上がる」など、よくある5つの兆候と、その背景にある根本要因を分解します。</p>\n",
+            "protected": false
+          },
+          "author": 1,
+          "featured_media": 77,
+          "acf": {
+            "author_profile": 47,
+            "reading_time": 4,
+            "featured_image_caption": "形骸化はメンバーではなく設計の問題",
+            "related_posts": [
+              65,
+              55
+            ]
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/57",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/post"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/users/1"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=57"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 0,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/57/revisions"
+              }
+            ],
+            "acf:post": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/55"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/65"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/47"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/77"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=57"
+              }
+            ],
+            "wp:term": [
+              {
+                "taxonomy": "category",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/categories?post=57"
+              },
+              {
+                "taxonomy": "post_tag",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/tags?post=57"
+              },
+              {
+                "taxonomy": "industry",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=57"
+              },
+              {
+                "taxonomy": "topic",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/topic?post=57"
+              },
+              {
+                "taxonomy": "reading_level",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/reading_level?post=57"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 63,
+          "date": "2026-05-14T11:03:45",
+          "slug": "engineering-psych-safety",
+          "type": "post",
+          "link": "http://localhost:3000/articles/engineering-psych-safety",
+          "title": {
+            "rendered": "エンジニア組織における心理的安全性の作り方"
+          },
+          "excerpt": {
+            "rendered": "<p>エンジニア特有の文化（コードレビュー、技術的負債の議論、障害対応）における心理的安全性の作り方を、現役EMの視点から具体的なプラクティスで紹介します。</p>\n",
+            "protected": false
+          },
+          "author": 1,
+          "featured_media": 83,
+          "acf": {
+            "author_profile": 47,
+            "reading_time": 6,
+            "featured_image_caption": "コードではなく人を批判しない",
+            "related_posts": [
+              55,
+              60
+            ]
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/63",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/post"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/users/1"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=63"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 0,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/63/revisions"
+              }
+            ],
+            "acf:post": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/60"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/55"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/47"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/83"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=63"
+              }
+            ],
+            "wp:term": [
+              {
+                "taxonomy": "category",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/categories?post=63"
+              },
+              {
+                "taxonomy": "post_tag",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/tags?post=63"
+              },
+              {
+                "taxonomy": "industry",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=63"
+              },
+              {
+                "taxonomy": "topic",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/topic?post=63"
+              },
+              {
+                "taxonomy": "reading_level",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/reading_level?post=63"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 60,
+          "date": "2026-05-14T11:03:44",
+          "slug": "measuring-psych-safety",
+          "type": "post",
+          "link": "http://localhost:3000/articles/measuring-psych-safety",
+          "title": {
+            "rendered": "心理的安全性を測る4つの指標とその落とし穴"
+          },
+          "excerpt": {
+            "rendered": "<p>サーベイで心理的安全性を測ろうとして、かえって組織を疲弊させてしまうケースが増えています。指標の選び方と、よくある落とし穴を4つに分解して説明します。</p>\n",
+            "protected": false
+          },
+          "author": 1,
+          "featured_media": 80,
+          "acf": {
+            "author_profile": 47,
+            "reading_time": 7,
+            "featured_image_caption": "スコアは「変化量」で見るのが鉄則",
+            "related_posts": [
+              55,
+              63
+            ]
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/60",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/post"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/users/1"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=60"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 0,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/60/revisions"
+              }
+            ],
+            "acf:post": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/63"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/55"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/47"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/80"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=60"
+              }
+            ],
+            "wp:term": [
+              {
+                "taxonomy": "category",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/categories?post=60"
+              },
+              {
+                "taxonomy": "post_tag",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/tags?post=60"
+              },
+              {
+                "taxonomy": "industry",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=60"
+              },
+              {
+                "taxonomy": "topic",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/topic?post=60"
+              },
+              {
+                "taxonomy": "reading_level",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/reading_level?post=60"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 55,
+          "date": "2026-05-14T11:03:40",
+          "slug": "psych-safety-not-kindness",
+          "type": "post",
+          "link": "http://localhost:3000/articles/psych-safety-not-kindness",
+          "title": {
+            "rendered": "心理的安全性は「優しさ」ではない、最新の研究が示すこと"
+          },
+          "excerpt": {
+            "rendered": "<p>Amy Edmondsonの近著と関連論文を踏まえ、「心理的安全性 = 優しい職場」という誤解を解きほぐします。むしろ高い基準と健全な対立を支える土台として捉え直す視点を紹介。</p>\n",
+            "protected": false
+          },
+          "author": 1,
+          "featured_media": 75,
+          "acf": {
+            "author_profile": 47,
+            "reading_time": 7,
+            "featured_image_caption": "高い基準と健全な対立を支える土台",
+            "related_posts": [
+              60,
+              63,
+              57
+            ]
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/55",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/post"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/users/1"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=55"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 0,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/55/revisions"
+              }
+            ],
+            "acf:post": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/57"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/63"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/60"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/47"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/75"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=55"
+              }
+            ],
+            "wp:term": [
+              {
+                "taxonomy": "category",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/categories?post=55"
+              },
+              {
+                "taxonomy": "post_tag",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/tags?post=55"
+              },
+              {
+                "taxonomy": "industry",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=55"
+              },
+              {
+                "taxonomy": "topic",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/topic?post=55"
+              },
+              {
+                "taxonomy": "reading_level",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/reading_level?post=55"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 87,
+          "date": "2026-05-14T11:07:36",
+          "slug": "%e5%bf%83%e7%90%86%e7%9a%84%e5%ae%89%e5%85%a8%e6%80%a7%e5%85%a5%e9%96%80%ef%bc%9a%e6%98%8e%e6%97%a5%e3%81%8b%e3%82%89%e3%81%a7%e3%81%8d%e3%82%8b5%e3%81%a4%e3%81%ae%e5%ae%9f%e8%b7%b5",
+          "type": "attachment",
+          "link": "http://localhost:3000/features/psych-safety-five-actions/%e5%bf%83%e7%90%86%e7%9a%84%e5%ae%89%e5%85%a8%e6%80%a7%e5%85%a5%e9%96%80%ef%bc%9a%e6%98%8e%e6%97%a5%e3%81%8b%e3%82%89%e3%81%a7%e3%81%8d%e3%82%8b5%e3%81%a4%e3%81%ae%e5%ae%9f%e8%b7%b5/",
+          "title": {
+            "rendered": "心理的安全性入門：明日からできる5つの実践"
+          },
+          "author": 0,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": "<p>Picsum ID: 699</p>\n"
+          },
+          "alt_text": "",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 1600,
+            "height": 900,
+            "file": "2026/05/900-16.jpg",
+            "filesize": 237731,
+            "sizes": {
+              "medium": {
+                "file": "900-16-300x169.jpg",
+                "width": 300,
+                "height": 169,
+                "filesize": 12472,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-16-300x169.jpg"
+              },
+              "large": {
+                "file": "900-16-1024x576.jpg",
+                "width": 1024,
+                "height": 576,
+                "filesize": 117101,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-16-1024x576.jpg"
+              },
+              "thumbnail": {
+                "file": "900-16-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 5992,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-16-150x150.jpg"
+              },
+              "medium_large": {
+                "file": "900-16-768x432.jpg",
+                "width": 768,
+                "height": 432,
+                "filesize": 67868,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-16-768x432.jpg"
+              },
+              "1536x1536": {
+                "file": "900-16-1536x864.jpg",
+                "width": 1536,
+                "height": 864,
+                "filesize": 246406,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-16-1536x864.jpg"
+              },
+              "full": {
+                "file": "900-16.jpg",
+                "width": 1600,
+                "height": 900,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-16.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "Picsum ID: 699",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "Picsum ID: 699",
+              "orientation": "1",
+              "keywords": []
+            }
+          },
+          "source_url": "/wp-uploads/2026/05/900-16.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/87",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=87"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "feature",
+                "id": 67,
+                "href": "http://nordic-works.local/wp-json/wp/v2/feature/67"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 66,
+    "date": "2026-05-14T11:03:48",
+    "date_gmt": "2026-05-14T11:03:48",
+    "guid": {
+      "rendered": "http://nordic-works.local/features/nordic-remote-work-handbook/"
+    },
+    "modified": "2026-05-14T11:03:48",
+    "modified_gmt": "2026-05-14T11:03:48",
+    "slug": "nordic-remote-work-handbook",
+    "status": "publish",
+    "type": "feature",
+    "link": "http://localhost:3000/features/nordic-remote-work-handbook",
+    "title": {
+      "rendered": "北欧式リモートワークの教科書"
+    },
+    "content": {
+      "rendered": "<p>北欧諸国の働き方をベースに、リモート前提の組織運営を設計するための記事を厳選しました。基礎編から実践編まで、順に読むことで自社の運用を見直す視点が得られます。</p>\n",
+      "protected": false
+    },
+    "featured_media": 86,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [],
+    "topic": [],
+    "class_list": [
+      "post-66",
+      "feature",
+      "type-feature",
+      "status-publish",
+      "has-post-thumbnail",
+      "hentry"
+    ],
+    "acf": {
+      "cover_image": 86,
+      "lead_text": "北欧諸国のリモートワーク文化と、それを日本企業に翻訳した実装パターンを集めた特集。基礎・実践・応用の順で読み進めると、自社の運用を見直す視点が得られます。",
+      "related_articles": [
+        54,
+        59,
+        64,
+        56
+      ],
+      "published_period_start": "20260501",
+      "published_period_end": null
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature/66",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/feature"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature/66/revisions"
+        }
+      ],
+      "acf:post": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts/56"
+        },
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts/64"
+        },
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts/59"
+        },
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts/54"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/media/86"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=66"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "industry",
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=66"
+        },
+        {
+          "taxonomy": "topic",
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/topic?post=66"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "acf:post": [
+        {
+          "id": 56,
+          "date": "2026-05-14T11:03:41",
+          "slug": "denmark-flat-org",
+          "type": "post",
+          "link": "http://localhost:3000/articles/denmark-flat-org",
+          "title": {
+            "rendered": "デンマーク企業に学ぶフラットな組織運営"
+          },
+          "excerpt": {
+            "rendered": "<p>「上司がいないように振る舞う」デンマーク式マネジメント。階層を否定するのではなく、意思決定の透明性を高めることでフラットさを実現する具体的な仕組みを解説します。</p>\n",
+            "protected": false
+          },
+          "author": 1,
+          "featured_media": 76,
+          "acf": {
+            "author_profile": 48,
+            "reading_time": 6,
+            "featured_image_caption": "フラットさは「決め方の透明性」から",
+            "related_posts": [
+              61,
+              62,
+              64
+            ]
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/56",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/post"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/users/1"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=56"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 0,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/56/revisions"
+              }
+            ],
+            "acf:post": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/64"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/62"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/61"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/48"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/76"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=56"
+              }
+            ],
+            "wp:term": [
+              {
+                "taxonomy": "category",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/categories?post=56"
+              },
+              {
+                "taxonomy": "post_tag",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/tags?post=56"
+              },
+              {
+                "taxonomy": "industry",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=56"
+              },
+              {
+                "taxonomy": "topic",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/topic?post=56"
+              },
+              {
+                "taxonomy": "reading_level",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/reading_level?post=56"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 64,
+          "date": "2026-05-14T11:03:46",
+          "slug": "nordic-wlb-patterns",
+          "type": "post",
+          "link": "http://localhost:3000/articles/nordic-wlb-patterns",
+          "title": {
+            "rendered": "北欧的ワークライフバランスの実装パターン"
+          },
+          "excerpt": {
+            "rendered": "<p>北欧諸国の高い労働生産性とワークライフバランスを支える具体的な制度・運用を、日本企業が部分的にでも取り入れられる形で紹介します。</p>\n",
+            "protected": false
+          },
+          "author": 1,
+          "featured_media": 84,
+          "acf": {
+            "author_profile": 48,
+            "reading_time": 5,
+            "featured_image_caption": "トップが先に休む姿勢が最重要",
+            "related_posts": [
+              58,
+              56
+            ]
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/64",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/post"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/users/1"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=64"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 0,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/64/revisions"
+              }
+            ],
+            "acf:post": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/56"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/58"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/48"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/84"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=64"
+              }
+            ],
+            "wp:term": [
+              {
+                "taxonomy": "category",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/categories?post=64"
+              },
+              {
+                "taxonomy": "post_tag",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/tags?post=64"
+              },
+              {
+                "taxonomy": "industry",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=64"
+              },
+              {
+                "taxonomy": "topic",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/topic?post=64"
+              },
+              {
+                "taxonomy": "reading_level",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/reading_level?post=64"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 59,
+          "date": "2026-05-14T11:03:43",
+          "slug": "remote-onboarding-design",
+          "type": "post",
+          "link": "http://localhost:3000/articles/remote-onboarding-design",
+          "title": {
+            "rendered": "リモート時代の新入社員オンボーディング設計"
+          },
+          "excerpt": {
+            "rendered": "<p>リモート前提のオンボーディングは「対面の代替」では機能しません。最初の90日を「関係性」「業務」「文化」の3軸で設計し直す具体的な進め方を整理します。</p>\n",
+            "protected": false
+          },
+          "author": 1,
+          "featured_media": 79,
+          "acf": {
+            "author_profile": 46,
+            "reading_time": 6,
+            "featured_image_caption": "関係性・業務・文化の3軸で設計する",
+            "related_posts": [
+              54,
+              65
+            ]
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/59",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/post"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/users/1"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=59"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 0,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/59/revisions"
+              }
+            ],
+            "acf:post": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/65"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/54"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/46"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/79"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=59"
+              }
+            ],
+            "wp:term": [
+              {
+                "taxonomy": "category",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/categories?post=59"
+              },
+              {
+                "taxonomy": "post_tag",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/tags?post=59"
+              },
+              {
+                "taxonomy": "industry",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=59"
+              },
+              {
+                "taxonomy": "topic",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/topic?post=59"
+              },
+              {
+                "taxonomy": "reading_level",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/reading_level?post=59"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 54,
+          "date": "2026-05-14T11:03:40",
+          "slug": "silence-trap-remote-3rd-year",
+          "type": "post",
+          "link": "http://localhost:3000/articles/silence-trap-remote-3rd-year",
+          "title": {
+            "rendered": "リモートワーク3年目で気づいた「沈黙の罠」"
+          },
+          "excerpt": {
+            "rendered": "<p>リモート定着の3年目に多発する「言いたいことが言われなくなる」現象。心理的安全性が低下しているチームに共通するサインと、マネージャーが取るべき具体的アクションを整理します。</p>\n",
+            "protected": false
+          },
+          "author": 1,
+          "featured_media": 74,
+          "acf": {
+            "author_profile": 46,
+            "reading_time": 5,
+            "featured_image_caption": "静かなチームほど、構造を見直すタイミング",
+            "related_posts": [
+              59,
+              57,
+              64
+            ]
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/54",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/post"
+              }
+            ],
+            "author": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/users/1"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=54"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 0,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/54/revisions"
+              }
+            ],
+            "acf:post": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/64"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/57"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/59"
+              },
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/46"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/74"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=54"
+              }
+            ],
+            "wp:term": [
+              {
+                "taxonomy": "category",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/categories?post=54"
+              },
+              {
+                "taxonomy": "post_tag",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/tags?post=54"
+              },
+              {
+                "taxonomy": "industry",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=54"
+              },
+              {
+                "taxonomy": "topic",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/topic?post=54"
+              },
+              {
+                "taxonomy": "reading_level",
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/reading_level?post=54"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 86,
+          "date": "2026-05-14T11:07:31",
+          "slug": "%e5%8c%97%e6%ac%a7%e5%bc%8f%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e3%81%ae%e6%95%99%e7%a7%91%e6%9b%b8",
+          "type": "attachment",
+          "link": "http://localhost:3000/features/nordic-remote-work-handbook/%e5%8c%97%e6%ac%a7%e5%bc%8f%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e3%81%ae%e6%95%99%e7%a7%91%e6%9b%b8/",
+          "title": {
+            "rendered": "北欧式リモートワークの教科書"
+          },
+          "author": 0,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": "<p>Picsum ID: 15</p>\n"
+          },
+          "alt_text": "",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 1600,
+            "height": 900,
+            "file": "2026/05/900-15.jpg",
+            "filesize": 284748,
+            "sizes": {
+              "medium": {
+                "file": "900-15-300x169.jpg",
+                "width": 300,
+                "height": 169,
+                "filesize": 17797,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-15-300x169.jpg"
+              },
+              "large": {
+                "file": "900-15-1024x576.jpg",
+                "width": 1024,
+                "height": 576,
+                "filesize": 154121,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-15-1024x576.jpg"
+              },
+              "thumbnail": {
+                "file": "900-15-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 8806,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-15-150x150.jpg"
+              },
+              "medium_large": {
+                "file": "900-15-768x432.jpg",
+                "width": 768,
+                "height": 432,
+                "filesize": 93587,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-15-768x432.jpg"
+              },
+              "1536x1536": {
+                "file": "900-15-1536x864.jpg",
+                "width": 1536,
+                "height": 864,
+                "filesize": 302900,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-15-1536x864.jpg"
+              },
+              "full": {
+                "file": "900-15.jpg",
+                "width": 1600,
+                "height": 900,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-15.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "Picsum ID: 15",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "Picsum ID: 15",
+              "orientation": "1",
+              "keywords": []
+            }
+          },
+          "source_url": "/wp-uploads/2026/05/900-15.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/86",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=86"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "feature",
+                "id": 66,
+                "href": "http://nordic-works.local/wp-json/wp/v2/feature/66"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

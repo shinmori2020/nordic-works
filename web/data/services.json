@@ -1,0 +1,683 @@
+[
+  {
+    "id": 51,
+    "date": "2026-05-14T11:03:38",
+    "date_gmt": "2026-05-14T11:03:38",
+    "guid": {
+      "rendered": "http://nordic-works.local/services/org-design-lab/"
+    },
+    "modified": "2026-05-14T11:03:38",
+    "modified_gmt": "2026-05-14T11:03:38",
+    "slug": "org-design-lab",
+    "status": "publish",
+    "type": "service",
+    "link": "http://localhost:3000/services/org-design-lab",
+    "title": {
+      "rendered": "Org Design Lab"
+    },
+    "content": {
+      "rendered": "<p>事業フェーズの変化に応じた組織構造・意思決定設計を、経営層と並走しながら再設計する伴走型コンサルティング。</p>\n<p>3ヶ月〜6ヶ月の中期プログラムで、組織図の書き換えだけでなく、運用が定着するまでをサポートします。</p>\n",
+      "protected": false
+    },
+    "featured_media": 73,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-51",
+      "service",
+      "type-service",
+      "status-publish",
+      "has-post-thumbnail",
+      "hentry"
+    ],
+    "acf": {
+      "subtitle": "組織を「動く形」に再設計する",
+      "hero_image": 73,
+      "features": "伴走型 3〜6ヶ月 | 隔週の経営層セッション+月次の全社展開で、設計から定着までを並走。\n意思決定マトリクス | RACI を発展させた独自フレームで、誰が何を決めるかを明示。\nガバナンス再構築 | 会議体・レポートライン・KPI設計を一括で見直し。",
+      "pricing_plans": "Foundation | ¥6,000,000〜 | 3ヶ月, 経営層伴走, 組織設計ドキュメント, 月次レビュー\nFull Program | ¥12,000,000〜 | 6ヶ月, マネージャー層研修, 運用定着サポート, KPI設計支援",
+      "faq": "どの規模の企業が対象ですか？ | 50名〜500名規模の企業を主な対象としていますが、それ以上の規模でも事業部単位での導入が可能です。\n既存の組織コンサルとの違いは？ | 北欧型のフラット組織知見と、実運用への定着支援を組み合わせている点が特徴です。",
+      "case_study_links": "医療系スタートアップY社 | https://example.com/case/health-y\n製造業Z社の事業部再編 | https://example.com/case/mfg-z",
+      "cta_text": "パートナー相談を申し込む",
+      "cta_url": "/contact?service=org-design"
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/service/51",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/service"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/service"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "http://nordic-works.local/wp-json/wp/v2/service/51/revisions"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/media/73"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=51"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "wp:featuredmedia": [
+        {
+          "id": 73,
+          "date": "2026-05-14T11:06:55",
+          "slug": "org-design-lab-2",
+          "type": "attachment",
+          "link": "http://localhost:3000/services/org-design-lab/org-design-lab-2/",
+          "title": {
+            "rendered": "Org Design Lab"
+          },
+          "author": 0,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": "<p>Picsum ID: 829</p>\n"
+          },
+          "alt_text": "",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 1600,
+            "height": 900,
+            "file": "2026/05/900-2.jpg",
+            "filesize": 226820,
+            "sizes": {
+              "medium": {
+                "file": "900-2-300x169.jpg",
+                "width": 300,
+                "height": 169,
+                "filesize": 13714,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-2-300x169.jpg"
+              },
+              "large": {
+                "file": "900-2-1024x576.jpg",
+                "width": 1024,
+                "height": 576,
+                "filesize": 118151,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-2-1024x576.jpg"
+              },
+              "thumbnail": {
+                "file": "900-2-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 6708,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-2-150x150.jpg"
+              },
+              "medium_large": {
+                "file": "900-2-768x432.jpg",
+                "width": 768,
+                "height": 432,
+                "filesize": 70520,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-2-768x432.jpg"
+              },
+              "1536x1536": {
+                "file": "900-2-1536x864.jpg",
+                "width": 1536,
+                "height": 864,
+                "filesize": 239009,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-2-1536x864.jpg"
+              },
+              "full": {
+                "file": "900-2.jpg",
+                "width": 1600,
+                "height": 900,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-2.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "Picsum ID: 829",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "Picsum ID: 829",
+              "orientation": "1",
+              "keywords": []
+            }
+          },
+          "source_url": "/wp-uploads/2026/05/900-2.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/73",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=73"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "service",
+                "id": 51,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/51"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 50,
+    "date": "2026-05-14T11:03:38",
+    "date_gmt": "2026-05-14T11:03:38",
+    "guid": {
+      "rendered": "http://nordic-works.local/services/remote-culture-diagnosis/"
+    },
+    "modified": "2026-05-14T11:03:38",
+    "modified_gmt": "2026-05-14T11:03:38",
+    "slug": "remote-culture-diagnosis",
+    "status": "publish",
+    "type": "service",
+    "link": "http://localhost:3000/services/remote-culture-diagnosis",
+    "title": {
+      "rendered": "Remote Culture Diagnosis"
+    },
+    "content": {
+      "rendered": "<p>リモートワーク・ハイブリッドワーク下でのチーム文化を診断し、運用改善の優先順位を明示する2週間のコンサルティングプログラム。</p>\n<p>独自フレームワーク「Nordic Remote Index」をベースに、ヒアリング・観察・サーベイの3層で組織の実態を可視化します。</p>\n",
+      "protected": false
+    },
+    "featured_media": 72,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-50",
+      "service",
+      "type-service",
+      "status-publish",
+      "has-post-thumbnail",
+      "hentry"
+    ],
+    "acf": {
+      "subtitle": "リモート文化の健康診断",
+      "hero_image": 72,
+      "features": "2週間集中プログラム | キックオフから報告会まで14日間。経営層の意思決定スピードに合わせた設計。\nNordic Remote Index | 北欧企業の運用事例から抽出した32項目の評価軸で組織を診断。\n実行ロードマップ | 優先度・難易度・期待効果の3軸でアクションを並べた90日プランを提供。",
+      "pricing_plans": "Standard | ¥1,200,000 | 従業員数100名まで, 2週間, 報告会1回\nPlus | ¥2,400,000 | 従業員数300名まで, 3週間, 中間レビュー1回, 報告会2回",
+      "faq": "完全リモートでない組織でも依頼できますか？ | はい。ハイブリッド型・出社中心型の組織でも、それぞれに合わせた診断軸で対応します。\n海外拠点を含む診断は可能ですか？ | 英語・スウェーデン語での実施に対応可能です。事前にご相談ください。",
+      "case_study_links": "SaaS企業X社の組織変革 | https://example.com/case/saas-x",
+      "cta_text": "診断について相談する",
+      "cta_url": "/contact?service=remote-diagnosis"
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/service/50",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/service"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/service"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "http://nordic-works.local/wp-json/wp/v2/service/50/revisions"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/media/72"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=50"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "wp:featuredmedia": [
+        {
+          "id": 72,
+          "date": "2026-05-14T11:06:51",
+          "slug": "remote-culture-diagnosis-2",
+          "type": "attachment",
+          "link": "http://localhost:3000/services/remote-culture-diagnosis/remote-culture-diagnosis-2/",
+          "title": {
+            "rendered": "Remote Culture Diagnosis"
+          },
+          "author": 0,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": "<p>Picsum ID: 546</p>\n"
+          },
+          "alt_text": "",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 1600,
+            "height": 900,
+            "file": "2026/05/900-1.jpg",
+            "filesize": 110435,
+            "sizes": {
+              "medium": {
+                "file": "900-1-300x169.jpg",
+                "width": 300,
+                "height": 169,
+                "filesize": 9418,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-1-300x169.jpg"
+              },
+              "large": {
+                "file": "900-1-1024x576.jpg",
+                "width": 1024,
+                "height": 576,
+                "filesize": 62524,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-1-1024x576.jpg"
+              },
+              "thumbnail": {
+                "file": "900-1-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 5464,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-1-150x150.jpg"
+              },
+              "medium_large": {
+                "file": "900-1-768x432.jpg",
+                "width": 768,
+                "height": 432,
+                "filesize": 39394,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-1-768x432.jpg"
+              },
+              "1536x1536": {
+                "file": "900-1-1536x864.jpg",
+                "width": 1536,
+                "height": 864,
+                "filesize": 118544,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-1-1536x864.jpg"
+              },
+              "full": {
+                "file": "900-1.jpg",
+                "width": 1600,
+                "height": 900,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-1.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "Picsum ID: 546",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "Picsum ID: 546",
+              "orientation": "1",
+              "keywords": []
+            }
+          },
+          "source_url": "/wp-uploads/2026/05/900-1.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/72",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=72"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "service",
+                "id": 50,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/50"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 49,
+    "date": "2026-05-14T11:03:37",
+    "date_gmt": "2026-05-14T11:03:37",
+    "guid": {
+      "rendered": "http://nordic-works.local/services/psychsafe-score/"
+    },
+    "modified": "2026-05-14T11:03:37",
+    "modified_gmt": "2026-05-14T11:03:37",
+    "slug": "psychsafe-score",
+    "status": "publish",
+    "type": "service",
+    "link": "http://localhost:3000/services/psychsafe-score",
+    "title": {
+      "rendered": "PsychSafe Score"
+    },
+    "content": {
+      "rendered": "<p>チーム単位の心理的安全性を数値で可視化するクラウドツール。月次サーベイの自動化、組織図上のヒートマップ表示、改善アクションの提案までを一気通貫で提供します。</p>\n<p>導入企業の約78%が、3ヶ月以内に少なくとも1つのチーム指標で改善を観測しています。</p>\n",
+      "protected": false
+    },
+    "featured_media": 71,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-49",
+      "service",
+      "type-service",
+      "status-publish",
+      "has-post-thumbnail",
+      "hentry"
+    ],
+    "acf": {
+      "subtitle": "チームの心理的安全性を数値化する",
+      "hero_image": 71,
+      "features": "月次自動サーベイ | 匿名性を担保した4軸サーベイを毎月自動配信。回答率向上のためのリマインダーも自動化。\n組織図ヒートマップ | チーム階層を視覚的に表示し、リスクのあるチームを一目で特定。\n改善アクション提案 | スコアパターンに応じた具体的な打ち手を、社内ナレッジから自動でレコメンド。\nAPI・SSO対応 | Slack / Microsoft Teams / Okta / Google Workspace 等の主要ツールと連携可能。",
+      "pricing_plans": "Starter | 月額 ¥30,000〜 | 最大50名, 基本サーベイ, メールサポート\nGrowth | 月額 ¥80,000〜 | 最大200名, カスタムサーベイ, 組織図ヒートマップ, Slack連携\nEnterprise | お問い合わせ | 無制限, SSO, 専任カスタマーサクセス, SLA保証",
+      "faq": "回答は本当に匿名ですか？ | はい。個別回答は経営層を含む誰にも紐づきません。5名以下のチームは集計対象から除外します。\n導入までどのくらいかかりますか？ | 最短2週間。SSO連携を含む場合は3〜4週間を目安にしてください。\n既存のサーベイツールから乗り換え可能ですか？ | CSVインポート機能で過去データの引き継ぎが可能です。",
+      "case_study_links": "株式会社サンプルテック導入事例 | https://example.com/case/sample-tech\nグローバル製造業A社の活用法 | https://example.com/case/global-mfg",
+      "cta_text": "無料デモを予約する",
+      "cta_url": "/contact?service=psychsafe"
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/service/49",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/service"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/service"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "http://nordic-works.local/wp-json/wp/v2/service/49/revisions"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/media/71"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=49"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "wp:featuredmedia": [
+        {
+          "id": 71,
+          "date": "2026-05-14T11:06:48",
+          "slug": "psychsafe-score-2",
+          "type": "attachment",
+          "link": "http://localhost:3000/services/psychsafe-score/psychsafe-score-2/",
+          "title": {
+            "rendered": "PsychSafe Score"
+          },
+          "author": 0,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": "<p>Picsum ID: 909</p>\n"
+          },
+          "alt_text": "",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 1600,
+            "height": 900,
+            "file": "2026/05/900.jpg",
+            "filesize": 131389,
+            "sizes": {
+              "medium": {
+                "file": "900-300x169.jpg",
+                "width": 300,
+                "height": 169,
+                "filesize": 9034,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-300x169.jpg"
+              },
+              "large": {
+                "file": "900-1024x576.jpg",
+                "width": 1024,
+                "height": 576,
+                "filesize": 70642,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-1024x576.jpg"
+              },
+              "thumbnail": {
+                "file": "900-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 4668,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-150x150.jpg"
+              },
+              "medium_large": {
+                "file": "900-768x432.jpg",
+                "width": 768,
+                "height": 432,
+                "filesize": 42459,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-768x432.jpg"
+              },
+              "1536x1536": {
+                "file": "900-1536x864.jpg",
+                "width": 1536,
+                "height": 864,
+                "filesize": 142994,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900-1536x864.jpg"
+              },
+              "full": {
+                "file": "900.jpg",
+                "width": 1600,
+                "height": 900,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/900.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "Picsum ID: 909",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "Picsum ID: 909",
+              "orientation": "1",
+              "keywords": []
+            }
+          },
+          "source_url": "/wp-uploads/2026/05/900.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/71",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=71"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "service",
+                "id": 49,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/49"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

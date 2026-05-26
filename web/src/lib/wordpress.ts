@@ -35,6 +35,42 @@ if (!API_URL && !USE_STATIC && typeof window === 'undefined') {
 }
 
 // =============================================================================
+// Static data loaders (DATA_SOURCE=static 時の web/data/*.json 読み込み)
+//
+// 各 JSON は scripts/export-wp-data.mjs が生成。WP REST と同じ構造で、
+// 画像URLは /wp-uploads/... に書き換え済み。dynamic import は webpack によって
+// 個別チャンクに分割され、static モードのときだけ評価される。
+// =============================================================================
+
+const loadPostsStatic = () =>
+	import('../../data/posts.json').then((m) => m.default as unknown as WPPost[]);
+const loadServicesStatic = () =>
+	import('../../data/services.json').then((m) => m.default as unknown as WPService[]);
+const loadCareersStatic = () =>
+	import('../../data/careers.json').then((m) => m.default as unknown as WPCareer[]);
+const loadFeaturesStatic = () =>
+	import('../../data/features.json').then((m) => m.default as unknown as WPFeature[]);
+const loadAuthorsStatic = () =>
+	import('../../data/authors.json').then(
+		(m) => m.default as unknown as WPAuthorProfile[],
+	);
+const loadIndustriesStatic = () =>
+	import('../../data/industries.json').then((m) => m.default as unknown as WPTerm[]);
+const loadTopicsStatic = () =>
+	import('../../data/topics.json').then((m) => m.default as unknown as WPTerm[]);
+const loadReadingLevelsStatic = () =>
+	import('../../data/reading-levels.json').then(
+		(m) => m.default as unknown as WPTerm[],
+	);
+
+/** タクソノミーキー → 対応するタームJSONのローダ */
+const TAXONOMY_LOADERS: Record<string, () => Promise<WPTerm[]>> = {
+	industry: loadIndustriesStatic,
+	topic: loadTopicsStatic,
+	reading_level: loadReadingLevelsStatic,
+};
+
+// =============================================================================
 // Fetch helper
 // =============================================================================
 
@@ -131,7 +167,14 @@ export async function getPostsByTerm(
 	taxonomy: string,
 	termId: number,
 ): Promise<WPPost[]> {
-	if (USE_STATIC) return [];
+	if (USE_STATIC) {
+		const posts = await loadPostsStatic();
+		// 投稿オブジェクトの taxonomy フィールドは term ID 配列（topic: [12,15] 等）
+		return posts.filter((p) => {
+			const ids = (p as unknown as Record<string, unknown>)[taxonomy];
+			return Array.isArray(ids) && (ids as number[]).includes(termId);
+		});
+	}
 	const data = await wpFetch<WPPost[]>(
 		`posts?${taxonomy}=${termId}&_embed&per_page=100`,
 		{ revalidate: 3600, tags: ['posts', `${taxonomy}-${termId}`] },
@@ -140,10 +183,7 @@ export async function getPostsByTerm(
 }
 
 export async function getPosts(): Promise<WPPost[]> {
-	if (USE_STATIC) {
-		// Week 8 で data/posts.json から読み込む実装に置き換え
-		return [];
-	}
+	if (USE_STATIC) return loadPostsStatic();
 	const data = await wpFetch<WPPost[]>('posts?_embed&per_page=100', {
 		revalidate: 3600,
 		tags: ['posts'],
@@ -152,16 +192,27 @@ export async function getPosts(): Promise<WPPost[]> {
 }
 
 export async function getPostBySlug(slug: string): Promise<WPPost | null> {
+	if (USE_STATIC) {
+		const posts = await loadPostsStatic();
+		return posts.find((p) => p.slug === slug) ?? null;
+	}
 	return fetchBySlug<WPPost>('posts', slug, ['posts', `post-${slug}`], 86400);
 }
 
 /**
  * 投稿IDの配列から投稿を取得する。
  * ACF の relationship フィールド（related_articles 等）は ID 配列で返るため、
- * それを実体の投稿に解決するのに使う。`orderby=include` で指定順を保持する。
+ * それを実体の投稿に解決するのに使う。指定順を保持する。
  */
 export async function getPostsByIds(ids: number[]): Promise<WPPost[]> {
-	if (USE_STATIC || ids.length === 0) return [];
+	if (ids.length === 0) return [];
+	if (USE_STATIC) {
+		const posts = await loadPostsStatic();
+		const byId = new Map(posts.map((p) => [p.id, p]));
+		return ids
+			.map((id) => byId.get(id))
+			.filter((p): p is WPPost => p !== undefined);
+	}
 	const data = await wpFetch<WPPost[]>(
 		`posts?include=${ids.join(',')}&orderby=include&_embed&per_page=100`,
 		{ revalidate: 3600, tags: ['posts'] },
@@ -174,7 +225,7 @@ export async function getPostsByIds(ids: number[]): Promise<WPPost[]> {
 // =============================================================================
 
 export async function getServices(): Promise<WPService[]> {
-	if (USE_STATIC) return [];
+	if (USE_STATIC) return loadServicesStatic();
 	const data = await wpFetch<WPService[]>('service?_embed&per_page=100', {
 		revalidate: 86400,
 		tags: ['services'],
@@ -183,6 +234,10 @@ export async function getServices(): Promise<WPService[]> {
 }
 
 export async function getServiceBySlug(slug: string): Promise<WPService | null> {
+	if (USE_STATIC) {
+		const items = await loadServicesStatic();
+		return items.find((s) => s.slug === slug) ?? null;
+	}
 	return fetchBySlug<WPService>('service', slug, ['services', `service-${slug}`], 86400);
 }
 
@@ -191,7 +246,7 @@ export async function getServiceBySlug(slug: string): Promise<WPService | null> 
 // =============================================================================
 
 export async function getCareers(): Promise<WPCareer[]> {
-	if (USE_STATIC) return [];
+	if (USE_STATIC) return loadCareersStatic();
 	const data = await wpFetch<WPCareer[]>('career?_embed&per_page=100', {
 		revalidate: 86400,
 		tags: ['careers'],
@@ -200,6 +255,10 @@ export async function getCareers(): Promise<WPCareer[]> {
 }
 
 export async function getCareerBySlug(slug: string): Promise<WPCareer | null> {
+	if (USE_STATIC) {
+		const items = await loadCareersStatic();
+		return items.find((c) => c.slug === slug) ?? null;
+	}
 	return fetchBySlug<WPCareer>('career', slug, ['careers', `career-${slug}`], 86400);
 }
 
@@ -208,7 +267,7 @@ export async function getCareerBySlug(slug: string): Promise<WPCareer | null> {
 // =============================================================================
 
 export async function getFeatures(): Promise<WPFeature[]> {
-	if (USE_STATIC) return [];
+	if (USE_STATIC) return loadFeaturesStatic();
 	const data = await wpFetch<WPFeature[]>('feature?_embed&per_page=100', {
 		revalidate: 3600,
 		tags: ['features'],
@@ -217,6 +276,10 @@ export async function getFeatures(): Promise<WPFeature[]> {
 }
 
 export async function getFeatureBySlug(slug: string): Promise<WPFeature | null> {
+	if (USE_STATIC) {
+		const items = await loadFeaturesStatic();
+		return items.find((f) => f.slug === slug) ?? null;
+	}
 	return fetchBySlug<WPFeature>('feature', slug, ['features', `feature-${slug}`], 86400);
 }
 
@@ -225,7 +288,7 @@ export async function getFeatureBySlug(slug: string): Promise<WPFeature | null> 
 // =============================================================================
 
 export async function getAuthors(): Promise<WPAuthorProfile[]> {
-	if (USE_STATIC) return [];
+	if (USE_STATIC) return loadAuthorsStatic();
 	const data = await wpFetch<WPAuthorProfile[]>('author_profile?_embed&per_page=100', {
 		revalidate: 86400,
 		tags: ['authors'],
@@ -234,7 +297,10 @@ export async function getAuthors(): Promise<WPAuthorProfile[]> {
 }
 
 export async function getAuthorBySlug(slug: string): Promise<WPAuthorProfile | null> {
-	if (USE_STATIC) return null;
+	if (USE_STATIC) {
+		const items = await loadAuthorsStatic();
+		return items.find((a) => a.slug === slug) ?? null;
+	}
 	const data = await wpFetch<WPAuthorProfile[]>(
 		`author_profile?slug=${encodeURIComponent(slug)}&_embed`,
 		{
@@ -251,7 +317,10 @@ export async function getAuthorBySlug(slug: string): Promise<WPAuthorProfile | n
  * それを実体の著者に解決するのに使う。
  */
 export async function getAuthorById(id: number): Promise<WPAuthorProfile | null> {
-	if (USE_STATIC) return null;
+	if (USE_STATIC) {
+		const items = await loadAuthorsStatic();
+		return items.find((a) => a.id === id) ?? null;
+	}
 	return wpFetch<WPAuthorProfile>(`author_profile/${id}?_embed`, {
 		revalidate: 86400,
 		tags: ['authors', `author-${id}`],
@@ -263,7 +332,7 @@ export async function getAuthorById(id: number): Promise<WPAuthorProfile | null>
 // =============================================================================
 
 export async function getIndustries(): Promise<WPTerm[]> {
-	if (USE_STATIC) return [];
+	if (USE_STATIC) return loadIndustriesStatic();
 	const data = await wpFetch<WPTerm[]>('industry?per_page=100', {
 		revalidate: 86400,
 		tags: ['taxonomies', 'industries'],
@@ -272,7 +341,7 @@ export async function getIndustries(): Promise<WPTerm[]> {
 }
 
 export async function getTopics(): Promise<WPTerm[]> {
-	if (USE_STATIC) return [];
+	if (USE_STATIC) return loadTopicsStatic();
 	const data = await wpFetch<WPTerm[]>('topic?per_page=100', {
 		revalidate: 86400,
 		tags: ['taxonomies', 'topics'],
@@ -281,7 +350,7 @@ export async function getTopics(): Promise<WPTerm[]> {
 }
 
 export async function getReadingLevels(): Promise<WPTerm[]> {
-	if (USE_STATIC) return [];
+	if (USE_STATIC) return loadReadingLevelsStatic();
 	const data = await wpFetch<WPTerm[]>('reading_level?per_page=100', {
 		revalidate: 86400,
 		tags: ['taxonomies', 'reading-levels'],
@@ -297,7 +366,18 @@ export async function getTermBySlug(
 	taxonomy: string,
 	slug: string,
 ): Promise<WPTerm | null> {
-	if (USE_STATIC) return null;
+	if (USE_STATIC) {
+		const loader = TAXONOMY_LOADERS[taxonomy];
+		if (!loader) return null;
+		const terms = await loader();
+		// REST 上の slug は日本語が URL エンコードされた状態で保存されている。
+		// 呼び出し側はデコード済み slug を渡すため、両者の形を寄せて比較する。
+		return (
+			terms.find(
+				(t) => t.slug === slug || decodeURIComponent(t.slug) === slug,
+			) ?? null
+		);
+	}
 	const data = await wpFetch<WPTerm[]>(
 		`${taxonomy}?slug=${encodeURIComponent(slug)}`,
 		{ revalidate: 86400, tags: ['taxonomies', taxonomy] },

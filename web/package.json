@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "export-wp": "node scripts/export-wp-data.mjs"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",

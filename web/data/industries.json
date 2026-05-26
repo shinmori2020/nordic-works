@@ -1,0 +1,296 @@
+[
+  {
+    "id": 2,
+    "count": 12,
+    "description": "",
+    "link": "http://nordic-works.local/industry/it-saas/",
+    "name": "IT / SaaS",
+    "slug": "it-saas",
+    "taxonomy": "industry",
+    "parent": 0,
+    "meta": [],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry/2",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/industry"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts?industry=2"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=2"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "count": 3,
+    "description": "",
+    "link": "http://nordic-works.local/industry/%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e6%a5%ad/",
+    "name": "サービス業",
+    "slug": "%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e6%a5%ad",
+    "taxonomy": "industry",
+    "parent": 0,
+    "meta": [],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry/5",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/industry"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts?industry=5"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=5"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "count": 1,
+    "description": "",
+    "link": "http://nordic-works.local/industry/%e5%8c%bb%e7%99%82%e3%83%bb%e3%83%98%e3%83%ab%e3%82%b9%e3%82%b1%e3%82%a2/",
+    "name": "医療・ヘルスケア",
+    "slug": "%e5%8c%bb%e7%99%82%e3%83%bb%e3%83%98%e3%83%ab%e3%82%b9%e3%82%b1%e3%82%a2",
+    "taxonomy": "industry",
+    "parent": 0,
+    "meta": [],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry/6",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/industry"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts?industry=6"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=6"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "count": 0,
+    "description": "",
+    "link": "http://nordic-works.local/industry/%e5%b0%8f%e5%a3%b2%e3%83%bbec/",
+    "name": "小売・EC",
+    "slug": "%e5%b0%8f%e5%a3%b2%e3%83%bbec",
+    "taxonomy": "industry",
+    "parent": 0,
+    "meta": [],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry/4",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/industry"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts?industry=4"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=4"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "count": 2,
+    "description": "",
+    "link": "http://nordic-works.local/industry/%e8%a3%bd%e9%80%a0%e6%a5%ad/",
+    "name": "製造業",
+    "slug": "%e8%a3%bd%e9%80%a0%e6%a5%ad",
+    "taxonomy": "industry",
+    "parent": 0,
+    "meta": [],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry/3",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/industry"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts?industry=3"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=3"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "count": 1,
+    "description": "",
+    "link": "http://nordic-works.local/industry/%e9%87%91%e8%9e%8d%e3%83%bb%e4%bf%9d%e9%99%ba/",
+    "name": "金融・保険",
+    "slug": "%e9%87%91%e8%9e%8d%e3%83%bb%e4%bf%9d%e9%99%ba",
+    "taxonomy": "industry",
+    "parent": 0,
+    "meta": [],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry/7",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/industry"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts?industry=7"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=7"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]
