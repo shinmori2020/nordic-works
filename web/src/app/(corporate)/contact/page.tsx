@@ -14,17 +14,18 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
 	return (
-		<main className="mx-auto max-w-2xl px-6 py-16">
+		<main className="mx-auto max-w-6xl px-6 py-16">
 			<p className="text-xs uppercase tracking-widest text-zinc-500">Contact</p>
 			<h1 className="mt-2 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">
 				お問い合わせ
 			</h1>
-			<p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+			<p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
 				サービス導入のご相談、取材・登壇のご依頼、その他お問い合わせは
 				下記フォームよりお送りください。通常2〜3営業日以内にご返信します。
 			</p>
 
-			<div className="mt-10">
+			{/* フォーム自体は読みやすさのため幅を抑える（max-w-2xl） */}
+			<div className="mt-10 max-w-2xl">
 				<ContactForm />
 			</div>
 		</main>
