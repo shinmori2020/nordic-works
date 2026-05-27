@@ -1,7 +1,7 @@
 [
   {
     "id": 12,
-    "count": 1,
+    "count": 4,
     "description": "",
     "link": "http://nordic-works.local/topic/1on1/",
     "name": "1on1",
@@ -49,7 +49,7 @@
   },
   {
     "id": 15,
-    "count": 2,
+    "count": 5,
     "description": "",
     "link": "http://nordic-works.local/topic/%e3%82%ab%e3%83%ab%e3%83%81%e3%83%a3%e3%83%bc/",
     "name": "カルチャー",
@@ -97,7 +97,7 @@
   },
   {
     "id": 13,
-    "count": 3,
+    "count": 12,
     "description": "",
     "link": "http://nordic-works.local/topic/%e3%83%9e%e3%83%8d%e3%82%b8%e3%83%a1%e3%83%b3%e3%83%88/",
     "name": "マネジメント",
@@ -145,7 +145,7 @@
   },
   {
     "id": 8,
-    "count": 2,
+    "count": 4,
     "description": "",
     "link": "http://nordic-works.local/topic/%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%af%e3%83%bc%e3%82%af/",
     "name": "リモートワーク",
@@ -193,7 +193,7 @@
   },
   {
     "id": 11,
-    "count": 3,
+    "count": 7,
     "description": "",
     "link": "http://nordic-works.local/topic/%e5%8c%97%e6%ac%a7%e3%81%ae%e5%83%8d%e3%81%8d%e6%96%b9/",
     "name": "北欧の働き方",
@@ -241,7 +241,7 @@
   },
   {
     "id": 9,
-    "count": 4,
+    "count": 6,
     "description": "",
     "link": "http://nordic-works.local/topic/%e5%bf%83%e7%90%86%e7%9a%84%e5%ae%89%e5%85%a8%e6%80%a7/",
     "name": "心理的安全性",
@@ -289,7 +289,7 @@
   },
   {
     "id": 14,
-    "count": 1,
+    "count": 3,
     "description": "",
     "link": "http://nordic-works.local/topic/%e6%8e%a1%e7%94%a8%e6%88%a6%e7%95%a5/",
     "name": "採用戦略",
@@ -337,7 +337,7 @@
   },
   {
     "id": 10,
-    "count": 3,
+    "count": 7,
     "description": "",
     "link": "http://nordic-works.local/topic/%e7%b5%84%e7%b9%94%e3%83%87%e3%82%b6%e3%82%a4%e3%83%b3/",
     "name": "組織デザイン",
