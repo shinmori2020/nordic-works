@@ -128,87 +128,85 @@ export function SearchClient({ initialQuery }: { initialQuery: string }) {
 	}
 
 	return (
-		<div className="grid gap-8 lg:grid-cols-[1fr_240px]">
-			{/* メイン: 入力 + 結果 */}
-			<div>
-				<div className="relative">
-					<input
-						type="search"
-						value={query}
-						onChange={(e) => setQuery(e.target.value)}
-						placeholder="記事を検索（例: 心理的安全性、リモートワーク）"
-						className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 transition-colors focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
-						autoFocus
-					/>
-				</div>
+		<div>
+			{/* 検索入力 */}
+			<input
+				type="search"
+				value={query}
+				onChange={(e) => setQuery(e.target.value)}
+				placeholder="記事を検索（例: 心理的安全性、リモートワーク）"
+				className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 transition-colors focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+				autoFocus
+			/>
 
-				<p className="mt-3 text-sm text-zinc-500">
-					{loading
-						? '検索中…'
-						: query
-							? `${data.nbHits} 件ヒット（${data.processingTime} ms）`
-							: 'キーワードを入力してください'}
-				</p>
+			<p className="mt-3 text-sm text-zinc-500">
+				{loading
+					? '検索中…'
+					: query
+						? `${data.nbHits} 件ヒット（${data.processingTime} ms）`
+						: 'キーワードを入力してください'}
+			</p>
 
-				<ul className="mt-6 space-y-6">
-					{data.hits.map((hit) => (
-						<li
-							key={hit.objectID}
-							className="border-b border-zinc-200 pb-6 last:border-0 dark:border-zinc-800"
-						>
-							<Link href={hit.url} className="group block">
-								{hit.topics && hit.topics.length > 0 && (
-									<p className="text-xs uppercase tracking-wide text-zinc-500">
-										{hit.topics[0]}
-									</p>
-								)}
-								<h3
-									className="mt-1 font-semibold text-zinc-900 transition-colors group-hover:text-zinc-500 dark:text-zinc-100"
-									dangerouslySetInnerHTML={{
-										__html: hit._highlightResult?.title?.value ?? hit.title,
-									}}
-								/>
-								<p
-									className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400"
-									dangerouslySetInnerHTML={{
-										__html:
-											hit._snippetResult?.content?.value ??
-											hit._snippetResult?.excerpt?.value ??
-											hit.excerpt,
-									}}
-								/>
-							</Link>
-						</li>
-					))}
-				</ul>
-
-				{query && !loading && data.hits.length === 0 && (
-					<p className="mt-6 text-sm text-zinc-500">
-						該当する記事は見つかりませんでした。
-					</p>
-				)}
-			</div>
-
-			{/* サイドバー: ファセット */}
-			<aside className="space-y-6 lg:sticky lg:top-20 lg:self-start">
-				<FacetGroup
+			{/* ファセット（横並びチップ） */}
+			<div className="mt-6 space-y-3">
+				<FacetChips
 					label="トピック"
 					entries={topicEntries}
 					selected={facetTopic}
 					onChange={setFacetTopic}
 				/>
-				<FacetGroup
+				<FacetChips
 					label="業界"
 					entries={industryEntries}
 					selected={facetIndustry}
 					onChange={setFacetIndustry}
 				/>
-			</aside>
+			</div>
+
+			{/* 結果リスト */}
+			<ul className="mt-8 space-y-6">
+				{data.hits.map((hit) => (
+					<li
+						key={hit.objectID}
+						className="border-b border-zinc-200 pb-6 last:border-0 dark:border-zinc-800"
+					>
+						<Link href={hit.url} className="group block">
+							{hit.topics && hit.topics.length > 0 && (
+								<p className="text-xs uppercase tracking-wide text-zinc-500">
+									{hit.topics[0]}
+								</p>
+							)}
+							<h3
+								className="mt-1 font-semibold text-zinc-900 transition-colors group-hover:text-zinc-500 dark:text-zinc-100"
+								dangerouslySetInnerHTML={{
+									__html: hit._highlightResult?.title?.value ?? hit.title,
+								}}
+							/>
+							<p
+								className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400"
+								dangerouslySetInnerHTML={{
+									__html:
+										hit._snippetResult?.content?.value ??
+										hit._snippetResult?.excerpt?.value ??
+										hit.excerpt,
+								}}
+							/>
+						</Link>
+					</li>
+				))}
+			</ul>
+
+			{query && !loading && data.hits.length === 0 && (
+				<p className="mt-6 text-sm text-zinc-500">
+					該当する記事は見つかりませんでした。
+				</p>
+			)}
 		</div>
 	);
 }
 
-function FacetGroup({
+/** 横並び型のファセット選択UI（ラベル + チップ列） */
+function FacetChips({
 	label,
 	entries,
 	selected,
@@ -221,31 +219,30 @@ function FacetGroup({
 }) {
 	if (entries.length === 0) return null;
 	return (
-		<div>
-			<p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
+		<div className="flex flex-wrap items-center gap-2">
+			<span className="text-xs font-medium uppercase tracking-widest text-zinc-500">
 				{label}
-			</p>
-			<ul className="mt-2 space-y-1">
-				{entries.map(([name, count]) => {
-					const active = name === selected;
-					return (
-						<li key={name}>
-							<button
-								type="button"
-								onClick={() => onChange(active ? null : name)}
-								className={`flex w-full items-center justify-between rounded px-2 py-1 text-sm transition-colors ${
-									active
-										? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900'
-										: 'text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800'
-								}`}
-							>
-								<span>{name}</span>
-								<span className="text-xs opacity-70">{count}</span>
-							</button>
-						</li>
-					);
-				})}
-			</ul>
+			</span>
+			{entries.map(([name, count]) => {
+				const active = name === selected;
+				return (
+					<button
+						key={name}
+						type="button"
+						onClick={() => onChange(active ? null : name)}
+						className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs transition-colors ${
+							active
+								? 'border-zinc-900 bg-zinc-900 text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900'
+								: 'border-zinc-300 text-zinc-700 hover:border-zinc-500 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:bg-zinc-900'
+						}`}
+					>
+						<span>{name}</span>
+						<span className={`text-[10px] ${active ? 'opacity-80' : 'text-zinc-500'}`}>
+							{count}
+						</span>
+					</button>
+				);
+			})}
 		</div>
 	);
 }
