@@ -334,3 +334,105 @@ add_action(
 	10,
 	3
 );
+
+/* =============================================================================
+ * Algolia インデックス連携
+ *
+ * 公開済みの post を保存した瞬間に Algolia へ送信し、検索インデックスを最新に保つ。
+ *
+ * 認証情報（Admin Key）はリポジトリに含めないため、wp-config.php に以下のように
+ * 定数定義する想定（wp-config.php は Git 管理外）:
+ *
+ *   define( 'NORDIC_ALGOLIA_APP_ID', 'XXXXXXXXXX' );
+ *   define( 'NORDIC_ALGOLIA_ADMIN_KEY', 'xxxxxxxx...' );
+ *   define( 'NORDIC_ALGOLIA_INDEX', 'nordic_works' );
+ *
+ * 未定義の場合はインデックス送信を黙ってスキップする（プラグインは止めない）。
+ * ---------------------------------------------------------------------------*/
+
+/** HTMLタグ除去 + 連続空白の正規化 */
+function nordic_strip_html_for_search( $html ) {
+	if ( ! is_string( $html ) || '' === $html ) {
+		return '';
+	}
+	$text = wp_strip_all_tags( $html );
+	$text = html_entity_decode( $text, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+	return trim( preg_replace( '/\s+/u', ' ', $text ) );
+}
+
+/** 投稿に紐づくタクソノミー名を文字列配列で取り出す */
+function nordic_post_term_names( $post_id, $taxonomy ) {
+	$terms = wp_get_post_terms( $post_id, $taxonomy, array( 'fields' => 'names' ) );
+	return is_wp_error( $terms ) ? array() : array_values( $terms );
+}
+
+/** 投稿を Algolia レコードに変換 */
+function nordic_post_to_algolia_record( $post ) {
+	$thumb_id  = get_post_thumbnail_id( $post->ID );
+	$image_url = $thumb_id ? wp_get_attachment_image_url( $thumb_id, 'full' ) : null;
+
+	return array(
+		'objectID'      => (string) $post->ID,
+		'title'         => nordic_strip_html_for_search( $post->post_title ),
+		'excerpt'       => nordic_strip_html_for_search( get_the_excerpt( $post ) ),
+		'content'       => substr( nordic_strip_html_for_search( $post->post_content ), 0, 5000 ),
+		'slug'          => $post->post_name,
+		'date'          => mysql_to_rfc3339( $post->post_date_gmt ),
+		'modified'      => mysql_to_rfc3339( $post->post_modified_gmt ),
+		'image'         => $image_url,
+		'topics'        => nordic_post_term_names( $post->ID, 'topic' ),
+		'industries'    => nordic_post_term_names( $post->ID, 'industry' ),
+		'readingLevels' => nordic_post_term_names( $post->ID, 'reading_level' ),
+		'readingTime'   => function_exists( 'get_field' )
+			? ( get_field( 'reading_time', $post->ID ) ?: null )
+			: null,
+		'url'           => '/articles/' . $post->post_name,
+	);
+}
+
+/**
+ * 公開済み記事を Algolia にインデックス（save_post 時）。
+ * 下書き・非対象タイプはスキップする。
+ */
+function nordic_index_to_algolia( $post_id ) {
+	if ( wp_is_post_autosave( $post_id ) || wp_is_post_revision( $post_id ) ) {
+		return;
+	}
+	if ( ! defined( 'NORDIC_ALGOLIA_APP_ID' ) || ! defined( 'NORDIC_ALGOLIA_ADMIN_KEY' ) ) {
+		return; // wp-config.php に未定義 → サイレントスキップ
+	}
+
+	$post = get_post( $post_id );
+	if ( ! $post || 'publish' !== $post->post_status || 'post' !== $post->post_type ) {
+		return;
+	}
+
+	$app_id    = NORDIC_ALGOLIA_APP_ID;
+	$admin_key = NORDIC_ALGOLIA_ADMIN_KEY;
+	$index     = defined( 'NORDIC_ALGOLIA_INDEX' ) ? NORDIC_ALGOLIA_INDEX : 'nordic_works';
+	$record    = nordic_post_to_algolia_record( $post );
+
+	// PUT https://{app}-dsn.algolianet.com/1/indexes/{index}/{objectID}
+	$url = sprintf(
+		'https://%s-dsn.algolianet.com/1/indexes/%s/%s',
+		strtolower( $app_id ),
+		rawurlencode( $index ),
+		rawurlencode( $record['objectID'] )
+	);
+
+	wp_remote_request(
+		$url,
+		array(
+			'method'   => 'PUT',
+			'headers'  => array(
+				'Content-Type'            => 'application/json',
+				'X-Algolia-API-Key'       => $admin_key,
+				'X-Algolia-Application-Id' => $app_id,
+			),
+			'body'     => wp_json_encode( $record ),
+			'blocking' => false, // 投げっぱなしで保存体感速度を保つ
+			'timeout'  => 5,
+		)
+	);
+}
+add_action( 'save_post', 'nordic_index_to_algolia' );

@@ -49,6 +49,23 @@ export function Header() {
 						))}
 					</nav>
 
+					{/* 検索ボタン → /search */}
+					<Link
+						href="/search"
+						aria-label="記事を検索"
+						className="flex h-9 w-9 items-center justify-center rounded-md text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
+					>
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+							<circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.8" />
+							<path
+								d="m20 20-3.5-3.5"
+								stroke="currentColor"
+								strokeWidth="1.8"
+								strokeLinecap="round"
+							/>
+						</svg>
+					</Link>
+
 					{/* テーマ切替（全幅で表示） */}
 					<div className="ml-1">
 						<ThemeToggle />
