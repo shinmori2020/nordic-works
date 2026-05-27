@@ -205,7 +205,7 @@ export function SearchClient({ initialQuery }: { initialQuery: string }) {
 	);
 }
 
-/** 横並び型のファセット選択UI（ラベル + チップ列） */
+/** 横並び型のファセット選択UI（ラベル + チップ列 + クリアボタン） */
 function FacetChips({
 	label,
 	entries,
@@ -217,7 +217,7 @@ function FacetChips({
 	selected: string | null;
 	onChange: (v: string | null) => void;
 }) {
-	if (entries.length === 0) return null;
+	if (entries.length === 0 && !selected) return null;
 	return (
 		<div className="flex flex-wrap items-center gap-2">
 			<span className="text-xs font-medium uppercase tracking-widest text-zinc-500">
@@ -243,6 +243,24 @@ function FacetChips({
 					</button>
 				);
 			})}
+			{selected && (
+				<button
+					type="button"
+					onClick={() => onChange(null)}
+					aria-label={`${label} の絞り込みをクリア`}
+					className="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+				>
+					<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+						<path
+							d="M4 4l8 8M12 4l-8 8"
+							stroke="currentColor"
+							strokeWidth="1.5"
+							strokeLinecap="round"
+						/>
+					</svg>
+					<span>クリア</span>
+				</button>
+			)}
 		</div>
 	);
 }
