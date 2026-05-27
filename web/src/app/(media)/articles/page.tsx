@@ -23,7 +23,7 @@ export default async function ArticlesPage() {
 	const posts = await getPosts();
 
 	return (
-		<main className="mx-auto max-w-5xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-12">
 			<header className="mb-10">
 				<Link href="/" className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100">
 					← ホーム

@@ -20,7 +20,7 @@ export default async function ServicesPage() {
 	const services = await getServices();
 
 	return (
-		<main className="mx-auto max-w-5xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-12">
 			<header className="mb-10">
 				<p className="text-xs uppercase tracking-widest text-zinc-500">Services</p>
 				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">サービス</h1>
