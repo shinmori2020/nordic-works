@@ -24,8 +24,7 @@ export default function ContactPage() {
 				下記フォームよりお送りください。通常2〜3営業日以内にご返信します。
 			</p>
 
-			{/* フォーム自体は読みやすさのため幅を抑える（max-w-2xl） */}
-			<div className="mt-10 max-w-2xl">
+			<div className="mt-10">
 				<ContactForm />
 			</div>
 		</main>
