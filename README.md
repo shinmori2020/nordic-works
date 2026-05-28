@@ -139,7 +139,7 @@ WP 管理画面の「プレビュー」ボタン → Next.js で下書き表示 
 
 WP で既存記事を更新 → 数秒以内に Next.js 側のキャッシュがクリアされ、リロードで即時反映される動作。`save_post` フックからの非同期 webhook と `revalidateTag('tag', 'max')`（Next.js 16 新仕様）の組み合わせ。
 
-> 🔴 録画予定 — `YOUR_VIDEO_ID_1` / `YOUR_VIDEO_ID_2` は録画 + YouTube 限定公開後に差し替え予定。録画台本は [`docs/demo-script.md`](./docs/demo-script.md)、YouTube 概要欄テンプレートは [`docs/youtube-descriptions.md`](./docs/youtube-descriptions.md) に用意済み。
+> 🔴 録画予定 — `YOUR_VIDEO_ID_1` / `YOUR_VIDEO_ID_2` は録画 + YouTube 限定公開後に差し替え予定。
 
 ---
 
@@ -151,8 +151,6 @@ nordic-works/
 ├ CLAUDE.md                          ← AI 補助作業用
 ├ docs/                              ← 設計・進捗ログ
 │  ├ 01-overview.md 〜 09-deployment-strategy.md   設計ドキュメント
-│  ├ demo-script.md                  動画録画台本
-│  ├ youtube-descriptions.md         YouTube 概要欄テンプレート
 │  └ progress/                       Week 別の作業ログ（21ファイル）
 ├ web/                               ← Next.js プロジェクト
 │  ├ src/
