@@ -30,17 +30,20 @@ export function Footer() {
 						</p>
 					</div>
 
-					<nav className="flex flex-col gap-2">
+					<nav>
 						<p className="text-xs uppercase tracking-widest text-zinc-400">Sitemap</p>
-						{FOOTER_LINKS.map((link) => (
-							<Link
-								key={link.href}
-								href={link.href}
-								className="text-sm text-zinc-600 dark:text-zinc-400 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-							>
-								{link.label}
-							</Link>
-						))}
+						<ul className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
+							{FOOTER_LINKS.map((link) => (
+								<li key={link.href}>
+									<Link
+										href={link.href}
+										className="text-sm text-zinc-600 dark:text-zinc-400 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
+									>
+										{link.label}
+									</Link>
+								</li>
+							))}
+						</ul>
 					</nav>
 				</div>
 
