@@ -1,7 +1,7 @@
 [
   {
     "id": 18,
-    "count": 9,
+    "count": 15,
     "description": "",
     "link": "http://nordic-works.local/level/%e4%b8%8a%e7%b4%9a/",
     "name": "上級",
@@ -46,7 +46,7 @@
   },
   {
     "id": 17,
-    "count": 13,
+    "count": 21,
     "description": "",
     "link": "http://nordic-works.local/level/%e4%b8%ad%e7%b4%9a/",
     "name": "中級",
@@ -91,7 +91,7 @@
   },
   {
     "id": 16,
-    "count": 5,
+    "count": 6,
     "description": "",
     "link": "http://nordic-works.local/level/%e5%88%9d%e7%b4%9a/",
     "name": "初級",

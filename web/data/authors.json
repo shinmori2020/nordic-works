@@ -6,8 +6,8 @@
     "guid": {
       "rendered": "http://nordic-works.local/authors/lindberg-anna/"
     },
-    "modified": "2026-05-14T11:03:37",
-    "modified_gmt": "2026-05-14T11:03:37",
+    "modified": "2026-05-28T10:14:09",
+    "modified_gmt": "2026-05-28T10:14:09",
     "slug": "lindberg-anna",
     "status": "publish",
     "type": "author_profile",
@@ -16,7 +16,7 @@
       "rendered": "リンドベリ・アンナ"
     },
     "content": {
-      "rendered": "<p>ストックホルム出身の北欧文化アドバイザー。</p>\n",
+      "rendered": "<p>ストックホルム出身の北欧文化アドバイザー。日本のB2B企業に向けて、北欧型の働き方・組織文化を翻訳的に伝える役割を担う。スウェーデン語・英語・日本語のトリリンガル。</p>\n",
       "protected": false
     },
     "featured_media": 70,
@@ -35,7 +35,7 @@
     "acf": {
       "photo": 70,
       "position": "北欧文化アドバイザー",
-      "bio": "日本のB2B企業に向けて、北欧型の働き方・組織文化を翻訳的に伝える役割を担う。\nスウェーデン語・英語・日本語のトリリンガル。",
+      "bio": "日本のB2B企業に向けて、北欧型の働き方・組織文化を翻訳的に伝える役割を担う。スウェーデン語・英語・日本語のトリリンガル。日本在住8年、過去にはストックホルムの組織コンサルティングファームで勤務経験あり。\n「北欧型をそのまま輸入するのではなく、日本の文脈に翻訳する」アプローチを得意とする。フラット組織・ワークライフ統合・男性育休文化など、北欧の実践を日本企業に伝える講演・執筆を多数手がける。趣味は日本各地の温泉巡り。",
       "twitter_url": "",
       "linkedin_url": "https://linkedin.com/in/example-lindberg",
       "website_url": "https://example.com/anna"
@@ -208,8 +208,8 @@
     "guid": {
       "rendered": "http://nordic-works.local/authors/tanaka-kenichi/"
     },
-    "modified": "2026-05-14T11:03:36",
-    "modified_gmt": "2026-05-14T11:03:36",
+    "modified": "2026-05-28T10:14:04",
+    "modified_gmt": "2026-05-28T10:14:04",
     "slug": "tanaka-kenichi",
     "status": "publish",
     "type": "author_profile",
@@ -218,7 +218,7 @@
       "rendered": "田中 健一"
     },
     "content": {
-      "rendered": "<p>元エンジニアマネージャー、現組織開発リード。</p>\n",
+      "rendered": "<p>元エンジニアマネージャー、現組織開発リード。技術組織の管理職としての実体験と、組織開発の専門知識を融合させた独自のアプローチで、エンジニアリング組織の変革支援を行う。</p>\n",
       "protected": false
     },
     "featured_media": 69,
@@ -237,7 +237,7 @@
     "acf": {
       "photo": 69,
       "position": "組織開発リード",
-      "bio": "スタートアップから大企業まで、職種を問わず1on1とフィードバック設計の導入支援を行う。\nテック組織のマネジメントに関する寄稿多数。",
+      "bio": "スタートアップから大企業まで、職種を問わず1on1とフィードバック設計の導入支援を行う。テック組織のマネジメントに関する寄稿多数。前職では100名規模のエンジニアリング組織のマネージャーを5年経験。\n技術的バックグラウンドを活かし、エンジニア向けのマネジメント研修・1on1ワークショップを年20回以上開催。「技術者から見て納得感のある組織論」を伝えることを得意とする。最近の関心はエンジニア組織の評価制度設計。",
       "twitter_url": "https://twitter.com/example_tanaka",
       "linkedin_url": "https://linkedin.com/in/example-tanaka",
       "website_url": ""
@@ -410,8 +410,8 @@
     "guid": {
       "rendered": "http://nordic-works.local/authors/sato-misaki/"
     },
-    "modified": "2026-05-14T11:03:36",
-    "modified_gmt": "2026-05-14T11:03:36",
+    "modified": "2026-05-28T10:14:00",
+    "modified_gmt": "2026-05-28T10:14:00",
     "slug": "sato-misaki",
     "status": "publish",
     "type": "author_profile",
@@ -420,7 +420,7 @@
       "rendered": "佐藤 美咲"
     },
     "content": {
-      "rendered": "<p>組織開発コンサルタントとして10年以上のキャリア。</p>\n",
+      "rendered": "<p>組織開発コンサルタントとして10年以上のキャリア。スタートアップから上場企業まで、多様な規模・業種の組織変革に携わる。リモートワーク文化・心理的安全性に関する執筆・登壇多数。</p>\n",
       "protected": false
     },
     "featured_media": 68,
@@ -439,7 +439,7 @@
     "acf": {
       "photo": 68,
       "position": "シニアコンサルタント",
-      "bio": "大手SaaS企業のチームビルディング支援に多数携わる。\n心理的安全性に関する執筆多数。",
+      "bio": "大手SaaS企業のチームビルディング支援に多数携わる。前職はグローバルコンサルティングファームで組織変革プロジェクトをリード。心理的安全性に関する執筆は、雑誌・Webメディア合わせて50本以上。\n大学院では組織心理学を専攻し、修士号取得。研究と実務の両面から組織を見る視点を大切にしている。最近の関心領域は、リモート時代のチームビルディングと、評価制度の納得感設計。",
       "twitter_url": "https://twitter.com/example_sato",
       "linkedin_url": "https://linkedin.com/in/example-sato",
       "website_url": ""

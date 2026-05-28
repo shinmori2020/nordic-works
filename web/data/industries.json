@@ -1,7 +1,7 @@
 [
   {
     "id": 2,
-    "count": 27,
+    "count": 42,
     "description": "",
     "link": "http://nordic-works.local/industry/it-saas/",
     "name": "IT / SaaS",
@@ -50,7 +50,7 @@
   },
   {
     "id": 5,
-    "count": 9,
+    "count": 18,
     "description": "",
     "link": "http://nordic-works.local/industry/%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e6%a5%ad/",
     "name": "サービス業",
@@ -197,7 +197,7 @@
   },
   {
     "id": 3,
-    "count": 3,
+    "count": 5,
     "description": "",
     "link": "http://nordic-works.local/industry/%e8%a3%bd%e9%80%a0%e6%a5%ad/",
     "name": "製造業",
@@ -246,7 +246,7 @@
   },
   {
     "id": 7,
-    "count": 2,
+    "count": 3,
     "description": "",
     "link": "http://nordic-works.local/industry/%e9%87%91%e8%9e%8d%e3%83%bb%e4%bf%9d%e9%99%ba/",
     "name": "金融・保険",

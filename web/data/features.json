@@ -6,8 +6,8 @@
     "guid": {
       "rendered": "http://nordic-works.local/features/psych-safety-five-actions/"
     },
-    "modified": "2026-05-14T11:03:48",
-    "modified_gmt": "2026-05-14T11:03:48",
+    "modified": "2026-05-28T10:13:55",
+    "modified_gmt": "2026-05-28T10:13:55",
     "slug": "psych-safety-five-actions",
     "status": "publish",
     "type": "feature",
@@ -16,7 +16,7 @@
       "rendered": "心理的安全性入門：明日からできる5つの実践"
     },
     "content": {
-      "rendered": "<p>「心理的安全性」というキーワードに触れたばかりの方に向けた入門特集。理論の深掘りから現場での実践、エンジニア組織への適用まで段階的に学べる構成にしています。</p>\n",
+      "rendered": "<p>「心理的安全性」というキーワードに触れたばかりの方に向けた入門特集。理論の深掘りから現場での実践、エンジニア組織への適用まで段階的に学べる構成にしています。</p>\n<h2>この特集について</h2>\n<p>心理的安全性は、Google の Project Aristotle 以降、組織開発の中心的テーマになりました。しかし「優しい職場のこと」「衝突を避けること」と誤解されている例も多く、本来の意味と効果が広まりきっていません。</p>\n<h2>5本の記事で押さえるべきこと</h2>\n<p>まず誤解の解消（理論編）、次に計測の落とし穴（実装編）、そしてエンジニア組織での具体例（応用編）、最後に 1on1 での実践（運用編）。順に読むことで、心理的安全性を「言葉」から「実装」のレベルに引き上げられます。</p>\n",
       "protected": false
     },
     "featured_media": 87,
@@ -37,7 +37,7 @@
     ],
     "acf": {
       "cover_image": 87,
-      "lead_text": "心理的安全性をこれから組織に導入したいマネージャー・人事担当者向け。誤解の解消から実践、計測、エンジニア組織への応用まで5本の記事で道筋を示します。",
+      "lead_text": "心理的安全性をこれから組織に導入したいマネージャー・人事担当者向け。誤解の解消から実践、計測、エンジニア組織への応用まで5本の記事で道筋を示します。それぞれの記事は独立して読めますが、順に読むと体系的に理解が進む構成にしています。",
       "related_articles": [
         55,
         60,
@@ -70,8 +70,14 @@
       ],
       "version-history": [
         {
-          "count": 0,
+          "count": 1,
           "href": "http://nordic-works.local/wp-json/wp/v2/feature/67/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 190,
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature/67/revisions/190"
         }
       ],
       "acf:post": [
@@ -135,7 +141,7 @@
             "rendered": "1on1ミーティングが形骸化する5つの兆候"
           },
           "excerpt": {
-            "rendered": "<p>導入から半年〜1年で形骸化しがちな1on1。「進捗報告会と化す」「キャンセル率が上がる」など、よくある5つの兆候と、その背景にある根本要因を分解します。</p>\n",
+            "rendered": "<p>導入から半年〜1年で形骸化しがちな1on1。「進捗報告会と化す」「キャンセル率が上がる」など、よくある5つの兆候と、その背景にある根本要因、そして立て直しのための具体的な順序まで分解して整理します。</p>\n",
             "protected": false
           },
           "author": 1,
@@ -184,8 +190,14 @@
             ],
             "version-history": [
               {
-                "count": 0,
+                "count": 1,
                 "href": "http://nordic-works.local/wp-json/wp/v2/posts/57/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 130,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/57/revisions/130"
               }
             ],
             "acf:post": [
@@ -259,7 +271,7 @@
             "rendered": "エンジニア組織における心理的安全性の作り方"
           },
           "excerpt": {
-            "rendered": "<p>エンジニア特有の文化（コードレビュー、技術的負債の議論、障害対応）における心理的安全性の作り方を、現役EMの視点から具体的なプラクティスで紹介します。</p>\n",
+            "rendered": "<p>エンジニア組織の心理的安全性は、一般的な組織論とは少し異なる工夫が必要です。コードレビュー文化、技術的負債の議論、障害対応プロセスといった技術組織特有の文脈での実装パターンを、具体例を交えて整理します。</p>\n",
             "protected": false
           },
           "author": 1,
@@ -308,8 +320,14 @@
             ],
             "version-history": [
               {
-                "count": 0,
+                "count": 1,
                 "href": "http://nordic-works.local/wp-json/wp/v2/posts/63/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 136,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/63/revisions/136"
               }
             ],
             "acf:post": [
@@ -383,7 +401,7 @@
             "rendered": "心理的安全性を測る4つの指標とその落とし穴"
           },
           "excerpt": {
-            "rendered": "<p>サーベイで心理的安全性を測ろうとして、かえって組織を疲弊させてしまうケースが増えています。指標の選び方と、よくある落とし穴を4つに分解して説明します。</p>\n",
+            "rendered": "<p>サーベイで心理的安全性を測ろうとして、かえって組織を疲弊させてしまうケースが増えています。指標の選び方と、よくある落とし穴を4つに分解。日本企業特有のバイアスとその補正法、行動指標との組み合わせ方まで具体的に説明します。</p>\n",
             "protected": false
           },
           "author": 1,
@@ -432,8 +450,14 @@
             ],
             "version-history": [
               {
-                "count": 0,
+                "count": 1,
                 "href": "http://nordic-works.local/wp-json/wp/v2/posts/60/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 133,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/60/revisions/133"
               }
             ],
             "acf:post": [
@@ -507,7 +531,7 @@
             "rendered": "心理的安全性は「優しさ」ではない、最新の研究が示すこと"
           },
           "excerpt": {
-            "rendered": "<p>Amy Edmondsonの近著と関連論文を踏まえ、「心理的安全性 = 優しい職場」という誤解を解きほぐします。むしろ高い基準と健全な対立を支える土台として捉え直す視点を紹介。</p>\n",
+            "rendered": "<p>Amy Edmondsonの近著と関連論文を踏まえ、「心理的安全性 = 優しい職場」という誤解を解きほぐします。むしろ高い基準と健全な対立を支える土台として捉え直す視点と、4つの象限による組織分析、そして実践への具体的な落とし込みを紹介します。</p>\n",
             "protected": false
           },
           "author": 1,
@@ -557,8 +581,14 @@
             ],
             "version-history": [
               {
-                "count": 0,
+                "count": 1,
                 "href": "http://nordic-works.local/wp-json/wp/v2/posts/55/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 128,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/55/revisions/128"
               }
             ],
             "acf:post": [
@@ -770,8 +800,8 @@
     "guid": {
       "rendered": "http://nordic-works.local/features/nordic-remote-work-handbook/"
     },
-    "modified": "2026-05-14T11:03:48",
-    "modified_gmt": "2026-05-14T11:03:48",
+    "modified": "2026-05-28T10:13:51",
+    "modified_gmt": "2026-05-28T10:13:51",
     "slug": "nordic-remote-work-handbook",
     "status": "publish",
     "type": "feature",
@@ -780,7 +810,7 @@
       "rendered": "北欧式リモートワークの教科書"
     },
     "content": {
-      "rendered": "<p>北欧諸国の働き方をベースに、リモート前提の組織運営を設計するための記事を厳選しました。基礎編から実践編まで、順に読むことで自社の運用を見直す視点が得られます。</p>\n",
+      "rendered": "<p>北欧諸国の働き方をベースに、リモート前提の組織運営を設計するための記事を厳選しました。基礎編から実践編まで、順に読むことで自社の運用を見直す視点が得られます。</p>\n<h2>この特集について</h2>\n<p>「リモートワークを導入した」だけで終わらず、本当に機能するリモート組織を作るには、構造的な設計と継続的な調整が必要です。北欧諸国は対面とリモートを柔軟に組み合わせる文化を10年以上前から確立しており、その知見は日本企業にも翻訳的に応用可能です。</p>\n<h2>読む順序の提案</h2>\n<p>まず「沈黙の罠」で典型的な失敗パターンを理解し、次に「オンボーディング設計」「ワークライフバランス」で実装パターンを学び、最後に「デンマーク式フラット組織」で組織構造の話に進む順序がおすすめです。</p>\n",
       "protected": false
     },
     "featured_media": 86,
@@ -801,7 +831,7 @@
     ],
     "acf": {
       "cover_image": 86,
-      "lead_text": "北欧諸国のリモートワーク文化と、それを日本企業に翻訳した実装パターンを集めた特集。基礎・実践・応用の順で読み進めると、自社の運用を見直す視点が得られます。",
+      "lead_text": "北欧諸国のリモートワーク文化と、それを日本企業に翻訳した実装パターンを集めた特集。基礎・実践・応用の順で読み進めると、自社の運用を見直す視点が得られます。リモート3年目で「なんとなく機能していない」と感じている組織には、すぐに使えるヒントが詰まっています。",
       "related_articles": [
         54,
         59,
@@ -834,8 +864,14 @@
       ],
       "version-history": [
         {
-          "count": 0,
+          "count": 1,
           "href": "http://nordic-works.local/wp-json/wp/v2/feature/66/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 189,
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature/66/revisions/189"
         }
       ],
       "acf:post": [
@@ -899,7 +935,7 @@
             "rendered": "デンマーク企業に学ぶフラットな組織運営"
           },
           "excerpt": {
-            "rendered": "<p>「上司がいないように振る舞う」デンマーク式マネジメント。階層を否定するのではなく、意思決定の透明性を高めることでフラットさを実現する具体的な仕組みを解説します。</p>\n",
+            "rendered": "<p>「上司がいないように振る舞う」デンマーク式マネジメント。階層を否定するのではなく、意思決定の透明性を高めることでフラットさを実現する具体的な仕組みを解説します。日本企業への現実的な適用方法と、よくある失敗パターンまで含めて整理します。</p>\n",
             "protected": false
           },
           "author": 1,
@@ -949,8 +985,14 @@
             ],
             "version-history": [
               {
-                "count": 0,
+                "count": 1,
                 "href": "http://nordic-works.local/wp-json/wp/v2/posts/56/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 129,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/56/revisions/129"
               }
             ],
             "acf:post": [
@@ -1028,7 +1070,7 @@
             "rendered": "北欧的ワークライフバランスの実装パターン"
           },
           "excerpt": {
-            "rendered": "<p>北欧諸国の高い労働生産性とワークライフバランスを支える具体的な制度・運用を、日本企業が部分的にでも取り入れられる形で紹介します。</p>\n",
+            "rendered": "<p>北欧諸国の高い労働生産性とワークライフバランスを支える具体的な制度・運用を、日本企業が部分的にでも取り入れられる形で整理します。「全部真似する」ではなく「自社で機能する形に翻訳する」視点で解説します。</p>\n",
             "protected": false
           },
           "author": 1,
@@ -1077,8 +1119,14 @@
             ],
             "version-history": [
               {
-                "count": 0,
+                "count": 1,
                 "href": "http://nordic-works.local/wp-json/wp/v2/posts/64/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 137,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/64/revisions/137"
               }
             ],
             "acf:post": [
@@ -1152,7 +1200,7 @@
             "rendered": "リモート時代の新入社員オンボーディング設計"
           },
           "excerpt": {
-            "rendered": "<p>リモート前提のオンボーディングは「対面の代替」では機能しません。最初の90日を「関係性」「業務」「文化」の3軸で設計し直す具体的な進め方を整理します。</p>\n",
+            "rendered": "<p>リモート前提のオンボーディングは「対面の代替」では機能しません。最初の90日を「関係性」「業務」「文化」の3軸で設計し直す具体的な進め方と、よくある失敗パターン、そして実装テンプレートまで整理します。</p>\n",
             "protected": false
           },
           "author": 1,
@@ -1201,8 +1249,14 @@
             ],
             "version-history": [
               {
-                "count": 0,
+                "count": 1,
                 "href": "http://nordic-works.local/wp-json/wp/v2/posts/59/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 132,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/59/revisions/132"
               }
             ],
             "acf:post": [
@@ -1276,7 +1330,7 @@
             "rendered": "リモートワーク3年目で気づいた「沈黙の罠」"
           },
           "excerpt": {
-            "rendered": "<p>リモート定着の3年目に多発する「言いたいことが言われなくなる」現象。心理的安全性が低下しているチームに共通するサインと、マネージャーが取るべき具体的アクションを整理します。</p>\n",
+            "rendered": "<p>リモート定着の3年目に多発する「言いたいことが言われなくなる」現象。心理的安全性が低下しているチームに共通するサインと、マネージャーが取るべき具体的アクション、そして組織として整えるべき構造的な打ち手まで整理します。</p>\n",
             "protected": false
           },
           "author": 1,
@@ -1326,8 +1380,14 @@
             ],
             "version-history": [
               {
-                "count": 0,
+                "count": 1,
                 "href": "http://nordic-works.local/wp-json/wp/v2/posts/54/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 127,
+                "href": "http://nordic-works.local/wp-json/wp/v2/posts/54/revisions/127"
               }
             ],
             "acf:post": [
