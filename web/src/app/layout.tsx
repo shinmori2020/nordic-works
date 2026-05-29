@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { draftMode } from 'next/headers';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
 import { PreviewBanner } from '@/components/common/PreviewBanner';
 import { ThemeProvider } from '@/components/common/ThemeProvider';
+import { CookieConsent } from '@/components/common/CookieConsent';
 import {
 	SITE_URL,
 	SITE_NAME,
@@ -83,7 +86,12 @@ export default async function RootLayout({
 					<Header />
 					<div className="flex-1">{children}</div>
 					<Footer />
+					<CookieConsent />
 				</ThemeProvider>
+				{/* Vercel Web Analytics / Speed Insights。
+				    本番環境（Vercel デプロイ時）でのみ計測が走り、開発時は no-op。 */}
+				<Analytics />
+				<SpeedInsights />
 			</body>
 		</html>
 	);

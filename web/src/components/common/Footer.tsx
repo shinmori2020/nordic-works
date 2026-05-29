@@ -12,6 +12,7 @@ const FOOTER_LINKS = [
 	{ href: '/careers', label: 'Careers' },
 	{ href: '/about', label: 'About' },
 	{ href: '/contact', label: 'Contact' },
+	{ href: '/privacy', label: 'Privacy' },
 ];
 
 export function Footer() {
