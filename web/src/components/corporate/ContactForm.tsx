@@ -16,7 +16,11 @@ const initialState: ContactFormState = { status: 'idle', message: '' };
 const inputClass =
 	'mt-1.5 w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 transition-colors focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100';
 
-export function ContactForm() {
+/**
+ * @param initialMessage - 遷移元から伝えたい本文の下書き（例: 料金プランCTAから）。
+ *   defaultValue で初期表示するだけなので、ユーザーが自由に編集できる。
+ */
+export function ContactForm({ initialMessage = '' }: { initialMessage?: string }) {
 	const [state, formAction, pending] = useActionState(submitContact, initialState);
 
 	if (state.status === 'success') {
@@ -109,6 +113,7 @@ export function ContactForm() {
 					name="message"
 					required
 					rows={6}
+					defaultValue={initialMessage}
 					aria-invalid={Boolean(err.message)}
 					aria-describedby={err.message ? 'message-error' : undefined}
 					className={inputClass}

@@ -1,5 +1,8 @@
 /**
  * お問い合わせページ — /contact
+ *
+ * 料金プランCTAから来た場合は ?service=...&plan=... を読んで
+ * メッセージ欄に下書きを入れる。検索パラメータは Next.js 15+ で Promise。
  */
 
 import type { Metadata } from 'next';
@@ -12,7 +15,26 @@ export const metadata: Metadata = {
 	alternates: { canonical: '/contact' },
 };
 
-export default function ContactPage() {
+interface PageProps {
+	searchParams: Promise<{ service?: string; plan?: string }>;
+}
+
+/** クエリから自動入力するメッセージ下書きを組み立てる */
+function buildInitialMessage(service?: string, plan?: string): string {
+	if (!service && !plan) return '';
+	const head =
+		service && plan
+			? `「${service}」の ${plan} プランについてご相談したいです。`
+			: service
+				? `「${service}」についてご相談したいです。`
+				: '';
+	return `${head}\n\n（以下に詳細をご記入ください）\n`;
+}
+
+export default async function ContactPage({ searchParams }: PageProps) {
+	const { service, plan } = await searchParams;
+	const initialMessage = buildInitialMessage(service, plan);
+
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-16">
 			<p className="text-xs uppercase tracking-widest text-zinc-500">Contact</p>
@@ -25,7 +47,7 @@ export default function ContactPage() {
 			</p>
 
 			<div className="mt-10">
-				<ContactForm />
+				<ContactForm initialMessage={initialMessage} />
 			</div>
 		</main>
 	);

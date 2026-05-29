@@ -59,8 +59,29 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 	const faq = parseFaq(acf?.faq);
 	const caseStudies = parseCaseStudyLinks(acf?.case_study_links);
 
+	// schema.org FAQPage 構造化データ（Google 検索結果に FAQ リッチリザルトを出すため）
+	const faqJsonLd =
+		faq.length > 0
+			? {
+					'@context': 'https://schema.org',
+					'@type': 'FAQPage',
+					mainEntity: faq.map((item) => ({
+						'@type': 'Question',
+						name: item.question,
+						acceptedAnswer: { '@type': 'Answer', text: item.answer },
+					})),
+				}
+			: null;
+
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-12">
+			{faqJsonLd && (
+				<script
+					type="application/ld+json"
+					// 自社管理コンテンツのため XSS リスクなし
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+				/>
+			)}
 			<Breadcrumbs
 				items={[
 					{ label: 'ホーム', href: '/' },
@@ -115,48 +136,91 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 					</section>
 				)}
 
-				{/* 料金プラン */}
+				{/* 料金プラン。プランが3つあるときは中央を「推奨」として強調する。 */}
 				{pricingPlans.length > 0 && (
 					<section className="mt-14">
-						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">料金プラン</h2>
+						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
+							料金プラン
+						</h2>
 						<div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-							{pricingPlans.map((plan, i) => (
-								<div
-									key={i}
-									className="flex flex-col rounded-lg border border-zinc-200 dark:border-zinc-800 p-6"
-								>
-									<h3 className="font-semibold text-zinc-900 dark:text-zinc-100">{plan.name}</h3>
-									<p className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-										{plan.price}
-									</p>
-									{plan.includedFeatures.length > 0 && (
-										<ul className="mt-4 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400">
-											{plan.includedFeatures.map((item, j) => (
-												<li key={j} className="flex gap-2">
-													<span className="text-zinc-400">•</span>
-													<span>{item}</span>
-												</li>
-											))}
-										</ul>
-									)}
-								</div>
-							))}
+							{pricingPlans.map((plan, i) => {
+								const isRecommended =
+									pricingPlans.length === 3 && i === 1;
+								return (
+									<div
+										key={i}
+										className={`flex flex-col rounded-lg border p-6 transition-colors ${
+											isRecommended
+												? 'border-zinc-900 bg-zinc-50 dark:border-zinc-100 dark:bg-zinc-900'
+												: 'border-zinc-200 dark:border-zinc-800'
+										}`}
+									>
+										{isRecommended && (
+											<p className="mb-2 text-xs font-semibold uppercase tracking-widest text-zinc-900 dark:text-zinc-100">
+												おすすめ
+											</p>
+										)}
+										<h3 className="font-semibold text-zinc-900 dark:text-zinc-100">
+											{plan.name}
+										</h3>
+										<p className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+											{plan.price}
+										</p>
+										{plan.includedFeatures.length > 0 && (
+											<ul className="mt-4 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400">
+												{plan.includedFeatures.map((item, j) => (
+													<li key={j} className="flex gap-2">
+														<span className="text-zinc-400">•</span>
+														<span>{item}</span>
+													</li>
+												))}
+											</ul>
+										)}
+										<Link
+											href={`/contact?plan=${encodeURIComponent(plan.name)}&service=${encodeURIComponent(stripHtml(service.title.rendered))}`}
+											className={`mt-6 inline-block rounded-md px-4 py-2 text-center text-sm font-medium transition-colors ${
+												isRecommended
+													? 'bg-zinc-900 text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300'
+													: 'border border-zinc-300 text-zinc-900 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800'
+											}`}
+										>
+											このプランで相談する
+										</Link>
+									</div>
+								);
+							})}
 						</div>
 					</section>
 				)}
 
-				{/* FAQ */}
+				{/* FAQ。<details>/<summary> でJSなしの折りたたみ。最初の1件のみ開いておく。 */}
 				{faq.length > 0 && (
 					<section className="mt-14">
-						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">よくある質問</h2>
-						<div className="mt-6 space-y-6">
+						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
+							よくある質問
+						</h2>
+						<div className="mt-6 divide-y divide-zinc-200 dark:divide-zinc-800">
 							{faq.map((item, i) => (
-								<div key={i} className="border-b border-zinc-200 dark:border-zinc-800 pb-6">
-									<h3 className="font-semibold text-zinc-900 dark:text-zinc-100">Q. {item.question}</h3>
-									<p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-										A. {item.answer}
+								<details
+									key={i}
+									open={i === 0}
+									className="group py-4 [&_summary::-webkit-details-marker]:hidden"
+								>
+									<summary className="flex cursor-pointer list-none items-start justify-between gap-4">
+										<span className="font-semibold text-zinc-900 dark:text-zinc-100">
+											Q. {item.question}
+										</span>
+										<span
+											aria-hidden="true"
+											className="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"
+										>
+											▾
+										</span>
+									</summary>
+									<p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+										{item.answer}
 									</p>
-								</div>
+								</details>
 							))}
 						</div>
 					</section>
