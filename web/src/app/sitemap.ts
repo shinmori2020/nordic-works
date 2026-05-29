@@ -17,6 +17,7 @@ import {
 	getTopics,
 } from '@/lib/wordpress';
 import { absoluteUrl } from '@/lib/site';
+import { WHITEPAPERS } from '@/lib/whitepapers';
 
 export const revalidate = 3600;
 
@@ -32,7 +33,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		{ url: absoluteUrl('/services'), lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
 		{ url: absoluteUrl('/careers'), lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
 		{ url: absoluteUrl('/authors'), lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+		{ url: absoluteUrl('/resources'), lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
 	];
+
+	const whitepaperRoutes: SitemapEntry[] = WHITEPAPERS.map((wp) => ({
+		url: absoluteUrl(`/resources/${wp.slug}`),
+		lastModified: new Date(wp.publishedAt),
+		changeFrequency: 'monthly',
+		priority: 0.6,
+	}));
 
 	// 全エントリを並行取得（失敗しても空配列で続行）
 	const [posts, services, careers, features, authors, topics, industries, readingLevels] =
@@ -98,5 +107,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		})),
 	];
 
-	return [...staticRoutes, ...dynamicRoutes];
+	return [...staticRoutes, ...whitepaperRoutes, ...dynamicRoutes];
 }

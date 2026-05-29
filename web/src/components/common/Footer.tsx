@@ -10,6 +10,7 @@ const FOOTER_LINKS = [
 	{ href: '/articles', label: 'Insights' },
 	{ href: '/services', label: 'Services' },
 	{ href: '/careers', label: 'Careers' },
+	{ href: '/resources', label: 'Resources' },
 	{ href: '/about', label: 'About' },
 	{ href: '/contact', label: 'Contact' },
 	{ href: '/privacy', label: 'Privacy' },
