@@ -5,9 +5,9 @@
  * 「ラベル + ターム名 + 該当記事のグリッド」を同じ見た目で描画する。
  */
 
-import Link from 'next/link';
 import type { WPPost, WPTerm } from '@/types/wordpress';
 import { ArticleCard } from './ArticleCard';
+import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 
 interface Props {
 	/** タクソノミー区分の表示ラベル（例: "トピック"） */
@@ -20,13 +20,14 @@ export function TaxonomyArticleList({ taxonomyLabel, term, posts }: Props) {
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-12">
 			<header className="mb-10">
-				<Link
-					href="/articles"
-					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-				>
-					← 記事一覧に戻る
-				</Link>
-				<p className="mt-2 text-xs uppercase tracking-widest text-zinc-500">
+				<Breadcrumbs
+					items={[
+						{ label: 'ホーム', href: '/' },
+						{ label: 'Insights', href: '/articles' },
+						{ label: term.name },
+					]}
+				/>
+				<p className="mt-3 text-xs uppercase tracking-widest text-zinc-500">
 					{taxonomyLabel}
 				</p>
 				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">{term.name}</h1>

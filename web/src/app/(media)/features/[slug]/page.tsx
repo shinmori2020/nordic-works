@@ -12,6 +12,7 @@ import { notFound } from 'next/navigation';
 import { getFeatureBySlug, getFeatures, getPostsByIds } from '@/lib/wordpress';
 import { ArticleCard } from '@/components/media/ArticleCard';
 import { getFeaturedImage, stripHtml, formatDate } from '@/lib/utils';
+import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import type { SlugPageProps } from '@/types/wordpress';
 
 // ISR: 特集は記事より更新頻度が高いため1時間
@@ -67,12 +68,13 @@ export default async function FeatureDetailPage({ params }: SlugPageProps) {
 
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-12">
-			<Link
-				href="/features"
-				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-			>
-				← 特集一覧に戻る
-			</Link>
+			<Breadcrumbs
+				items={[
+					{ label: 'ホーム', href: '/' },
+					{ label: 'Features', href: '/features' },
+					{ label: stripHtml(feature.title.rendered) },
+				]}
+			/>
 
 			<article className="mt-6">
 				{/* ヘッダー */}

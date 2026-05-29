@@ -15,6 +15,7 @@ import { SITE_NAME, absoluteUrl } from '@/lib/site';
 import { ArticleCard } from '@/components/media/ArticleCard';
 import { ReadingProgress } from '@/components/media/ReadingProgress';
 import { TableOfContents } from '@/components/media/TableOfContents';
+import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import type { SlugPageProps } from '@/types/wordpress';
 
 // ISR: 個別記事は更新頻度が低いため24時間（docs/06-features.md の方針）
@@ -116,12 +117,13 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 				// 自社管理コンテンツ由来の静的JSONなので XSS リスクなし
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
 			/>
-			<Link
-				href="/articles"
-				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-			>
-				← 記事一覧に戻る
-			</Link>
+			<Breadcrumbs
+				items={[
+					{ label: 'ホーム', href: '/' },
+					{ label: 'Insights', href: '/articles' },
+					{ label: stripHtml(post.title.rendered) },
+				]}
+			/>
 
 			<article className="mt-6">
 				{/* 業界タグ */}

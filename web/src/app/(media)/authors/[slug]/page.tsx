@@ -12,6 +12,7 @@ import { notFound } from 'next/navigation';
 import { getAuthorBySlug, getAuthors, getPosts } from '@/lib/wordpress';
 import { ArticleCard } from '@/components/media/ArticleCard';
 import { getFeaturedImage } from '@/lib/utils';
+import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import type { SlugPageProps } from '@/types/wordpress';
 
 // ISR: 著者情報は更新頻度が低いため24時間
@@ -64,12 +65,13 @@ export default async function AuthorDetailPage({ params }: SlugPageProps) {
 
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-12">
-			<Link
-				href="/authors"
-				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-			>
-				← 執筆者一覧に戻る
-			</Link>
+			<Breadcrumbs
+				items={[
+					{ label: 'ホーム', href: '/' },
+					{ label: 'Authors', href: '/authors' },
+					{ label: author.title.rendered },
+				]}
+			/>
 
 			{/* プロフィール */}
 			<section className="mt-6 flex flex-col items-center text-center sm:flex-row sm:items-start sm:gap-6 sm:text-left">

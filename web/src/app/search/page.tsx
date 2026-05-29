@@ -5,8 +5,8 @@
  */
 
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { SearchClient } from '@/components/search/SearchClient';
+import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 
 export const metadata: Metadata = {
 	title: '検索',
@@ -25,13 +25,13 @@ export default async function SearchPage({ searchParams }: PageProps) {
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-12">
 			<header className="mb-8">
-				<Link
-					href="/articles"
-					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-				>
-					← 記事一覧に戻る
-				</Link>
-				<p className="mt-2 text-xs uppercase tracking-widest text-zinc-500">Search</p>
+				<Breadcrumbs
+					items={[
+						{ label: 'ホーム', href: '/' },
+						{ label: 'Search' },
+					]}
+				/>
+				<p className="mt-3 text-xs uppercase tracking-widest text-zinc-500">Search</p>
 				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">
 					検索
 				</h1>

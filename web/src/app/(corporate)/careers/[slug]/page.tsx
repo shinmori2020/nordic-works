@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getCareerBySlug, getCareers } from '@/lib/wordpress';
 import { stripHtml, parseLines, positionTypeLabel } from '@/lib/utils';
+import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import type { SlugPageProps } from '@/types/wordpress';
 
 // ISR: 採用情報は更新頻度が低いため24時間
@@ -76,12 +77,13 @@ export default async function CareerDetailPage({ params }: SlugPageProps) {
 
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-12">
-			<Link
-				href="/careers"
-				className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-			>
-				← 採用情報一覧に戻る
-			</Link>
+			<Breadcrumbs
+				items={[
+					{ label: 'ホーム', href: '/' },
+					{ label: 'Careers', href: '/careers' },
+					{ label: stripHtml(career.title.rendered) },
+				]}
+			/>
 
 			<article className="mt-6">
 				{/* ヘッダー */}
