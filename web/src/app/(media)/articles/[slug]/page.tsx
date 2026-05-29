@@ -93,6 +93,15 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 		)
 		.slice(0, 3);
 
+	// 同じ著者が執筆した他の記事の件数（CTA に件数を出すため）
+	const otherAuthorPostsCount = author
+		? allPosts.filter(
+				(p) => p.id !== post.id && p.acf?.author_profile === author.id,
+			).length
+		: 0;
+	// 著者プロフィール画像（authors/[slug] と同じく _embedded のアイキャッチを使用）
+	const authorPhoto = author ? getFeaturedImage(author) : null;
+
 	// schema.org BlogPosting 構造化データ（Google の記事リッチリザルト対応）
 	const articleJsonLd = {
 		'@context': 'https://schema.org',
@@ -152,7 +161,17 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 					{typeof post.acf?.reading_time === 'number' && (
 						<span>· {post.acf.reading_time}分で読めます</span>
 					)}
-					{author && <span>· 著者: {author.title.rendered}</span>}
+					{author && (
+						<span>
+							· 著者:{' '}
+							<Link
+								href={`/authors/${author.slug}`}
+								className="underline-offset-2 transition-colors hover:text-zinc-900 hover:underline dark:hover:text-zinc-100"
+							>
+								{author.title.rendered}
+							</Link>
+						</span>
+					)}
 				</div>
 
 				{/* アイキャッチ画像 */}
@@ -208,15 +227,48 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 
 				{/* 著者プロフィール */}
 				{author && (
-					<aside className="mt-8 rounded-lg bg-zinc-50 dark:bg-zinc-900 p-5">
+					<aside className="mt-8 rounded-lg bg-zinc-50 p-5 dark:bg-zinc-900">
 						<p className="text-xs uppercase tracking-wide text-zinc-400">著者</p>
-						<p className="mt-1 font-semibold text-zinc-900 dark:text-zinc-100">{author.title.rendered}</p>
-						{author.acf?.position && (
-							<p className="text-sm text-zinc-500">{author.acf.position}</p>
-						)}
-						{author.acf?.bio && (
-							<p className="mt-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">{author.acf.bio}</p>
-						)}
+						<div className="mt-3 flex items-start gap-4">
+							{/* プロフィール写真。authors/[slug] と同じくアイキャッチを使う */}
+							{authorPhoto && (
+								<div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800">
+									<Image
+										src={authorPhoto.source_url}
+										alt={authorPhoto.alt_text || author.title.rendered}
+										fill
+										sizes="64px"
+										className="object-cover"
+									/>
+								</div>
+							)}
+							<div className="min-w-0 flex-1">
+								<Link
+									href={`/authors/${author.slug}`}
+									className="font-semibold text-zinc-900 transition-colors hover:text-zinc-500 dark:text-zinc-100 dark:hover:text-zinc-400"
+								>
+									{author.title.rendered}
+								</Link>
+								{author.acf?.position && (
+									<p className="text-sm text-zinc-500">{author.acf.position}</p>
+								)}
+								{author.acf?.bio && (
+									<p className="mt-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
+										{author.acf.bio}
+									</p>
+								)}
+								<Link
+									href={`/authors/${author.slug}`}
+									className="mt-3 inline-flex items-center gap-1 text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+								>
+									この著者の記事
+									{otherAuthorPostsCount > 0 && (
+										<span className="text-zinc-400">（他 {otherAuthorPostsCount} 件）</span>
+									)}
+									<span aria-hidden="true">→</span>
+								</Link>
+							</div>
+						</div>
 					</aside>
 				)}
 			</article>
