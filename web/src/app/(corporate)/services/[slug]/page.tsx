@@ -176,16 +176,19 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 												))}
 											</ul>
 										)}
-										<Link
-											href={`/contact?plan=${encodeURIComponent(plan.name)}&service=${encodeURIComponent(stripHtml(service.title.rendered))}`}
-											className={`mt-6 inline-block rounded-md px-4 py-2 text-center text-sm font-medium transition-colors ${
-												isRecommended
-													? 'bg-zinc-900 text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300'
-													: 'border border-zinc-300 text-zinc-900 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800'
-											}`}
-										>
-											このプランで相談する
-										</Link>
+										{/* mt-auto で各カードの最下部に揃える（機能数の差で位置がズレるのを防ぐ） */}
+										<div className="mt-auto pt-6">
+											<Link
+												href={`/contact?plan=${encodeURIComponent(plan.name)}&service=${encodeURIComponent(stripHtml(service.title.rendered))}`}
+												className={`block rounded-md px-4 py-2 text-center text-sm font-medium transition-colors ${
+													isRecommended
+														? 'bg-zinc-900 text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300'
+														: 'border border-zinc-300 text-zinc-900 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800'
+												}`}
+											>
+												このプランで相談する
+											</Link>
+										</div>
 									</div>
 								);
 							})}
