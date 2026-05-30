@@ -65,7 +65,8 @@ export async function requestWhitepaper(
 	}
 
 	const { whitepaperSlug, name, email, company, role } = parsed.data;
-	const whitepaper = getWhitepaperBySlug(whitepaperSlug);
+	// メールタイトル等にはオリジナル（JA）の資料タイトルを使う
+	const whitepaper = getWhitepaperBySlug(whitepaperSlug, 'ja');
 
 	if (!whitepaper) {
 		return { status: 'error', message: '資料が見つかりませんでした。' };

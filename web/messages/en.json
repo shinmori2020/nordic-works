@@ -179,7 +179,10 @@
 		"label": "Authors",
 		"title": "Authors",
 		"description": "Meet the writers behind Nordic Works.",
-		"empty": "No author profiles yet."
+		"empty": "No author profiles yet.",
+		"detailLabel": "Author",
+		"postsByAuthor": "Articles by {name}",
+		"noPostsByAuthor": "This author has not published any articles yet."
 	},
 	"resources": {
 		"label": "Resources",
@@ -193,7 +196,8 @@
 		"requestFormTitle": "Request resource",
 		"requestFormDescription": "Fill in the form below. A team member will send you the PDF within 2-3 business days.",
 		"usageNoteTitle": "About your information",
-		"usageNoteBody": "Information you provide will only be used to deliver the resource and to send related service information."
+		"usageNoteBody": "Information you provide will only be used to deliver the resource and to send related service information. For details, see our",
+		"privacyLinkText": "privacy policy."
 	},
 	"searchPage": {
 		"label": "Search",

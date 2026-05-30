@@ -22,7 +22,6 @@ export function TaxonomyArticleList({ taxonomyLabel, term, posts }: Props) {
 			<header className="mb-10">
 				<Breadcrumbs
 					items={[
-						{ label: 'ホーム', href: '/' },
 						{ label: 'Insights', href: '/articles' },
 						{ label: term.name },
 					]}

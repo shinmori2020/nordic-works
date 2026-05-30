@@ -77,7 +77,6 @@ export default function PrivacyPage() {
 		<main className="mx-auto max-w-6xl px-6 py-12">
 			<Breadcrumbs
 				items={[
-					{ label: 'ホーム', href: '/' },
 					{ label: 'プライバシーポリシー' },
 				]}
 			/>

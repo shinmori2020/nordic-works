@@ -8,8 +8,9 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { WHITEPAPERS } from '@/lib/whitepapers';
+import { getWhitepapers } from '@/lib/whitepapers';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
+import type { Locale } from '@/i18n/routing';
 
 export async function generateMetadata({
 	params,
@@ -34,13 +35,12 @@ export default async function ResourcesPage({
 	setRequestLocale(locale);
 
 	const t = await getTranslations('resources');
-	const tCommon = await getTranslations('common');
+	const whitepapers = getWhitepapers(locale as Locale);
 
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-12">
 			<Breadcrumbs
 				items={[
-					{ label: tCommon('home'), href: '/' },
 					{ label: t('label') },
 				]}
 			/>
@@ -58,7 +58,7 @@ export default async function ResourcesPage({
 			</header>
 
 			<ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-				{WHITEPAPERS.map((wp) => (
+				{whitepapers.map((wp) => (
 					<li key={wp.slug}>
 						<article className="flex h-full flex-col rounded-lg border border-zinc-200 p-6 transition-colors hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600">
 							<div className="flex flex-wrap gap-1.5">

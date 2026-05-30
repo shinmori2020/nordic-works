@@ -18,7 +18,7 @@ import {
 	getTopics,
 } from '@/lib/wordpress';
 import { absoluteUrl } from '@/lib/site';
-import { WHITEPAPERS } from '@/lib/whitepapers';
+import { getWhitepapers } from '@/lib/whitepapers';
 import { routing } from '@/i18n/routing';
 
 export const revalidate = 3600;
@@ -65,7 +65,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		withLocaleAlternates(s.path, s.opts),
 	);
 
-	const whitepaperRoutes: SitemapEntry[] = WHITEPAPERS.flatMap((wp) =>
+	// 一覧用 metadata は locale 非依存（slug, publishedAt のみ使う）。
+	// 'ja' を渡しているが、URL/日付しか参照しないのでロケールに依存しない。
+	const whitepaperRoutes: SitemapEntry[] = getWhitepapers('ja').flatMap((wp) =>
 		withLocaleAlternates(`/resources/${wp.slug}`, {
 			lastModified: new Date(wp.publishedAt),
 			changeFrequency: 'monthly',

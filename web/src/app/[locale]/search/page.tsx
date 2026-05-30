@@ -42,7 +42,6 @@ export default async function SearchPage({ params, searchParams }: PageProps) {
 			<header className="mb-8">
 				<Breadcrumbs
 					items={[
-						{ label: tCommon('home'), href: '/' },
 						{ label: t('label') },
 					]}
 				/>

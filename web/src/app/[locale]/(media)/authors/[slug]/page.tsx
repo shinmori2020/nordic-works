@@ -8,6 +8,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getAuthorBySlug, getAuthors, getPosts } from '@/lib/wordpress';
 import { ArticleCard } from '@/components/media/ArticleCard';
@@ -37,14 +38,20 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	};
 }
 
-export default async function AuthorDetailPage({ params }: SlugPageProps) {
-	const { slug } = await params;
+export default async function AuthorDetailPage({
+	params,
+}: {
+	params: Promise<{ slug: string; locale: string }>;
+}) {
+	const { slug, locale } = await params;
+	setRequestLocale(locale);
 	const author = await getAuthorBySlug(slug);
 
 	if (!author) {
 		notFound();
 	}
 
+	const t = await getTranslations('authors');
 	const acf = author.acf;
 	// 顔写真は ACF photo ではなくアイキャッチ画像（_embedded）から取得する。
 	const photo = getFeaturedImage(author);
@@ -67,7 +74,6 @@ export default async function AuthorDetailPage({ params }: SlugPageProps) {
 		<main className="mx-auto max-w-6xl px-6 py-12">
 			<Breadcrumbs
 				items={[
-					{ label: 'ホーム', href: '/' },
 					{ label: 'Authors', href: '/authors' },
 					{ label: author.title.rendered },
 				]}
@@ -93,7 +99,9 @@ export default async function AuthorDetailPage({ params }: SlugPageProps) {
 				</div>
 
 				<div className="mt-4 sm:mt-0">
-					<p className="text-xs uppercase tracking-widest text-zinc-500">Author</p>
+					<p className="text-xs uppercase tracking-widest text-zinc-500">
+						{t('detailLabel')}
+					</p>
 					<h1 className="mt-1 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
 						{author.title.rendered}
 					</h1>
@@ -125,11 +133,11 @@ export default async function AuthorDetailPage({ params }: SlugPageProps) {
 			{/* 執筆記事 */}
 			<section className="mt-14">
 				<h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-					{author.title.rendered} の記事
+					{t('postsByAuthor', { name: author.title.rendered })}
 				</h2>
 				{authoredPosts.length === 0 ? (
 					<p className="mt-4 text-sm text-zinc-500">
-						この著者が執筆した記事はまだありません。
+						{t('noPostsByAuthor')}
 					</p>
 				) : (
 					<div className="mt-6 grid gap-x-8 gap-y-10 sm:grid-cols-2">

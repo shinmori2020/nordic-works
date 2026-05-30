@@ -98,7 +98,6 @@ export default async function ServiceDetailPage({
 			)}
 			<Breadcrumbs
 				items={[
-					{ label: 'ホーム', href: '/' },
 					{ label: 'Services', href: '/services' },
 					{ label: stripHtml(service.title.rendered) },
 				]}

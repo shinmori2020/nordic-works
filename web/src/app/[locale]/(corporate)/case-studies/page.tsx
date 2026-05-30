@@ -44,7 +44,6 @@ export default async function CaseStudiesPage({
 		<main className="mx-auto max-w-6xl px-6 py-12">
 			<Breadcrumbs
 				items={[
-					{ label: tCommon('home'), href: '/' },
 					{ label: t('label') },
 				]}
 			/>

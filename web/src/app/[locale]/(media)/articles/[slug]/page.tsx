@@ -129,7 +129,6 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 			/>
 			<Breadcrumbs
 				items={[
-					{ label: 'ホーム', href: '/' },
 					{ label: 'Insights', href: '/articles' },
 					{ label: stripHtml(post.title.rendered) },
 				]}

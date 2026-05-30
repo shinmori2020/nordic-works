@@ -179,7 +179,10 @@
 		"label": "Authors",
 		"title": "執筆者",
 		"description": "Nordic Works の記事を書いている執筆陣のご紹介。",
-		"empty": "まだ執筆者の情報がありません。"
+		"empty": "まだ執筆者の情報がありません。",
+		"detailLabel": "Author",
+		"postsByAuthor": "{name} の記事",
+		"noPostsByAuthor": "この著者が執筆した記事はまだありません。"
 	},
 	"resources": {
 		"label": "Resources",
@@ -193,7 +196,8 @@
 		"requestFormTitle": "資料を請求する",
 		"requestFormDescription": "下記フォームに必要事項をご記入ください。担当者より2〜3営業日以内にPDFをお送りします。",
 		"usageNoteTitle": "ご利用にあたって",
-		"usageNoteBody": "記入いただいた情報は、資料送付と関連サービスのご案内のためにのみ利用します。"
+		"usageNoteBody": "記入いただいた情報は、資料送付と関連サービスのご案内のためにのみ利用します。詳しくは",
+		"privacyLinkText": "プライバシーポリシーをご覧ください。"
 	},
 	"searchPage": {
 		"label": "Search",

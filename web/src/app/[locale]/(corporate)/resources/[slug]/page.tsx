@@ -1,32 +1,37 @@
 /**
  * 資料請求 詳細＋申込フォームページ — /resources/[slug]
  *
- * 左カラム: 資料の説明・概要・トピック・メタ情報
- * 右カラム: 申込フォーム（Client Component）
- *
- * generateStaticParams で全 whitepaper を事前ビルドする。
+ * 説明 → フォームの順で縦に積む1カラムレイアウト。
+ * すべての可視テキストは locale 対応（whitepapers.ts の i18n フィールド経由）。
  */
 
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { WHITEPAPERS, getWhitepaperBySlug } from '@/lib/whitepapers';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import {
+	getAllWhitepaperSlugs,
+	getWhitepaperBySlug,
+} from '@/lib/whitepapers';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
+import { Link } from '@/i18n/navigation';
 import { WhitepaperRequestForm } from '@/components/corporate/WhitepaperRequestForm';
 import { formatDate } from '@/lib/utils';
-import type { SlugPageProps } from '@/types/wordpress';
+import type { Locale } from '@/i18n/routing';
 
 export const revalidate = 86400;
 
 export async function generateStaticParams() {
-	return WHITEPAPERS.map((wp) => ({ slug: wp.slug }));
+	return getAllWhitepaperSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: SlugPageProps): Promise<Metadata> {
-	const { slug } = await params;
-	const wp = getWhitepaperBySlug(slug);
-	if (!wp) {
-		return { title: '資料が見つかりません' };
-	}
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ slug: string; locale: string }>;
+}): Promise<Metadata> {
+	const { slug, locale } = await params;
+	const wp = getWhitepaperBySlug(slug, locale as Locale);
+	if (!wp) return { title: 'Not found' };
 	return {
 		title: wp.title,
 		description: wp.summary,
@@ -34,25 +39,28 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	};
 }
 
-export default async function WhitepaperDetailPage({ params }: SlugPageProps) {
-	const { slug } = await params;
-	const wp = getWhitepaperBySlug(slug);
+export default async function WhitepaperDetailPage({
+	params,
+}: {
+	params: Promise<{ slug: string; locale: string }>;
+}) {
+	const { slug, locale } = await params;
+	setRequestLocale(locale);
 
-	if (!wp) {
-		notFound();
-	}
+	const wp = getWhitepaperBySlug(slug, locale as Locale);
+	if (!wp) notFound();
+
+	const t = await getTranslations('resources');
 
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-12">
 			<Breadcrumbs
 				items={[
-					{ label: 'ホーム', href: '/' },
-					{ label: 'Resources', href: '/resources' },
+					{ label: t('label'), href: '/resources' },
 					{ label: wp.title },
 				]}
 			/>
 
-			{/* 説明 → フォームの順で縦に積む 1カラムレイアウト */}
 			<article className="mt-6">
 				<p className="text-xs uppercase tracking-widest text-zinc-500">
 					Whitepaper
@@ -62,9 +70,11 @@ export default async function WhitepaperDetailPage({ params }: SlugPageProps) {
 				</h1>
 
 				<div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-zinc-500">
-					<time dateTime={wp.publishedAt}>{formatDate(wp.publishedAt)} 公開</time>
-					<span>· PDF {wp.pageCount} ページ</span>
-					<span>· 約 {wp.readingTime} 分で読めます</span>
+					<time dateTime={wp.publishedAt}>
+						{t('publishedAt', { date: formatDate(wp.publishedAt) })}
+					</time>
+					<span>· {t('pageCount', { count: wp.pageCount })}</span>
+					<span>· {t('readingTime', { minutes: wp.readingTime })}</span>
 				</div>
 
 				<div className="mt-4 flex flex-wrap gap-2">
@@ -86,35 +96,29 @@ export default async function WhitepaperDetailPage({ params }: SlugPageProps) {
 
 				<aside className="mt-10 rounded-lg bg-zinc-50 p-5 text-sm leading-relaxed text-zinc-600 dark:bg-zinc-900 dark:text-zinc-400">
 					<p className="font-semibold text-zinc-900 dark:text-zinc-100">
-						ご利用にあたって
+						{t('usageNoteTitle')}
 					</p>
 					<p className="mt-2">
-						記入いただいた情報は、資料送付と関連サービスのご案内のためにのみ
-						利用します。詳しくは
-						{' '}
-						<a
+						{t('usageNoteBody')}{' '}
+						<Link
 							href="/privacy"
 							className="underline transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 						>
-							プライバシーポリシー
-						</a>
-						{' '}
-						をご覧ください。
+							{t('privacyLinkText')}
+						</Link>
 					</p>
 				</aside>
 			</article>
 
-			{/* 申込フォーム */}
 			<section className="mt-12 rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950 sm:p-8">
 				<p className="text-xs uppercase tracking-widest text-zinc-500">
-					Download Form
+					{t('requestFormLabel')}
 				</p>
 				<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
-					資料を請求する
+					{t('requestFormTitle')}
 				</h2>
 				<p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-					下記フォームに必要事項をご記入ください。担当者より2〜3営業日以内に
-					PDFをお送りします。
+					{t('requestFormDescription')}
 				</p>
 
 				<div className="mt-6">

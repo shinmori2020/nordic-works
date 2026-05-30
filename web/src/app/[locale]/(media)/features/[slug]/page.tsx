@@ -70,7 +70,6 @@ export default async function FeatureDetailPage({ params }: SlugPageProps) {
 		<main className="mx-auto max-w-6xl px-6 py-12">
 			<Breadcrumbs
 				items={[
-					{ label: 'ホーム', href: '/' },
 					{ label: 'Features', href: '/features' },
 					{ label: stripHtml(feature.title.rendered) },
 				]}
