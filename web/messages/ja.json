@@ -5,7 +5,9 @@
 		"readMore": "もっと読む",
 		"backToTop": "ホームに戻る",
 		"loading": "読み込み中…",
-		"required": "必須"
+		"required": "必須",
+		"viewAll": "すべて見る →",
+		"minutesToRead": "{minutes}分で読めます"
 	},
 	"nav": {
 		"insights": "Insights",
@@ -20,7 +22,9 @@
 		"toggleTheme": "テーマを切り替え",
 		"toLightMode": "ライトモードに切り替え",
 		"toDarkMode": "ダークモードに切り替え",
-		"openSearch": "検索を開く"
+		"openSearch": "検索を開く",
+		"openMenu": "メニューを開く",
+		"closeMenu": "メニューを閉じる"
 	},
 	"footer": {
 		"description": "北欧式の働き方・組織設計を支援する B2B SaaS 企業。",
@@ -35,7 +39,9 @@
 		"submitting": "送信中…",
 		"agree": "プライバシーポリシーに同意します",
 		"agreePolicy": "プライバシーポリシー",
-		"subscribe": "ニュースレターを購読する"
+		"subscribe": "ニュースレターを購読する",
+		"articleCtaTitle": "こうした記事を月2回お届けします",
+		"articleCtaDescription": "編集部おすすめ記事と新規ホワイトペーパーを、第2・第4金曜日にメールでお送りします。"
 	},
 	"home": {
 		"hero": {
@@ -49,7 +55,149 @@
 			"label": "INSIGHTS",
 			"title": "最新の記事",
 			"viewAll": "すべて見る →"
+		},
+		"servicesPreview": {
+			"label": "Services",
+			"title": "サービス",
+			"empty": "サービスがまだありません。"
+		},
+		"featuresPreview": {
+			"label": "Features",
+			"title": "注目の特集"
+		},
+		"emptyArticles": "記事がまだありません。",
+		"careersCta": {
+			"title": "一緒に働きませんか",
+			"description": "北欧式の組織づくりを共に推進するメンバーを募集しています。",
+			"link": "採用情報を見る →"
+		},
+		"contactCta": {
+			"title": "お問い合わせ",
+			"description": "サービス導入のご相談・取材のご依頼はこちらから。",
+			"link": "お問い合わせフォームへ →"
 		}
+	},
+	"about": {
+		"metaTitle": "会社概要",
+		"metaDescription": "Nordic Works は、北欧式の働き方・組織文化を翻訳的に届ける B2B SaaS 企業です。ミッション・バリュー・会社情報を紹介します。",
+		"hero": {
+			"label": "About",
+			"title": "北欧の知恵を、日本の現場へ。",
+			"description": "Nordic Works は、リモートワーク・心理的安全性・組織デザインといった北欧型の働き方を、データと実装に落とし込んで届ける B2B SaaS 企業です。「働きやすさ」を感覚論で終わらせず、測定し、設計し、改善するためのプロダクトと知見を提供します。"
+		},
+		"mission": {
+			"label": "Mission",
+			"title": "働き方を、再現可能な「設計」にする。",
+			"body": "優れた組織文化は一部の名経営者の勘や、特定企業の幸運な歴史に依存しがちです。私たちはそれを、誰もが学び・導入・運用できる「設計」へと翻訳します。北欧諸国が長年かけて培ってきた働き方の知恵を、日本の組織が今日から使える形にすることが Nordic Works の役割です。"
+		},
+		"values": {
+			"label": "Values",
+			"title": "私たちが大切にすること",
+			"items": {
+				"transparency": {
+					"title": "透明性 (Transparency)",
+					"body": "意思決定の過程と根拠を開示する。情報の非対称をなくすことが、信頼と自律の前提だと考えます。"
+				},
+				"safety": {
+					"title": "心理的安全性 (Psychological Safety)",
+					"body": "率直に意見を言える環境こそがチームの学習速度を決める。私たち自身が実践し、その知見を製品に還元します。"
+				},
+				"data": {
+					"title": "データと人間性の両立 (Data × Humanity)",
+					"body": "組織の課題を定量化しつつ、最後は人の文脈で判断する。数字と物語のどちらも手放しません。"
+				}
+			}
+		},
+		"companyInfo": {
+			"label": "Company",
+			"title": "会社情報",
+			"rows": {
+				"name": { "label": "会社名", "value": "Nordic Works 株式会社（架空）" },
+				"business": { "label": "事業内容", "value": "組織開発・働き方改善を支援する B2B SaaS の開発・提供" },
+				"founded": { "label": "設立", "value": "2021年（設定）" },
+				"location": { "label": "所在地", "value": "東京（リモートファースト）" },
+				"note": { "label": "備考", "value": "これはポートフォリオ用に制作された架空の企業サイトです。" }
+			}
+		}
+	},
+	"contact": {
+		"label": "Contact",
+		"title": "お問い合わせ",
+		"description": "サービス導入のご相談、取材・登壇のご依頼、その他お問い合わせは下記フォームよりお送りください。通常2〜3営業日以内にご返信します。"
+	},
+	"articles": {
+		"label": "Insights",
+		"title": "記事一覧",
+		"description": "北欧式の働き方・組織設計に関する記事をお届けします。",
+		"metaDescription": "リモートワーク・心理的安全性・組織デザイン・北欧の働き方に関する記事の一覧。",
+		"count": "{count} 件の記事",
+		"backHome": "← ホーム",
+		"relatedArticles": "関連記事",
+		"author": "著者",
+		"backToList": "← 記事一覧に戻る",
+		"authorOtherPosts": "この著者の記事",
+		"otherPostsCount": "（他 {count} 件）",
+		"empty": "まだ記事がありません。",
+		"fetchError": "⚠️ 記事を取得できませんでした。"
+	},
+	"services": {
+		"label": "Services",
+		"title": "提供サービス",
+		"description": "組織開発・人事チームの実務をサポートするプロダクトとコンサルティング。",
+		"features": "主な機能",
+		"pricing": "料金プラン",
+		"faq": "よくある質問",
+		"caseStudies": "導入事例",
+		"recommended": "おすすめ",
+		"consultPlan": "このプランで相談する",
+		"interested": "このサービスにご興味がありますか？"
+	},
+	"careers": {
+		"label": "Careers",
+		"title": "採用情報",
+		"description": "現在 {count} 件のポジションを募集中です。",
+		"positionType": "雇用形態",
+		"location": "勤務地",
+		"salary": "給与レンジ",
+		"requiredSkills": "必須スキル",
+		"preferredSkills": "歓迎スキル",
+		"benefits": "待遇・福利厚生",
+		"applicationFormLabel": "Application Form",
+		"applicationFormTitle": "このポジションに応募する",
+		"applicationFormDescription": "下記フォームに必要事項をご記入ください。書類選考の結果は、受付から5営業日以内にメールにてご連絡いたします。",
+		"externalCtaTitle": "このポジションに興味がありますか？",
+		"externalCtaButton": "外部応募サイトから応募する ↗"
+	},
+	"features": {
+		"label": "Features",
+		"title": "特集",
+		"description": "テーマ別に編集部が厳選した特集記事。",
+		"empty": "現在公開中の特集はありません。"
+	},
+	"authors": {
+		"label": "Authors",
+		"title": "執筆者",
+		"description": "Nordic Works の記事を書いている執筆陣のご紹介。",
+		"empty": "まだ執筆者の情報がありません。"
+	},
+	"resources": {
+		"label": "Resources",
+		"title": "資料ダウンロード",
+		"description": "組織開発・リモートワーク運用・目標管理に関する実務向けホワイトペーパーを公開しています。フォームへの記入後、担当者よりPDFをお送りします。",
+		"download": "資料をダウンロード →",
+		"pageCount": "PDF · {count} ページ",
+		"readingTime": "約 {minutes} 分",
+		"publishedAt": "{date} 公開",
+		"requestFormLabel": "Download Form",
+		"requestFormTitle": "資料を請求する",
+		"requestFormDescription": "下記フォームに必要事項をご記入ください。担当者より2〜3営業日以内にPDFをお送りします。",
+		"usageNoteTitle": "ご利用にあたって",
+		"usageNoteBody": "記入いただいた情報は、資料送付と関連サービスのご案内のためにのみ利用します。"
+	},
+	"searchPage": {
+		"label": "Search",
+		"title": "検索",
+		"description": "Algolia による全文検索。トピックや業界で絞り込みもできます。"
 	},
 	"breadcrumbs": {
 		"label": "パンくず"
@@ -74,7 +222,14 @@
 		"goSearch": "サイト内を検索する",
 		"majorSections": "主要セクション",
 		"recentArticles": "最近の記事",
-		"viewAll": "すべて見る →"
+		"viewAll": "すべて見る →",
+		"sections": {
+			"insights": "記事一覧",
+			"services": "サービス紹介",
+			"careers": "採用情報",
+			"about": "会社概要",
+			"contact": "お問い合わせ"
+		}
 	},
 	"offline": {
 		"label": "Offline",

@@ -5,7 +5,9 @@
 		"readMore": "Read more",
 		"backToTop": "Back to home",
 		"loading": "Loading…",
-		"required": "Required"
+		"required": "Required",
+		"viewAll": "View all →",
+		"minutesToRead": "{minutes} min read"
 	},
 	"nav": {
 		"insights": "Insights",
@@ -20,7 +22,9 @@
 		"toggleTheme": "Toggle theme",
 		"toLightMode": "Switch to light mode",
 		"toDarkMode": "Switch to dark mode",
-		"openSearch": "Open search"
+		"openSearch": "Open search",
+		"openMenu": "Open menu",
+		"closeMenu": "Close menu"
 	},
 	"footer": {
 		"description": "A B2B SaaS company supporting Nordic-style work practices and organisation design.",
@@ -35,7 +39,9 @@
 		"submitting": "Sending…",
 		"agree": "I agree to the privacy policy",
 		"agreePolicy": "privacy policy",
-		"subscribe": "Subscribe to newsletter"
+		"subscribe": "Subscribe to newsletter",
+		"articleCtaTitle": "Get articles like this twice a month",
+		"articleCtaDescription": "We send editor picks and new whitepapers every second and fourth Friday."
 	},
 	"home": {
 		"hero": {
@@ -49,7 +55,149 @@
 			"label": "INSIGHTS",
 			"title": "Latest articles",
 			"viewAll": "View all →"
+		},
+		"servicesPreview": {
+			"label": "Services",
+			"title": "Services",
+			"empty": "No services yet."
+		},
+		"featuresPreview": {
+			"label": "Features",
+			"title": "Featured collections"
+		},
+		"emptyArticles": "No articles yet.",
+		"careersCta": {
+			"title": "Want to work together?",
+			"description": "We are hiring people to build Nordic-style organisations with us.",
+			"link": "See open positions →"
+		},
+		"contactCta": {
+			"title": "Contact",
+			"description": "Service inquiries, interviews, or anything else.",
+			"link": "Go to contact form →"
 		}
+	},
+	"about": {
+		"metaTitle": "About",
+		"metaDescription": "Nordic Works is a B2B SaaS company that brings Nordic-style work practices to Japanese teams. Mission, values, and company information.",
+		"hero": {
+			"label": "About",
+			"title": "Bringing Nordic wisdom to the Japanese workplace.",
+			"description": "Nordic Works is a B2B SaaS company that translates Nordic-style work — remote work, psychological safety, organisation design — into data and implementation for Japanese teams. We don't leave \"good places to work\" as a feeling; we measure, design, and improve them."
+		},
+		"mission": {
+			"label": "Mission",
+			"title": "Turn good workplaces into a repeatable \"design\".",
+			"body": "Great organisational cultures often rely on the intuition of a few star executives or the lucky history of specific companies. We translate that into a design that anyone can learn, adopt, and operate. Bringing the work wisdom Nordic countries have built over decades into a form Japanese organisations can use today — that is what Nordic Works exists for."
+		},
+		"values": {
+			"label": "Values",
+			"title": "What we value",
+			"items": {
+				"transparency": {
+					"title": "Transparency",
+					"body": "We disclose the rationale behind every decision. Removing information asymmetry is the foundation for trust and autonomy."
+				},
+				"safety": {
+					"title": "Psychological Safety",
+					"body": "An environment where people speak up honestly determines how fast a team learns. We practise it ourselves and feed those learnings back into our products."
+				},
+				"data": {
+					"title": "Data × Humanity",
+					"body": "We quantify organisational problems but make the final call in human context. We refuse to let go of either the numbers or the story."
+				}
+			}
+		},
+		"companyInfo": {
+			"label": "Company",
+			"title": "Company information",
+			"rows": {
+				"name": { "label": "Company", "value": "Nordic Works K.K. (fictional)" },
+				"business": { "label": "Business", "value": "Development and delivery of B2B SaaS for organisation development and workplace improvement" },
+				"founded": { "label": "Founded", "value": "2021 (fictional)" },
+				"location": { "label": "Location", "value": "Tokyo (remote-first)" },
+				"note": { "label": "Note", "value": "This is a fictional company website built as a portfolio project." }
+			}
+		}
+	},
+	"contact": {
+		"label": "Contact",
+		"title": "Contact us",
+		"description": "Use the form below for service inquiries, interview/speaking requests, or any other questions. We usually reply within 2-3 business days."
+	},
+	"articles": {
+		"label": "Insights",
+		"title": "Articles",
+		"description": "Articles on Nordic-style work practices and organisation design.",
+		"metaDescription": "Articles on remote work, psychological safety, organisation design, and Nordic ways of working.",
+		"count": "{count} articles",
+		"backHome": "← Home",
+		"relatedArticles": "Related articles",
+		"author": "Author",
+		"backToList": "← Back to articles",
+		"authorOtherPosts": "More from this author",
+		"otherPostsCount": "({count} more)",
+		"empty": "No articles yet.",
+		"fetchError": "⚠️ Could not load articles."
+	},
+	"services": {
+		"label": "Services",
+		"title": "Our services",
+		"description": "Products and consulting that support organisation development and people operations teams.",
+		"features": "Key features",
+		"pricing": "Pricing",
+		"faq": "Frequently asked questions",
+		"caseStudies": "Case studies",
+		"recommended": "Recommended",
+		"consultPlan": "Inquire about this plan",
+		"interested": "Interested in this service?"
+	},
+	"careers": {
+		"label": "Careers",
+		"title": "Careers",
+		"description": "We are currently hiring for {count} positions.",
+		"positionType": "Employment type",
+		"location": "Location",
+		"salary": "Salary range",
+		"requiredSkills": "Required skills",
+		"preferredSkills": "Preferred skills",
+		"benefits": "Benefits",
+		"applicationFormLabel": "Application Form",
+		"applicationFormTitle": "Apply for this position",
+		"applicationFormDescription": "Fill in the form below. We will respond to your application within 5 business days.",
+		"externalCtaTitle": "Interested in this position?",
+		"externalCtaButton": "Apply on external site ↗"
+	},
+	"features": {
+		"label": "Features",
+		"title": "Features",
+		"description": "Curated themed collections from the editorial team.",
+		"empty": "No featured collections at the moment."
+	},
+	"authors": {
+		"label": "Authors",
+		"title": "Authors",
+		"description": "Meet the writers behind Nordic Works.",
+		"empty": "No author profiles yet."
+	},
+	"resources": {
+		"label": "Resources",
+		"title": "Download resources",
+		"description": "Practical whitepapers on organisation development, remote work operations, and goal management. After filling in the form, a team member will send you the PDF.",
+		"download": "Download resource →",
+		"pageCount": "PDF · {count} pages",
+		"readingTime": "~{minutes} min",
+		"publishedAt": "Published {date}",
+		"requestFormLabel": "Download Form",
+		"requestFormTitle": "Request resource",
+		"requestFormDescription": "Fill in the form below. A team member will send you the PDF within 2-3 business days.",
+		"usageNoteTitle": "About your information",
+		"usageNoteBody": "Information you provide will only be used to deliver the resource and to send related service information."
+	},
+	"searchPage": {
+		"label": "Search",
+		"title": "Search",
+		"description": "Full-text search powered by Algolia. Filter by topic and industry."
 	},
 	"breadcrumbs": {
 		"label": "Breadcrumbs"
@@ -74,7 +222,14 @@
 		"goSearch": "Search the site",
 		"majorSections": "Main sections",
 		"recentArticles": "Recent articles",
-		"viewAll": "View all →"
+		"viewAll": "View all →",
+		"sections": {
+			"insights": "Articles",
+			"services": "Services",
+			"careers": "Careers",
+			"about": "About us",
+			"contact": "Contact"
+		}
 	},
 	"offline": {
 		"label": "Offline",

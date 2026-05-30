@@ -2,94 +2,91 @@
  * 会社概要ページ — /about
  *
  * 架空企業 Nordic Works のミッション・バリュー・会社情報を紹介する静的ページ。
+ * すべてのテキストは next-intl の翻訳キー経由（ja/en）。
  */
 
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 
-export const metadata: Metadata = {
-	title: '会社概要',
-	description:
-		'Nordic Works は、北欧式の働き方・組織文化を翻訳的に届ける B2B SaaS 企業です。ミッション・バリュー・会社情報を紹介します。',
-	alternates: { canonical: '/about' },
-};
+const VALUE_KEYS = ['transparency', 'safety', 'data'] as const;
+const COMPANY_ROW_KEYS = ['name', 'business', 'founded', 'location', 'note'] as const;
 
-const VALUES = [
-	{
-		title: '透明性 (Transparency)',
-		body: '意思決定の過程と根拠を開示する。情報の非対称をなくすことが、信頼と自律の前提だと考えます。',
-	},
-	{
-		title: '心理的安全性 (Psychological Safety)',
-		body: '率直に意見を言える環境こそがチームの学習速度を決める。私たち自身が実践し、その知見を製品に還元します。',
-	},
-	{
-		title: 'データと人間性の両立 (Data × Humanity)',
-		body: '組織の課題を定量化しつつ、最後は人の文脈で判断する。数字と物語のどちらも手放しません。',
-	},
-];
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+	const { locale } = await params;
+	const t = await getTranslations({ locale, namespace: 'about' });
+	return {
+		title: t('metaTitle'),
+		description: t('metaDescription'),
+		alternates: { canonical: '/about' },
+	};
+}
 
-const COMPANY_INFO = [
-	{ label: '会社名', value: 'Nordic Works 株式会社（架空）' },
-	{ label: '事業内容', value: '組織開発・働き方改善を支援する B2B SaaS の開発・提供' },
-	{ label: '設立', value: '2021年（設定）' },
-	{ label: '所在地', value: '東京（リモートファースト）' },
-	{ label: '備考', value: 'これはポートフォリオ用に制作された架空の企業サイトです。' },
-];
+export default async function AboutPage({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	setRequestLocale(locale);
 
-export default function AboutPage() {
+	const t = await getTranslations('about');
+	const tHome = await getTranslations('home');
+
 	return (
 		<main>
 			{/* ヒーロー */}
 			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 				<div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
 					<p className="text-sm font-medium uppercase tracking-widest text-zinc-500">
-						About
+						{t('hero.label')}
 					</p>
-					<h1 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
-						北欧の知恵を、日本の現場へ。
+					<h1 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
+						{t('hero.title')}
 					</h1>
 					<p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-						Nordic Works は、リモートワーク・心理的安全性・組織デザインといった
-						北欧型の働き方を、データと実装に落とし込んで届ける B2B SaaS 企業です。
-						「働きやすさ」を感覚論で終わらせず、測定し、設計し、改善するための
-						プロダクトと知見を提供します。
+						{t('hero.description')}
 					</p>
 				</div>
 			</section>
 
 			{/* ミッション */}
 			<section className="mx-auto max-w-6xl px-6 py-16">
-				<p className="text-xs uppercase tracking-widest text-zinc-500">Mission</p>
+				<p className="text-xs uppercase tracking-widest text-zinc-500">
+					{t('mission.label')}
+				</p>
 				<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
-					働き方を、再現可能な「設計」にする。
+					{t('mission.title')}
 				</h2>
 				<p className="mt-4 leading-relaxed text-zinc-600 dark:text-zinc-400">
-					優れた組織文化は一部の名経営者の勘や、特定企業の幸運な歴史に依存しがちです。
-					私たちはそれを、誰もが学び・導入・運用できる「設計」へと翻訳します。
-					北欧諸国が長年かけて培ってきた働き方の知恵を、日本の組織が今日から
-					使える形にすることが Nordic Works の役割です。
+					{t('mission.body')}
 				</p>
 			</section>
 
 			{/* バリュー */}
 			<section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 				<div className="mx-auto max-w-6xl px-6 py-16">
-					<p className="text-xs uppercase tracking-widest text-zinc-500">Values</p>
+					<p className="text-xs uppercase tracking-widest text-zinc-500">
+						{t('values.label')}
+					</p>
 					<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
-						私たちが大切にすること
+						{t('values.title')}
 					</h2>
 					<div className="mt-8 grid gap-6 sm:grid-cols-3">
-						{VALUES.map((v) => (
+						{VALUE_KEYS.map((key) => (
 							<div
-								key={v.title}
+								key={key}
 								className="rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950"
 							>
 								<h3 className="font-semibold text-zinc-900 dark:text-zinc-100">
-									{v.title}
+									{t(`values.items.${key}.title`)}
 								</h3>
 								<p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-									{v.body}
+									{t(`values.items.${key}.body`)}
 								</p>
 							</div>
 						))}
@@ -99,18 +96,24 @@ export default function AboutPage() {
 
 			{/* 会社情報 */}
 			<section className="mx-auto max-w-6xl px-6 py-16">
-				<p className="text-xs uppercase tracking-widest text-zinc-500">Company</p>
+				<p className="text-xs uppercase tracking-widest text-zinc-500">
+					{t('companyInfo.label')}
+				</p>
 				<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
-					会社情報
+					{t('companyInfo.title')}
 				</h2>
 				<dl className="mt-8">
-					{COMPANY_INFO.map((row) => (
+					{COMPANY_ROW_KEYS.map((key) => (
 						<div
-							key={row.label}
+							key={key}
 							className="flex flex-col gap-1 border-b border-zinc-200 py-4 sm:flex-row sm:gap-6 dark:border-zinc-800"
 						>
-							<dt className="w-32 shrink-0 text-sm text-zinc-500">{row.label}</dt>
-							<dd className="text-sm text-zinc-900 dark:text-zinc-200">{row.value}</dd>
+							<dt className="w-32 shrink-0 text-sm text-zinc-500">
+								{t(`companyInfo.rows.${key}.label`)}
+							</dt>
+							<dd className="text-sm text-zinc-900 dark:text-zinc-200">
+								{t(`companyInfo.rows.${key}.value`)}
+							</dd>
 						</div>
 					))}
 				</dl>
@@ -123,30 +126,34 @@ export default function AboutPage() {
 						href="/careers"
 						className="group bg-white p-10 transition-colors hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900"
 					>
-						<p className="text-xs uppercase tracking-widest text-zinc-500">Careers</p>
+						<p className="text-xs uppercase tracking-widest text-zinc-500">
+							Careers
+						</p>
 						<h3 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-							一緒に働きませんか
+							{tHome('careersCta.title')}
 						</h3>
 						<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-							北欧式の組織づくりを共に推進するメンバーを募集しています。
+							{tHome('careersCta.description')}
 						</p>
 						<span className="mt-4 inline-block text-sm text-zinc-900 group-hover:underline dark:text-zinc-100">
-							採用情報を見る →
+							{tHome('careersCta.link')}
 						</span>
 					</Link>
 					<Link
 						href="/contact"
 						className="group bg-white p-10 transition-colors hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900"
 					>
-						<p className="text-xs uppercase tracking-widest text-zinc-500">Contact</p>
+						<p className="text-xs uppercase tracking-widest text-zinc-500">
+							Contact
+						</p>
 						<h3 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-							お問い合わせ
+							{tHome('contactCta.title')}
 						</h3>
 						<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-							サービス導入のご相談・取材のご依頼はこちらから。
+							{tHome('contactCta.description')}
 						</p>
 						<span className="mt-4 inline-block text-sm text-zinc-900 group-hover:underline dark:text-zinc-100">
-							お問い合わせフォームへ →
+							{tHome('contactCta.link')}
 						</span>
 					</Link>
 				</div>

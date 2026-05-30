@@ -6,16 +6,25 @@
  */
 
 import type { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ContactForm } from '@/components/corporate/ContactForm';
 
-export const metadata: Metadata = {
-	title: 'お問い合わせ',
-	description:
-		'Nordic Works へのサービス導入のご相談・取材のご依頼はこちらのフォームから。',
-	alternates: { canonical: '/contact' },
-};
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+	const { locale } = await params;
+	const t = await getTranslations({ locale, namespace: 'contact' });
+	return {
+		title: t('title'),
+		description: t('description'),
+		alternates: { canonical: '/contact' },
+	};
+}
 
 interface PageProps {
+	params: Promise<{ locale: string }>;
 	searchParams: Promise<{ service?: string; plan?: string }>;
 }
 
@@ -31,19 +40,24 @@ function buildInitialMessage(service?: string, plan?: string): string {
 	return `${head}\n\n（以下に詳細をご記入ください）\n`;
 }
 
-export default async function ContactPage({ searchParams }: PageProps) {
+export default async function ContactPage({ params, searchParams }: PageProps) {
+	const { locale } = await params;
+	setRequestLocale(locale);
+
+	const t = await getTranslations('contact');
 	const { service, plan } = await searchParams;
 	const initialMessage = buildInitialMessage(service, plan);
 
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-16">
-			<p className="text-xs uppercase tracking-widest text-zinc-500">Contact</p>
+			<p className="text-xs uppercase tracking-widest text-zinc-500">
+				{t('label')}
+			</p>
 			<h1 className="mt-2 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">
-				お問い合わせ
+				{t('title')}
 			</h1>
 			<p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-				サービス導入のご相談、取材・登壇のご依頼、その他お問い合わせは
-				下記フォームよりお送りください。通常2〜3営業日以内にご返信します。
+				{t('description')}
 			</p>
 
 			<div className="mt-10">

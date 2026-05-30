@@ -3,20 +3,38 @@
  */
 
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import { getAuthors } from '@/lib/wordpress';
 import { AuthorCard } from '@/components/media/AuthorCard';
 
 // ISR: 著者情報は更新頻度が低いため24時間
 export const revalidate = 86400;
 
-export const metadata: Metadata = {
-	title: '執筆者一覧',
-	description: 'Nordic Works の記事を執筆するメンバーの一覧。',
-	alternates: { canonical: '/authors' },
-};
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+	const { locale } = await params;
+	const t = await getTranslations({ locale, namespace: 'authors' });
+	return {
+		title: t('title'),
+		description: t('description'),
+		alternates: { canonical: '/authors' },
+	};
+}
 
-export default async function AuthorsPage() {
+export default async function AuthorsPage({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}) {
+	const { locale } = await params;
+	setRequestLocale(locale);
+
+	const t = await getTranslations('authors');
+	const tArticles = await getTranslations('articles');
 	const authors = await getAuthors();
 
 	return (
@@ -26,19 +44,21 @@ export default async function AuthorsPage() {
 					href="/"
 					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 				>
-					← ホーム
+					{tArticles('backHome')}
 				</Link>
-				<p className="mt-2 text-xs uppercase tracking-widest text-zinc-500">Authors</p>
-				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">執筆者一覧</h1>
+				<p className="mt-2 text-xs uppercase tracking-widest text-zinc-500">
+					{t('label')}
+				</p>
+				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">
+					{t('title')}
+				</h1>
 				<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-					{authors.length} 名のメンバーが記事を執筆しています。
+					{t('description')}
 				</p>
 			</header>
 
 			{authors.length === 0 ? (
-				<p className="text-sm text-red-600">
-					⚠️ 著者情報を取得できませんでした。Local の WordPress が起動しているか確認してください。
-				</p>
+				<p className="text-sm text-red-600">⚠️ {tArticles('fetchError')}</p>
 			) : (
 				<div className="grid gap-6 sm:grid-cols-3 lg:grid-cols-4">
 					{authors.map((author) => (

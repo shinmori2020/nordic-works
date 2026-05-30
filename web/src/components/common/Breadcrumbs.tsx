@@ -3,9 +3,11 @@
  *
  * - 最後の項目は現在ページ（href なし）として描画
  * - schema.org BreadcrumbList の JSON-LD を同時出力（SEO 構造化データ）
+ * - 内部リンクは next-intl の Link を使い、現在ロケールのプレフィックスを保持
  */
 
-import Link from 'next/link';
+import { getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import { absoluteUrl } from '@/lib/site';
 
 export interface BreadcrumbItem {
@@ -20,8 +22,10 @@ interface Props {
 	className?: string;
 }
 
-export function Breadcrumbs({ items, className }: Props) {
+export async function Breadcrumbs({ items, className }: Props) {
 	if (items.length === 0) return null;
+
+	const t = await getTranslations('breadcrumbs');
 
 	const jsonLd = {
 		'@context': 'https://schema.org',
@@ -35,7 +39,7 @@ export function Breadcrumbs({ items, className }: Props) {
 	};
 
 	return (
-		<nav aria-label="パンくず" className={className}>
+		<nav aria-label={t('label')} className={className}>
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -44,7 +48,10 @@ export function Breadcrumbs({ items, className }: Props) {
 				{items.map((item, index) => {
 					const isLast = index === items.length - 1;
 					return (
-						<li key={`${item.label}-${index}`} className="flex items-center gap-x-1.5">
+						<li
+							key={`${item.label}-${index}`}
+							className="flex items-center gap-x-1.5"
+						>
 							{item.href && !isLast ? (
 								<Link
 									href={item.href}
@@ -61,7 +68,10 @@ export function Breadcrumbs({ items, className }: Props) {
 								</span>
 							)}
 							{!isLast && (
-								<span aria-hidden="true" className="text-zinc-300 dark:text-zinc-700">
+								<span
+									aria-hidden="true"
+									className="text-zinc-300 dark:text-zinc-700"
+								>
 									/
 								</span>
 							)}

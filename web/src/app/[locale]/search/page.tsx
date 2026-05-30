@@ -5,21 +5,36 @@
  */
 
 import type { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { SearchClient } from '@/components/search/SearchClient';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 
-export const metadata: Metadata = {
-	title: '検索',
-	description: 'Nordic Works の記事を全文検索する。',
-	alternates: { canonical: '/search' },
-	robots: { index: false, follow: true },
-};
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+	const { locale } = await params;
+	const t = await getTranslations({ locale, namespace: 'searchPage' });
+	return {
+		title: t('title'),
+		description: t('description'),
+		alternates: { canonical: '/search' },
+		robots: { index: false, follow: true },
+	};
+}
 
 interface PageProps {
+	params: Promise<{ locale: string }>;
 	searchParams: Promise<{ q?: string; topic?: string; industry?: string }>;
 }
 
-export default async function SearchPage({ searchParams }: PageProps) {
+export default async function SearchPage({ params, searchParams }: PageProps) {
+	const { locale } = await params;
+	setRequestLocale(locale);
+
+	const t = await getTranslations('searchPage');
+	const tCommon = await getTranslations('common');
 	const { q = '' } = await searchParams;
 
 	return (
@@ -27,16 +42,18 @@ export default async function SearchPage({ searchParams }: PageProps) {
 			<header className="mb-8">
 				<Breadcrumbs
 					items={[
-						{ label: 'ホーム', href: '/' },
-						{ label: 'Search' },
+						{ label: tCommon('home'), href: '/' },
+						{ label: t('label') },
 					]}
 				/>
-				<p className="mt-3 text-xs uppercase tracking-widest text-zinc-500">Search</p>
+				<p className="mt-3 text-xs uppercase tracking-widest text-zinc-500">
+					{t('label')}
+				</p>
 				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">
-					検索
+					{t('title')}
 				</h1>
 				<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-					Algolia による全文検索。トピックや業界で絞り込みもできます。
+					{t('description')}
 				</p>
 			</header>
 
