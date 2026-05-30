@@ -30,7 +30,7 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const DATA_DIR = path.join(ROOT, 'data');
 const CACHE_FILE = path.join(DATA_DIR, '.translation-cache.json');
 
-const TARGETS = ['posts', 'services', 'careers', 'features', 'authors'];
+const TARGETS = ['posts', 'services', 'careers', 'features', 'authors', 'case-studies'];
 
 // MyMemory への礼儀としての軽い間隔
 const DELAY_MS = 150;
@@ -198,6 +198,16 @@ async function translateEntity(entity, cache) {
 			'preferred_skills',
 			'benefits',
 			'case_study_links',
+			// 導入事例 (case_study)
+			'client_name',
+			'client_industry',
+			'company_size',
+			'challenge',
+			'solution',
+			'outcomes',
+			'testimonial_body',
+			'testimonial_author',
+			'project_period',
 		];
 		for (const key of TEXT_FIELDS) {
 			if (typeof acfOut[key] === 'string' && acfOut[key].length > 0) {

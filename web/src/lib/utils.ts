@@ -12,6 +12,7 @@ import type {
 	PricingPlan,
 	FaqItem,
 	CaseStudyLink,
+	CaseStudyOutcome,
 	PositionType,
 } from '@/types/wordpress';
 
@@ -121,6 +122,21 @@ export function parseCaseStudyLinks(text: string | undefined | null): CaseStudyL
 	return parseLines(text).map((line) => {
 		const [label = '', url = ''] = splitColumns(line);
 		return { label, url };
+	});
+}
+
+/**
+ * 導入事例の outcomes 文字列をパース。
+ * 形式: `指標 | 数値 | 補足` を1行ずつ。補足は省略可。
+ */
+export function parseOutcomes(text: string | undefined | null): CaseStudyOutcome[] {
+	return parseLines(text).map((line) => {
+		const [label = '', value = '', note = ''] = splitColumns(line);
+		return {
+			label,
+			value,
+			...(note ? { note } : {}),
+		};
 	});
 }
 

@@ -167,6 +167,30 @@ export interface AuthorProfileAcf {
 	website_url?: string;
 }
 
+/** 導入事例 (case_study) の ACF フィールド群 — group_nordic_case_study */
+export interface CaseStudyAcf {
+	client_name?: string;
+	client_industry?: string;
+	company_size?: string;
+	subtitle?: string;
+	challenge?: string;
+	solution?: string;
+	/** 「指標 | 数値 | 補足」を 1 行ずつ書く textarea。表示時に parseOutcomes() を使う */
+	outcomes?: string;
+	testimonial_body?: string;
+	testimonial_author?: string;
+	project_period?: string;
+	/** 関連サービス（CPT: service）の投稿ID 配列。getServicesByIds() で実体に解決 */
+	related_services?: number[] | false;
+}
+
+/** 導入事例: 成果（パース後の1項目） */
+export interface CaseStudyOutcome {
+	label: string;
+	value: string;
+	note?: string;
+}
+
 // =============================================================================
 // エンティティ型 (カスタム投稿タイプ)
 // =============================================================================
@@ -209,8 +233,19 @@ export interface WPAuthorProfile extends WPEntityBase {
 	acf?: AuthorProfileAcf;
 }
 
+/** 導入事例 (CPT: case_study) */
+export interface WPCaseStudy extends WPEntityBase {
+	acf?: CaseStudyAcf;
+}
+
 /** CPT エンティティのユニオン (汎用処理で使う) */
-export type WPEntity = WPPost | WPService | WPCareer | WPFeature | WPAuthorProfile;
+export type WPEntity =
+	| WPPost
+	| WPService
+	| WPCareer
+	| WPFeature
+	| WPAuthorProfile
+	| WPCaseStudy;
 
 // =============================================================================
 // Next.js App Router ルート型

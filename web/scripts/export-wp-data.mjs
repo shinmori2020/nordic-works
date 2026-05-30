@@ -34,6 +34,7 @@ const ENDPOINTS = [
 	{ name: 'careers', path: 'career' },
 	{ name: 'features', path: 'feature' },
 	{ name: 'authors', path: 'author_profile' },
+	{ name: 'case-studies', path: 'case_study' },
 	{ name: 'industries', path: 'industry' },
 	{ name: 'topics', path: 'topic' },
 	{ name: 'reading-levels', path: 'reading_level' },

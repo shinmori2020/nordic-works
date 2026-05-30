@@ -15,6 +15,7 @@
 		"authors": "Authors",
 		"services": "Services",
 		"careers": "Careers",
+		"caseStudies": "Case Studies",
 		"resources": "Resources",
 		"about": "About",
 		"contact": "Contact",
@@ -198,6 +199,23 @@
 		"label": "Search",
 		"title": "検索",
 		"description": "Algolia による全文検索。トピックや業界で絞り込みもできます。"
+	},
+	"caseStudies": {
+		"label": "Case Studies",
+		"title": "導入事例",
+		"description": "Nordic Works がご支援した企業の事例をご紹介します。",
+		"client": "クライアント",
+		"industry": "業界",
+		"companySize": "企業規模",
+		"projectPeriod": "プロジェクト期間",
+		"challenge": "課題",
+		"solution": "解決策",
+		"outcomes": "成果",
+		"testimonial": "お客様の声",
+		"relatedServices": "関連サービス",
+		"viewCase": "事例を読む →",
+		"empty": "現在公開中の事例はありません。",
+		"relatedToService": "このサービスの導入事例"
 	},
 	"breadcrumbs": {
 		"label": "パンくず"

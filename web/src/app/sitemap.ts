@@ -9,6 +9,7 @@ import type { MetadataRoute } from 'next';
 import {
 	getAuthors,
 	getCareers,
+	getCaseStudies,
 	getFeatures,
 	getIndustries,
 	getPosts,
@@ -56,6 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			{ path: '/services', opts: { lastModified: now, changeFrequency: 'monthly', priority: 0.8 } },
 			{ path: '/careers', opts: { lastModified: now, changeFrequency: 'weekly', priority: 0.7 } },
 			{ path: '/authors', opts: { lastModified: now, changeFrequency: 'monthly', priority: 0.5 } },
+			{ path: '/case-studies', opts: { lastModified: now, changeFrequency: 'monthly', priority: 0.7 } },
 			{ path: '/resources', opts: { lastModified: now, changeFrequency: 'monthly', priority: 0.7 } },
 		];
 
@@ -71,17 +73,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		}),
 	);
 
-	const [posts, services, careers, features, authors, topics, industries, readingLevels] =
-		await Promise.all([
-			getPosts(),
-			getServices(),
-			getCareers(),
-			getFeatures(),
-			getAuthors(),
-			getTopics(),
-			getIndustries(),
-			getReadingLevels(),
-		]);
+	const [
+		posts,
+		services,
+		careers,
+		features,
+		authors,
+		caseStudies,
+		topics,
+		industries,
+		readingLevels,
+	] = await Promise.all([
+		getPosts(),
+		getServices(),
+		getCareers(),
+		getFeatures(),
+		getAuthors(),
+		getCaseStudies(),
+		getTopics(),
+		getIndustries(),
+		getReadingLevels(),
+	]);
 
 	const dynamicRoutes: SitemapEntry[] = [
 		...posts.flatMap((p) =>
@@ -117,6 +129,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 				lastModified: a.modified ? new Date(a.modified) : now,
 				changeFrequency: 'monthly',
 				priority: 0.4,
+			}),
+		),
+		...caseStudies.flatMap((cs) =>
+			withLocaleAlternates(`/case-studies/${cs.slug}`, {
+				lastModified: cs.modified ? new Date(cs.modified) : now,
+				changeFrequency: 'monthly',
+				priority: 0.7,
 			}),
 		),
 		...topics.flatMap((t) =>

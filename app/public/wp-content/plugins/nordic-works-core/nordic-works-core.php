@@ -130,6 +130,31 @@ function nordic_register_post_types() {
 			'menu_icon'           => 'dashicons-admin-users',
 		)
 	);
+
+	// 導入事例（ケーススタディ）
+	register_post_type(
+		'case_study',
+		array(
+			'labels'              => array(
+				'name'          => '導入事例',
+				'singular_name' => '導入事例',
+				'menu_name'     => '導入事例',
+				'add_new_item'  => '新規事例を追加',
+				'edit_item'     => '事例を編集',
+				'all_items'     => '事例一覧',
+			),
+			'public'              => true,
+			'show_in_rest'        => true,
+			'rest_base'           => 'case_study',
+			'show_in_graphql'     => true,
+			'graphql_single_name' => 'caseStudy',
+			'graphql_plural_name' => 'caseStudies',
+			'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'revisions' ),
+			'has_archive'         => true,
+			'rewrite'             => array( 'slug' => 'case-studies' ),
+			'menu_icon'           => 'dashicons-awards',
+		)
+	);
 }
 add_action( 'init', 'nordic_register_post_types' );
 
@@ -140,7 +165,7 @@ function nordic_register_taxonomies() {
 	// 業界
 	register_taxonomy(
 		'industry',
-		array( 'post', 'feature' ),
+		array( 'post', 'feature', 'case_study' ),
 		array(
 			'labels'              => array(
 				'name'          => '業界',
@@ -234,6 +259,7 @@ function nordic_frontend_link( $url, $post ) {
 		'career'         => '/careers',
 		'feature'        => '/features',
 		'author_profile' => '/authors',
+		'case_study'     => '/case-studies',
 	);
 	if ( ! isset( $type_paths[ $post->post_type ] ) ) {
 		return $url;
@@ -273,7 +299,7 @@ function nordic_force_draft_slug( $data, $postarr ) {
 	if ( ! empty( $data['post_name'] ) || in_array( $data['post_status'], $skip_statuses, true ) ) {
 		return $data;
 	}
-	$allowed_types = array( 'post', 'service', 'career', 'feature', 'author_profile' );
+	$allowed_types = array( 'post', 'service', 'career', 'feature', 'author_profile', 'case_study' );
 	if ( ! in_array( $data['post_type'], $allowed_types, true ) ) {
 		return $data;
 	}
@@ -300,7 +326,7 @@ function nordic_trigger_revalidate( $post_id ) {
 		return;
 	}
 
-	$allowed_types = array( 'post', 'service', 'career', 'feature', 'author_profile' );
+	$allowed_types = array( 'post', 'service', 'career', 'feature', 'author_profile', 'case_study' );
 	if ( ! in_array( $post->post_type, $allowed_types, true ) ) {
 		return;
 	}

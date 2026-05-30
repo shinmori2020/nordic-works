@@ -15,6 +15,7 @@
 		"authors": "Authors",
 		"services": "Services",
 		"careers": "Careers",
+		"caseStudies": "Case Studies",
 		"resources": "Resources",
 		"about": "About",
 		"contact": "Contact",
@@ -198,6 +199,23 @@
 		"label": "Search",
 		"title": "Search",
 		"description": "Full-text search powered by Algolia. Filter by topic and industry."
+	},
+	"caseStudies": {
+		"label": "Case Studies",
+		"title": "Case Studies",
+		"description": "Stories from organisations we have supported.",
+		"client": "Client",
+		"industry": "Industry",
+		"companySize": "Company size",
+		"projectPeriod": "Project period",
+		"challenge": "Challenge",
+		"solution": "Solution",
+		"outcomes": "Outcomes",
+		"testimonial": "Testimonial",
+		"relatedServices": "Related services",
+		"viewCase": "Read case →",
+		"empty": "No case studies published yet.",
+		"relatedToService": "Case studies for this service"
 	},
 	"breadcrumbs": {
 		"label": "Breadcrumbs"

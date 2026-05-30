@@ -8,7 +8,12 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getServiceBySlug, getServices } from '@/lib/wordpress';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import {
+	getServiceBySlug,
+	getServices,
+	getCaseStudiesByServiceId,
+} from '@/lib/wordpress';
 import {
 	getFeaturedImage,
 	stripHtml,
@@ -18,6 +23,7 @@ import {
 	parseCaseStudyLinks,
 } from '@/lib/utils';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
+import { Link as IntlLink } from '@/i18n/navigation';
 import type { SlugPageProps } from '@/types/wordpress';
 
 // ISR: サービスは更新頻度が低いため24時間
@@ -42,14 +48,20 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	};
 }
 
-export default async function ServiceDetailPage({ params }: SlugPageProps) {
-	const { slug } = await params;
+export default async function ServiceDetailPage({
+	params,
+}: {
+	params: Promise<{ slug: string; locale: string }>;
+}) {
+	const { slug, locale } = await params;
+	setRequestLocale(locale);
 	const service = await getServiceBySlug(slug);
 
 	if (!service) {
 		notFound();
 	}
 
+	const tCases = await getTranslations('caseStudies');
 	const image = getFeaturedImage(service);
 	const acf = service.acf;
 
@@ -58,6 +70,9 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 	const pricingPlans = parsePricingPlans(acf?.pricing_plans);
 	const faq = parseFaq(acf?.faq);
 	const caseStudies = parseCaseStudyLinks(acf?.case_study_links);
+
+	// このサービスに紐づく case_study を取得
+	const relatedCases = await getCaseStudiesByServiceId(service.id);
 
 	// schema.org FAQPage 構造化データ（Google 検索結果に FAQ リッチリザルトを出すため）
 	const faqJsonLd =
@@ -229,10 +244,12 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 					</section>
 				)}
 
-				{/* 導入事例 */}
+				{/* 導入事例（ACF の外部リンク版） */}
 				{caseStudies.length > 0 && (
 					<section className="mt-14">
-						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">導入事例</h2>
+						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
+							{tCases('relatedToService')}
+						</h2>
 						<ul className="mt-6 space-y-2">
 							{caseStudies.map((cs, i) => (
 								<li key={i}>
@@ -240,10 +257,43 @@ export default async function ServiceDetailPage({ params }: SlugPageProps) {
 										href={cs.url}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="text-sm text-zinc-700 dark:text-zinc-300 underline underline-offset-2 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
+										className="text-sm text-zinc-700 underline underline-offset-2 transition-colors hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100"
 									>
 										{cs.label} ↗
 									</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				)}
+
+				{/* 関連事例 CPT（case_study）— このサービスに紐づく事例カード */}
+				{relatedCases.length > 0 && (
+					<section className="mt-14">
+						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
+							{tCases('relatedToService')}
+						</h2>
+						<ul className="mt-6 grid gap-4 sm:grid-cols-2">
+							{relatedCases.map((cs) => (
+								<li key={cs.id}>
+									<IntlLink
+										href={`/case-studies/${cs.slug}`}
+										className="block rounded-lg border border-zinc-200 p-5 transition-colors hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600"
+									>
+										{cs.acf?.client_name && (
+											<p className="text-xs uppercase tracking-wide text-zinc-500">
+												{cs.acf.client_name}
+											</p>
+										)}
+										<p className="mt-2 font-semibold text-zinc-900 dark:text-zinc-100">
+											{cs.title.rendered}
+										</p>
+										{cs.acf?.subtitle && (
+											<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+												{cs.acf.subtitle}
+											</p>
+										)}
+									</IntlLink>
 								</li>
 							))}
 						</ul>

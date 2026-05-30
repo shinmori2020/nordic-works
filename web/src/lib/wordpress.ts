@@ -17,6 +17,7 @@ import type {
 	WPCareer,
 	WPFeature,
 	WPAuthorProfile,
+	WPCaseStudy,
 	WPTerm,
 } from '@/types/wordpress';
 
@@ -100,6 +101,24 @@ const loadAuthorsStatic = async () => {
 	}
 	const m = await import('../../data/authors.json');
 	return m.default as unknown as WPAuthorProfile[];
+};
+// case_study.en.json はまだ存在しないので JA のみ。en 用は translate-content.mjs で生成される
+const loadCaseStudiesStatic = async () => {
+	const locale = await currentLocale();
+	if (locale === 'en') {
+		try {
+			const m = await import('../../data/case-studies.en.json');
+			return m.default as unknown as WPCaseStudy[];
+		} catch {
+			// EN 未生成時は JA フォールバック
+		}
+	}
+	try {
+		const m = await import('../../data/case-studies.json');
+		return m.default as unknown as WPCaseStudy[];
+	} catch {
+		return [] as WPCaseStudy[];
+	}
 };
 // タクソノミー（ターム名）は短く、訳しても誤訳しやすいので原文のまま使う方針
 const loadIndustriesStatic = () =>
@@ -372,6 +391,64 @@ export async function getAuthorById(id: number): Promise<WPAuthorProfile | null>
 	return wpFetch<WPAuthorProfile>(`author_profile/${id}?_embed`, {
 		revalidate: 86400,
 		tags: ['authors', `author-${id}`],
+	});
+}
+
+// =============================================================================
+// Case Studies (CPT: case_study)
+// =============================================================================
+
+export async function getCaseStudies(): Promise<WPCaseStudy[]> {
+	if (USE_STATIC) return loadCaseStudiesStatic();
+	const data = await wpFetch<WPCaseStudy[]>('case_study?_embed&per_page=100', {
+		revalidate: 86400,
+		tags: ['case-studies'],
+	});
+	return data ?? [];
+}
+
+export async function getCaseStudyBySlug(slug: string): Promise<WPCaseStudy | null> {
+	if (USE_STATIC) {
+		const items = await loadCaseStudiesStatic();
+		return items.find((c) => c.slug === slug) ?? null;
+	}
+	return fetchBySlug<WPCaseStudy>(
+		'case_study',
+		slug,
+		['case-studies', `case-study-${slug}`],
+		86400,
+	);
+}
+
+/**
+ * 関連サービス取得: ACF relationship フィールド related_services は ID 配列で返る。
+ * それを実体のサービスに解決する。指定順を保持する。
+ */
+export async function getServicesByIds(ids: number[]): Promise<WPService[]> {
+	if (ids.length === 0) return [];
+	if (USE_STATIC) {
+		const services = await loadServicesStatic();
+		const byId = new Map(services.map((s) => [s.id, s]));
+		return ids
+			.map((id) => byId.get(id))
+			.filter((s): s is WPService => s !== undefined);
+	}
+	const data = await wpFetch<WPService[]>(
+		`service?include=${ids.join(',')}&orderby=include&_embed&per_page=100`,
+		{ revalidate: 86400, tags: ['services'] },
+	);
+	return data ?? [];
+}
+
+/**
+ * 関連事例: 特定のサービスIDに紐づく case_study を返す。
+ * ACF の related_services を逆引きする。
+ */
+export async function getCaseStudiesByServiceId(serviceId: number): Promise<WPCaseStudy[]> {
+	const all = await getCaseStudies();
+	return all.filter((cs) => {
+		const related = cs.acf?.related_services;
+		return Array.isArray(related) && related.includes(serviceId);
 	});
 }
 
