@@ -1,6 +1,10 @@
 /**
  * サイト共通フッター。
  *
+ * 上段: ブランド説明 (左) + ニュースレター (右) の2カラム。
+ * 中段: サイトマップを横一列で配置（widthが確保されるため折返しが減る）。
+ * 下段: コピーライト。
+ *
  * Server Component。ニュースレターフォームのみ NewsletterForm
  * (Client Component) として埋め込む。
  */
@@ -24,7 +28,8 @@ export function Footer() {
 	return (
 		<footer className="mt-20 border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 			<div className="mx-auto max-w-6xl px-6 py-12">
-				<div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_1.4fr]">
+				{/* 上段: ブランド + ニュースレター */}
+				<div className="grid gap-10 sm:grid-cols-[1fr_1fr] lg:gap-16">
 					<div className="max-w-xs">
 						<p className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
 							Nordic Works
@@ -33,24 +38,6 @@ export function Footer() {
 							北欧式の働き方・組織設計を支援する B2B SaaS 企業。
 						</p>
 					</div>
-
-					<nav>
-						<p className="text-xs uppercase tracking-widest text-zinc-400">
-							Sitemap
-						</p>
-						<ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
-							{FOOTER_LINKS.map((link) => (
-								<li key={link.href}>
-									<Link
-										href={link.href}
-										className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-									>
-										{link.label}
-									</Link>
-								</li>
-							))}
-						</ul>
-					</nav>
 
 					<div>
 						<p className="text-xs uppercase tracking-widest text-zinc-400">
@@ -65,7 +52,27 @@ export function Footer() {
 					</div>
 				</div>
 
-				<div className="mt-10 border-t border-zinc-200 pt-6 dark:border-zinc-800">
+				{/* 中段: サイトマップ（横一列でゆったり配置） */}
+				<nav className="mt-12 border-t border-zinc-200 pt-8 dark:border-zinc-800">
+					<p className="text-xs uppercase tracking-widest text-zinc-400">
+						Sitemap
+					</p>
+					<ul className="mt-3 flex flex-wrap gap-x-8 gap-y-2">
+						{FOOTER_LINKS.map((link) => (
+							<li key={link.href}>
+								<Link
+									href={link.href}
+									className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+								>
+									{link.label}
+								</Link>
+							</li>
+						))}
+					</ul>
+				</nav>
+
+				{/* 下段: コピーライト */}
+				<div className="mt-8 border-t border-zinc-200 pt-6 dark:border-zinc-800">
 					<p className="text-xs text-zinc-400">
 						© {year} Nordic Works. This is a fictional company built as a
 						portfolio project.
