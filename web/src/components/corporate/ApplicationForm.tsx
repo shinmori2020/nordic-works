@@ -10,6 +10,7 @@
 'use client';
 
 import { useActionState } from 'react';
+import { useTranslations } from 'next-intl';
 import {
 	submitApplication,
 	type ApplicationFormState,
@@ -30,6 +31,8 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 		submitApplication,
 		initialState,
 	);
+	const t = useTranslations('forms.application');
+	const tCommon = useTranslations('forms.common');
 
 	if (state.status === 'success') {
 		return (
@@ -38,10 +41,10 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 				aria-live="polite"
 				className="rounded-lg border border-emerald-200 bg-emerald-50 p-6 text-sm text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-200"
 			>
-				<p className="font-medium">応募を受け付けました</p>
+				<p className="font-medium">{t('successTitle')}</p>
 				<p className="mt-2 leading-relaxed">{state.message}</p>
 				<p className="mt-2 text-xs text-emerald-700 dark:text-emerald-300">
-					応募ポジション: {careerTitle}
+					{t('positionLabel')}: {careerTitle}
 				</p>
 			</div>
 		);
@@ -66,7 +69,7 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 			<div className="grid gap-5 sm:grid-cols-2">
 				<div>
 					<label htmlFor="ap-name" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-						お名前 <span className="text-red-500">*</span>
+						{t('name')} <span className="text-red-500">*</span>
 					</label>
 					<input
 						id="ap-name"
@@ -87,7 +90,7 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 
 				<div>
 					<label htmlFor="ap-email" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-						メールアドレス <span className="text-red-500">*</span>
+						{t('email')} <span className="text-red-500">*</span>
 					</label>
 					<input
 						id="ap-email"
@@ -108,7 +111,7 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 
 				<div>
 					<label htmlFor="ap-phone" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-						電話番号 <span className="text-red-500">*</span>
+						{t('phone')} <span className="text-red-500">*</span>
 					</label>
 					<input
 						id="ap-phone"
@@ -116,7 +119,7 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 						type="tel"
 						required
 						autoComplete="tel"
-						placeholder="090-1234-5678"
+						placeholder={t('phonePlaceholder')}
 						aria-invalid={Boolean(err.phone)}
 						aria-describedby={err.phone ? 'ap-phone-error' : undefined}
 						className={inputClass}
@@ -130,7 +133,7 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 
 				<div>
 					<label htmlFor="ap-currentCompany" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-						現職・所属（任意）
+						{t('currentCompany')}
 					</label>
 					<input
 						id="ap-currentCompany"
@@ -144,27 +147,27 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 
 			<div>
 				<label htmlFor="ap-availableFrom" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					入社可能時期（任意）
+					{t('availableFrom')}
 				</label>
 				<input
 					id="ap-availableFrom"
 					name="availableFrom"
 					type="text"
-					placeholder="例: 2026年7月以降 / 即時可能 / 要相談"
+					placeholder={t('availableFromPlaceholder')}
 					className={inputClass}
 				/>
 			</div>
 
 			<div>
 				<label htmlFor="ap-motivation" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					志望動機 <span className="text-red-500">*</span>
+					{t('motivation')} <span className="text-red-500">*</span>
 				</label>
 				<textarea
 					id="ap-motivation"
 					name="motivation"
 					required
 					rows={6}
-					placeholder="このポジションに興味を持った理由、入社後に取り組みたいことなど（50文字以上）"
+					placeholder={t('motivationPlaceholder')}
 					aria-invalid={Boolean(err.motivation)}
 					aria-describedby={err.motivation ? 'ap-motivation-error' : undefined}
 					className={inputClass}
@@ -178,13 +181,13 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 
 			<div>
 				<label htmlFor="ap-experience" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					職務経歴の概要（任意）
+					{t('experience')}
 				</label>
 				<textarea
 					id="ap-experience"
 					name="experience"
 					rows={6}
-					placeholder="関連する経歴・スキル・実績を箇条書きで記載してください。後日詳しい職務経歴書をご提出いただくため、ここでは概要で結構です。"
+					placeholder={t('experiencePlaceholder')}
 					className={inputClass}
 				/>
 			</div>
@@ -203,15 +206,16 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 					htmlFor="ap-agreed"
 					className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300"
 				>
+					{tCommon('agreePrefix')}
 					<a
 						href="/privacy"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="underline transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 					>
-						プライバシーポリシー
+						{tCommon('agreePolicyLink')}
 					</a>
-					に同意します <span className="text-red-500">*</span>
+					{tCommon('agreeSuffix')} <span className="text-red-500">*</span>
 				</label>
 			</div>
 			{err.agreed && (
@@ -225,7 +229,7 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 				disabled={pending}
 				className="rounded-md bg-zinc-900 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
 			>
-				{pending ? '送信中…' : 'このポジションに応募する'}
+				{pending ? tCommon('submitting') : t('submit')}
 			</button>
 		</form>
 	);

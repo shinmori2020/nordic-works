@@ -9,6 +9,7 @@
 'use client';
 
 import { useActionState } from 'react';
+import { useTranslations } from 'next-intl';
 import { submitContact, type ContactFormState } from '@/app/actions/contact';
 
 const initialState: ContactFormState = { status: 'idle', message: '' };
@@ -22,6 +23,8 @@ const inputClass =
  */
 export function ContactForm({ initialMessage = '' }: { initialMessage?: string }) {
 	const [state, formAction, pending] = useActionState(submitContact, initialState);
+	const t = useTranslations('forms.contact');
+	const tCommon = useTranslations('forms.common');
 
 	if (state.status === 'success') {
 		return (
@@ -30,7 +33,7 @@ export function ContactForm({ initialMessage = '' }: { initialMessage?: string }
 				aria-live="polite"
 				className="rounded-lg border border-emerald-200 bg-emerald-50 p-6 text-sm text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-200"
 			>
-				<p className="font-medium">送信が完了しました</p>
+				<p className="font-medium">{t('successTitle')}</p>
 				<p className="mt-1">{state.message}</p>
 			</div>
 		);
@@ -51,7 +54,7 @@ export function ContactForm({ initialMessage = '' }: { initialMessage?: string }
 
 			<div>
 				<label htmlFor="name" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					お名前 <span className="text-red-500">*</span>
+					{t('name')} <span className="text-red-500">*</span>
 				</label>
 				<input
 					id="name"
@@ -72,7 +75,7 @@ export function ContactForm({ initialMessage = '' }: { initialMessage?: string }
 
 			<div>
 				<label htmlFor="email" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					メールアドレス <span className="text-red-500">*</span>
+					{t('email')} <span className="text-red-500">*</span>
 				</label>
 				<input
 					id="email"
@@ -93,7 +96,7 @@ export function ContactForm({ initialMessage = '' }: { initialMessage?: string }
 
 			<div>
 				<label htmlFor="company" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					会社名（任意）
+					{t('company')}
 				</label>
 				<input
 					id="company"
@@ -106,7 +109,7 @@ export function ContactForm({ initialMessage = '' }: { initialMessage?: string }
 
 			<div>
 				<label htmlFor="message" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					お問い合わせ内容 <span className="text-red-500">*</span>
+					{t('message')} <span className="text-red-500">*</span>
 				</label>
 				<textarea
 					id="message"
@@ -130,7 +133,7 @@ export function ContactForm({ initialMessage = '' }: { initialMessage?: string }
 				disabled={pending}
 				className="rounded-md bg-zinc-900 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
 			>
-				{pending ? '送信中…' : '送信する'}
+				{pending ? tCommon('submitting') : t('submit')}
 			</button>
 		</form>
 	);

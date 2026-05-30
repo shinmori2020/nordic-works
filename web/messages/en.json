@@ -42,7 +42,50 @@
 		"agreePolicy": "privacy policy",
 		"subscribe": "Subscribe to newsletter",
 		"articleCtaTitle": "Get articles like this twice a month",
-		"articleCtaDescription": "We send editor picks and new whitepapers every second and fourth Friday."
+		"articleCtaDescription": "We send editor picks and new whitepapers every second and fourth Friday.",
+		"successTitle": "Subscription confirmed"
+	},
+	"forms": {
+		"common": {
+			"submitting": "Sending…",
+			"agreePrefix": "I agree to the ",
+			"agreePolicyLink": "privacy policy",
+			"agreeSuffix": ""
+		},
+		"contact": {
+			"name": "Name",
+			"email": "Email address",
+			"company": "Company (optional)",
+			"message": "Your message",
+			"submit": "Send message",
+			"successTitle": "Message sent",
+			"errorRequired": "Please fill in the required fields"
+		},
+		"whitepaper": {
+			"name": "Name",
+			"email": "Email address",
+			"company": "Company",
+			"role": "Role (optional)",
+			"submit": "Request the resource",
+			"successTitle": "Request received",
+			"targetLabel": "Resource"
+		},
+		"application": {
+			"name": "Name",
+			"email": "Email address",
+			"phone": "Phone number",
+			"phonePlaceholder": "090-1234-5678",
+			"currentCompany": "Current employer (optional)",
+			"availableFrom": "Earliest start date (optional)",
+			"availableFromPlaceholder": "e.g. After July 2026 / Immediately / Negotiable",
+			"motivation": "Motivation",
+			"motivationPlaceholder": "Why this role interests you, what you would like to work on after joining (50+ characters).",
+			"experience": "Career summary (optional)",
+			"experiencePlaceholder": "Brief bullet points of relevant experience, skills, and accomplishments. A full résumé can be shared later.",
+			"submit": "Apply for this position",
+			"successTitle": "Application received",
+			"positionLabel": "Position"
+		}
 	},
 	"home": {
 		"hero": {

@@ -8,6 +8,7 @@
 'use client';
 
 import { useActionState } from 'react';
+import { useTranslations } from 'next-intl';
 import {
 	requestWhitepaper,
 	type WhitepaperFormState,
@@ -31,6 +32,8 @@ export function WhitepaperRequestForm({
 		requestWhitepaper,
 		initialState,
 	);
+	const t = useTranslations('forms.whitepaper');
+	const tCommon = useTranslations('forms.common');
 
 	if (state.status === 'success') {
 		return (
@@ -39,10 +42,10 @@ export function WhitepaperRequestForm({
 				aria-live="polite"
 				className="rounded-lg border border-emerald-200 bg-emerald-50 p-6 text-sm text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-200"
 			>
-				<p className="font-medium">資料請求を受け付けました</p>
+				<p className="font-medium">{t('successTitle')}</p>
 				<p className="mt-2 leading-relaxed">{state.message}</p>
 				<p className="mt-2 text-xs text-emerald-700 dark:text-emerald-300">
-					対象資料: {whitepaperTitle}
+					{t('targetLabel')}: {whitepaperTitle}
 				</p>
 			</div>
 		);
@@ -65,7 +68,7 @@ export function WhitepaperRequestForm({
 
 			<div>
 				<label htmlFor="wp-name" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					お名前 <span className="text-red-500">*</span>
+					{t('name')} <span className="text-red-500">*</span>
 				</label>
 				<input
 					id="wp-name"
@@ -86,7 +89,7 @@ export function WhitepaperRequestForm({
 
 			<div>
 				<label htmlFor="wp-email" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					メールアドレス <span className="text-red-500">*</span>
+					{t('email')} <span className="text-red-500">*</span>
 				</label>
 				<input
 					id="wp-email"
@@ -107,7 +110,7 @@ export function WhitepaperRequestForm({
 
 			<div>
 				<label htmlFor="wp-company" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					会社名 <span className="text-red-500">*</span>
+					{t('company')} <span className="text-red-500">*</span>
 				</label>
 				<input
 					id="wp-company"
@@ -128,7 +131,7 @@ export function WhitepaperRequestForm({
 
 			<div>
 				<label htmlFor="wp-role" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					役職（任意）
+					{t('role')}
 				</label>
 				<input
 					id="wp-role"
@@ -153,15 +156,16 @@ export function WhitepaperRequestForm({
 					htmlFor="wp-agreed"
 					className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300"
 				>
+					{tCommon('agreePrefix')}
 					<a
 						href="/privacy"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="underline transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
 					>
-						プライバシーポリシー
+						{tCommon('agreePolicyLink')}
 					</a>
-					に同意します <span className="text-red-500">*</span>
+					{tCommon('agreeSuffix')} <span className="text-red-500">*</span>
 				</label>
 			</div>
 			{err.agreed && (
@@ -175,7 +179,7 @@ export function WhitepaperRequestForm({
 				disabled={pending}
 				className="rounded-md bg-zinc-900 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
 			>
-				{pending ? '送信中…' : '資料を請求する'}
+				{pending ? tCommon('submitting') : t('submit')}
 			</button>
 		</form>
 	);

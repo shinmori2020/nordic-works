@@ -11,6 +11,7 @@
 'use client';
 
 import { useActionState } from 'react';
+import { useTranslations } from 'next-intl';
 import {
 	subscribeNewsletter,
 	type NewsletterFormState,
@@ -34,6 +35,7 @@ export function NewsletterForm({
 		subscribeNewsletter,
 		initialState,
 	);
+	const t = useTranslations('newsletter');
 
 	if (state.status === 'success') {
 		return (
@@ -63,9 +65,9 @@ export function NewsletterForm({
 						type="email"
 						required
 						autoComplete="email"
-						placeholder="メールアドレス"
+						placeholder={t('emailPlaceholder')}
 						aria-invalid={Boolean(err.email)}
-						aria-label="メールアドレス"
+						aria-label={t('emailPlaceholder')}
 						className="flex-1 rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 transition-colors focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
 					/>
 					<button
@@ -73,7 +75,7 @@ export function NewsletterForm({
 						disabled={pending}
 						className="shrink-0 rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
 					>
-						{pending ? '送信中…' : '登録'}
+						{pending ? t('submitting') : t('submit')}
 					</button>
 				</div>
 				<label className="flex items-start gap-1.5 text-xs text-zinc-500">
@@ -83,15 +85,7 @@ export function NewsletterForm({
 						required
 						className="mt-0.5 h-3.5 w-3.5 cursor-pointer accent-zinc-900 dark:accent-zinc-100"
 					/>
-					<span>
-						<a
-							href="/privacy"
-							className="underline transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-						>
-							プライバシーポリシー
-						</a>
-						に同意します
-					</span>
+					<span>{t('agree')}</span>
 				</label>
 				{err.email && (
 					<p className="text-xs text-red-600 dark:text-red-400">{err.email}</p>
@@ -125,7 +119,7 @@ export function NewsletterForm({
 					htmlFor={`${idPrefix}-email-std`}
 					className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
 				>
-					メールアドレス <span className="text-red-500">*</span>
+					{t('emailPlaceholder')} <span className="text-red-500">*</span>
 				</label>
 				<input
 					id={`${idPrefix}-email-std`}
@@ -151,13 +145,7 @@ export function NewsletterForm({
 					className="mt-0.5 h-4 w-4 cursor-pointer accent-zinc-900 dark:accent-zinc-100"
 				/>
 				<span>
-					<a
-						href="/privacy"
-						className="underline transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-					>
-						プライバシーポリシー
-					</a>
-					に同意します <span className="text-red-500">*</span>
+					{t('agree')} <span className="text-red-500">*</span>
 				</span>
 			</label>
 			{err.agreed && (
@@ -169,7 +157,7 @@ export function NewsletterForm({
 				disabled={pending}
 				className="rounded-md bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
 			>
-				{pending ? '送信中…' : 'ニュースレターを購読する'}
+				{pending ? t('submitting') : t('subscribe')}
 			</button>
 		</form>
 	);

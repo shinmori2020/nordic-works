@@ -42,7 +42,50 @@
 		"agreePolicy": "プライバシーポリシー",
 		"subscribe": "ニュースレターを購読する",
 		"articleCtaTitle": "こうした記事を月2回お届けします",
-		"articleCtaDescription": "編集部おすすめ記事と新規ホワイトペーパーを、第2・第4金曜日にメールでお送りします。"
+		"articleCtaDescription": "編集部おすすめ記事と新規ホワイトペーパーを、第2・第4金曜日にメールでお送りします。",
+		"successTitle": "登録を受け付けました"
+	},
+	"forms": {
+		"common": {
+			"submitting": "送信中…",
+			"agreePrefix": "",
+			"agreePolicyLink": "プライバシーポリシー",
+			"agreeSuffix": "に同意します"
+		},
+		"contact": {
+			"name": "お名前",
+			"email": "メールアドレス",
+			"company": "会社名（任意）",
+			"message": "お問い合わせ内容",
+			"submit": "送信する",
+			"successTitle": "送信が完了しました",
+			"errorRequired": "必須項目を入力してください"
+		},
+		"whitepaper": {
+			"name": "お名前",
+			"email": "メールアドレス",
+			"company": "会社名",
+			"role": "役職（任意）",
+			"submit": "資料を請求する",
+			"successTitle": "資料請求を受け付けました",
+			"targetLabel": "対象資料"
+		},
+		"application": {
+			"name": "お名前",
+			"email": "メールアドレス",
+			"phone": "電話番号",
+			"phonePlaceholder": "090-1234-5678",
+			"currentCompany": "現職・所属（任意）",
+			"availableFrom": "入社可能時期（任意）",
+			"availableFromPlaceholder": "例: 2026年7月以降 / 即時可能 / 要相談",
+			"motivation": "志望動機",
+			"motivationPlaceholder": "このポジションに興味を持った理由、入社後に取り組みたいことなど（50文字以上）",
+			"experience": "職務経歴の概要（任意）",
+			"experiencePlaceholder": "関連する経歴・スキル・実績を箇条書きで記載してください。後日詳しい職務経歴書をご提出いただくため、ここでは概要で結構です。",
+			"submit": "このポジションに応募する",
+			"successTitle": "応募を受け付けました",
+			"positionLabel": "応募ポジション"
+		}
 	},
 	"home": {
 		"hero": {
