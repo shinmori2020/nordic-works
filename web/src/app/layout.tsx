@@ -9,6 +9,7 @@ import { Footer } from '@/components/common/Footer';
 import { PreviewBanner } from '@/components/common/PreviewBanner';
 import { ThemeProvider } from '@/components/common/ThemeProvider';
 import { CookieConsent } from '@/components/common/CookieConsent';
+import { ServiceWorkerRegister } from '@/components/common/ServiceWorkerRegister';
 import {
 	SITE_URL,
 	SITE_NAME,
@@ -38,6 +39,13 @@ export const metadata: Metadata = {
 	alternates: {
 		canonical: '/',
 	},
+	// PWA: ホーム画面追加・スプラッシュ表示用のアプリ名
+	applicationName: SITE_NAME,
+	appleWebApp: {
+		capable: true,
+		statusBarStyle: 'default',
+		title: SITE_NAME,
+	},
 	openGraph: {
 		type: 'website',
 		locale: SITE_LOCALE,
@@ -51,6 +59,14 @@ export const metadata: Metadata = {
 		title: DEFAULT_TITLE,
 		description: SITE_DESCRIPTION,
 	},
+};
+
+// PWA: ブラウザUIのテーマ色（manifest.theme_color と整合させる）
+export const viewport = {
+	themeColor: [
+		{ media: '(prefers-color-scheme: light)', color: '#ffffff' },
+		{ media: '(prefers-color-scheme: dark)', color: '#09090b' },
+	],
 };
 
 /** 組織情報の構造化データ（schema.org Organization） */
@@ -88,6 +104,8 @@ export default async function RootLayout({
 					<Footer />
 					<CookieConsent />
 				</ThemeProvider>
+				{/* PWA Service Worker。本番環境でのみ登録。 */}
+				<ServiceWorkerRegister />
 				{/* Vercel Web Analytics / Speed Insights。
 				    本番環境（Vercel デプロイ時）でのみ計測が走り、開発時は no-op。 */}
 				<Analytics />
