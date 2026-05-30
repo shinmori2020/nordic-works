@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import createNextIntlPlugin from 'next-intl/plugin';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -21,4 +22,8 @@ const nextConfig: NextConfig = {
 	},
 };
 
-export default nextConfig;
+// next-intl の getRequestConfig をビルドに統合する。
+// プラグインは src/i18n/request.ts をデフォルトで読みに行く。
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+
+export default withNextIntl(nextConfig);

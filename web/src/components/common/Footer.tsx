@@ -2,28 +2,30 @@
  * サイト共通フッター。
  *
  * 上段: ブランド説明 (左) + ニュースレター (右) の2カラム。
- * 中段: サイトマップを横一列で配置（widthが確保されるため折返しが減る）。
+ * 中段: サイトマップを横一列で配置。
  * 下段: コピーライト。
  *
- * Server Component。ニュースレターフォームのみ NewsletterForm
- * (Client Component) として埋め込む。
+ * Server Component。翻訳キー経由でテキストを出すため getTranslations を使用。
  */
 
-import Link from 'next/link';
+import { getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import { NewsletterForm } from './NewsletterForm';
 
 const FOOTER_LINKS = [
-	{ href: '/articles', label: 'Insights' },
-	{ href: '/services', label: 'Services' },
-	{ href: '/careers', label: 'Careers' },
-	{ href: '/resources', label: 'Resources' },
-	{ href: '/about', label: 'About' },
-	{ href: '/contact', label: 'Contact' },
-	{ href: '/privacy', label: 'Privacy' },
+	{ href: '/articles', key: 'insights' as const },
+	{ href: '/services', key: 'services' as const },
+	{ href: '/careers', key: 'careers' as const },
+	{ href: '/resources', key: 'resources' as const },
+	{ href: '/about', key: 'about' as const },
+	{ href: '/contact', key: 'contact' as const },
+	{ href: '/privacy', key: 'privacy' as const },
 ];
 
-export function Footer() {
+export async function Footer() {
 	const year = new Date().getFullYear();
+	const tNav = await getTranslations('nav');
+	const tFooter = await getTranslations('footer');
 
 	return (
 		<footer className="mt-20 border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
@@ -35,16 +37,16 @@ export function Footer() {
 							Nordic Works
 						</p>
 						<p className="mt-2 text-sm leading-relaxed text-zinc-500">
-							北欧式の働き方・組織設計を支援する B2B SaaS 企業。
+							{tFooter('description')}
 						</p>
 					</div>
 
 					<div>
 						<p className="text-xs uppercase tracking-widest text-zinc-400">
-							Newsletter
+							{tFooter('newsletter')}
 						</p>
 						<p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-							月2回、編集部おすすめ記事と新規レポートをお届けします。
+							{tFooter('newsletterDescription')}
 						</p>
 						<div className="mt-3">
 							<NewsletterForm variant="compact" idPrefix="nl-footer" />
@@ -52,10 +54,10 @@ export function Footer() {
 					</div>
 				</div>
 
-				{/* 中段: サイトマップ（横一列でゆったり配置） */}
+				{/* 中段: サイトマップ */}
 				<nav className="mt-12 border-t border-zinc-200 pt-8 dark:border-zinc-800">
 					<p className="text-xs uppercase tracking-widest text-zinc-400">
-						Sitemap
+						{tFooter('sitemap')}
 					</p>
 					<ul className="mt-3 flex flex-wrap gap-x-8 gap-y-2">
 						{FOOTER_LINKS.map((link) => (
@@ -64,7 +66,7 @@ export function Footer() {
 									href={link.href}
 									className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
 								>
-									{link.label}
+									{tNav(link.key)}
 								</Link>
 							</li>
 						))}
@@ -74,8 +76,7 @@ export function Footer() {
 				{/* 下段: コピーライト */}
 				<div className="mt-8 border-t border-zinc-200 pt-6 dark:border-zinc-800">
 					<p className="text-xs text-zinc-400">
-						© {year} Nordic Works. This is a fictional company built as a
-						portfolio project.
+						{tFooter('copyright', { year })}
 					</p>
 				</div>
 			</div>

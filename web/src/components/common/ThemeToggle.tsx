@@ -9,10 +9,12 @@
 
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
+import { useTranslations } from 'next-intl';
 
 export function ThemeToggle() {
 	const { resolvedTheme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
+	const t = useTranslations('nav');
 
 	useEffect(() => setMounted(true), []);
 
@@ -23,13 +25,11 @@ export function ThemeToggle() {
 			type="button"
 			onClick={() => setTheme(isDark ? 'light' : 'dark')}
 			className="flex h-9 w-9 items-center justify-center rounded-md text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
-			aria-label={mounted ? (isDark ? 'ライトモードに切り替え' : 'ダークモードに切り替え') : 'テーマを切り替え'}
+			aria-label={mounted ? (isDark ? t('toLightMode') : t('toDarkMode')) : t('toggleTheme')}
 		>
 			{!mounted ? (
-				// ハイドレーション前のプレースホルダー（レイアウトシフト防止）
 				<span className="h-5 w-5" aria-hidden="true" />
 			) : isDark ? (
-				// 太陽アイコン（クリックでライトへ）
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 					<circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.6" />
 					<path
@@ -40,7 +40,6 @@ export function ThemeToggle() {
 					/>
 				</svg>
 			) : (
-				// 月アイコン（クリックでダークへ）
 				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 					<path
 						d="M21 12.8A9 9 0 1111.2 3a7 7 0 109.8 9.8z"

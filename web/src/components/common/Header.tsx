@@ -3,26 +3,31 @@
  *
  * デスクトップは横並びナビ、モバイルはハンバーガーメニュー。
  * モバイルメニューの開閉に状態を持つため Client Component。
+ *
+ * 内部リンクは next-intl の Link を使い、現在ロケールのプレフィックスを自動付与する。
  */
 
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { ThemeToggle } from './ThemeToggle';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 const NAV_LINKS = [
-	{ href: '/articles', label: 'Insights' },
-	{ href: '/features', label: 'Features' },
-	{ href: '/authors', label: 'Authors' },
-	{ href: '/services', label: 'Services' },
-	{ href: '/careers', label: 'Careers' },
-	{ href: '/resources', label: 'Resources' },
-	{ href: '/about', label: 'About' },
-	{ href: '/contact', label: 'Contact' },
+	{ href: '/articles', key: 'insights' as const },
+	{ href: '/features', key: 'features' as const },
+	{ href: '/authors', key: 'authors' as const },
+	{ href: '/services', key: 'services' as const },
+	{ href: '/careers', key: 'careers' as const },
+	{ href: '/resources', key: 'resources' as const },
+	{ href: '/about', key: 'about' as const },
+	{ href: '/contact', key: 'contact' as const },
 ];
 
 export function Header() {
+	const t = useTranslations('nav');
 	const [open, setOpen] = useState(false);
 
 	return (
@@ -45,7 +50,7 @@ export function Header() {
 								href={link.href}
 								className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
 							>
-								{link.label}
+								{t(link.key)}
 							</Link>
 						))}
 					</nav>
@@ -53,7 +58,7 @@ export function Header() {
 					{/* 検索ボタン → /search */}
 					<Link
 						href="/search"
-						aria-label="記事を検索"
+						aria-label={t('openSearch')}
 						className="flex h-9 w-9 items-center justify-center rounded-md text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
 					>
 						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -67,10 +72,11 @@ export function Header() {
 						</svg>
 					</Link>
 
-					{/* テーマ切替（全幅で表示） */}
-					<div className="ml-1">
-						<ThemeToggle />
-					</div>
+					{/* 言語切替 */}
+					<LanguageSwitcher />
+
+					{/* テーマ切替 */}
+					<ThemeToggle />
 
 					{/* モバイルメニュートグル */}
 					<button
@@ -81,23 +87,23 @@ export function Header() {
 						aria-expanded={open}
 						aria-controls="mobile-nav"
 					>
-					{open ? (
-						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-							<path
-								d="M5 5l10 10M15 5L5 15"
-								stroke="currentColor"
-								strokeWidth="1.6"
-								strokeLinecap="round"
-							/>
-						</svg>
-					) : (
-						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-							<path
-								d="M3 6h14M3 10h14M3 14h14"
-								stroke="currentColor"
-								strokeWidth="1.6"
-								strokeLinecap="round"
-							/>
+						{open ? (
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+								<path
+									d="M5 5l10 10M15 5L5 15"
+									stroke="currentColor"
+									strokeWidth="1.6"
+									strokeLinecap="round"
+								/>
+							</svg>
+						) : (
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+								<path
+									d="M3 6h14M3 10h14M3 14h14"
+									stroke="currentColor"
+									strokeWidth="1.6"
+									strokeLinecap="round"
+								/>
 							</svg>
 						)}
 					</button>
@@ -117,7 +123,7 @@ export function Header() {
 							onClick={() => setOpen(false)}
 							className="block px-6 py-3 text-sm text-zinc-700 transition-colors hover:bg-zinc-50 dark:text-zinc-300 dark:hover:bg-zinc-900"
 						>
-							{link.label}
+							{t(link.key)}
 						</Link>
 					))}
 				</nav>

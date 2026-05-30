@@ -1,0 +1,85 @@
+{
+	"common": {
+		"home": "ホーム",
+		"search": "検索",
+		"readMore": "もっと読む",
+		"backToTop": "ホームに戻る",
+		"loading": "読み込み中…",
+		"required": "必須"
+	},
+	"nav": {
+		"insights": "Insights",
+		"features": "Features",
+		"authors": "Authors",
+		"services": "Services",
+		"careers": "Careers",
+		"resources": "Resources",
+		"about": "About",
+		"contact": "Contact",
+		"privacy": "Privacy",
+		"toggleTheme": "テーマを切り替え",
+		"toLightMode": "ライトモードに切り替え",
+		"toDarkMode": "ダークモードに切り替え",
+		"openSearch": "検索を開く"
+	},
+	"footer": {
+		"description": "北欧式の働き方・組織設計を支援する B2B SaaS 企業。",
+		"sitemap": "Sitemap",
+		"newsletter": "Newsletter",
+		"newsletterDescription": "月2回、編集部おすすめ記事と新規レポートをお届けします。",
+		"copyright": "© {year} Nordic Works. This is a fictional company built as a portfolio project."
+	},
+	"newsletter": {
+		"emailPlaceholder": "メールアドレス",
+		"submit": "登録",
+		"submitting": "送信中…",
+		"agree": "プライバシーポリシーに同意します",
+		"agreePolicy": "プライバシーポリシー",
+		"subscribe": "ニュースレターを購読する"
+	},
+	"home": {
+		"hero": {
+			"label": "NORDIC WAYS OF WORKING",
+			"title": "働き方を、北欧の知恵で設計する。",
+			"description": "リモートワーク、心理的安全性、組織デザイン。Nordic Works は、データと北欧の組織文化をもとに、これからの働き方を支援する B2B SaaS 企業です。",
+			"ctaService": "サービスを見る",
+			"ctaInsights": "Insights を読む"
+		},
+		"latestArticles": {
+			"label": "INSIGHTS",
+			"title": "最新の記事",
+			"viewAll": "すべて見る →"
+		}
+	},
+	"breadcrumbs": {
+		"label": "パンくず"
+	},
+	"languageSwitcher": {
+		"label": "言語を切り替え",
+		"ja": "日本語",
+		"en": "English"
+	},
+	"cookie": {
+		"message": "本サイトはサイト改善のため Cookie および類似技術を利用します。詳しくは",
+		"messageSuffix": "をご覧ください。",
+		"privacyLink": "プライバシーポリシー",
+		"accept": "同意する",
+		"decline": "拒否する"
+	},
+	"notFound": {
+		"label": "404",
+		"title": "ページが見つかりません",
+		"description": "お探しのページは削除されたか、URL が変更された可能性があります。以下から目的のコンテンツを探してみてください。",
+		"backHome": "ホームに戻る",
+		"goSearch": "サイト内を検索する",
+		"majorSections": "主要セクション",
+		"recentArticles": "最近の記事",
+		"viewAll": "すべて見る →"
+	},
+	"offline": {
+		"label": "Offline",
+		"title": "オフラインです",
+		"description": "ネットワーク接続が確認できないため、コンテンツを取得できませんでした。接続を確認してから、もう一度お試しください。",
+		"cached": "一度訪問したページは、オフラインでも閲覧できる場合があります。"
+	}
+}

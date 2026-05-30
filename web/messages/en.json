@@ -1,0 +1,85 @@
+{
+	"common": {
+		"home": "Home",
+		"search": "Search",
+		"readMore": "Read more",
+		"backToTop": "Back to home",
+		"loading": "Loading…",
+		"required": "Required"
+	},
+	"nav": {
+		"insights": "Insights",
+		"features": "Features",
+		"authors": "Authors",
+		"services": "Services",
+		"careers": "Careers",
+		"resources": "Resources",
+		"about": "About",
+		"contact": "Contact",
+		"privacy": "Privacy",
+		"toggleTheme": "Toggle theme",
+		"toLightMode": "Switch to light mode",
+		"toDarkMode": "Switch to dark mode",
+		"openSearch": "Open search"
+	},
+	"footer": {
+		"description": "A B2B SaaS company supporting Nordic-style work practices and organisation design.",
+		"sitemap": "Sitemap",
+		"newsletter": "Newsletter",
+		"newsletterDescription": "Twice a month: editor picks and new research reports straight to your inbox.",
+		"copyright": "© {year} Nordic Works. This is a fictional company built as a portfolio project."
+	},
+	"newsletter": {
+		"emailPlaceholder": "Email address",
+		"submit": "Subscribe",
+		"submitting": "Sending…",
+		"agree": "I agree to the privacy policy",
+		"agreePolicy": "privacy policy",
+		"subscribe": "Subscribe to newsletter"
+	},
+	"home": {
+		"hero": {
+			"label": "NORDIC WAYS OF WORKING",
+			"title": "Design the way you work, with Nordic wisdom.",
+			"description": "Remote work, psychological safety, organisation design. Nordic Works is a B2B SaaS company that helps you build the future of work, grounded in data and Nordic culture.",
+			"ctaService": "See our services",
+			"ctaInsights": "Read Insights"
+		},
+		"latestArticles": {
+			"label": "INSIGHTS",
+			"title": "Latest articles",
+			"viewAll": "View all →"
+		}
+	},
+	"breadcrumbs": {
+		"label": "Breadcrumbs"
+	},
+	"languageSwitcher": {
+		"label": "Switch language",
+		"ja": "日本語",
+		"en": "English"
+	},
+	"cookie": {
+		"message": "We use cookies and similar technologies to improve the site. See our",
+		"messageSuffix": "for details.",
+		"privacyLink": "privacy policy",
+		"accept": "Accept",
+		"decline": "Decline"
+	},
+	"notFound": {
+		"label": "404",
+		"title": "Page not found",
+		"description": "The page you are looking for may have been removed or its URL has changed. Try one of the following.",
+		"backHome": "Back to home",
+		"goSearch": "Search the site",
+		"majorSections": "Main sections",
+		"recentArticles": "Recent articles",
+		"viewAll": "View all →"
+	},
+	"offline": {
+		"label": "Offline",
+		"title": "You are offline",
+		"description": "We could not reach the network, so we cannot load fresh content. Please check your connection and try again.",
+		"cached": "Previously visited pages may still be available while offline."
+	}
+}

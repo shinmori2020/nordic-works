@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { draftMode } from 'next/headers';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages } from 'next-intl/server';
 import './globals.css';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
@@ -38,8 +40,12 @@ export const metadata: Metadata = {
 	description: SITE_DESCRIPTION,
 	alternates: {
 		canonical: '/',
+		languages: {
+			ja: '/',
+			en: '/en',
+			'x-default': '/',
+		},
 	},
-	// PWA: ホーム画面追加・スプラッシュ表示用のアプリ名
 	applicationName: SITE_NAME,
 	appleWebApp: {
 		capable: true,
@@ -84,10 +90,12 @@ export default async function RootLayout({
 	children: React.ReactNode;
 }>) {
 	const { isEnabled: isPreview } = await draftMode();
+	const locale = await getLocale();
+	const messages = await getMessages();
 
 	return (
 		<html
-			lang="ja"
+			lang={locale}
 			suppressHydrationWarning
 			className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
 		>
@@ -97,13 +105,15 @@ export default async function RootLayout({
 					// 内製の静的JSONで XSS リスクなし
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
 				/>
-				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-					{isPreview && <PreviewBanner />}
-					<Header />
-					<div className="flex-1">{children}</div>
-					<Footer />
-					<CookieConsent />
-				</ThemeProvider>
+				<NextIntlClientProvider locale={locale} messages={messages}>
+					<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+						{isPreview && <PreviewBanner />}
+						<Header />
+						<div className="flex-1">{children}</div>
+						<Footer />
+						<CookieConsent />
+					</ThemeProvider>
+				</NextIntlClientProvider>
 				{/* PWA Service Worker。本番環境でのみ登録。 */}
 				<ServiceWorkerRegister />
 				{/* Vercel Web Analytics / Speed Insights。
