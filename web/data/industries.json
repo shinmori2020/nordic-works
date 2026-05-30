@@ -1,7 +1,59 @@
 [
   {
+    "id": 21,
+    "count": 1,
+    "description": "",
+    "link": "http://nordic-works.local/industry/fintech/",
+    "name": "FinTech",
+    "slug": "fintech",
+    "taxonomy": "industry",
+    "parent": 0,
+    "meta": [],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry/21",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/industry"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts?industry=21"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=21"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study?industry=21"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
     "id": 2,
-    "count": 42,
+    "count": 43,
     "description": "",
     "link": "http://nordic-works.local/industry/it-saas/",
     "name": "IT / SaaS",
@@ -37,6 +89,61 @@
         },
         {
           "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=2"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study?industry=2"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "count": 1,
+    "description": "",
+    "link": "http://nordic-works.local/industry/%e3%82%b3%e3%83%b3%e3%82%b5%e3%83%ab%e3%83%86%e3%82%a3%e3%83%b3%e3%82%b0/",
+    "name": "コンサルティング",
+    "slug": "%e3%82%b3%e3%83%b3%e3%82%b5%e3%83%ab%e3%83%86%e3%82%a3%e3%83%b3%e3%82%b0",
+    "taxonomy": "industry",
+    "parent": 0,
+    "meta": [],
+    "acf": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry/20",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/industry"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/posts?industry=20"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=20"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study?industry=20"
         }
       ],
       "curies": [
@@ -86,6 +193,9 @@
         },
         {
           "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=5"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study?industry=5"
         }
       ],
       "curies": [
@@ -135,6 +245,9 @@
         },
         {
           "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=6"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study?industry=6"
         }
       ],
       "curies": [
@@ -184,6 +297,9 @@
         },
         {
           "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=4"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study?industry=4"
         }
       ],
       "curies": [
@@ -197,7 +313,7 @@
   },
   {
     "id": 3,
-    "count": 5,
+    "count": 6,
     "description": "",
     "link": "http://nordic-works.local/industry/%e8%a3%bd%e9%80%a0%e6%a5%ad/",
     "name": "製造業",
@@ -233,6 +349,9 @@
         },
         {
           "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=3"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study?industry=3"
         }
       ],
       "curies": [
@@ -282,6 +401,9 @@
         },
         {
           "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=7"
+        },
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study?industry=7"
         }
       ],
       "curies": [
