@@ -5,7 +5,7 @@
  * 求人にはアイキャッチ画像が無いため、テキスト主体のカードレイアウト。
  */
 
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import type { WPCareer } from '@/types/wordpress';
 import { positionTypeLabel } from '@/lib/utils';
 

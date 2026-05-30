@@ -6,7 +6,7 @@
  */
 
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 
 export const metadata: Metadata = {

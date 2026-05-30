@@ -6,8 +6,8 @@
  */
 
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Link } from '@/i18n/navigation';
 import { getCareerBySlug, getCareers } from '@/lib/wordpress';
 import { stripHtml, parseLines, positionTypeLabel } from '@/lib/utils';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';

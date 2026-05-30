@@ -5,7 +5,7 @@
  */
 
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import type { WPService } from '@/types/wordpress';
 import { getFeaturedImage } from '@/lib/utils';
 

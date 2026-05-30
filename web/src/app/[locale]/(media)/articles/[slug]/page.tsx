@@ -6,8 +6,8 @@
 
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Link } from '@/i18n/navigation';
 import { getPostBySlug, getPosts, getAuthorById } from '@/lib/wordpress';
 import { getFeaturedImage, getTerms, stripHtml, formatDate } from '@/lib/utils';
 import { buildTableOfContents } from '@/lib/toc';

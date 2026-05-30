@@ -6,7 +6,6 @@
 
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import {
@@ -23,7 +22,7 @@ import {
 	parseCaseStudyLinks,
 } from '@/lib/utils';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
-import { Link as IntlLink } from '@/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import type { SlugPageProps } from '@/types/wordpress';
 
 // ISR: サービスは更新頻度が低いため24時間
@@ -276,7 +275,7 @@ export default async function ServiceDetailPage({
 						<ul className="mt-6 grid gap-4 sm:grid-cols-2">
 							{relatedCases.map((cs) => (
 								<li key={cs.id}>
-									<IntlLink
+									<Link
 										href={`/case-studies/${cs.slug}`}
 										className="block rounded-lg border border-zinc-200 p-5 transition-colors hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600"
 									>
@@ -293,7 +292,7 @@ export default async function ServiceDetailPage({
 												{cs.acf.subtitle}
 											</p>
 										)}
-									</IntlLink>
+									</Link>
 								</li>
 							))}
 						</ul>

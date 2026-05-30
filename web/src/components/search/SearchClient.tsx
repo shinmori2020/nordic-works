@@ -8,8 +8,8 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { Link } from '@/i18n/navigation';
 import {
 	algoliaClient,
 	ALGOLIA_CONFIGURED,
