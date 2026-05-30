@@ -1,1 +1,1098 @@
-[]
+[
+  {
+    "id": 194,
+    "date": "2026-05-30T11:44:04",
+    "date_gmt": "2026-05-30T11:44:04",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/fintech-remote-diagnosis"
+    },
+    "modified": "2026-05-30T11:44:04",
+    "modified_gmt": "2026-05-30T11:44:04",
+    "slug": "fintech-remote-diagnosis",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/fintech-remote-diagnosis",
+    "title": {
+      "rendered": "FinTech企業のフルリモート文化診断"
+    },
+    "content": {
+      "rendered": "<p>創業以来フルリモートで運営してきた FinTech 企業が、社員 200名超の規模になり「以前のような風通しの良さがない」という声が顕在化。リモート文化診断を実施し、4つの構造的問題を特定・改善しました。</p>\n<p>特に重要だったのは「Slack 上の沈黙時間」を計測し、組織のサイレントゾーンを可視化したこと。これにより、形だけ存在していた1on1や全社会議の改善ポイントが明確になりました。</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      21
+    ],
+    "class_list": [
+      "post-194",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-fintech"
+    ],
+    "acf": {
+      "client_name": "Helix Finance（架空）",
+      "client_industry": "FinTech",
+      "company_size": "従業員220名",
+      "subtitle": "200名超のフルリモート組織で起きた「文化の希薄化」を診断・処方",
+      "challenge": "創業期から大切にしてきた「率直なフィードバック文化」が、組織拡大に伴い薄れているという経営層の懸念。社員アンケートでも「Slack で発言しにくくなった」「全社会議が儀式化している」という声が増加。",
+      "solution": "リモート文化診断（Slack ログ分析 + 1on1観察 + フォーカスグループ）を3週間で実施。4つの構造的問題（チャンネル肥大化、リーダーの発言時間占有、フィードバックの非対称性、全社会議の片方向性）を特定し、各々への打ち手を提示しました。",
+      "outcomes": "Slack 発言者多様性指数 | 0.42 → 0.71 | 上位20%の発言占有率改善\n全社会議満足度 | 2.9 → 4.2 | 5点満点\n1on1で本音が出る感覚 | 51% → 78% | 全社員調査",
+      "testimonial_body": "「『なんとなく息苦しい』という感覚を、データで言語化してもらえたことが一番の価値でした。」",
+      "testimonial_author": "CEO 田中健（架空）",
+      "project_period": "2025年9月〜2025年11月（3ヶ月）",
+      "related_services": [
+        50,
+        49
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/194",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/194/revisions"
+        }
+      ],
+      "acf:post": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/service/49"
+        },
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/service/50"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=194"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "industry",
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=194"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "acf:post": [
+        {
+          "id": 49,
+          "date": "2026-05-14T11:03:37",
+          "slug": "psychsafe-score",
+          "type": "service",
+          "link": "http://localhost:3000/services/psychsafe-score",
+          "title": {
+            "rendered": "PsychSafe Score"
+          },
+          "featured_media": 71,
+          "acf": {
+            "subtitle": "チームの心理的安全性を数値化する",
+            "hero_image": 71,
+            "features": "月次自動サーベイ | 匿名性を担保した4軸サーベイを毎月自動配信。回答率向上のためのリマインダーも自動化。Slack/Teamsからの回答にも対応。\n組織図ヒートマップ | チーム階層を視覚的に表示し、リスクのあるチームを一目で特定。経営層へのレポート機能も内蔵。\n改善アクション提案 | スコアパターンに応じた具体的な打ち手を、社内ナレッジから自動でレコメンド。アクション実行後の効果測定も可能。\nAPI・SSO対応 | Slack / Microsoft Teams / Okta / Google Workspace 等の主要ツールと連携可能。SAML 2.0 / OIDC に対応。\n比較・ベンチマーク | 自社過去データ、業界平均、同規模企業との比較が可能。改善の妥当性を客観的に評価。\nマネージャー向けダッシュボード | 各マネージャーが自チームのスコアと改善アクションを確認できる専用画面。",
+            "pricing_plans": "Starter | 月額 ¥30,000〜 | 最大50名, 基本サーベイ, メールサポート, 月次レポート\nGrowth | 月額 ¥80,000〜 | 最大200名, カスタムサーベイ, 組織図ヒートマップ, Slack/Teams連携, マネージャー研修\nEnterprise | お問い合わせ | 無制限, SSO, 専任カスタマーサクセス, SLA保証, 月次レビューセッション, カスタム指標",
+            "faq": "回答は本当に匿名ですか？ | はい。個別回答は経営層を含む誰にも紐づきません。5名以下のチームは集計対象から除外します。回答データはAES-256で暗号化保存。\n導入までどのくらいかかりますか？ | 最短2週間。SSO連携を含む場合は3〜4週間を目安にしてください。導入支援は専任担当が伴走します。\n既存のサーベイツールから乗り換え可能ですか？ | CSVインポート機能で過去データの引き継ぎが可能です。継続性のある時系列分析が初回からできます。\n回答率はどのくらい維持できますか？ | 平均80%以上を維持しています。リマインダーの自動化、回答時間の短縮（3分以内）、回答後のフィードバック表示などの工夫で、サーベイ疲労を防いでいます。\n海外拠点でも使えますか？ | 英語・中国語・スウェーデン語・ドイツ語に対応。多言語環境での運用実績多数。",
+            "case_study_links": "株式会社サンプルテック導入事例 | https://example.com/case/sample-tech\nグローバル製造業A社の活用法 | https://example.com/case/global-mfg\n金融機関B社の導入プロセス | https://example.com/case/finance-b",
+            "cta_text": "無料デモを予約する",
+            "cta_url": "/contact?service=psychsafe"
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/49",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/service"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/service"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 1,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/49/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 184,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/49/revisions/184"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/71"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=49"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 50,
+          "date": "2026-05-14T11:03:38",
+          "slug": "remote-culture-diagnosis",
+          "type": "service",
+          "link": "http://localhost:3000/services/remote-culture-diagnosis",
+          "title": {
+            "rendered": "Remote Culture Diagnosis"
+          },
+          "featured_media": 72,
+          "acf": {
+            "subtitle": "リモート文化の健康診断",
+            "hero_image": 72,
+            "features": "2週間集中プログラム | キックオフから報告会まで14日間。経営層の意思決定スピードに合わせた設計。事前準備も含めると約4週間の関与。\nNordic Remote Index | 北欧企業の運用事例から抽出した32項目の評価軸で組織を診断。時間・場所・関係性・意思決定の4領域をカバー。\n実行ロードマップ | 優先度・難易度・期待効果の3軸でアクションを並べた90日プランを提供。月次の進捗チェックポイント付き。\nヒアリング+観察+サーベイの3層診断 | 単一手法では見えない組織の実態を、3つの観点から立体的に把握。\n経営層向けレポート | 30〜50ページの診断レポートに加え、経営層向けの要約版（10ページ）も提供。\n3ヶ月後のフォローアップ | 診断後のアクション実行状況を確認するセッション。必要に応じて軌道修正の提案。",
+            "pricing_plans": "Standard | ¥1,200,000 | 従業員数100名まで, 2週間, 報告会1回, 90日ロードマップ\nPlus | ¥2,400,000 | 従業員数300名まで, 3週間, 中間レビュー1回, 報告会2回, 経営層プレゼン\nEnterprise | ¥4,800,000〜 | 従業員数1000名まで, 4週間, 全マネージャー向け展開セッション, 半年後の再診断",
+            "faq": "完全リモートでない組織でも依頼できますか？ | はい。ハイブリッド型・出社中心型の組織でも、それぞれに合わせた診断軸で対応します。むしろハイブリッド型の方が課題が複雑で、診断の価値が高い場合も多い。\n海外拠点を含む診断は可能ですか？ | 英語・スウェーデン語での実施に対応可能です。事前にご相談ください。多国籍チームの文化的調整についての専門知見もあります。\n診断後に実装支援も依頼できますか？ | はい。診断結果を踏まえた実装支援は、Org Design Lab プログラムで対応可能です。継続的な伴走を希望される場合はご相談ください。\n秘密保持はどうなっていますか？ | NDA を締結した上で診断を実施します。診断結果は依頼企業のみに開示され、他社事例として公開する場合は事前に許可を取ります。",
+            "case_study_links": "SaaS企業X社の組織変革 | https://example.com/case/saas-x\n医療機関Y社のハイブリッド設計 | https://example.com/case/health-y",
+            "cta_text": "診断について相談する",
+            "cta_url": "/contact?service=remote-diagnosis"
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/50",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/service"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/service"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 1,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/50/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 185,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/50/revisions/185"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/72"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=50"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 21,
+            "link": "http://nordic-works.local/industry/fintech/",
+            "name": "FinTech",
+            "slug": "fintech",
+            "taxonomy": "industry",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/industry/21",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/industry"
+                }
+              ],
+              "about": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/industry"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/posts?industry=21"
+                },
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=21"
+                },
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/case_study?industry=21"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 193,
+    "date": "2026-05-30T11:43:56",
+    "date_gmt": "2026-05-30T11:43:56",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/consulting-firm-okr-rollout"
+    },
+    "modified": "2026-05-30T11:43:56",
+    "modified_gmt": "2026-05-30T11:43:56",
+    "slug": "consulting-firm-okr-rollout",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/consulting-firm-okr-rollout",
+    "title": {
+      "rendered": "コンサルティングファームでの OKR 全社導入"
+    },
+    "content": {
+      "rendered": "<p>MBO 中心の運用が形骸化し、上位戦略と現場の日々のタスクが乖離していたコンサルファームで、OKR を全社導入。半年で「戦略→ KR → 日々のタスク」が辿れる組織に転換しました。</p>\n<p>注意点は「四半期サイクル疲れ」を起こさないこと。Nordic Works は OKR レビューを軽量化し、月次のチェックインを2週間に1度の15分セッションに置換することで、運用コストを大幅に下げました。</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      20
+    ],
+    "class_list": [
+      "post-193",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-20"
+    ],
+    "acf": {
+      "client_name": "Aurora Consulting Partners（架空）",
+      "client_industry": "コンサルティング",
+      "company_size": "従業員320名",
+      "subtitle": "MBO の形骸化を OKR で打破。戦略から日次タスクまでが繋がる組織へ",
+      "challenge": "MBO の目標が「期初に立てて期末まで触らない」運用になり、上位戦略が日々の意思決定に反映されていませんでした。経営会議では「みんな頑張っているのに数字が動かない」という議論が続いていました。",
+      "solution": "OKR の設計思想（粒度・サイクル・公開性）を経営合宿で共有した後、上から下に展開。重要なのは「OKR を評価に直結させない」原則で、これにより目標設定が現実的かつ挑戦的になりました。",
+      "outcomes": "戦略・現場の連動感（自己評価） | 2.4 → 4.0 | 5点満点、全社調査\nKR 達成率 | 平均 62% | 「7割で OK」原則の浸透\nレビュー時間 | 月8h → 月2h | 軽量化により",
+      "testimonial_body": "「OKR を導入したというより、戦略を語る共通言語が組織に入った感覚です。」",
+      "testimonial_author": "COO 鈴木一郎（架空）",
+      "project_period": "2025年1月〜2025年7月（7ヶ月）",
+      "related_services": [
+        51
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/193",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/193/revisions"
+        }
+      ],
+      "acf:post": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/service/51"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=193"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "industry",
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=193"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "acf:post": [
+        {
+          "id": 51,
+          "date": "2026-05-14T11:03:38",
+          "slug": "org-design-lab",
+          "type": "service",
+          "link": "http://localhost:3000/services/org-design-lab",
+          "title": {
+            "rendered": "Org Design Lab"
+          },
+          "featured_media": 73,
+          "acf": {
+            "subtitle": "組織を「動く形」に再設計する",
+            "hero_image": 73,
+            "features": "伴走型 3〜6ヶ月 | 隔週の経営層セッション+月次の全社展開で、設計から定着までを並走。スポットコンサルではなく継続関与。\n意思決定マトリクス | RACI を発展させた独自フレームで、誰が何を決めるかを明示。組織内の権限を完全に可視化。\nガバナンス再構築 | 会議体・レポートライン・KPI設計を一括で見直し。バラバラだった仕組みを統合的に再設計。\nマネージャー研修 | 新組織で機能する管理職育成。スキル習得から運用定着まで6ヶ月の継続プログラム。\n変革コミュニケーション設計 | 組織変更を社員に伝える際のメッセージング設計。抵抗を最小化し、納得感を最大化。\n半年後のフォローレビュー | プログラム終了後6ヶ月時点で、定着状況を確認・改善するセッション。",
+            "pricing_plans": "Foundation | ¥6,000,000〜 | 3ヶ月, 経営層伴走, 組織設計ドキュメント, 月次レビュー\nFull Program | ¥12,000,000〜 | 6ヶ月, マネージャー層研修, 運用定着サポート, KPI設計支援, 半年後レビュー\nEnterprise | ¥24,000,000〜 | 9〜12ヶ月, 多拠点展開, 経営層と現場双方への並走, 専任チーム配置",
+            "faq": "どの規模の企業が対象ですか？ | 50名〜500名規模の企業を主な対象としていますが、それ以上の規模でも事業部単位での導入が可能です。最近では3,000名規模の企業の特定事業部への導入実績もあります。\n既存の組織コンサルとの違いは？ | 北欧型のフラット組織知見と、実運用への定着支援を組み合わせている点が特徴です。多くの組織コンサルは「設計まで」で終わりますが、私たちは「定着まで」並走します。\n経営層が忙しくて時間が取れないのですが？ | 月次2時間+隔週1時間の最低限の関与で進められる設計にしています。短時間で最大の意思決定ができるよう、事前準備を徹底します。\n社内に変革推進担当者が必要ですか？ | 専任は必須ではありませんが、各セッションに継続参加できる窓口担当者（30%程度の時間使用想定）が1名は必要です。",
+            "case_study_links": "医療系スタートアップY社 | https://example.com/case/health-y\n製造業Z社の事業部再編 | https://example.com/case/mfg-z\n金融機関A社のマネージャー層変革 | https://example.com/case/finance-a",
+            "cta_text": "パートナー相談を申し込む",
+            "cta_url": "/contact?service=org-design"
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/51",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/service"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/service"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 1,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/51/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 186,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/51/revisions/186"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/73"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=51"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 20,
+            "link": "http://nordic-works.local/industry/%e3%82%b3%e3%83%b3%e3%82%b5%e3%83%ab%e3%83%86%e3%82%a3%e3%83%b3%e3%82%b0/",
+            "name": "コンサルティング",
+            "slug": "%e3%82%b3%e3%83%b3%e3%82%b5%e3%83%ab%e3%83%86%e3%82%a3%e3%83%b3%e3%82%b0",
+            "taxonomy": "industry",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/industry/20",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/industry"
+                }
+              ],
+              "about": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/industry"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/posts?industry=20"
+                },
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=20"
+                },
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/case_study?industry=20"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 192,
+    "date": "2026-05-30T11:43:48",
+    "date_gmt": "2026-05-30T11:43:48",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/global-manufacturer-hybrid-onboarding"
+    },
+    "modified": "2026-05-30T11:43:48",
+    "modified_gmt": "2026-05-30T11:43:48",
+    "slug": "global-manufacturer-hybrid-onboarding",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/global-manufacturer-hybrid-onboarding",
+    "title": {
+      "rendered": "大手製造業のハイブリッド勤務オンボーディング設計"
+    },
+    "content": {
+      "rendered": "<p>コロナ後にハイブリッド勤務を本格化した製造業大手で、新卒・中途のオンボーディング体験がリモート/出社で分断され、入社90日後のエンゲージメントスコアに有意差が出ていました。Nordic Works は北欧型の「90日プラン」を翻訳的に導入し、両者のスコア差を解消しました。</p>\n<p>設計のポイントは「初日体験は対面で固定」「バディ制度はリモート/出社混在」「30/60/90日のチェックインを構造化」の3点でした。</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      3
+    ],
+    "class_list": [
+      "post-192",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-3"
+    ],
+    "acf": {
+      "client_name": "Northland Manufacturing（架空）",
+      "client_industry": "製造業",
+      "company_size": "従業員4,500名",
+      "subtitle": "リモート/出社で分断していた入社90日体験を、北欧型90日プランで再設計",
+      "challenge": "ハイブリッド勤務移行後、リモート中心と出社中心の新入社員でエンゲージメントスコアに約30pt の差が生じていました。退職率も同様にリモート組で高く、現場マネージャーは「リモートだと馴染ませにくい」と感じていました。",
+      "solution": "北欧3社のオンボーディング事例（Spotify / Supercell / Nordnet）を分析し、日本企業向けにアダプトした「90日プラン」を設計。初日のみ全員対面、以降はリモート/出社混在のバディ制度と30/60/90日チェックインを標準化しました。",
+      "outcomes": "90日後エンゲージメント差 | 30pt → 4pt | リモート/出社の差解消\n新入社員定着率（1年） | 78% → 92% | 入社4年間の平均\nマネージャー研修時間 | 月12h → 月4h | 構造化による効率化",
+      "testimonial_body": "「『リモート新人をどう育てるか』が個別マネージャーの工夫頼みだったのが、組織として再現可能な型になった。」",
+      "testimonial_author": "人事本部長 佐藤花子（架空）",
+      "project_period": "2024年6月〜2025年5月（12ヶ月）",
+      "related_services": [
+        51
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/192",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/192/revisions"
+        }
+      ],
+      "acf:post": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/service/51"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=192"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "industry",
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=192"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "acf:post": [
+        {
+          "id": 51,
+          "date": "2026-05-14T11:03:38",
+          "slug": "org-design-lab",
+          "type": "service",
+          "link": "http://localhost:3000/services/org-design-lab",
+          "title": {
+            "rendered": "Org Design Lab"
+          },
+          "featured_media": 73,
+          "acf": {
+            "subtitle": "組織を「動く形」に再設計する",
+            "hero_image": 73,
+            "features": "伴走型 3〜6ヶ月 | 隔週の経営層セッション+月次の全社展開で、設計から定着までを並走。スポットコンサルではなく継続関与。\n意思決定マトリクス | RACI を発展させた独自フレームで、誰が何を決めるかを明示。組織内の権限を完全に可視化。\nガバナンス再構築 | 会議体・レポートライン・KPI設計を一括で見直し。バラバラだった仕組みを統合的に再設計。\nマネージャー研修 | 新組織で機能する管理職育成。スキル習得から運用定着まで6ヶ月の継続プログラム。\n変革コミュニケーション設計 | 組織変更を社員に伝える際のメッセージング設計。抵抗を最小化し、納得感を最大化。\n半年後のフォローレビュー | プログラム終了後6ヶ月時点で、定着状況を確認・改善するセッション。",
+            "pricing_plans": "Foundation | ¥6,000,000〜 | 3ヶ月, 経営層伴走, 組織設計ドキュメント, 月次レビュー\nFull Program | ¥12,000,000〜 | 6ヶ月, マネージャー層研修, 運用定着サポート, KPI設計支援, 半年後レビュー\nEnterprise | ¥24,000,000〜 | 9〜12ヶ月, 多拠点展開, 経営層と現場双方への並走, 専任チーム配置",
+            "faq": "どの規模の企業が対象ですか？ | 50名〜500名規模の企業を主な対象としていますが、それ以上の規模でも事業部単位での導入が可能です。最近では3,000名規模の企業の特定事業部への導入実績もあります。\n既存の組織コンサルとの違いは？ | 北欧型のフラット組織知見と、実運用への定着支援を組み合わせている点が特徴です。多くの組織コンサルは「設計まで」で終わりますが、私たちは「定着まで」並走します。\n経営層が忙しくて時間が取れないのですが？ | 月次2時間+隔週1時間の最低限の関与で進められる設計にしています。短時間で最大の意思決定ができるよう、事前準備を徹底します。\n社内に変革推進担当者が必要ですか？ | 専任は必須ではありませんが、各セッションに継続参加できる窓口担当者（30%程度の時間使用想定）が1名は必要です。",
+            "case_study_links": "医療系スタートアップY社 | https://example.com/case/health-y\n製造業Z社の事業部再編 | https://example.com/case/mfg-z\n金融機関A社のマネージャー層変革 | https://example.com/case/finance-a",
+            "cta_text": "パートナー相談を申し込む",
+            "cta_url": "/contact?service=org-design"
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/51",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/service"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/service"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 1,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/51/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 186,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/51/revisions/186"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/73"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=51"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 3,
+            "link": "http://nordic-works.local/industry/%e8%a3%bd%e9%80%a0%e6%a5%ad/",
+            "name": "製造業",
+            "slug": "%e8%a3%bd%e9%80%a0%e6%a5%ad",
+            "taxonomy": "industry",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/industry/3",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/industry"
+                }
+              ],
+              "about": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/industry"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/posts?industry=3"
+                },
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=3"
+                },
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/case_study?industry=3"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 191,
+    "date": "2026-05-30T11:43:38",
+    "date_gmt": "2026-05-30T11:43:38",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/saas-startup-retention-turnaround"
+    },
+    "modified": "2026-05-30T11:43:38",
+    "modified_gmt": "2026-05-30T11:43:38",
+    "slug": "saas-startup-retention-turnaround",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/saas-startup-retention-turnaround",
+    "title": {
+      "rendered": "SaaSスタートアップが離職率を3年で12%→4%に改善した事例"
+    },
+    "content": {
+      "rendered": "<p>急成長フェーズに入ったクライアントは、エンジニア離職率が業界平均を大きく上回り、採用コストが膨張していました。Nordic Works は組織診断・1on1運用刷新・心理的安全性スコアの月次計測を導入し、3年間でエンジニア離職率を約3分の1に圧縮しました。</p>\n<p>プロジェクト初期の3ヶ月は徹底した「現状の可視化」に時間を割き、表層的な施策ではなく構造的な問題（評価フィードバックの不在・キャリア面談の形骸化）を特定したことが転換点となりました。</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      2
+    ],
+    "class_list": [
+      "post-191",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-it-saas"
+    ],
+    "acf": {
+      "client_name": "Acme SaaS 株式会社（架空）",
+      "client_industry": "B2B SaaS",
+      "company_size": "従業員150名",
+      "subtitle": "1on1運用の刷新と心理的安全性の月次計測で、3年で離職率1/3に",
+      "challenge": "エンジニアの離職率が業界平均の2倍に達しており、採用予算が EBITDA を圧迫していました。離職者へのアンケートでは「キャリア展望が見えない」「上長との対話が形骸化している」という声が多く、構造的な原因が疑われる状態でした。",
+      "solution": "Nordic Works は最初の3ヶ月で組織診断（全社アンケート + 1on1ロールプレイ観察）を実施し、1on1の「キャリア・成果・関係性」の3軸に分けたフレームを導入。さらに心理的安全性スコアを月次計測する仕組みを CTO 直轄で立ち上げました。",
+      "outcomes": "離職率 | 12% → 4% | 3年間で\n採用コスト | 年間8,400万円削減 | 退職補填の削減効果\n心理的安全性スコア | 2.8 → 4.1 | 5点満点、全社平均",
+      "testimonial_body": "「離職率の数字よりも、辞めた人が『辞める前に話せた』と言ってくれることが嬉しい。組織が学習する仕組みになった。」",
+      "testimonial_author": "CTO 山田太郎（架空）",
+      "project_period": "2023年4月〜2026年3月（36ヶ月）",
+      "related_services": [
+        49,
+        51
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/191",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 0,
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/191/revisions"
+        }
+      ],
+      "acf:post": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/service/51"
+        },
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/service/49"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=191"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "industry",
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/industry?post=191"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "acf:post": [
+        {
+          "id": 51,
+          "date": "2026-05-14T11:03:38",
+          "slug": "org-design-lab",
+          "type": "service",
+          "link": "http://localhost:3000/services/org-design-lab",
+          "title": {
+            "rendered": "Org Design Lab"
+          },
+          "featured_media": 73,
+          "acf": {
+            "subtitle": "組織を「動く形」に再設計する",
+            "hero_image": 73,
+            "features": "伴走型 3〜6ヶ月 | 隔週の経営層セッション+月次の全社展開で、設計から定着までを並走。スポットコンサルではなく継続関与。\n意思決定マトリクス | RACI を発展させた独自フレームで、誰が何を決めるかを明示。組織内の権限を完全に可視化。\nガバナンス再構築 | 会議体・レポートライン・KPI設計を一括で見直し。バラバラだった仕組みを統合的に再設計。\nマネージャー研修 | 新組織で機能する管理職育成。スキル習得から運用定着まで6ヶ月の継続プログラム。\n変革コミュニケーション設計 | 組織変更を社員に伝える際のメッセージング設計。抵抗を最小化し、納得感を最大化。\n半年後のフォローレビュー | プログラム終了後6ヶ月時点で、定着状況を確認・改善するセッション。",
+            "pricing_plans": "Foundation | ¥6,000,000〜 | 3ヶ月, 経営層伴走, 組織設計ドキュメント, 月次レビュー\nFull Program | ¥12,000,000〜 | 6ヶ月, マネージャー層研修, 運用定着サポート, KPI設計支援, 半年後レビュー\nEnterprise | ¥24,000,000〜 | 9〜12ヶ月, 多拠点展開, 経営層と現場双方への並走, 専任チーム配置",
+            "faq": "どの規模の企業が対象ですか？ | 50名〜500名規模の企業を主な対象としていますが、それ以上の規模でも事業部単位での導入が可能です。最近では3,000名規模の企業の特定事業部への導入実績もあります。\n既存の組織コンサルとの違いは？ | 北欧型のフラット組織知見と、実運用への定着支援を組み合わせている点が特徴です。多くの組織コンサルは「設計まで」で終わりますが、私たちは「定着まで」並走します。\n経営層が忙しくて時間が取れないのですが？ | 月次2時間+隔週1時間の最低限の関与で進められる設計にしています。短時間で最大の意思決定ができるよう、事前準備を徹底します。\n社内に変革推進担当者が必要ですか？ | 専任は必須ではありませんが、各セッションに継続参加できる窓口担当者（30%程度の時間使用想定）が1名は必要です。",
+            "case_study_links": "医療系スタートアップY社 | https://example.com/case/health-y\n製造業Z社の事業部再編 | https://example.com/case/mfg-z\n金融機関A社のマネージャー層変革 | https://example.com/case/finance-a",
+            "cta_text": "パートナー相談を申し込む",
+            "cta_url": "/contact?service=org-design"
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/51",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/service"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/service"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 1,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/51/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 186,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/51/revisions/186"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/73"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=51"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        },
+        {
+          "id": 49,
+          "date": "2026-05-14T11:03:37",
+          "slug": "psychsafe-score",
+          "type": "service",
+          "link": "http://localhost:3000/services/psychsafe-score",
+          "title": {
+            "rendered": "PsychSafe Score"
+          },
+          "featured_media": 71,
+          "acf": {
+            "subtitle": "チームの心理的安全性を数値化する",
+            "hero_image": 71,
+            "features": "月次自動サーベイ | 匿名性を担保した4軸サーベイを毎月自動配信。回答率向上のためのリマインダーも自動化。Slack/Teamsからの回答にも対応。\n組織図ヒートマップ | チーム階層を視覚的に表示し、リスクのあるチームを一目で特定。経営層へのレポート機能も内蔵。\n改善アクション提案 | スコアパターンに応じた具体的な打ち手を、社内ナレッジから自動でレコメンド。アクション実行後の効果測定も可能。\nAPI・SSO対応 | Slack / Microsoft Teams / Okta / Google Workspace 等の主要ツールと連携可能。SAML 2.0 / OIDC に対応。\n比較・ベンチマーク | 自社過去データ、業界平均、同規模企業との比較が可能。改善の妥当性を客観的に評価。\nマネージャー向けダッシュボード | 各マネージャーが自チームのスコアと改善アクションを確認できる専用画面。",
+            "pricing_plans": "Starter | 月額 ¥30,000〜 | 最大50名, 基本サーベイ, メールサポート, 月次レポート\nGrowth | 月額 ¥80,000〜 | 最大200名, カスタムサーベイ, 組織図ヒートマップ, Slack/Teams連携, マネージャー研修\nEnterprise | お問い合わせ | 無制限, SSO, 専任カスタマーサクセス, SLA保証, 月次レビューセッション, カスタム指標",
+            "faq": "回答は本当に匿名ですか？ | はい。個別回答は経営層を含む誰にも紐づきません。5名以下のチームは集計対象から除外します。回答データはAES-256で暗号化保存。\n導入までどのくらいかかりますか？ | 最短2週間。SSO連携を含む場合は3〜4週間を目安にしてください。導入支援は専任担当が伴走します。\n既存のサーベイツールから乗り換え可能ですか？ | CSVインポート機能で過去データの引き継ぎが可能です。継続性のある時系列分析が初回からできます。\n回答率はどのくらい維持できますか？ | 平均80%以上を維持しています。リマインダーの自動化、回答時間の短縮（3分以内）、回答後のフィードバック表示などの工夫で、サーベイ疲労を防いでいます。\n海外拠点でも使えますか？ | 英語・中国語・スウェーデン語・ドイツ語に対応。多言語環境での運用実績多数。",
+            "case_study_links": "株式会社サンプルテック導入事例 | https://example.com/case/sample-tech\nグローバル製造業A社の活用法 | https://example.com/case/global-mfg\n金融機関B社の導入プロセス | https://example.com/case/finance-b",
+            "cta_text": "無料デモを予約する",
+            "cta_url": "/contact?service=psychsafe"
+          },
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/49",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/service"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/service"
+              }
+            ],
+            "version-history": [
+              {
+                "count": 1,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/49/revisions"
+              }
+            ],
+            "predecessor-version": [
+              {
+                "id": 184,
+                "href": "http://nordic-works.local/wp-json/wp/v2/service/49/revisions/184"
+              }
+            ],
+            "wp:featuredmedia": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/71"
+              }
+            ],
+            "wp:attachment": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=49"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 2,
+            "link": "http://nordic-works.local/industry/it-saas/",
+            "name": "IT / SaaS",
+            "slug": "it-saas",
+            "taxonomy": "industry",
+            "acf": [],
+            "_links": {
+              "self": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/industry/2",
+                  "targetHints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "collection": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/industry"
+                }
+              ],
+              "about": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/taxonomies/industry"
+                }
+              ],
+              "wp:post_type": [
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/posts?industry=2"
+                },
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/feature?industry=2"
+                },
+                {
+                  "href": "http://nordic-works.local/wp-json/wp/v2/case_study?industry=2"
+                }
+              ],
+              "curies": [
+                {
+                  "name": "wp",
+                  "href": "https://api.w.org/{rel}",
+                  "templated": true
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  }
+]
