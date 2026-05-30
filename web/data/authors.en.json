@@ -1,0 +1,608 @@
+[
+  {
+    "id": 48,
+    "date": "2026-05-14T11:03:37",
+    "date_gmt": "2026-05-14T11:03:37",
+    "guid": {
+      "rendered": "http://nordic-works.local/authors/lindberg-anna/"
+    },
+    "modified": "2026-05-28T10:14:09",
+    "modified_gmt": "2026-05-28T10:14:09",
+    "slug": "lindberg-anna",
+    "status": "publish",
+    "type": "author_profile",
+    "link": "http://localhost:3000/authors/lindberg-anna",
+    "title": {
+      "rendered": "Lindbergh Anna"
+    },
+    "content": {
+      "rendered": "<p>Nordic cultural advisor from Stockholm. It is responsible for translating Nordic work styles and organizational culture to B2B companies in Japan. Trilingual in Swedish, English and Japanese.</p>\n",
+      "protected": false
+    },
+    "featured_media": 70,
+    "template": "",
+    "meta": {
+      "_acf_changed": false
+    },
+    "class_list": [
+      "post-48",
+      "author_profile",
+      "type-author_profile",
+      "status-publish",
+      "has-post-thumbnail",
+      "hentry"
+    ],
+    "acf": {
+      "photo": 70,
+      "position": "Nordic Cultural Advisor",
+      "bio": "It is responsible for translating Nordic work styles and organizational culture to B2B companies in Japan.Trilingual in Swedish, English and Japanese.He has lived in Japan for 8 years and worked at an organization consulting firm in Stockholm in the past.\nHe is good at the approach of \"translating the Scandinavian model into the Japanese context rather than importing it as it is\".He has worked on many lectures and writings to convey Nordic practices to Japanese companies, such as flat organization, work-life integration, and male parental leave culture.His hobby is visiting hot springs in various parts of Japan.",
+      "twitter_url": "",
+      "linkedin_url": "https://linkedin.com/in/example-lindberg",
+      "website_url": "https://example.com/anna"
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/48",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/author_profile"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/author_profile"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/media/70"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=48"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "wp:featuredmedia": [
+        {
+          "id": 70,
+          "date": "2026-05-14T11:06:45",
+          "slug": "%e3%83%aa%e3%83%b3%e3%83%89%e3%83%99%e3%83%aa%e3%83%bb%e3%82%a2%e3%83%b3%e3%83%8a",
+          "type": "attachment",
+          "link": "http://localhost:3000/authors/lindberg-anna/%e3%83%aa%e3%83%b3%e3%83%89%e3%83%99%e3%83%aa%e3%83%bb%e3%82%a2%e3%83%b3%e3%83%8a/",
+          "title": {
+            "rendered": "リンドベリ・アンナ"
+          },
+          "author": 0,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": "<p>Picsum ID: 185</p>\n"
+          },
+          "alt_text": "",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 800,
+            "height": 800,
+            "file": "2026/05/800-2.jpg",
+            "filesize": 38165,
+            "sizes": {
+              "medium": {
+                "file": "800-2-300x300.jpg",
+                "width": 300,
+                "height": 300,
+                "filesize": 7208,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/800-2-300x300.jpg"
+              },
+              "thumbnail": {
+                "file": "800-2-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 2423,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/800-2-150x150.jpg"
+              },
+              "medium_large": {
+                "file": "800-2-768x768.jpg",
+                "width": 768,
+                "height": 768,
+                "filesize": 41156,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/800-2-768x768.jpg"
+              },
+              "full": {
+                "file": "800-2.jpg",
+                "width": 800,
+                "height": 800,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/800-2.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "Picsum ID: 185",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "Picsum ID: 185",
+              "orientation": "1",
+              "keywords": []
+            }
+          },
+          "source_url": "/wp-uploads/2026/05/800-2.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/70",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=70"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "author_profile",
+                "id": 48,
+                "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/48"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 47,
+    "date": "2026-05-14T11:03:36",
+    "date_gmt": "2026-05-14T11:03:36",
+    "guid": {
+      "rendered": "http://nordic-works.local/authors/tanaka-kenichi/"
+    },
+    "modified": "2026-05-28T10:14:04",
+    "modified_gmt": "2026-05-28T10:14:04",
+    "slug": "tanaka-kenichi",
+    "status": "publish",
+    "type": "author_profile",
+    "link": "http://localhost:3000/authors/tanaka-kenichi",
+    "title": {
+      "rendered": "田中 健一"
+    },
+    "content": {
+      "rendered": "<p>元エンジニアマネージャー、現組織開発リード。技術組織の管理職としての実体験と、組織開発の専門知識を融合させた独自のアプローチで、エンジニアリング組織の変革支援を行う。</p>\n",
+      "protected": false
+    },
+    "featured_media": 69,
+    "template": "",
+    "meta": {
+      "_acf_changed": false
+    },
+    "class_list": [
+      "post-47",
+      "author_profile",
+      "type-author_profile",
+      "status-publish",
+      "has-post-thumbnail",
+      "hentry"
+    ],
+    "acf": {
+      "photo": 69,
+      "position": "組織開発リード",
+      "bio": "スタートアップから大企業まで、職種を問わず1on1とフィードバック設計の導入支援を行う。テック組織のマネジメントに関する寄稿多数。前職では100名規模のエンジニアリング組織のマネージャーを5年経験。\n技術的バックグラウンドを活かし、エンジニア向けのマネジメント研修・1on1ワークショップを年20回以上開催。「技術者から見て納得感のある組織論」を伝えることを得意とする。最近の関心はエンジニア組織の評価制度設計。",
+      "twitter_url": "https://twitter.com/example_tanaka",
+      "linkedin_url": "https://linkedin.com/in/example-tanaka",
+      "website_url": ""
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/47",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/author_profile"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/author_profile"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/media/69"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=47"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "wp:featuredmedia": [
+        {
+          "id": 69,
+          "date": "2026-05-14T11:06:43",
+          "slug": "%e7%94%b0%e4%b8%ad-%e5%81%a5%e4%b8%80",
+          "type": "attachment",
+          "link": "http://localhost:3000/authors/tanaka-kenichi/%e7%94%b0%e4%b8%ad-%e5%81%a5%e4%b8%80/",
+          "title": {
+            "rendered": "田中 健一"
+          },
+          "author": 0,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": "<p>Picsum ID: 314</p>\n"
+          },
+          "alt_text": "",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 800,
+            "height": 800,
+            "file": "2026/05/800-1.jpg",
+            "filesize": 103435,
+            "sizes": {
+              "medium": {
+                "file": "800-1-300x300.jpg",
+                "width": 300,
+                "height": 300,
+                "filesize": 15200,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/800-1-300x300.jpg"
+              },
+              "thumbnail": {
+                "file": "800-1-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 4463,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/800-1-150x150.jpg"
+              },
+              "medium_large": {
+                "file": "800-1-768x768.jpg",
+                "width": 768,
+                "height": 768,
+                "filesize": 104371,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/800-1-768x768.jpg"
+              },
+              "full": {
+                "file": "800-1.jpg",
+                "width": 800,
+                "height": 800,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/800-1.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "Picsum ID: 314",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "Picsum ID: 314",
+              "orientation": "1",
+              "keywords": []
+            }
+          },
+          "source_url": "/wp-uploads/2026/05/800-1.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/69",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=69"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "author_profile",
+                "id": 47,
+                "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/47"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": 46,
+    "date": "2026-05-14T11:03:36",
+    "date_gmt": "2026-05-14T11:03:36",
+    "guid": {
+      "rendered": "http://nordic-works.local/authors/sato-misaki/"
+    },
+    "modified": "2026-05-28T10:14:00",
+    "modified_gmt": "2026-05-28T10:14:00",
+    "slug": "sato-misaki",
+    "status": "publish",
+    "type": "author_profile",
+    "link": "http://localhost:3000/authors/sato-misaki",
+    "title": {
+      "rendered": "佐藤 美咲"
+    },
+    "content": {
+      "rendered": "<p>組織開発コンサルタントとして10年以上のキャリア。スタートアップから上場企業まで、多様な規模・業種の組織変革に携わる。リモートワーク文化・心理的安全性に関する執筆・登壇多数。</p>\n",
+      "protected": false
+    },
+    "featured_media": 68,
+    "template": "",
+    "meta": {
+      "_acf_changed": false
+    },
+    "class_list": [
+      "post-46",
+      "author_profile",
+      "type-author_profile",
+      "status-publish",
+      "has-post-thumbnail",
+      "hentry"
+    ],
+    "acf": {
+      "photo": 68,
+      "position": "シニアコンサルタント",
+      "bio": "大手SaaS企業のチームビルディング支援に多数携わる。前職はグローバルコンサルティングファームで組織変革プロジェクトをリード。心理的安全性に関する執筆は、雑誌・Webメディア合わせて50本以上。\n大学院では組織心理学を専攻し、修士号取得。研究と実務の両面から組織を見る視点を大切にしている。最近の関心領域は、リモート時代のチームビルディングと、評価制度の納得感設計。",
+      "twitter_url": "https://twitter.com/example_sato",
+      "linkedin_url": "https://linkedin.com/in/example-sato",
+      "website_url": ""
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/46",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/author_profile"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/author_profile"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "http://nordic-works.local/wp-json/wp/v2/media/68"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=46"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    },
+    "_embedded": {
+      "wp:featuredmedia": [
+        {
+          "id": 68,
+          "date": "2026-05-14T11:06:38",
+          "slug": "%e4%bd%90%e8%97%a4-%e7%be%8e%e5%92%b2",
+          "type": "attachment",
+          "link": "http://localhost:3000/authors/sato-misaki/%e4%bd%90%e8%97%a4-%e7%be%8e%e5%92%b2/",
+          "title": {
+            "rendered": "佐藤 美咲"
+          },
+          "author": 0,
+          "featured_media": 0,
+          "acf": [],
+          "caption": {
+            "rendered": "<p>Picsum ID: 1019</p>\n"
+          },
+          "alt_text": "",
+          "media_type": "image",
+          "mime_type": "image/jpeg",
+          "media_details": {
+            "width": 800,
+            "height": 800,
+            "file": "2026/05/800.jpg",
+            "filesize": 47955,
+            "sizes": {
+              "medium": {
+                "file": "800-300x300.jpg",
+                "width": 300,
+                "height": 300,
+                "filesize": 11107,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/800-300x300.jpg"
+              },
+              "thumbnail": {
+                "file": "800-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "filesize": 4020,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/800-150x150.jpg"
+              },
+              "medium_large": {
+                "file": "800-768x768.jpg",
+                "width": 768,
+                "height": 768,
+                "filesize": 52026,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/800-768x768.jpg"
+              },
+              "full": {
+                "file": "800.jpg",
+                "width": 800,
+                "height": 800,
+                "mime_type": "image/jpeg",
+                "source_url": "/wp-uploads/2026/05/800.jpg"
+              }
+            },
+            "image_meta": {
+              "aperture": "0",
+              "credit": "",
+              "camera": "",
+              "caption": "Picsum ID: 1019",
+              "created_timestamp": "0",
+              "copyright": "",
+              "focal_length": "0",
+              "iso": "0",
+              "shutter_speed": "0",
+              "title": "Picsum ID: 1019",
+              "orientation": "1",
+              "keywords": []
+            }
+          },
+          "source_url": "/wp-uploads/2026/05/800.jpg",
+          "_links": {
+            "self": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media/68",
+                "targetHints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            ],
+            "collection": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/media"
+              }
+            ],
+            "about": [
+              {
+                "href": "http://nordic-works.local/wp-json/wp/v2/types/attachment"
+              }
+            ],
+            "replies": [
+              {
+                "embeddable": true,
+                "href": "http://nordic-works.local/wp-json/wp/v2/comments?post=68"
+              }
+            ],
+            "wp:attached-to": [
+              {
+                "embeddable": true,
+                "post_type": "author_profile",
+                "id": 46,
+                "href": "http://nordic-works.local/wp-json/wp/v2/author_profile/46"
+              }
+            ],
+            "curies": [
+              {
+                "name": "wp",
+                "href": "https://api.w.org/{rel}",
+                "templated": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

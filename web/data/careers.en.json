@@ -1,0 +1,178 @@
+[
+  {
+    "id": 53,
+    "date": "2026-05-14T11:03:39",
+    "date_gmt": "2026-05-14T11:03:39",
+    "guid": {
+      "rendered": "http://nordic-works.local/careers/ui-ux-designer/"
+    },
+    "modified": "2026-05-28T10:13:46",
+    "modified_gmt": "2026-05-28T10:13:46",
+    "slug": "ui-ux-designer",
+    "status": "publish",
+    "type": "career",
+    "link": "http://localhost:3000/careers/ui-ux-designer",
+    "title": {
+      "rendered": "UI/UX Designer (Outsourcing)"
+    },
+    "content": {
+      "rendered": "<p>It is a role that continuously improves the UI/UX of its own product \"PsychSafe Score\" while cooperating with PdM engineers. Full remote operation is possible, and operation can be consulted from about 20 hours a week. It is an environment where deeper research and design system development can be undertaken at the timing of entering the stable operation phase as a product.</p>\n<h2>How we work</h2>\n<p>Functional improvements will be made on a sprint-by-sprint basis for two weeks. You can get involved from the design of user research centered on Figma. We expect a wide range of roles, including not only design, but also user interviews, data analysis, and hypothesis testing.</p>\n<h2>Product Features</h2>\n<p>PsychSafe Score is an organization survey tool in the B2B SaaS area. End users are multi-layered with management, managers, and site members, and each requires a different experience design. There are advanced hands-on opportunities for designing to “make the data look right” and “inspire action”.</p>\n<h2>You're welcome to:</h2>\n<p>Those who want to be involved in the long-term growth of products, are interested in the design and operation of design systems, and want to do research and design all at once.</p>\n",
+      "protected": false
+    },
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-53",
+      "career",
+      "type-career",
+      "status-publish",
+      "hentry"
+    ],
+    "acf": {
+      "position_type": "freelance",
+      "location": "Full Remote",
+      "salary_range": "300,000 to 800,000 yen per month (depending on operating time and experience)",
+      "required_skills": "3 + years of experience in UI/UX design for SaaS products\nWork experience using Figma (including component design and library operation)\nExperience operating design systems in collaboration with engineers\nExperience spinning the hypothesis→ validation cycle (research→ design validation)\nJapanese Native",
+      "preferred_skills": "UX design experience in B2B SaaS\nExperience in design research (interview design/analysis)\nAccessibility (WCAG) compliance findings\nAnimation design (Motion/Framer, etc.)\nCommunication in English (with collaboration with overseas members)",
+      "benefits": "Fully remote (optional office visit)\nFlexible uptime settings (20-40 hours per week)\nTool cost subsidy (Figma/Notion, etc., up to 10,000 yen per month)\nDevice purchase assistance required for work (up to 100,000 yen per year)\nIn-house study group/external conference participation fee subsidy\nBook Purchase Assistance\nSubsidy for participation in the online design community\nSalary increases are reviewed twice a year on recurring contracts",
+      "application_url": "/contact?career=ui-ux-designer"
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/career/53",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/career"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/career"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "http://nordic-works.local/wp-json/wp/v2/career/53/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 188,
+          "href": "http://nordic-works.local/wp-json/wp/v2/career/53/revisions/188"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=53"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 52,
+    "date": "2026-05-14T11:03:38",
+    "date_gmt": "2026-05-14T11:03:38",
+    "guid": {
+      "rendered": "http://nordic-works.local/careers/senior-org-consultant/"
+    },
+    "modified": "2026-05-28T10:13:40",
+    "modified_gmt": "2026-05-28T10:13:40",
+    "slug": "senior-org-consultant",
+    "status": "publish",
+    "type": "career",
+    "link": "http://localhost:3000/careers/senior-org-consultant",
+    "title": {
+      "rendered": "シニア組織コンサルタント"
+    },
+    "content": {
+      "rendered": "<p>クライアント企業の組織変革プロジェクトに、リードコンサルタントとして参画していただきます。経営層との対話、現場ヒアリング、診断、提案、定着支援までを一気通貫で担当。1案件あたり3〜6ヶ月の伴走型プロジェクトを、同時並行で2〜3件担当することが基本となります。</p>\n<h2>仕事の特徴</h2>\n<p>単発の提案・納品ではなく、長期的な並走を通じて組織の変化を支える役割です。提案書を書いて終わりではなく、その提案が現場で機能するまで継続的に関与します。「設計だけ」「分析だけ」のコンサルティングに物足りなさを感じていた方には、知的・実践的な刺激の多い環境です。</p>\n<h2>こんな方を求めています</h2>\n<p>組織開発・人事領域での実務経験があり、定量・定性両面でのアプローチに慣れている方。北欧型の組織観に共感できる方を特に歓迎します。前職はコンサルティングファーム、事業会社の組織開発・人事、HRテック企業など、多様なバックグラウンドの方が活躍しています。</p>\n<h2>働き方</h2>\n<p>週3日リモート、週2日は東京オフィスまたはクライアント先で勤務。海外拠点（ストックホルム）での短期勤務制度もあります（年1回、最大2週間）。</p>\n",
+      "protected": false
+    },
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "class_list": [
+      "post-52",
+      "career",
+      "type-career",
+      "status-publish",
+      "hentry"
+    ],
+    "acf": {
+      "position_type": "full_time",
+      "location": "東京（リモート週3日可）",
+      "salary_range": "700万〜1,200万円（経験により応相談）",
+      "required_skills": "組織開発／人事領域での実務経験5年以上\n経営層・マネージャー層との対話経験（複数社での経験を想定）\n定量データを扱える基礎的なスキル（Excel / SQL いずれか）\n日本語ネイティブまたはビジネスレベル\n複数プロジェクトの並行管理経験",
+      "preferred_skills": "コンサルティングファームでの勤務経験\n英語または北欧言語でのビジネスコミュニケーション\n自社プロダクト開発組織のマネジメント経験\n組織心理学・産業心理学の学術的背景\nB2B SaaS 業界での勤務経験\n国際的なプロジェクト経験",
+      "benefits": "完全週休2日（土日祝）／有給とは別の年6日のリチャージ休暇\nリモートワーク手当 月20,000円\n書籍購入・カンファレンス参加費 全額会社負担（年上限あり）\nストックホルムオフィス短期滞在制度（年1回、最大2週間）\n育児休業：男女問わず1年間取得実績あり、復帰後も時短勤務可\n社内勉強会・外部研修への参加奨励（業務時間内）\nオフィス: 東京・恵比寿（駅徒歩3分）\n副業可（事前申請制、競業避止のみ確認）",
+      "application_url": "/contact?career=senior-org-consultant"
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/career/52",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/career"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/career"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 1,
+          "href": "http://nordic-works.local/wp-json/wp/v2/career/52/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 187,
+          "href": "http://nordic-works.local/wp-json/wp/v2/career/52/revisions/187"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/media?parent=52"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

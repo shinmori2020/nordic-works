@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "export-wp": "node scripts/export-wp-data.mjs",
-    "index-algolia": "node --env-file=.env.local scripts/index-to-algolia.mjs"
+    "index-algolia": "node --env-file=.env.local scripts/index-to-algolia.mjs",
+    "translate-content": "node scripts/translate-content.mjs"
   },
   "dependencies": {
     "@react-email/components": "^1.0.12",

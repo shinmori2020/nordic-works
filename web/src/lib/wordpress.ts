@@ -10,6 +10,7 @@
  */
 
 import { draftMode } from 'next/headers';
+import { getLocale } from 'next-intl/server';
 import type {
 	WPPost,
 	WPService,
@@ -37,23 +38,70 @@ if (!API_URL && !USE_STATIC && typeof window === 'undefined') {
 // =============================================================================
 // Static data loaders (DATA_SOURCE=static 時の web/data/*.json 読み込み)
 //
-// 各 JSON は scripts/export-wp-data.mjs が生成。WP REST と同じ構造で、
+// 各 JSON は scripts/export-wp-data.mjs が生成（JA = 原文）し、
+// scripts/translate-content.mjs が MyMemory 経由で .en.json を生成する。
 // 画像URLは /wp-uploads/... に書き換え済み。dynamic import は webpack によって
 // 個別チャンクに分割され、static モードのときだけ評価される。
+//
+// 現在ロケールは next-intl の getLocale() から取得する。
+// en 用ファイルが何らかの理由で読めない場合は JA にフォールバック。
 // =============================================================================
 
-const loadPostsStatic = () =>
-	import('../../data/posts.json').then((m) => m.default as unknown as WPPost[]);
-const loadServicesStatic = () =>
-	import('../../data/services.json').then((m) => m.default as unknown as WPService[]);
-const loadCareersStatic = () =>
-	import('../../data/careers.json').then((m) => m.default as unknown as WPCareer[]);
-const loadFeaturesStatic = () =>
-	import('../../data/features.json').then((m) => m.default as unknown as WPFeature[]);
-const loadAuthorsStatic = () =>
-	import('../../data/authors.json').then(
-		(m) => m.default as unknown as WPAuthorProfile[],
-	);
+async function currentLocale(): Promise<'ja' | 'en'> {
+	try {
+		const l = await getLocale();
+		return l === 'en' ? 'en' : 'ja';
+	} catch {
+		return 'ja';
+	}
+}
+
+const loadPostsStatic = async () => {
+	const locale = await currentLocale();
+	if (locale === 'en') {
+		const m = await import('../../data/posts.en.json');
+		return m.default as unknown as WPPost[];
+	}
+	const m = await import('../../data/posts.json');
+	return m.default as unknown as WPPost[];
+};
+const loadServicesStatic = async () => {
+	const locale = await currentLocale();
+	if (locale === 'en') {
+		const m = await import('../../data/services.en.json');
+		return m.default as unknown as WPService[];
+	}
+	const m = await import('../../data/services.json');
+	return m.default as unknown as WPService[];
+};
+const loadCareersStatic = async () => {
+	const locale = await currentLocale();
+	if (locale === 'en') {
+		const m = await import('../../data/careers.en.json');
+		return m.default as unknown as WPCareer[];
+	}
+	const m = await import('../../data/careers.json');
+	return m.default as unknown as WPCareer[];
+};
+const loadFeaturesStatic = async () => {
+	const locale = await currentLocale();
+	if (locale === 'en') {
+		const m = await import('../../data/features.en.json');
+		return m.default as unknown as WPFeature[];
+	}
+	const m = await import('../../data/features.json');
+	return m.default as unknown as WPFeature[];
+};
+const loadAuthorsStatic = async () => {
+	const locale = await currentLocale();
+	if (locale === 'en') {
+		const m = await import('../../data/authors.en.json');
+		return m.default as unknown as WPAuthorProfile[];
+	}
+	const m = await import('../../data/authors.json');
+	return m.default as unknown as WPAuthorProfile[];
+};
+// タクソノミー（ターム名）は短く、訳しても誤訳しやすいので原文のまま使う方針
 const loadIndustriesStatic = () =>
 	import('../../data/industries.json').then((m) => m.default as unknown as WPTerm[]);
 const loadTopicsStatic = () =>
