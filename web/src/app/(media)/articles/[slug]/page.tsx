@@ -16,6 +16,7 @@ import { ArticleCard } from '@/components/media/ArticleCard';
 import { ReadingProgress } from '@/components/media/ReadingProgress';
 import { TableOfContents } from '@/components/media/TableOfContents';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
+import { NewsletterForm } from '@/components/common/NewsletterForm';
 import type { SlugPageProps } from '@/types/wordpress';
 
 // ISR: 個別記事は更新頻度が低いため24時間（docs/06-features.md の方針）
@@ -286,6 +287,25 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 					</div>
 				</section>
 			)}
+
+			{/* ニュースレター CTA。読了後の高関心モーメントで購読を提案する。 */}
+			<section className="mt-16 rounded-lg bg-zinc-50 p-8 dark:bg-zinc-900 sm:p-10">
+				<div className="grid gap-6 sm:grid-cols-[1.3fr_1fr] sm:items-center">
+					<div>
+						<p className="text-xs uppercase tracking-widest text-zinc-500">
+							Newsletter
+						</p>
+						<h2 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+							こうした記事を月2回お届けします
+						</h2>
+						<p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+							編集部おすすめ記事と新規ホワイトペーパーを、第2・第4金曜日に
+							メールでお送りします。
+						</p>
+					</div>
+					<NewsletterForm variant="standard" idPrefix="nl-article" />
+				</div>
+			</section>
 		</main>
 	);
 }
