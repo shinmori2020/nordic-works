@@ -11,6 +11,7 @@ import { notFound } from 'next/navigation';
 import { getCareerBySlug, getCareers } from '@/lib/wordpress';
 import { stripHtml, parseLines, positionTypeLabel } from '@/lib/utils';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
+import { ApplicationForm } from '@/components/corporate/ApplicationForm';
 import type { SlugPageProps } from '@/types/wordpress';
 
 // ISR: 採用情報は更新頻度が低いため24時間
@@ -113,21 +114,47 @@ export default async function CareerDetailPage({ params }: SlugPageProps) {
 				<ListSection title="歓迎スキル" items={preferredSkills} />
 				<ListSection title="待遇・福利厚生" items={benefits} />
 
-				{/* 応募 CTA */}
-				<section className="mt-14 rounded-lg bg-zinc-900 dark:bg-zinc-100 px-8 py-10 text-center">
-					<p className="text-lg font-medium text-white dark:text-zinc-900">
-						このポジションに興味がありますか？
-					</p>
-					<Link
-						href={acf?.application_url || '/contact'}
-						className="mt-4 inline-block rounded-md bg-white dark:bg-zinc-950 px-6 py-2.5 text-sm font-medium text-zinc-900 dark:text-zinc-100 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700"
-						{...(acf?.application_url
-							? { target: '_blank', rel: 'noopener noreferrer' }
-							: {})}
+				{/* 応募導線。
+				    application_url が ACF に設定されていれば外部応募サイトへのリンクのみ、
+				    なければインライン応募フォームを表示する（外部システム未連携の場合の標準ルート）。 */}
+				{acf?.application_url ? (
+					<section className="mt-14 rounded-lg bg-zinc-900 px-8 py-10 text-center dark:bg-zinc-100">
+						<p className="text-lg font-medium text-white dark:text-zinc-900">
+							このポジションに興味がありますか？
+						</p>
+						<Link
+							href={acf.application_url}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="mt-4 inline-block rounded-md bg-white px-6 py-2.5 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-200 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-700"
+						>
+							外部応募サイトから応募する ↗
+						</Link>
+					</section>
+				) : (
+					<section
+						id="apply"
+						className="mt-14 rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950 sm:p-8"
 					>
-						このポジションに応募する
-					</Link>
-				</section>
+						<p className="text-xs uppercase tracking-widest text-zinc-500">
+							Application Form
+						</p>
+						<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
+							このポジションに応募する
+						</h2>
+						<p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+							下記フォームに必要事項をご記入ください。書類選考の結果は、
+							受付から5営業日以内にメールにてご連絡いたします。
+						</p>
+
+						<div className="mt-6">
+							<ApplicationForm
+								careerSlug={career.slug}
+								careerTitle={stripHtml(career.title.rendered)}
+							/>
+						</div>
+					</section>
+				)}
 			</article>
 		</main>
 	);
