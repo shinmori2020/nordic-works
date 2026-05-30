@@ -12,6 +12,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// 編集者向けダッシュボード拡張（管理画面トップに4ウィジェット追加）
+require_once __DIR__ . '/admin-dashboard.php';
+
 /**
  * ACF Local JSON の保存先をプラグイン内 acf-json/ に変更する。
  * フィールドグループを管理画面で保存すると、自動でこのフォルダにJSONが書き出される。
@@ -331,7 +334,9 @@ function nordic_trigger_revalidate( $post_id ) {
 		return;
 	}
 
-	wp_remote_post(
+	// ダッシュボードログ用に同期で1回試す（短いタイムアウト、blocking=true）。
+	// 失敗してもサイレント。記事公開のUXを大きく損なわないよう短時間で打ち切る。
+	$response = wp_remote_post(
 		NORDIC_FRONTEND_URL . '/api/revalidate',
 		array(
 			'headers'  => array(
@@ -344,10 +349,30 @@ function nordic_trigger_revalidate( $post_id ) {
 					'slug'     => $post->post_name,
 				)
 			),
-			'blocking' => false, // 非同期で投げて待たない
-			'timeout'  => 5,
+			'blocking' => true,
+			'timeout'  => 3,
 		)
 	);
+
+	// ダッシュボード履歴に追記（function は admin-dashboard.php 内）
+	if ( function_exists( 'nordic_log_revalidate' ) ) {
+		if ( is_wp_error( $response ) ) {
+			nordic_log_revalidate(
+				$post->post_type,
+				$post->post_name,
+				false,
+				$response->get_error_message()
+			);
+		} else {
+			$code = wp_remote_retrieve_response_code( $response );
+			nordic_log_revalidate(
+				$post->post_type,
+				$post->post_name,
+				$code >= 200 && $code < 400,
+				"HTTP $code"
+			);
+		}
+	}
 }
 add_action( 'save_post', 'nordic_trigger_revalidate' );
 add_action(
