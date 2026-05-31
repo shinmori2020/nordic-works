@@ -27188,7 +27188,7 @@
       "protected": false
     },
     "excerpt": {
-      "rendered": "<p>導入から半年〜1年で形骸化しがちな1on1。「進捗報告会と化す」「キャンセル率が上がる」など、よくある5つの兆候と、その背景にある根本要因、そして立て直しのための具体的な順序まで分解して整理します。</p>\n",
+      "rendered": "<p>1: 1 that tends to fall apart in half a year to one year after introduction. Break it down into five common signs, including “turn it into a progress meeting” and “increase your cancellation rate,” along with the underlying factors behind them and the specific order in which you want to rebuild.</p>\n",
       "protected": false
     },
     "author": 1,
@@ -27233,7 +27233,7 @@
     "acf": {
       "author_profile": 47,
       "reading_time": 4,
-      "featured_image_caption": "形骸化はメンバーではなく設計の問題",
+      "featured_image_caption": "Skeletalization is a design problem, not a member",
       "related_posts": [
         65,
         55
@@ -28087,14 +28087,14 @@
     "type": "post",
     "link": "http://localhost:3000/articles/denmark-flat-org",
     "title": {
-      "rendered": "デンマーク企業に学ぶフラットな組織運営"
+      "rendered": "Flat organization with a Danish company"
     },
     "content": {
-      "rendered": "<p>デンマークの企業文化を語る上で頻出するのが「フラットさ」というキーワードです。しかし、これは単に階層を撤廃するという話ではありません。むしろ、意思決定のプロセスを透明化することで、肩書きに依存しない議論を成立させる仕組みです。本稿では、その背後にある原則と、日本企業がどう適用できるかを整理します。</p>\n<h2>フラットさを支える3つの原則</h2>\n<h3>原則1: 提案は誰でも出せるが、決定の責任は明確である</h3>\n<p>「みんなで決める」ではなく、「みんなで議論し、責任者が決める」が正確な表現です。責任者が明確だからこそ、提案者も安心して声を上げられます。</p>\n<h3>原則2: 意思決定の理由が必ず文書化される</h3>\n<p>「なぜそう決めたか」が後から検証可能な形で残ります。これにより、肩書きや声の大きさではなく、論理の妥当性で議論が進むようになります。</p>\n<h3>原則3: 役職ではなく、その案件の責任者として発言する</h3>\n<p>会議で発言するときは「自分の役職」ではなく「この案件における自分の立場」を明示します。CTOであっても、特定プロジェクトでは一エンジニアとして発言する場面があります。</p>\n<h2>日本企業への現実的な適用</h2>\n<p>全てを真似る必要はありません。まずは経営会議の議事録を全社公開することから始めるだけでも、意思決定の透明性は大きく改善します。次に、意思決定権限を文書化する（誰が何を決めるかのマトリクスを作る）。最後に、役職呼びの慣習を見直す（「さん」付け統一など）。</p>\n<h2>よくある失敗パターン</h2>\n<p>「フラット組織」を掲げて階層を撤廃した結果、暗黙のヒエラルキーが生まれて事態が悪化するケースが頻発しています。原因は「フラットさを目的化してしまった」こと。フラットさは手段であり、目的は「より良い意思決定を素早く行うこと」です。手段と目的を混同しないよう注意が必要です。</p>\n<h2>Timeline to fixation</h2>\n<p>文化として定着するには最低2年、できれば3年は必要です。短期的な成果を求めず、長期投資として取り組む姿勢が重要になります。</p>\n",
+      "rendered": "<p>The key word that often comes up when talking about Danish corporate culture is \"flatness.\" But this is not just about eliminating hierarchies. Rather, it is a mechanism to establish a title-independent discussion by making the decision-making process transparent. In this article, we will organize the principles behind them and how they can be applied by Japanese companies.</p>\n<h2>3 Principles to Support Flatness</h2>\n<h3>Principle 1: Anyone can make a proposal, but the responsibility for making a decision is clear</h3>\n<p>Instead of \"everyone decides\", \"everyone discusses and the person in charge decides\" is the accurate expression. Because the person in charge is clear, the proposer can also speak up with confidence.</p>\n<h3>Principle 2: Reasons for decisions must be documented</h3>\n<p>“Why I decided that” will remain in a form that can be verified later. This allows arguments to proceed on the basis of logical validity rather than the title or volume of the voice.</p>\n<h3>Principle 3: Speak as the person in charge of the case, not the position</h3>\n<p>When speaking at a meeting, clearly state “my position in this case” rather than “my position”. Even if you are a CTO, there are times when you speak as an engineer in a specific project.</p>\n<h2>Practical application to Japanese companies</h2>\n<p>You don't have to imitate everything. Even if you just start by publishing the minutes of the management meeting company-wide, the transparency of decision-making will greatly improve. Next, document decision-making authority (creating a matrix of who decides what). Finally, we will review the custom of naming titles (such as “”).</p>\n<h2>Common failure patterns</h2>\n<p>As a result of eliminating the hierarchy with the \"flat organization\", there are frequent cases where the situation worsens due to the creation of an implicit hierarchy. The cause is that \"flatness has been targeted\". Flatness is a means, and the goal is to “make better decisions faster.” Care should be taken not to confuse the means with the ends.</p>\n<h2>Timeline to fixation</h2>\n<p>It takes at least two and preferably three years to establish itself as a culture. Instead of looking for short-term results, it is important to take a long-term investment approach.</p>\n",
       "protected": false
     },
     "excerpt": {
-      "rendered": "<p>「上司がいないように振る舞う」デンマーク式マネジメント。階層を否定するのではなく、意思決定の透明性を高めることでフラットさを実現する具体的な仕組みを解説します。日本企業への現実的な適用方法と、よくある失敗パターンまで含めて整理します。</p>\n",
+      "rendered": "<p>“Act like you don't have a boss” Danish-style management. Instead of denying the hierarchy, we will explain how to achieve flatness by increasing the transparency of decision making. We will organize it to include realistic application methods for Japanese companies and common failure patterns.</p>\n",
       "protected": false
     },
     "author": 1,
@@ -28141,7 +28141,7 @@
     "acf": {
       "author_profile": 48,
       "reading_time": 6,
-      "featured_image_caption": "フラットさは「決め方の透明性」から",
+      "featured_image_caption": "Flatness comes from \"transparency in decision making\"",
       "related_posts": [
         61,
         62,
@@ -29173,14 +29173,14 @@
     "type": "post",
     "link": "http://localhost:3000/articles/psych-safety-not-kindness",
     "title": {
-      "rendered": "心理的安全性は「優しさ」ではない、最新の研究が示すこと"
+      "rendered": "Psychological safety is not “gentleness”, recent research shows"
     },
     "content": {
-      "rendered": "<p>心理的安全性は、いまだに「優しさ」や「衝突を避けること」と混同されがちです。しかしAmy Edmondsonをはじめとする研究者が一貫して強調しているのは、心理的安全性は「率直さの土台」であり、むしろ高い基準と並立するときに最も効果を発揮するという点です。本稿ではよくある誤解を解きほぐし、実践に落とすための視点を整理します。</p>\n<h2>よくある3つの誤解</h2>\n<p>誤解1: 「全員が心地よく過ごせる職場」と同義。実際は「言いづらいことを言える土台」であり、対立そのものを避けることではありません。誤解2: 「基準を下げれば達成しやすい」。実際は基準が高くても、それを率直に議論できる環境こそが学習速度を生みます。誤解3: 「やる気のあるチームには自然と備わる」。実際は意図的に設計しないと劣化します。</p>\n<h2>2×2マトリクスで組織を分類する</h2>\n<p>Edmondsonの提唱する2軸モデルは、「心理的安全性の高低」×「基準の高低」で4象限を作ります。</p>\n<h3>領域1: 安心ゾーン（高安全・低基準）</h3>\n<p>互いに優しいが成果は出ない。心地よいが学習しないチーム。スタートアップが陥りやすい停滞期の典型。</p>\n<h3>領域2: 不安ゾーン（低安全・低基準）</h3>\n<p>Neither lethargic nor challenging. The state of many \"dysfunctional departments\".</p>\n<h3>領域3: 不安ハイパフォーマンス（低安全・高基準）</h3>\n<p>恐怖駆動で短期的には成果が出るが、燃え尽き・離職・不正の温床。多くの伝統的な日本企業の管理職層。</p>\n<h3>領域4: 学習ゾーン（高安全・高基準）</h3>\n<p>目指すべき到達点。率直な議論と高い達成意欲が両立する状態。</p>\n<h2>明日から始める3つの実践</h2>\n<p>会議で意見が割れたとき、収束を急がず「対立そのもの」を歓迎する姿勢を示す。マネージャーが先に弱さを開示する（「私はここを判断できていない」）。失敗の事後検証で「個人の責任追及」と「仕組みの改善」を明確に分ける。</p>\n<h2>計測と注意点</h2>\n<p>サーベイ計測は有効ですが、スコアの絶対値だけを追うと逆効果になります。「変化量」と「自由記述の質的変化」を併用するのが鉄則です。</p>\n",
+      "rendered": "<p>Psychological safety is still often confused with “kindness” or “avoiding conflict.” However, researchers such as Amy Edmondson consistently emphasize that psychological safety is the “foundation of honesty” and is most effective when it goes hand in hand with high standards. In this article, we will clear up common misconceptions and organize perspectives to help you put them into practice.</p>\n<h2>3 common misconceptions</h2>\n<p>Misconception 1: Synonymous with \"a workplace where everyone can have a comfortable time\". In fact, it is a \"foundation on which you can say difficult things\", not an avoidance of conflict itself. Misconception 2: “Lowering standards makes it easier to achieve.” In fact, even if the standards are high, it is the environment where you can discuss it openly that makes the learning speed. Misconception 3: “Motivated teams are naturally equipped”. It will actually deteriorate if not intentionally designed.</p>\n<h2>Categorize your organization with a 2x2 matrix</h2>\n<p>The two-axis model proposed by Edmondson creates a four-quadrant of “psychological safety high and low” x “standard high and low”.</p>\n<h3>Area 1: Peace of mind zone (high safety/low standards)</h3>\n<p>They are kind to each other, but they do not produce results. Comfortable but unlearning team. Typical stagnation period where startups are prone to fall into.</p>\n<h3>Area 2: Anxiety zones (low safety/low standards)</h3>\n<p>Neither lethargic nor challenging. The state of many \"dysfunctional departments\".</p>\n<h3>Area 3: Anxiety High Performance (Low Safety/High Standards)</h3>\n<p>Although it produces results in the short term driven by fear, it is a hotbed of burnout, resignation, and fraud. Management of many traditional Japanese companies.</p>\n<h3>Area 4: Learning zones (high safety and high standards)</h3>\n<p>Achievement point to aim for. A state where frank discussion and high motivation to achieve go hand in hand.</p>\n<h2>3 practices to start tomorrow</h2>\n<p>When opinions are divided at the meeting, show an attitude of welcoming the \"conflict itself\" without rushing to convergence. The manager discloses the weakness first (“I can't judge here”). Clearly distinguish between \"pursuing individual responsibility\" and \"improving mechanisms\" in the post-mortem verification of failures.</p>\n<h2>Measurement and precautions</h2>\n<p>The survey measurement is valid, but if you only follow the absolute value of the score, it will have the opposite effect. It is an iron rule to use \"change amount\" and \"qualitative change of free description\" together.</p>\n",
       "protected": false
     },
     "excerpt": {
-      "rendered": "<p>Amy Edmondsonの近著と関連論文を踏まえ、「心理的安全性 = 優しい職場」という誤解を解きほぐします。むしろ高い基準と健全な対立を支える土台として捉え直す視点と、4つの象限による組織分析、そして実践への具体的な落とし込みを紹介します。</p>\n",
+      "rendered": "<p>Based on Amy Edmondson's recent book and related papers, we will clear up the misconception that psychological safety = a friendly workplace. Rather, it introduces perspectives that reimagine it as a foundation for high standards and healthy conflict, organizational analysis through the four quadrants, and concrete incorporation into practice.</p>\n",
       "protected": false
     },
     "author": 1,
@@ -29225,7 +29225,7 @@
     "acf": {
       "author_profile": 47,
       "reading_time": 7,
-      "featured_image_caption": "高い基準と健全な対立を支える土台",
+      "featured_image_caption": "High standards and a foundation for healthy conflict",
       "related_posts": [
         60,
         63,
@@ -30212,14 +30212,14 @@
     "type": "post",
     "link": "http://localhost:3000/articles/silence-trap-remote-3rd-year",
     "title": {
-      "rendered": "リモートワーク3年目で気づいた「沈黙の罠」"
+      "rendered": "The “Silent Trap” I noticed in my third year of working remotely"
     },
     "content": {
-      "rendered": "<p>リモートワークが定着して3年目を迎えるチームから、「会議で誰も発言しなくなった」「重要な懸念が事前にエスカレーションされない」という相談が増えています。これは個々のメンバーのモチベーション低下ではなく、構造的な問題として捉えるべきです。本稿では、沈黙が増える要因を3層に分解し、各層で打てる手を整理します。</p>\n<h2>沈黙が増える3つの構造的要因</h2>\n<p>第一に、リアクションコストの上昇です。対面なら頷きや表情で済む応答が、オンラインでは「ミュート解除→発言→ミュート」という明示的な行動を要求されます。1回あたり数秒の差ですが、心理的ハードルは想像以上に高い。第二に、雑談機会の消失です。給湯室・喫煙所・帰り道の数分が消えた結果、議題化されない「気がかり」を吐き出す場が無くなりました。第三に、評価の場と相談の場の分離が難しいこと。1on1が評価面談を兼ねていると、本音の相談が出にくくなります。</p>\n<h2>マネージャーが今日から取れる3つの打ち手</h2>\n<h3>1. 会議冒頭の「全員一言ルーティン」</h3>\n<p>会議の最初の2分を「全員が一言話す」時間に固定します。話題は業務に限らず、週末の出来事でも構いません。発言の「最初の一歩」を集団で踏むことで、その後の議論への参加率が劇的に上がります。</p>\n<h3>2. 1on1で必ず「言いづらかったこと」を聞く</h3>\n<p>「最近、言おうか迷ったことはありますか？」をテンプレートとして毎回入れます。最初の数回は「特にない」で済まされても、3回目以降から本音が出始めるのが一般的です。</p>\n<h3>3. チャット上の「目に見えるリアクション」を増やす</h3>\n<p>テキストのみのコミュニケーションでは、応答の薄さがメンバーの「無視されている感」を生みます。マネージャーが意識的に絵文字リアクション・スレッド返信を増やすだけで、チーム全体の発信量が増えていきます。</p>\n<h2>組織として整えるべき構造</h2>\n<p>個人の努力に依存しないために、組織レベルでも仕組みを用意します。匿名の月次サーベイで「言えなかったこと」を集める、毎月1回「失敗事例の共有会」を持つ、心理的安全性スコアを KPI として可視化する。これらは個別のマネジメントスキルでは補えない領域です。</p>\n<h2>沈黙は症状ではなく信号</h2>\n<p>沈黙を「メンバーのやる気の問題」と片付けると、原因に手が届きません。沈黙はチームの構造に何かが起きていることを示す信号として、まず観察対象にする姿勢が出発点となります。</p>\n",
+      "rendered": "<p>The team, now in its third year of remote work, is increasingly consulting that “no one has spoken at the meeting” and that “important concerns are not escalated in advance.” This should be viewed as a structural issue rather than a decrease in motivation on the part of individual members. In this article, we will break down the factors that increase silence into three layers and organize what you can do with each layer.</p>\n<h2>3 structural factors that increase silence</h2>\n<p>The first is the rise in reaction costs. Face-to-face nodding and facial expressions require an explicit online action called “→unmute→ utterance mute” - a few seconds at a time, but the psychological hurdles are higher than you might think. Second, the loss of small talk opportunities. As a result of the disappearance of hot water rooms, smoking areas, and a few minutes on the way home, there are no more places to vomit \"worries\" that are not on the agenda. Thirdly, it is difficult to separate the evaluation room from the consultation room. If one-on-one evaluation interviews are held, it is difficult to get genuine consultation.</p>\n<h2>3 Tips Managers Can Take Today</h2>\n<h3>1. “One word routine for everyone” at the beginning of the meeting</h3>\n<p>Lock the first two minutes of the meeting into the “everyone speaks one word” time. The topic is not limited to work, it can be a weekend event. Taking the “first step” of a statement as a group can dramatically increase your participation in subsequent discussions.</p>\n<h3>2. Always listen to “hard things” 1: 1</h3>\n<p>\"Have you been wondering if I should tell you lately?” as a template each time. Even if the first few times are \"nothing in particular\", it is common for the truth to start coming out after the third time.</p>\n<h3>3. Increase visible reactions in chat</h3>\n<p>In text-only communication, the thinness of the response creates a “feeling of being ignored” by the member. As managers consciously increase the number of emoji reaction thread replies, they will increase the number of calls from the entire team.</p>\n<h2>Structure to be set up as an organization</h2>\n<p>Provide mechanisms at the organizational level to avoid relying on individual efforts. Visualize the psychological safety score as a KPI with a monthly \"failure sharing meeting\" that collects \"things that could not be said\" in an anonymous monthly survey. These are areas that individual management skills cannot compensate for.</p>\n<h2>Silence is a signal, not a symptom</h2>\n<p>If you dismiss silence as a “member motivation problem,” the cause is out of reach. Silence is a signal that something is happening in your team's structure, starting with the attitude you want to observe.</p>\n",
       "protected": false
     },
     "excerpt": {
-      "rendered": "<p>リモート定着の3年目に多発する「言いたいことが言われなくなる」現象。心理的安全性が低下しているチームに共通するサインと、マネージャーが取るべき具体的アクション、そして組織として整えるべき構造的な打ち手まで整理します。</p>\n",
+      "rendered": "<p>The phenomenon of \"not being able to say what you want\" that occurs frequently in the third year of remote fixation. Organize signs that are common to teams with reduced psychological safety, specific actions that managers should take, and structural touches that should be put in place as an organization.</p>\n",
       "protected": false
     },
     "author": 1,
@@ -30264,7 +30264,7 @@
     "acf": {
       "author_profile": 46,
       "reading_time": 5,
-      "featured_image_caption": "静かなチームほど、構造を見直すタイミング",
+      "featured_image_caption": "The quieter the team, the more time to review the structure",
       "related_posts": [
         59,
         57,

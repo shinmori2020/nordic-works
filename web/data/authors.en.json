@@ -215,10 +215,10 @@
     "type": "author_profile",
     "link": "http://localhost:3000/authors/tanaka-kenichi",
     "title": {
-      "rendered": "田中 健一"
+      "rendered": "Kenichi Tanaka"
     },
     "content": {
-      "rendered": "<p>元エンジニアマネージャー、現組織開発リード。技術組織の管理職としての実体験と、組織開発の専門知識を融合させた独自のアプローチで、エンジニアリング組織の変革支援を行う。</p>\n",
+      "rendered": "<p>Former Engineer Manager, Current Org Development Lead. Support the transformation of the engineering organization with a unique approach that blends hands-on experience as a manager of the technical organization with organizational development expertise.</p>\n",
       "protected": false
     },
     "featured_media": 69,
@@ -236,8 +236,8 @@
     ],
     "acf": {
       "photo": 69,
-      "position": "組織開発リード",
-      "bio": "スタートアップから大企業まで、職種を問わず1on1とフィードバック設計の導入支援を行う。テック組織のマネジメントに関する寄稿多数。前職では100名規模のエンジニアリング組織のマネージャーを5年経験。\n技術的バックグラウンドを活かし、エンジニア向けのマネジメント研修・1on1ワークショップを年20回以上開催。「技術者から見て納得感のある組織論」を伝えることを得意とする。最近の関心はエンジニア組織の評価制度設計。",
+      "position": "Organizational Development Lead",
+      "bio": "Support the introduction of 1: 1 feedback design regardless of job type, from startups to large companies.Numerous contributions on the management of tech organizations.Previously, he spent 5 years as a manager in a 100-person engineering organization.\nLeveraging their technical background, they hold management training and one-on-one workshops for engineers more than 20 times a year.He is good at conveying \"organizational theory that makes sense from the point of view of engineers\".A recent interest is the design of evaluation systems for engineer organizations.",
       "twitter_url": "https://twitter.com/example_tanaka",
       "linkedin_url": "https://linkedin.com/in/example-tanaka",
       "website_url": ""
@@ -417,10 +417,10 @@
     "type": "author_profile",
     "link": "http://localhost:3000/authors/sato-misaki",
     "title": {
-      "rendered": "佐藤 美咲"
+      "rendered": "Misaki Sato"
     },
     "content": {
-      "rendered": "<p>組織開発コンサルタントとして10年以上のキャリア。スタートアップから上場企業まで、多様な規模・業種の組織変革に携わる。リモートワーク文化・心理的安全性に関する執筆・登壇多数。</p>\n",
+      "rendered": "<p>Over 10 years career as an Organizational Development Consultant. Engaged in organizational changes of various sizes and industries, from startups to listed companies. He has written and lectured extensively on remote work culture and psychological safety.</p>\n",
       "protected": false
     },
     "featured_media": 68,
@@ -438,8 +438,8 @@
     ],
     "acf": {
       "photo": 68,
-      "position": "シニアコンサルタント",
-      "bio": "大手SaaS企業のチームビルディング支援に多数携わる。前職はグローバルコンサルティングファームで組織変革プロジェクトをリード。心理的安全性に関する執筆は、雑誌・Webメディア合わせて50本以上。\n大学院では組織心理学を専攻し、修士号取得。研究と実務の両面から組織を見る視点を大切にしている。最近の関心領域は、リモート時代のチームビルディングと、評価制度の納得感設計。",
+      "position": "<g id=\"1859909379\">Senior Consultant</g>",
+      "bio": "He has been involved in supporting team building for many major SaaS companies.Previously, he led an organizational transformation project at a global consulting firm.He has written more than 50 articles on psychological safety in magazines and web media.\nIn graduate school, he majored in organizational psychology and obtained a master's degree.I value the perspective of looking at the organization from both research and practical aspects.Recent areas of interest include team building in the remote era and the design of an appraisal system.",
       "twitter_url": "https://twitter.com/example_sato",
       "linkedin_url": "https://linkedin.com/in/example-sato",
       "website_url": ""

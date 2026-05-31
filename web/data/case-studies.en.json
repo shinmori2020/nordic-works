@@ -13,10 +13,10 @@
     "type": "case_study",
     "link": "http://localhost:3000/case-studies/fintech-remote-diagnosis",
     "title": {
-      "rendered": "FinTech企業のフルリモート文化診断"
+      "rendered": "Full Remote Culture Diagnostics for FinTech Companies"
     },
     "content": {
-      "rendered": "<p>創業以来フルリモートで運営してきた FinTech 企業が、社員 200名超の規模になり「以前のような風通しの良さがない」という声が顕在化。リモート文化診断を実施し、4つの構造的問題を特定・改善しました。</p>\n<p>特に重要だったのは「Slack 上の沈黙時間」を計測し、組織のサイレントゾーンを可視化したこと。これにより、形だけ存在していた1on1や全社会議の改善ポイントが明確になりました。</p>\n",
+      "rendered": "<p>A FinTech company that has been operating fully remotely since its inception has grown to a scale of more than 200 employees, and the voice that \"there is no good ventilation like before\" has become apparent. Remote cultural diagnostics were conducted to identify and improve four structural issues.</p>\n<p>Particularly important was the measurement of \"silence time on Slack\" and the visualization of the organization's silent zone. This has clarified the points of improvement in one-on-one and all-hands meetings that existed only in form.</p>\n",
       "protected": false
     },
     "featured_media": 0,
@@ -37,16 +37,16 @@
       "industry-fintech"
     ],
     "acf": {
-      "client_name": "Helix Finance（架空）",
+      "client_name": "Helix Finance (Fictional)",
       "client_industry": "FinTech",
-      "company_size": "従業員220名",
-      "subtitle": "200名超のフルリモート組織で起きた「文化の希薄化」を診断・処方",
-      "challenge": "創業期から大切にしてきた「率直なフィードバック文化」が、組織拡大に伴い薄れているという経営層の懸念。社員アンケートでも「Slack で発言しにくくなった」「全社会議が儀式化している」という声が増加。",
-      "solution": "リモート文化診断（Slack ログ分析 + 1on1観察 + フォーカスグループ）を3週間で実施。4つの構造的問題（チャンネル肥大化、リーダーの発言時間占有、フィードバックの非対称性、全社会議の片方向性）を特定し、各々への打ち手を提示しました。",
-      "outcomes": "Slack 発言者多様性指数 | 0.42 → 0.71 | 上位20%の発言占有率改善\n全社会議満足度 | 2.9 → 4.2 | 5点満点\n1on1で本音が出る感覚 | 51% → 78% | 全社員調査",
-      "testimonial_body": "「『なんとなく息苦しい』という感覚を、データで言語化してもらえたことが一番の価値でした。」",
-      "testimonial_author": "CEO 田中健（架空）",
-      "project_period": "2025年9月〜2025年11月（3ヶ月）",
+      "company_size": "220 employees",
+      "subtitle": "Diagnose and prescribe \"cultural dilution\" that occurred in more than 200 full remote organizations",
+      "challenge": "Management is concerned that the \"frank feedback culture\" that has been cherished since the founding period has faded with the expansion of the organization. Even in employee questionnaires, there has been an increase in voices saying that \"it has become difficult to speak on Slack\" and \"all-hands meetings have become ritualized\".",
+      "solution": "Performed a remote cultural diagnosis (Slack log analysis + 1: 1 observation + focus group) in 3 weeks, identified 4 structural issues (channel bloat, leader speaking time occupancy, feedback asymmetry, and company-wide meeting unidirectionality), and presented a way forward for each.",
+      "outcomes": "Slack Speaker Diversity Index | 0.42 → 0.71 | Top 20% Speech Share Improvement\nAll-Hands Meeting Satisfaction | 2.9 → 4.2 | out of 5\nFeeling authentic 1: 1 | 51% → 78% | All Employees Survey",
+      "testimonial_body": "\"The most valuable thing was that I was able to translate the feeling of 'somewhat suffocating' into language with the data.\"",
+      "testimonial_author": "CEO Ken Tanaka (Fictional)",
+      "project_period": "September 2025 - November 2025 (3 months)",
       "related_services": [
         50,
         49
@@ -326,10 +326,10 @@
     "type": "case_study",
     "link": "http://localhost:3000/case-studies/consulting-firm-okr-rollout",
     "title": {
-      "rendered": "コンサルティングファームでの OKR 全社導入"
+      "rendered": "Introduction of OKRs across the company at a consulting firm"
     },
     "content": {
-      "rendered": "<p>MBO 中心の運用が形骸化し、上位戦略と現場の日々のタスクが乖離していたコンサルファームで、OKR を全社導入。半年で「戦略→ KR → 日々のタスク」が辿れる組織に転換しました。</p>\n<p>注意点は「四半期サイクル疲れ」を起こさないこと。Nordic Works は OKR レビューを軽量化し、月次のチェックインを2週間に1度の15分セッションに置換することで、運用コストを大幅に下げました。</p>\n",
+      "rendered": "<p>OKRs were introduced throughout the company in a consulting firm where MBO-centric operations were shattered and top-level strategies and day-to-day tasks in the field were diverged. It has been transformed into an organization that can track \"strategic→ KR → daily tasks\" in half a year.</p>\n<p>Be careful not to cause \"quarterly cycle fatigue\". Nordic Works has significantly reduced operational costs by reducing the weight of OKR reviews and replacing monthly check-ins with bi-weekly 15-minute sessions.</p>\n",
       "protected": false
     },
     "featured_media": 0,
@@ -350,16 +350,16 @@
       "industry-20"
     ],
     "acf": {
-      "client_name": "Aurora Consulting Partners（架空）",
-      "client_industry": "コンサルティング",
-      "company_size": "従業員320名",
-      "subtitle": "MBO の形骸化を OKR で打破。戦略から日次タスクまでが繋がる組織へ",
-      "challenge": "MBO の目標が「期初に立てて期末まで触らない」運用になり、上位戦略が日々の意思決定に反映されていませんでした。経営会議では「みんな頑張っているのに数字が動かない」という議論が続いていました。",
-      "solution": "OKR の設計思想（粒度・サイクル・公開性）を経営合宿で共有した後、上から下に展開。重要なのは「OKR を評価に直結させない」原則で、これにより目標設定が現実的かつ挑戦的になりました。",
-      "outcomes": "戦略・現場の連動感（自己評価） | 2.4 → 4.0 | 5点満点、全社調査\nKR 達成率 | 平均 62% | 「7割で OK」原則の浸透\nレビュー時間 | 月8h → 月2h | 軽量化により",
-      "testimonial_body": "「OKR を導入したというより、戦略を語る共通言語が組織に入った感覚です。」",
-      "testimonial_author": "COO 鈴木一郎（架空）",
-      "project_period": "2025年1月〜2025年7月（7ヶ月）",
+      "client_name": "Aurora Consulting Partners (Fictional)",
+      "client_industry": "Consulting",
+      "company_size": "320 employees",
+      "subtitle": "Defeat MBO's disintegration with OKRs. From strategy to daily tasks",
+      "challenge": "The MBO's goal was to operate \"at the beginning and not at the end of the period\", and the top strategy was not reflected in the day-to-day decision-making. At the management meeting, there was a discussion that the numbers did not move even though everyone was working hard.",
+      "solution": "After sharing the design philosophy of OKRs (granularity, cycle, openness) at the management training camp, expand from top to bottom. Importantly, the principle of “don't tie OKRs directly to evaluations” made goal setting realistic and challenging.",
+      "outcomes": "Linkage between strategy and site (self-assessment) | 2.4 → 4.0 | 5 out of 5, company-wide survey\nKR achievement rate | Average 62% | Penetration of the \"70% OK\" principle\nReview time | Month 8h → Month 2h | Reduced weight",
+      "testimonial_body": "“Rather than introducing OKRs, it's a sense of a common language of strategy coming into the organization.”",
+      "testimonial_author": "COO Ichiro Suzuki (fictional)",
+      "project_period": "January 2025 - July 2025 (7 months)",
       "related_services": [
         51
       ]
@@ -561,10 +561,10 @@
     "type": "case_study",
     "link": "http://localhost:3000/case-studies/global-manufacturer-hybrid-onboarding",
     "title": {
-      "rendered": "大手製造業のハイブリッド勤務オンボーディング設計"
+      "rendered": "Hybrid Work Onboarding Design for Major Manufacturing Industries"
     },
     "content": {
-      "rendered": "<p>コロナ後にハイブリッド勤務を本格化した製造業大手で、新卒・中途のオンボーディング体験がリモート/出社で分断され、入社90日後のエンゲージメントスコアに有意差が出ていました。Nordic Works は北欧型の「90日プラン」を翻訳的に導入し、両者のスコア差を解消しました。</p>\n<p>設計のポイントは「初日体験は対面で固定」「バディ制度はリモート/出社混在」「30/60/90日のチェックインを構造化」の3点でした。</p>\n",
+      "rendered": "<p>A leading manufacturer of hybrid work after COVID-19, the onboarding experience for new graduates and mid-career was split between remote and onboarding, resulting in a significant difference in engagement scores 90 days after joining the company. Nordic Works has translated the Nordic 90-day plan, eliminating the difference in scores.</p>\n<p>The design points were three points: \"The first day experience is fixed in person\", \"the buddy system is remote/mixed at work\", and \"30/60/90 check-in is structured\".</p>\n",
       "protected": false
     },
     "featured_media": 0,
@@ -585,16 +585,16 @@
       "industry-3"
     ],
     "acf": {
-      "client_name": "Northland Manufacturing（架空）",
-      "client_industry": "製造業",
-      "company_size": "従業員4,500名",
-      "subtitle": "リモート/出社で分断していた入社90日体験を、北欧型90日プランで再設計",
-      "challenge": "ハイブリッド勤務移行後、リモート中心と出社中心の新入社員でエンゲージメントスコアに約30pt の差が生じていました。退職率も同様にリモート組で高く、現場マネージャーは「リモートだと馴染ませにくい」と感じていました。",
-      "solution": "北欧3社のオンボーディング事例（Spotify / Supercell / Nordnet）を分析し、日本企業向けにアダプトした「90日プラン」を設計。初日のみ全員対面、以降はリモート/出社混在のバディ制度と30/60/90日チェックインを標準化しました。",
-      "outcomes": "90日後エンゲージメント差 | 30pt → 4pt | リモート/出社の差解消\n新入社員定着率（1年） | 78% → 92% | 入社4年間の平均\nマネージャー研修時間 | 月12h → 月4h | 構造化による効率化",
-      "testimonial_body": "「『リモート新人をどう育てるか』が個別マネージャーの工夫頼みだったのが、組織として再現可能な型になった。」",
-      "testimonial_author": "人事本部長 佐藤花子（架空）",
-      "project_period": "2024年6月〜2025年5月（12ヶ月）",
+      "client_name": "Northland Manufacturing (Fictional)",
+      "client_industry": "Manufacturing Industry",
+      "company_size": "4,500 employees",
+      "subtitle": "Redesign the 90-day experience of joining the company, which was divided by remote/coming to work, with the Nordic 90-day plan",
+      "challenge": "After the transition to hybrid working, there was a difference of about 30pt in engagement scores between remote-centric and on-boarding-centric new hires. The retirement rate was similarly high in the remote group, and the site manager felt that \"it is difficult to get used to being remote\".",
+      "solution": "Analyzed three Nordic onboarding cases (Spotify/Supercell/Nordnet) and designed a 90-day plan adapted for Japanese companies. We have standardized the buddy system and 30/60/90 day check-in with remote/mixed attendance since then.",
+      "outcomes": "Difference in Engagement after 90 days | 30pt → 4pt | Resolving Remote/Attendance Differences\nNew hire retention (1 year) | 78% → 92% | Average of 4 years\nManager Training Hours | → Month 12h Month 4h | Structured for Efficiency",
+      "testimonial_body": "\"'How to raise remote newcomers' was the ingenuity of the individual manager, and it has become a model that can be reproduced as an organization.\"",
+      "testimonial_author": "HR Director Hanako Sato (fictional)",
+      "project_period": "June 2024 - May 2025 (12 months)",
       "related_services": [
         51
       ]
@@ -796,10 +796,10 @@
     "type": "case_study",
     "link": "http://localhost:3000/case-studies/saas-startup-retention-turnaround",
     "title": {
-      "rendered": "SaaSスタートアップが離職率を3年で12%→4%に改善した事例"
+      "rendered": "SaaS startups improve turnover to 12%→ 4% in 3 years"
     },
     "content": {
-      "rendered": "<p>急成長フェーズに入ったクライアントは、エンジニア離職率が業界平均を大きく上回り、採用コストが膨張していました。Nordic Works は組織診断・1on1運用刷新・心理的安全性スコアの月次計測を導入し、3年間でエンジニア離職率を約3分の1に圧縮しました。</p>\n<p>プロジェクト初期の3ヶ月は徹底した「現状の可視化」に時間を割き、表層的な施策ではなく構造的な問題（評価フィードバックの不在・キャリア面談の形骸化）を特定したことが転換点となりました。</p>\n",
+      "rendered": "<p>Clients entering the fast-growing phase had engineer turnover rates well above the industry average, and hiring costs were ballooning. Nordic Works implemented organizational diagnostics, 1: 1 operational refreshes, and monthly measurements of psychological safety scores to reduce engineer turnover to approximately one-third over three years.</p>\n<p>In the first three months of the project, we took the time to thoroughly visualize the current situation, and identified structural problems (absence of evaluation feedback and career interviews) instead of superficial measures.</p>\n",
       "protected": false
     },
     "featured_media": 0,
@@ -820,16 +820,16 @@
       "industry-it-saas"
     ],
     "acf": {
-      "client_name": "Acme SaaS 株式会社（架空）",
+      "client_name": "Acme SaaS Co., Ltd. (Fictional)",
       "client_industry": "B2B SaaS",
-      "company_size": "従業員150名",
-      "subtitle": "1on1運用の刷新と心理的安全性の月次計測で、3年で離職率1/3に",
-      "challenge": "エンジニアの離職率が業界平均の2倍に達しており、採用予算が EBITDA を圧迫していました。離職者へのアンケートでは「キャリア展望が見えない」「上長との対話が形骸化している」という声が多く、構造的な原因が疑われる状態でした。",
-      "solution": "Nordic Works は最初の3ヶ月で組織診断（全社アンケート + 1on1ロールプレイ観察）を実施し、1on1の「キャリア・成果・関係性」の3軸に分けたフレームを導入。さらに心理的安全性スコアを月次計測する仕組みを CTO 直轄で立ち上げました。",
-      "outcomes": "離職率 | 12% → 4% | 3年間で\n採用コスト | 年間8,400万円削減 | 退職補填の削減効果\n心理的安全性スコア | 2.8 → 4.1 | 5点満点、全社平均",
-      "testimonial_body": "「離職率の数字よりも、辞めた人が『辞める前に話せた』と言ってくれることが嬉しい。組織が学習する仕組みになった。」",
-      "testimonial_author": "CTO 山田太郎（架空）",
-      "project_period": "2023年4月〜2026年3月（36ヶ月）",
+      "company_size": "150 employees",
+      "subtitle": "1/3 turnover rate in 3 years with 1: 1 operational revamping and monthly measurement of psychological safety",
+      "challenge": "Engineer turnover was double the industry average, and hiring budgets were weighing on EBITDA. In the questionnaire to departing employees, there were many voices saying that \"I do not see a career prospect\" and \"The dialogue with my supervisor is shattered\", and the structural cause was suspected.",
+      "solution": "Nordic Works conducted an organizational diagnosis (company-wide questionnaire + 1: 1 role-play observation) in the first three months, and introduced a 1: 1 \"career, achievement, and relationship\" three-axis frame. In addition, we launched a mechanism under the direct supervision of the CTO to measure the psychological safety score on a monthly basis.",
+      "outcomes": "Turnover rate | 12% → 4% | 3 years\nRecruitment costs | 84 million yen reduction per year | Reduction effect of retirement compensation\nPsychological Safety Score | 2.8 → 4.1 | 5 out of 5, company average",
+      "testimonial_body": "\"I'm glad that people who quit say 'I was able to speak before I quit' rather than the turnover rate figures. It became a mechanism for the organization to learn.\"",
+      "testimonial_author": "CTO Taro Yamada (Fictional)",
+      "project_period": "April 2023 - March 2026 (36 months)",
       "related_services": [
         49,
         51

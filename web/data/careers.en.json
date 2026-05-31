@@ -101,10 +101,10 @@
     "type": "career",
     "link": "http://localhost:3000/careers/senior-org-consultant",
     "title": {
-      "rendered": "シニア組織コンサルタント"
+      "rendered": "Senior Organizational Consultant"
     },
     "content": {
-      "rendered": "<p>クライアント企業の組織変革プロジェクトに、リードコンサルタントとして参画していただきます。経営層との対話、現場ヒアリング、診断、提案、定着支援までを一気通貫で担当。1案件あたり3〜6ヶ月の伴走型プロジェクトを、同時並行で2〜3件担当することが基本となります。</p>\n<h2>仕事の特徴</h2>\n<p>単発の提案・納品ではなく、長期的な並走を通じて組織の変化を支える役割です。提案書を書いて終わりではなく、その提案が現場で機能するまで継続的に関与します。「設計だけ」「分析だけ」のコンサルティングに物足りなさを感じていた方には、知的・実践的な刺激の多い環境です。</p>\n<h2>こんな方を求めています</h2>\n<p>組織開発・人事領域での実務経験があり、定量・定性両面でのアプローチに慣れている方。北欧型の組織観に共感できる方を特に歓迎します。前職はコンサルティングファーム、事業会社の組織開発・人事、HRテック企業など、多様なバックグラウンドの方が活躍しています。</p>\n<h2>働き方</h2>\n<p>週3日リモート、週2日は東京オフィスまたはクライアント先で勤務。海外拠点（ストックホルム）での短期勤務制度もあります（年1回、最大2週間）。</p>\n",
+      "rendered": "<p>You will be involved as a lead consultant in an organizational transformation project for a client company. I am in charge of dialogue with management, on-site interviews, diagnosis, suggestions, and retention support. Basically, I am in charge of 2 to 3 escort projects for 3 to 6 months per project at the same time.</p>\n<h2>Job Features</h2>\n<p>It is not a one-off proposal/delivery, but a role to support organizational change through long-term parallel running. Engage continuously until the proposal is working in the field, not at the end of the proposal. For those who felt unsatisfactory in consulting \"design only\" and \"analysis only\", it is an environment with a lot of intellectual and practical stimulation.</p>\n<h2>We're looking for</h2>\n<p>Those who have practical experience in the field of organizational development and human resources and are familiar with both quantitative and qualitative approaches. We especially welcome those who can sympathize with the Nordic organizational view. In his previous position, he was active in a variety of backgrounds, including consulting firms, organizational development and human resources of operating companies, and HR technology companies.</p>\n<h2>Ways of working</h2>\n<p>Working 3 days a week remotely, 2 days a week in the Tokyo office or at a client location. There is also a system of short-term work at overseas bases (Stockholm) (once a year for up to two weeks).</p>\n",
       "protected": false
     },
     "template": "",
@@ -121,11 +121,11 @@
     ],
     "acf": {
       "position_type": "full_time",
-      "location": "東京（リモート週3日可）",
-      "salary_range": "700万〜1,200万円（経験により応相談）",
-      "required_skills": "組織開発／人事領域での実務経験5年以上\n経営層・マネージャー層との対話経験（複数社での経験を想定）\n定量データを扱える基礎的なスキル（Excel / SQL いずれか）\n日本語ネイティブまたはビジネスレベル\n複数プロジェクトの並行管理経験",
-      "preferred_skills": "コンサルティングファームでの勤務経験\n英語または北欧言語でのビジネスコミュニケーション\n自社プロダクト開発組織のマネジメント経験\n組織心理学・産業心理学の学術的背景\nB2B SaaS 業界での勤務経験\n国際的なプロジェクト経験",
-      "benefits": "完全週休2日（土日祝）／有給とは別の年6日のリチャージ休暇\nリモートワーク手当 月20,000円\n書籍購入・カンファレンス参加費 全額会社負担（年上限あり）\nストックホルムオフィス短期滞在制度（年1回、最大2週間）\n育児休業：男女問わず1年間取得実績あり、復帰後も時短勤務可\n社内勉強会・外部研修への参加奨励（業務時間内）\nオフィス: 東京・恵比寿（駅徒歩3分）\n副業可（事前申請制、競業避止のみ確認）",
+      "location": "Tokyo (Remote 3 days a week)",
+      "salary_range": "7,000,000 to 12,000,000 yen (subject to consultation depending on experience)",
+      "required_skills": "5 + years of experience in organizational development/HR\nInteraction experience with management and managers (assuming experience in multiple companies)\nFundamental skills to work with quantitative data (either Excel/SQL)\nJapanese Native or Business Level\nMulti-project parallel management experience",
+      "preferred_skills": "Experience working in a consulting firm\nBusiness communication in English or Scandinavian languages\nManagement experience in own product development organization\nAcademic background in organizational and industrial psychology\nExperience working in the B2B SaaS industry\nInternational project experience",
+      "benefits": "Full 2 days off per week (Saturdays, Sundays and public holidays)/6 days recharge leave in another year apart from paid leave\nRemote work allowance 20,000 yen per month\nBook purchase/conference participation fee fully covered by the company (with annual limit)\nStockholm office short-term stay (once a year for up to two weeks)\nChildcare leave: Achieved for one year regardless of gender, and can work shorter hours even after returning\nEncouragement to participate in internal study sessions and external training (during business hours)\nOffice: Ebisu, Tokyo (3-minute walk from the station)\nSideline work is allowed (pre-application system, only confirmation of avoidance of competition)",
       "application_url": "/contact?career=senior-org-consultant"
     },
     "_links": {
