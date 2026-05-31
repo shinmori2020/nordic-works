@@ -9,6 +9,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import {
 	algoliaClient,
@@ -37,6 +38,7 @@ const EMPTY: SearchResponse = {
 };
 
 export function SearchClient({ initialQuery }: { initialQuery: string }) {
+	const t = useTranslations('searchPage');
 	const router = useRouter();
 	const params = useSearchParams();
 	const [query, setQuery] = useState(initialQuery);
@@ -122,7 +124,7 @@ export function SearchClient({ initialQuery }: { initialQuery: string }) {
 	if (!ALGOLIA_CONFIGURED) {
 		return (
 			<p className="rounded-md bg-amber-50 px-4 py-3 text-sm text-amber-900 dark:bg-amber-950 dark:text-amber-200">
-				Algolia の環境変数が未設定です。
+				{t('notConfigured')}
 			</p>
 		);
 	}
@@ -134,32 +136,36 @@ export function SearchClient({ initialQuery }: { initialQuery: string }) {
 				type="search"
 				value={query}
 				onChange={(e) => setQuery(e.target.value)}
-				placeholder="記事を検索（例: 心理的安全性、リモートワーク）"
+				placeholder={t('placeholder')}
 				className="w-full rounded-md border border-zinc-300 bg-white px-4 py-3 text-base text-zinc-900 transition-colors focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
 				autoFocus
 			/>
 
 			<p className="mt-3 text-sm text-zinc-500">
 				{loading
-					? '検索中…'
+					? t('searching')
 					: query
-						? `${data.nbHits} 件ヒット（${data.processingTime} ms）`
-						: 'キーワードを入力してください'}
+						? t('hitCount', { count: data.nbHits, ms: data.processingTime })
+						: t('enterKeyword')}
 			</p>
 
 			{/* ファセット（横並びチップ） */}
 			<div className="mt-6 space-y-3">
 				<FacetChips
-					label="トピック"
+					label={t('facetTopic')}
 					entries={topicEntries}
 					selected={facetTopic}
 					onChange={setFacetTopic}
+					clearLabel={t('clear')}
+					clearAria={t('clearAria', { label: t('facetTopic') })}
 				/>
 				<FacetChips
-					label="業界"
+					label={t('facetIndustry')}
 					entries={industryEntries}
 					selected={facetIndustry}
 					onChange={setFacetIndustry}
+					clearLabel={t('clear')}
+					clearAria={t('clearAria', { label: t('facetIndustry') })}
 				/>
 			</div>
 
@@ -198,7 +204,7 @@ export function SearchClient({ initialQuery }: { initialQuery: string }) {
 
 			{query && !loading && data.hits.length === 0 && (
 				<p className="mt-6 text-sm text-zinc-500">
-					該当する記事は見つかりませんでした。
+					{t('noResults')}
 				</p>
 			)}
 		</div>
@@ -211,11 +217,15 @@ function FacetChips({
 	entries,
 	selected,
 	onChange,
+	clearLabel,
+	clearAria,
 }: {
 	label: string;
 	entries: [string, number][];
 	selected: string | null;
 	onChange: (v: string | null) => void;
+	clearLabel: string;
+	clearAria: string;
 }) {
 	if (entries.length === 0 && !selected) return null;
 	return (
@@ -247,7 +257,7 @@ function FacetChips({
 				<button
 					type="button"
 					onClick={() => onChange(null)}
-					aria-label={`${label} の絞り込みをクリア`}
+					aria-label={clearAria}
 					className="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
 				>
 					<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -258,7 +268,7 @@ function FacetChips({
 							strokeLinecap="round"
 						/>
 					</svg>
-					<span>クリア</span>
+					<span>{clearLabel}</span>
 				</button>
 			)}
 		</div>

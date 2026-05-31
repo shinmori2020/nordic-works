@@ -61,6 +61,7 @@ export default async function ServiceDetailPage({
 	}
 
 	const tCases = await getTranslations('caseStudies');
+	const t = await getTranslations('services');
 	const image = getFeaturedImage(service);
 	const acf = service.acf;
 
@@ -135,7 +136,7 @@ export default async function ServiceDetailPage({
 				{/* 機能リスト */}
 				{features.length > 0 && (
 					<section className="mt-14">
-						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">主な機能</h2>
+						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">{t('features')}</h2>
 						<div className="mt-6 grid gap-6 sm:grid-cols-2">
 							{features.map((feature, i) => (
 								<div key={i} className="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5">
@@ -153,7 +154,7 @@ export default async function ServiceDetailPage({
 				{pricingPlans.length > 0 && (
 					<section className="mt-14">
 						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
-							料金プラン
+							{t('pricing')}
 						</h2>
 						<div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 							{pricingPlans.map((plan, i) => {
@@ -170,7 +171,7 @@ export default async function ServiceDetailPage({
 									>
 										{isRecommended && (
 											<p className="mb-2 text-xs font-semibold uppercase tracking-widest text-zinc-900 dark:text-zinc-100">
-												おすすめ
+												{t('recommended')}
 											</p>
 										)}
 										<h3 className="font-semibold text-zinc-900 dark:text-zinc-100">
@@ -199,7 +200,7 @@ export default async function ServiceDetailPage({
 														: 'border border-zinc-300 text-zinc-900 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800'
 												}`}
 											>
-												このプランで相談する
+												{t('consultPlan')}
 											</Link>
 										</div>
 									</div>
@@ -213,7 +214,7 @@ export default async function ServiceDetailPage({
 				{faq.length > 0 && (
 					<section className="mt-14">
 						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
-							よくある質問
+							{t('faq')}
 						</h2>
 						<div className="mt-6 divide-y divide-zinc-200 dark:divide-zinc-800">
 							{faq.map((item, i) => (
@@ -302,7 +303,7 @@ export default async function ServiceDetailPage({
 				{acf?.cta_text && (
 					<section className="mt-14 rounded-lg bg-zinc-900 dark:bg-zinc-100 px-8 py-10 text-center">
 						<p className="text-lg font-medium text-white dark:text-zinc-900">
-							このサービスにご興味がありますか？
+							{t('interested')}
 						</p>
 						<Link
 							href={acf.cta_url || '/contact'}

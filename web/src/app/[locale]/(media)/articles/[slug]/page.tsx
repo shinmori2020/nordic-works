@@ -7,6 +7,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getPostBySlug, getPosts, getAuthorById } from '@/lib/wordpress';
 import { getFeaturedImage, getTerms, stripHtml, formatDate } from '@/lib/utils';
@@ -62,14 +63,22 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	};
 }
 
-export default async function ArticleDetailPage({ params }: SlugPageProps) {
-	const { slug } = await params;
+export default async function ArticleDetailPage({
+	params,
+}: {
+	params: Promise<{ slug: string; locale: string }>;
+}) {
+	const { slug, locale } = await params;
+	setRequestLocale(locale);
 	const post = await getPostBySlug(slug);
 
 	if (!post) {
 		notFound();
 	}
 
+	const t = await getTranslations('articles');
+	const tCommon = await getTranslations('common');
+	const dateLocale = (await getLocale()) === 'en' ? 'en' : 'ja';
 	const image = getFeaturedImage(post);
 	const topics = getTerms(post, 'topic');
 	const industries = getTerms(post, 'industry');
@@ -157,13 +166,13 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 
 				{/* メタ情報 */}
 				<div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-zinc-500">
-					<time dateTime={post.date}>{formatDate(post.date)}</time>
+					<time dateTime={post.date}>{formatDate(post.date, dateLocale)}</time>
 					{typeof post.acf?.reading_time === 'number' && (
-						<span>· {post.acf.reading_time}分で読めます</span>
+						<span>· {tCommon('minutesToRead', { minutes: post.acf.reading_time })}</span>
 					)}
 					{author && (
 						<span>
-							· 著者:{' '}
+							· {t('author')}:{' '}
 							<Link
 								href={`/authors/${author.slug}`}
 								className="underline-offset-2 transition-colors hover:text-zinc-900 hover:underline dark:hover:text-zinc-100"
@@ -228,7 +237,7 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 				{/* 著者プロフィール */}
 				{author && (
 					<aside className="mt-8 rounded-lg bg-zinc-50 p-5 dark:bg-zinc-900">
-						<p className="text-xs uppercase tracking-wide text-zinc-400">著者</p>
+						<p className="text-xs uppercase tracking-wide text-zinc-400">{t('author')}</p>
 						<div className="mt-3 flex items-start gap-4">
 							{/* プロフィール写真。authors/[slug] と同じくアイキャッチを使う */}
 							{authorPhoto && (
@@ -261,9 +270,11 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 									href={`/authors/${author.slug}`}
 									className="mt-3 inline-flex items-center gap-1 text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
 								>
-									この著者の記事
+									{t('authorOtherPosts')}
 									{otherAuthorPostsCount > 0 && (
-										<span className="text-zinc-400">（他 {otherAuthorPostsCount} 件）</span>
+										<span className="text-zinc-400">
+											{t('otherPostsCount', { count: otherAuthorPostsCount })}
+										</span>
 									)}
 									<span aria-hidden="true">→</span>
 								</Link>
@@ -277,7 +288,7 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 			{relatedPosts.length > 0 && (
 				<section className="mt-16 border-t border-zinc-200 pt-10 dark:border-zinc-800">
 					<h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-						関連記事
+						{t('relatedArticles')}
 					</h2>
 					<div className="mt-6 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
 						{relatedPosts.map((p) => (
@@ -295,11 +306,10 @@ export default async function ArticleDetailPage({ params }: SlugPageProps) {
 							Newsletter
 						</p>
 						<h2 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-							こうした記事を月2回お届けします
+							{t('newsletterCtaTitle')}
 						</h2>
 						<p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-							編集部おすすめ記事と新規ホワイトペーパーを、第2・第4金曜日に
-							メールでお送りします。
+							{t('newsletterCtaDescription')}
 						</p>
 					</div>
 					<NewsletterForm variant="standard" idPrefix="nl-article" />

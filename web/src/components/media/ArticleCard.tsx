@@ -1,15 +1,19 @@
 /**
  * 記事カードコンポーネント。
  *
- * 記事一覧ページ等で1記事を表示する。Server Component。
+ * 記事一覧ページ等で1記事を表示する。Server Component（async）。
+ * 日付・読了時間は現在ロケールに応じて整形する。
  */
 
 import Image from 'next/image';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { WPPost } from '@/types/wordpress';
 import { getFeaturedImage, getTerms, stripHtml, formatDate } from '@/lib/utils';
 
-export function ArticleCard({ post }: { post: WPPost }) {
+export async function ArticleCard({ post }: { post: WPPost }) {
+	const locale = (await getLocale()) === 'en' ? 'en' : 'ja';
+	const t = await getTranslations('common');
 	const image = getFeaturedImage(post);
 	const topics = getTerms(post, 'topic');
 	const excerpt = stripHtml(post.excerpt.rendered);
@@ -44,9 +48,9 @@ export function ArticleCard({ post }: { post: WPPost }) {
 					</h2>
 					<p className="mt-1 line-clamp-2 text-sm text-zinc-600 dark:text-zinc-400">{excerpt}</p>
 					<div className="mt-2 flex items-center gap-2 text-xs text-zinc-400">
-						<time dateTime={post.date}>{formatDate(post.date)}</time>
+						<time dateTime={post.date}>{formatDate(post.date, locale)}</time>
 						{typeof post.acf?.reading_time === 'number' && (
-							<span>· {post.acf.reading_time}分で読めます</span>
+							<span>· {t('minutesToRead', { minutes: post.acf.reading_time })}</span>
 						)}
 					</div>
 				</div>

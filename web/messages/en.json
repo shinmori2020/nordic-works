@@ -7,7 +7,8 @@
 		"loading": "Loading…",
 		"required": "Required",
 		"viewAll": "View all →",
-		"minutesToRead": "{minutes} min read"
+		"minutesToRead": "{minutes} min read",
+		"author": "Author"
 	},
 	"nav": {
 		"insights": "Insights",
@@ -182,7 +183,9 @@
 		"authorOtherPosts": "More from this author",
 		"otherPostsCount": "({count} more)",
 		"empty": "No articles yet.",
-		"fetchError": "⚠️ Could not load articles."
+		"fetchError": "⚠️ Could not load articles.",
+		"newsletterCtaTitle": "Get articles like this twice a month",
+		"newsletterCtaDescription": "We send editor picks and new whitepapers every second and fourth Friday."
 	},
 	"services": {
 		"label": "Services",
@@ -210,13 +213,18 @@
 		"applicationFormTitle": "Apply for this position",
 		"applicationFormDescription": "Fill in the form below. We will respond to your application within 5 business days.",
 		"externalCtaTitle": "Interested in this position?",
-		"externalCtaButton": "Apply on external site ↗"
+		"externalCtaButton": "Apply on external site ↗",
+		"positionTypeFullTime": "Full-time",
+		"positionTypeContract": "Contract",
+		"positionTypeFreelance": "Freelance"
 	},
 	"features": {
 		"label": "Features",
 		"title": "Features",
 		"description": "Curated themed collections from the editorial team.",
-		"empty": "No featured collections at the moment."
+		"empty": "No featured collections at the moment.",
+		"period": "Period: {period}",
+		"articlesInFeature": "Articles in this feature"
 	},
 	"authors": {
 		"label": "Authors",
@@ -245,7 +253,17 @@
 	"searchPage": {
 		"label": "Search",
 		"title": "Search",
-		"description": "Full-text search powered by Algolia. Filter by topic and industry."
+		"description": "Full-text search powered by Algolia. Filter by topic and industry.",
+		"placeholder": "Search articles (e.g. psychological safety, remote work)",
+		"notConfigured": "Algolia environment variables are not configured.",
+		"searching": "Searching…",
+		"hitCount": "{count} results ({ms} ms)",
+		"enterKeyword": "Enter a keyword to search",
+		"noResults": "No matching articles found.",
+		"facetTopic": "Topic",
+		"facetIndustry": "Industry",
+		"clear": "Clear",
+		"clearAria": "Clear {label} filter"
 	},
 	"caseStudies": {
 		"label": "Case Studies",

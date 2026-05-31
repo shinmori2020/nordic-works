@@ -54,12 +54,22 @@ export function stripHtml(html: string): string {
 }
 
 /**
- * ISO 日付文字列を「2026年5月14日」形式に整形する。
+ * ISO 日付文字列を locale に応じた形式に整形する。
+ *   ja → 「2026年5月14日」
+ *   en → 「May 14, 2026」
+ * locale 省略時は ja。
  */
-export function formatDate(iso: string): string {
+export function formatDate(iso: string, locale: 'ja' | 'en' = 'ja'): string {
 	const d = new Date(iso);
 	if (Number.isNaN(d.getTime())) return '';
-	return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+	if (locale === 'ja') {
+		return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+	}
+	return new Intl.DateTimeFormat('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	}).format(d);
 }
 
 // ============================================================================

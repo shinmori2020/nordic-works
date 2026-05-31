@@ -71,7 +71,9 @@ export default async function WhitepaperDetailPage({
 
 				<div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-zinc-500">
 					<time dateTime={wp.publishedAt}>
-						{t('publishedAt', { date: formatDate(wp.publishedAt) })}
+						{t('publishedAt', {
+							date: formatDate(wp.publishedAt, locale === 'en' ? 'en' : 'ja'),
+						})}
 					</time>
 					<span>· {t('pageCount', { count: wp.pageCount })}</span>
 					<span>· {t('readingTime', { minutes: wp.readingTime })}</span>

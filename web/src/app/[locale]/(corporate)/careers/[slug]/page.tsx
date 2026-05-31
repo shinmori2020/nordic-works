@@ -7,12 +7,12 @@
 
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getCareerBySlug, getCareers } from '@/lib/wordpress';
-import { stripHtml, parseLines, positionTypeLabel } from '@/lib/utils';
+import { stripHtml, parseLines } from '@/lib/utils';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { ApplicationForm } from '@/components/corporate/ApplicationForm';
-import type { SlugPageProps } from '@/types/wordpress';
 
 // ISR: 採用情報は更新頻度が低いため24時間
 export const revalidate = 86400;
@@ -22,11 +22,15 @@ export async function generateStaticParams() {
 	return careers.map((career) => ({ slug: career.slug }));
 }
 
-export async function generateMetadata({ params }: SlugPageProps): Promise<Metadata> {
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ slug: string; locale: string }>;
+}): Promise<Metadata> {
 	const { slug } = await params;
 	const career = await getCareerBySlug(slug);
 	if (!career) {
-		return { title: '採用情報が見つかりません' };
+		return { title: 'Not found' };
 	}
 	return {
 		title: career.title.rendered,
@@ -63,18 +67,35 @@ function ListSection({ title, items }: { title: string; items: string[] }) {
 	);
 }
 
-export default async function CareerDetailPage({ params }: SlugPageProps) {
-	const { slug } = await params;
+/** position_type の値 → 翻訳キーのサフィックス */
+const POSITION_TYPE_KEY: Record<string, string> = {
+	full_time: 'positionTypeFullTime',
+	contract: 'positionTypeContract',
+	freelance: 'positionTypeFreelance',
+};
+
+export default async function CareerDetailPage({
+	params,
+}: {
+	params: Promise<{ slug: string; locale: string }>;
+}) {
+	const { slug, locale } = await params;
+	setRequestLocale(locale);
 	const career = await getCareerBySlug(slug);
 
 	if (!career) {
 		notFound();
 	}
 
+	const t = await getTranslations('careers');
 	const acf = career.acf;
 	const requiredSkills = parseLines(acf?.required_skills);
 	const preferredSkills = parseLines(acf?.preferred_skills);
 	const benefits = parseLines(acf?.benefits);
+	const positionTypeText =
+		acf?.position_type && POSITION_TYPE_KEY[acf.position_type]
+			? t(POSITION_TYPE_KEY[acf.position_type])
+			: (acf?.position_type ?? '');
 
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-12">
@@ -95,10 +116,10 @@ export default async function CareerDetailPage({ params }: SlugPageProps) {
 				{/* 募集要項メタ */}
 				<dl className="mt-8">
 					{acf?.position_type && (
-						<MetaRow label="雇用形態" value={positionTypeLabel(acf.position_type)} />
+						<MetaRow label={t('positionType')} value={positionTypeText} />
 					)}
-					{acf?.location && <MetaRow label="勤務地" value={acf.location} />}
-					{acf?.salary_range && <MetaRow label="給与レンジ" value={acf.salary_range} />}
+					{acf?.location && <MetaRow label={t('location')} value={acf.location} />}
+					{acf?.salary_range && <MetaRow label={t('salary')} value={acf.salary_range} />}
 				</dl>
 
 				{/* 募集概要（本文） */}
@@ -109,9 +130,9 @@ export default async function CareerDetailPage({ params }: SlugPageProps) {
 					/>
 				)}
 
-				<ListSection title="必須スキル" items={requiredSkills} />
-				<ListSection title="歓迎スキル" items={preferredSkills} />
-				<ListSection title="待遇・福利厚生" items={benefits} />
+				<ListSection title={t('requiredSkills')} items={requiredSkills} />
+				<ListSection title={t('preferredSkills')} items={preferredSkills} />
+				<ListSection title={t('benefits')} items={benefits} />
 
 				{/* 応募導線。
 				    application_url が ACF に設定されていれば外部応募サイトへのリンクのみ、
@@ -119,7 +140,7 @@ export default async function CareerDetailPage({ params }: SlugPageProps) {
 				{acf?.application_url ? (
 					<section className="mt-14 rounded-lg bg-zinc-900 px-8 py-10 text-center dark:bg-zinc-100">
 						<p className="text-lg font-medium text-white dark:text-zinc-900">
-							このポジションに興味がありますか？
+							{t('externalCtaTitle')}
 						</p>
 						<Link
 							href={acf.application_url}
@@ -127,7 +148,7 @@ export default async function CareerDetailPage({ params }: SlugPageProps) {
 							rel="noopener noreferrer"
 							className="mt-4 inline-block rounded-md bg-white px-6 py-2.5 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-200 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-700"
 						>
-							外部応募サイトから応募する ↗
+							{t('externalCtaButton')}
 						</Link>
 					</section>
 				) : (
@@ -136,14 +157,13 @@ export default async function CareerDetailPage({ params }: SlugPageProps) {
 						className="mt-14 rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950 sm:p-8"
 					>
 						<p className="text-xs uppercase tracking-widest text-zinc-500">
-							Application Form
+							{t('applicationFormLabel')}
 						</p>
 						<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
-							このポジションに応募する
+							{t('applicationFormTitle')}
 						</h2>
 						<p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-							下記フォームに必要事項をご記入ください。書類選考の結果は、
-							受付から5営業日以内にメールにてご連絡いたします。
+							{t('applicationFormDescription')}
 						</p>
 
 						<div className="mt-6">

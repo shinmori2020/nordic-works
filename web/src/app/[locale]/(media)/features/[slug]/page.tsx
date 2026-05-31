@@ -8,12 +8,12 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getFeatureBySlug, getFeatures, getPostsByIds } from '@/lib/wordpress';
 import { ArticleCard } from '@/components/media/ArticleCard';
 import { getFeaturedImage, stripHtml, formatDate } from '@/lib/utils';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
-import type { SlugPageProps } from '@/types/wordpress';
 
 // ISR: 特集は記事より更新頻度が高いため1時間
 export const revalidate = 3600;
@@ -23,11 +23,15 @@ export async function generateStaticParams() {
 	return features.map((feature) => ({ slug: feature.slug }));
 }
 
-export async function generateMetadata({ params }: SlugPageProps): Promise<Metadata> {
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ slug: string; locale: string }>;
+}): Promise<Metadata> {
 	const { slug } = await params;
 	const feature = await getFeatureBySlug(slug);
 	if (!feature) {
-		return { title: '特集が見つかりません' };
+		return { title: 'Not found' };
 	}
 	return {
 		title: feature.title.rendered,
@@ -38,14 +42,21 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	};
 }
 
-export default async function FeatureDetailPage({ params }: SlugPageProps) {
-	const { slug } = await params;
+export default async function FeatureDetailPage({
+	params,
+}: {
+	params: Promise<{ slug: string; locale: string }>;
+}) {
+	const { slug, locale } = await params;
+	setRequestLocale(locale);
 	const feature = await getFeatureBySlug(slug);
 
 	if (!feature) {
 		notFound();
 	}
 
+	const t = await getTranslations('features');
+	const dateLocale = locale === 'en' ? 'en' : 'ja';
 	const acf = feature.acf;
 
 	// カバー画像はアイキャッチ画像（_embedded）から取得する。
@@ -57,10 +68,10 @@ export default async function FeatureDetailPage({ params }: SlugPageProps) {
 
 	// 掲載期間（開始のみ・両方など、設定状況に応じて整形）
 	const periodStart = acf?.published_period_start
-		? formatDate(acf.published_period_start)
+		? formatDate(acf.published_period_start, dateLocale)
 		: '';
 	const periodEnd = acf?.published_period_end
-		? formatDate(acf.published_period_end)
+		? formatDate(acf.published_period_end, dateLocale)
 		: '';
 	const period = periodStart && periodEnd
 		? `${periodStart} 〜 ${periodEnd}`
@@ -82,7 +93,7 @@ export default async function FeatureDetailPage({ params }: SlugPageProps) {
 					{feature.title.rendered}
 				</h1>
 				{period && (
-					<p className="mt-2 text-sm text-zinc-500">掲載期間: {period}</p>
+					<p className="mt-2 text-sm text-zinc-500">{t('period', { period })}</p>
 				)}
 				{acf?.lead_text && (
 					<p className="mt-3 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
@@ -115,7 +126,7 @@ export default async function FeatureDetailPage({ params }: SlugPageProps) {
 				{/* 関連記事 */}
 				{relatedArticles.length > 0 && (
 					<section className="mt-14">
-						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">この特集の記事</h2>
+						<h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100">{t('articlesInFeature')}</h2>
 						<div className="mt-6 grid gap-x-8 gap-y-10 sm:grid-cols-2">
 							{relatedArticles.map((post) => (
 								<ArticleCard key={post.id} post={post} />

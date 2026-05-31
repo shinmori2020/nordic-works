@@ -7,7 +7,8 @@
 		"loading": "読み込み中…",
 		"required": "必須",
 		"viewAll": "すべて見る →",
-		"minutesToRead": "{minutes}分で読めます"
+		"minutesToRead": "{minutes}分で読めます",
+		"author": "著者"
 	},
 	"nav": {
 		"insights": "Insights",
@@ -182,7 +183,9 @@
 		"authorOtherPosts": "この著者の記事",
 		"otherPostsCount": "（他 {count} 件）",
 		"empty": "まだ記事がありません。",
-		"fetchError": "⚠️ 記事を取得できませんでした。"
+		"fetchError": "⚠️ 記事を取得できませんでした。",
+		"newsletterCtaTitle": "こうした記事を月2回お届けします",
+		"newsletterCtaDescription": "編集部おすすめ記事と新規ホワイトペーパーを、第2・第4金曜日にメールでお送りします。"
 	},
 	"services": {
 		"label": "Services",
@@ -210,13 +213,18 @@
 		"applicationFormTitle": "このポジションに応募する",
 		"applicationFormDescription": "下記フォームに必要事項をご記入ください。書類選考の結果は、受付から5営業日以内にメールにてご連絡いたします。",
 		"externalCtaTitle": "このポジションに興味がありますか？",
-		"externalCtaButton": "外部応募サイトから応募する ↗"
+		"externalCtaButton": "外部応募サイトから応募する ↗",
+		"positionTypeFullTime": "正社員",
+		"positionTypeContract": "契約社員",
+		"positionTypeFreelance": "業務委託"
 	},
 	"features": {
 		"label": "Features",
 		"title": "特集",
 		"description": "テーマ別に編集部が厳選した特集記事。",
-		"empty": "現在公開中の特集はありません。"
+		"empty": "現在公開中の特集はありません。",
+		"period": "掲載期間: {period}",
+		"articlesInFeature": "この特集の記事"
 	},
 	"authors": {
 		"label": "Authors",
@@ -245,7 +253,17 @@
 	"searchPage": {
 		"label": "Search",
 		"title": "検索",
-		"description": "Algolia による全文検索。トピックや業界で絞り込みもできます。"
+		"description": "Algolia による全文検索。トピックや業界で絞り込みもできます。",
+		"placeholder": "記事を検索（例: 心理的安全性、リモートワーク）",
+		"notConfigured": "Algolia の環境変数が未設定です。",
+		"searching": "検索中…",
+		"hitCount": "{count} 件ヒット（{ms} ms）",
+		"enterKeyword": "キーワードを入力してください",
+		"noResults": "該当する記事は見つかりませんでした。",
+		"facetTopic": "トピック",
+		"facetIndustry": "業界",
+		"clear": "クリア",
+		"clearAria": "{label} の絞り込みをクリア"
 	},
 	"caseStudies": {
 		"label": "Case Studies",
