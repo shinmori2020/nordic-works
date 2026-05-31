@@ -8,9 +8,12 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+// useRouter / Link は locale 対応版を使う。
+// next/navigation の useRouter だと replace 先に /en プレフィックスが付かず、
+// EN で検索ページを開いた直後に JA URL へ書き換わってしまう。
+import { Link, useRouter } from '@/i18n/navigation';
 import {
 	algoliaClient,
 	ALGOLIA_CONFIGURED,
