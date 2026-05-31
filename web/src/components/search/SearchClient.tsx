@@ -9,7 +9,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 // useRouter / Link は locale 対応版を使う。
 // next/navigation の useRouter だと replace 先に /en プレフィックスが付かず、
 // EN で検索ページを開いた直後に JA URL へ書き換わってしまう。
@@ -17,7 +17,7 @@ import { Link, useRouter } from '@/i18n/navigation';
 import {
 	algoliaClient,
 	ALGOLIA_CONFIGURED,
-	ALGOLIA_INDEX_NAME,
+	indexNameForLocale,
 	type AlgoliaPostHit,
 } from '@/lib/algolia';
 
@@ -42,6 +42,8 @@ const EMPTY: SearchResponse = {
 
 export function SearchClient({ initialQuery }: { initialQuery: string }) {
 	const t = useTranslations('searchPage');
+	const locale = useLocale();
+	const indexName = indexNameForLocale(locale);
 	const router = useRouter();
 	const params = useSearchParams();
 	const [query, setQuery] = useState(initialQuery);
@@ -80,7 +82,7 @@ export function SearchClient({ initialQuery }: { initialQuery: string }) {
 				const res = await client.search({
 					requests: [
 						{
-							indexName: ALGOLIA_INDEX_NAME,
+							indexName,
 							query,
 							facets: ['topics', 'industries'],
 							facetFilters,
@@ -113,7 +115,7 @@ export function SearchClient({ initialQuery }: { initialQuery: string }) {
 			}
 		}, 150);
 		return () => clearTimeout(t);
-	}, [query, facetTopic, facetIndustry]);
+	}, [query, facetTopic, facetIndustry, indexName]);
 
 	const topicEntries = useMemo(
 		() => Object.entries(data.facets.topics).sort((a, b) => b[1] - a[1]),

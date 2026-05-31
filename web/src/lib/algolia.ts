@@ -13,6 +13,16 @@ const SEARCH_KEY = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_KEY ?? '';
 export const ALGOLIA_INDEX_NAME =
 	process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME ?? 'nordic_works';
 
+/**
+ * ロケールに応じたインデックス名を返す。
+ *   ja → nordic_works
+ *   en → nordic_works_en
+ * index-to-algolia.mjs が両方を生成している前提。
+ */
+export function indexNameForLocale(locale: string): string {
+	return locale === 'en' ? `${ALGOLIA_INDEX_NAME}_en` : ALGOLIA_INDEX_NAME;
+}
+
 export const ALGOLIA_CONFIGURED = Boolean(APP_ID && SEARCH_KEY);
 
 /** lite クライアント。未設定時は null（呼び出し側で配慮） */
