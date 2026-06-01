@@ -10,9 +10,9 @@ import { notFound } from 'next/navigation';
 import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getPostBySlug, getPosts, getAuthorById, getServices } from '@/lib/wordpress';
-import { getFeaturedImage, getTerms, stripHtml, formatDate } from '@/lib/utils';
+import { getFeaturedImage, getTerms, stripHtml, formatDate, BLUR_DATA_URL } from '@/lib/utils';
 import { buildTableOfContents } from '@/lib/toc';
-import { SITE_NAME, absoluteUrl } from '@/lib/site';
+import { SITE_NAME, absoluteUrl, localeAlternates } from '@/lib/site';
 import { ArticleCard } from '@/components/media/ArticleCard';
 import { ServiceCard } from '@/components/corporate/ServiceCard';
 import { ReadingProgress } from '@/components/media/ReadingProgress';
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	return {
 		title: post.title.rendered,
 		description,
-		alternates: { canonical },
+		alternates: localeAlternates(canonical),
 		openGraph: {
 			type: 'article',
 			title: post.title.rendered,
@@ -197,6 +197,8 @@ export default async function ArticleDetailPage({
 								alt={image.alt_text || post.title.rendered}
 								fill
 								sizes="(max-width: 768px) 100vw, 768px"
+								placeholder="blur"
+								blurDataURL={BLUR_DATA_URL}
 								className="object-cover"
 								priority
 							/>

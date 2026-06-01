@@ -6,6 +6,7 @@
  */
 
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/site';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
@@ -22,7 +23,7 @@ export async function generateMetadata({
 	return {
 		title: t('metaTitle'),
 		description: t('metaDescription'),
-		alternates: { canonical: '/about' },
+		alternates: localeAlternates('/about'),
 	};
 }
 

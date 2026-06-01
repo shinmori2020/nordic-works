@@ -16,6 +16,18 @@ import type {
 	PositionType,
 } from '@/types/wordpress';
 
+/**
+ * 全画像共通の blur プレースホルダー（薄いグレー）。
+ * next/image の placeholder="blur" + blurDataURL に渡す。
+ * WordPress の動的画像ごとに blurDataURL を生成するのは重いため、
+ * 軽量な共通 SVG を使い「読込中のガクつき」だけ抑える。
+ */
+export const BLUR_DATA_URL =
+	'data:image/svg+xml;base64,' +
+	Buffer.from(
+		'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="10"><rect width="16" height="10" fill="#e4e4e7"/></svg>',
+	).toString('base64');
+
 /** `_embedded` を持つエンティティの最小形 */
 type Embeddable = {
 	_embedded?: {

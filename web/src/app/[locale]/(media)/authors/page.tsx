@@ -3,6 +3,7 @@
  */
 
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/site';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getAuthors } from '@/lib/wordpress';
@@ -21,7 +22,7 @@ export async function generateMetadata({
 	return {
 		title: t('title'),
 		description: t('description'),
-		alternates: { canonical: '/authors' },
+		alternates: localeAlternates('/authors'),
 	};
 }
 

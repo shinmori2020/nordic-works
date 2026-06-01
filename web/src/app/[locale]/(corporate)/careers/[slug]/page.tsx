@@ -6,6 +6,7 @@
  */
 
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/site';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
@@ -35,7 +36,7 @@ export async function generateMetadata({
 	return {
 		title: career.title.rendered,
 		description: stripHtml(career.content.rendered).slice(0, 120),
-		alternates: { canonical: `/careers/${career.slug}` },
+		alternates: localeAlternates(`/careers/${career.slug}`),
 	};
 }
 

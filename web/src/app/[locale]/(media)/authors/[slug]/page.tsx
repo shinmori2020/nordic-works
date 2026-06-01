@@ -6,6 +6,7 @@
  */
 
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/site';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 		title: author.title.rendered,
 		description:
 			author.acf?.bio ?? `${author.title.rendered} が執筆した記事の一覧。`,
-		alternates: { canonical: `/authors/${author.slug}` },
+		alternates: localeAlternates(`/authors/${author.slug}`),
 	};
 }
 

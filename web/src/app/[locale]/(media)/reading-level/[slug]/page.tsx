@@ -5,6 +5,7 @@
  */
 
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/site';
 import { notFound } from 'next/navigation';
 import {
 	getPostsByTerm,
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	return {
 		title: `${term.name}向けの記事`,
 		description: `読了レベル「${term.name}」の Nordic Works 記事一覧。`,
-		alternates: { canonical: `/reading-level/${decodeURIComponent(term.slug)}` },
+		alternates: localeAlternates(`/reading-level/${decodeURIComponent(term.slug)}`),
 	};
 }
 

@@ -5,6 +5,8 @@
  * 値を変えたい時はここだけ書き換える。
  */
 
+import type { Metadata } from 'next';
+
 /** 末尾スラッシュ無しの公開URL */
 export const SITE_URL = (
 	process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
@@ -22,4 +24,28 @@ export const SITE_LOCALE = 'ja_JP';
 export function absoluteUrl(path: string): string {
 	const normalized = path.startsWith('/') ? path : `/${path}`;
 	return `${SITE_URL}${normalized}`;
+}
+
+/**
+ * canonical + hreflang を一括生成する。各ページの generateMetadata の
+ * alternates にそのまま渡す。
+ *
+ * 引数はロケール無しの相対パス（例: '/articles/foo'）。
+ *   - canonical: そのパス（ja はプレフィックス無し = as-needed 運用）
+ *   - hreflang ja: 同じパス
+ *   - hreflang en: '/en' プレフィックス付き
+ *   - x-default: ja を既定として指す
+ *
+ * 値は metadataBase 基準で Next.js が絶対URL化する。
+ */
+export function localeAlternates(path: string): Metadata['alternates'] {
+	const en = path === '/' ? '/en' : `/en${path}`;
+	return {
+		canonical: path,
+		languages: {
+			ja: path,
+			en,
+			'x-default': path,
+		},
+	};
 }

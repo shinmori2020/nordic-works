@@ -7,9 +7,11 @@
  * すべての可視テキストは next-intl の翻訳キー経由で出力する。
  */
 
+import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { getPosts, getFeatures, getServices } from '@/lib/wordpress';
 import { Link } from '@/i18n/navigation';
+import { localeAlternates } from '@/lib/site';
 import { ArticleCard } from '@/components/media/ArticleCard';
 import { FeatureCard } from '@/components/media/FeatureCard';
 import { ServiceCard } from '@/components/corporate/ServiceCard';
@@ -17,6 +19,20 @@ import { Reveal } from '@/components/common/Reveal';
 
 // ISR: 1時間ごとに再生成（docs/06-features.md の方針）
 export const revalidate = 3600;
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+	const { locale } = await params;
+	const t = await getTranslations({ locale, namespace: 'home' });
+	return {
+		title: t('metaTitle'),
+		description: t('metaDescription'),
+		alternates: localeAlternates('/'),
+	};
+}
 
 export default async function Home({
 	params,

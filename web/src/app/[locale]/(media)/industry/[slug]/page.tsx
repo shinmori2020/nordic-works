@@ -3,6 +3,7 @@
  */
 
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/site';
 import { notFound } from 'next/navigation';
 import {
 	getIndustries,
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	return {
 		title: `${term.name} の記事`,
 		description: `「${term.name}」業界に関連する Nordic Works の記事一覧。`,
-		alternates: { canonical: `/industry/${decodeURIComponent(term.slug)}` },
+		alternates: localeAlternates(`/industry/${decodeURIComponent(term.slug)}`),
 	};
 }
 

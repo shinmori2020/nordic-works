@@ -6,6 +6,7 @@
  */
 
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/site';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ContactForm } from '@/components/corporate/ContactForm';
 
@@ -19,7 +20,7 @@ export async function generateMetadata({
 	return {
 		title: t('title'),
 		description: t('description'),
-		alternates: { canonical: '/contact' },
+		alternates: localeAlternates('/contact'),
 	};
 }
 

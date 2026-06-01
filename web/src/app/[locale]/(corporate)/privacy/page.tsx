@@ -6,15 +6,24 @@
  */
 
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import { localeAlternates } from '@/lib/site';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 
-export const metadata: Metadata = {
-	title: 'プライバシーポリシー',
-	description:
-		'Nordic Works が取得する情報、利用目的、Cookie の取り扱い、お問い合わせ窓口について。',
-	alternates: { canonical: '/privacy' },
-};
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+	const { locale } = await params;
+	const t = await getTranslations({ locale, namespace: 'privacy' });
+	return {
+		title: t('metaTitle'),
+		description: t('metaDescription'),
+		alternates: localeAlternates('/privacy'),
+	};
+}
 
 const LAST_UPDATED = '2026-05-28';
 

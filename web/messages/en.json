@@ -90,6 +90,8 @@
 		}
 	},
 	"home": {
+		"metaTitle": "Nordic Works — Design the way you work, with Nordic wisdom",
+		"metaDescription": "Nordic Works is a B2B SaaS company on remote work, psychological safety, and organisation design — its owned media and corporate site.",
 		"hero": {
 			"label": "NORDIC WAYS OF WORKING",
 			"title": "Design the way you work, with Nordic wisdom.",
@@ -326,6 +328,10 @@
 			"about": "About us",
 			"contact": "Contact"
 		}
+	},
+	"privacy": {
+		"metaTitle": "Privacy Policy",
+		"metaDescription": "What information Nordic Works collects, how it is used, how cookies are handled, and how to contact us."
 	},
 	"error": {
 		"label": "Error",

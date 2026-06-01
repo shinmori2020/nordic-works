@@ -5,6 +5,7 @@
  */
 
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/site';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
@@ -20,6 +21,7 @@ import {
 	parsePricingPlans,
 	parseFaq,
 	parseCaseStudyLinks,
+	BLUR_DATA_URL,
 } from '@/lib/utils';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { Link } from '@/i18n/navigation';
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 		title: service.title.rendered,
 		description:
 			service.acf?.subtitle ?? stripHtml(service.content.rendered).slice(0, 120),
-		alternates: { canonical: `/services/${service.slug}` },
+		alternates: localeAlternates(`/services/${service.slug}`),
 	};
 }
 
@@ -121,6 +123,8 @@ export default async function ServiceDetailPage({
 							alt={image.alt_text || service.title.rendered}
 							fill
 							sizes="(max-width: 896px) 100vw, 896px"
+							placeholder="blur"
+							blurDataURL={BLUR_DATA_URL}
 							className="object-cover"
 							priority
 						/>

@@ -7,7 +7,7 @@
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import type { WPService } from '@/types/wordpress';
-import { getFeaturedImage } from '@/lib/utils';
+import { getFeaturedImage, BLUR_DATA_URL } from '@/lib/utils';
 
 export function ServiceCard({ service }: { service: WPService }) {
 	const image = getFeaturedImage(service);
@@ -22,6 +22,8 @@ export function ServiceCard({ service }: { service: WPService }) {
 							alt={image.alt_text || service.title.rendered}
 							fill
 							sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+							placeholder="blur"
+							blurDataURL={BLUR_DATA_URL}
 							className="object-cover transition-transform duration-300 group-hover:scale-105"
 						/>
 					) : (

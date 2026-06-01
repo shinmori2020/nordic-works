@@ -5,11 +5,12 @@
  */
 
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/site';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { getCaseStudies } from '@/lib/wordpress';
-import { getFeaturedImage, stripHtml } from '@/lib/utils';
+import { getFeaturedImage, stripHtml, BLUR_DATA_URL } from '@/lib/utils';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { CtaBanner } from '@/components/common/CtaBanner';
 
@@ -25,7 +26,7 @@ export async function generateMetadata({
 	return {
 		title: t('title'),
 		description: t('description'),
-		alternates: { canonical: '/case-studies' },
+		alternates: localeAlternates('/case-studies'),
 	};
 }
 
@@ -80,6 +81,8 @@ export default async function CaseStudiesPage({
 												alt={image.alt_text || stripHtml(cs.title.rendered)}
 												fill
 												sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+												placeholder="blur"
+												blurDataURL={BLUR_DATA_URL}
 												className="object-cover transition-transform duration-300 group-hover:scale-105"
 											/>
 										)}

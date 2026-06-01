@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { WPPost } from '@/types/wordpress';
-import { getFeaturedImage, getTerms, stripHtml, formatDate } from '@/lib/utils';
+import { getFeaturedImage, getTerms, stripHtml, formatDate, BLUR_DATA_URL } from '@/lib/utils';
 
 export async function ArticleCard({ post }: { post: WPPost }) {
 	const locale = (await getLocale()) === 'en' ? 'en' : 'ja';
@@ -28,6 +28,8 @@ export async function ArticleCard({ post }: { post: WPPost }) {
 							alt={image.alt_text || post.title.rendered}
 							fill
 							sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+							placeholder="blur"
+							blurDataURL={BLUR_DATA_URL}
 							className="object-cover transition-transform duration-300 group-hover:scale-105"
 						/>
 					) : (

@@ -6,13 +6,14 @@
  */
 
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/site';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getFeatureBySlug, getFeatures, getPostsByIds } from '@/lib/wordpress';
 import { ArticleCard } from '@/components/media/ArticleCard';
-import { getFeaturedImage, stripHtml, formatDate } from '@/lib/utils';
+import { getFeaturedImage, stripHtml, formatDate, BLUR_DATA_URL } from '@/lib/utils';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 
 // ISR: 特集は記事より更新頻度が高いため1時間
@@ -38,7 +39,7 @@ export async function generateMetadata({
 		description: feature.acf?.lead_text
 			? stripHtml(feature.acf.lead_text).slice(0, 120)
 			: stripHtml(feature.content.rendered).slice(0, 120),
-		alternates: { canonical: `/features/${feature.slug}` },
+		alternates: localeAlternates(`/features/${feature.slug}`),
 	};
 }
 
@@ -109,6 +110,8 @@ export default async function FeatureDetailPage({
 							alt={image.alt_text || feature.title.rendered}
 							fill
 							sizes="(max-width: 896px) 100vw, 896px"
+							placeholder="blur"
+							blurDataURL={BLUR_DATA_URL}
 							className="object-cover"
 							priority
 						/>

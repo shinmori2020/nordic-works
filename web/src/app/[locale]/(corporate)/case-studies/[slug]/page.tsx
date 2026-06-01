@@ -15,8 +15,8 @@ import {
 } from '@/lib/wordpress';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
-import { getFeaturedImage, stripHtml, parseOutcomes } from '@/lib/utils';
-import { SITE_NAME, absoluteUrl } from '@/lib/site';
+import { getFeaturedImage, stripHtml, parseOutcomes, BLUR_DATA_URL } from '@/lib/utils';
+import { SITE_NAME, absoluteUrl, localeAlternates } from '@/lib/site';
 import type { SlugPageProps } from '@/types/wordpress';
 
 export const revalidate = 86400;
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	return {
 		title: stripHtml(cs.title.rendered),
 		description,
-		alternates: { canonical: `/case-studies/${cs.slug}` },
+		alternates: localeAlternates(`/case-studies/${cs.slug}`),
 	};
 }
 
@@ -128,6 +128,8 @@ export default async function CaseStudyDetailPage({
 							alt={image.alt_text || stripHtml(cs.title.rendered)}
 							fill
 							sizes="(max-width: 896px) 100vw, 896px"
+							placeholder="blur"
+							blurDataURL={BLUR_DATA_URL}
 							className="object-cover"
 							priority
 						/>

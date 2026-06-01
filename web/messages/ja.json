@@ -90,6 +90,8 @@
 		}
 	},
 	"home": {
+		"metaTitle": "Nordic Works — 北欧式の働き方・組織設計を支援する",
+		"metaDescription": "リモートワーク・心理的安全性・組織デザインをテーマにした B2B SaaS 企業 Nordic Works のオウンドメディア＋コーポレートサイト。",
 		"hero": {
 			"label": "NORDIC WAYS OF WORKING",
 			"title": "働き方を、北欧の知恵で設計する。",
@@ -326,6 +328,10 @@
 			"about": "会社概要",
 			"contact": "お問い合わせ"
 		}
+	},
+	"privacy": {
+		"metaTitle": "プライバシーポリシー",
+		"metaDescription": "Nordic Works が取得する情報、利用目的、Cookie の取り扱い、お問い合わせ窓口について。"
 	},
 	"error": {
 		"label": "Error",

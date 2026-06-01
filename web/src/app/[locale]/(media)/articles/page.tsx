@@ -5,6 +5,7 @@
  */
 
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/site';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getPosts } from '@/lib/wordpress';
@@ -23,7 +24,7 @@ export async function generateMetadata({
 	return {
 		title: t('title'),
 		description: t('metaDescription'),
-		alternates: { canonical: '/articles' },
+		alternates: localeAlternates('/articles'),
 	};
 }
 

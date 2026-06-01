@@ -5,6 +5,7 @@
  */
 
 import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/site';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { SearchClient } from '@/components/search/SearchClient';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
@@ -19,7 +20,7 @@ export async function generateMetadata({
 	return {
 		title: t('title'),
 		description: t('description'),
-		alternates: { canonical: '/search' },
+		alternates: localeAlternates('/search'),
 		robots: { index: false, follow: true },
 	};
 }
