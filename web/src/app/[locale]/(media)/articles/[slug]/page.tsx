@@ -9,11 +9,12 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { getPostBySlug, getPosts, getAuthorById } from '@/lib/wordpress';
+import { getPostBySlug, getPosts, getAuthorById, getServices } from '@/lib/wordpress';
 import { getFeaturedImage, getTerms, stripHtml, formatDate } from '@/lib/utils';
 import { buildTableOfContents } from '@/lib/toc';
 import { SITE_NAME, absoluteUrl } from '@/lib/site';
 import { ArticleCard } from '@/components/media/ArticleCard';
+import { ServiceCard } from '@/components/corporate/ServiceCard';
 import { ReadingProgress } from '@/components/media/ReadingProgress';
 import { TableOfContents } from '@/components/media/TableOfContents';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
@@ -102,6 +103,10 @@ export default async function ArticleDetailPage({
 				getTerms(p, 'topic').some((t) => topicIds.includes(t.id)),
 		)
 		.slice(0, 3);
+
+	// 商用導線: 記事を読んだ人をサービスへ送る。記事⇔サービスの紐付けタクソノミーは
+	// 無いため、全サービス（最大3件）を「組織づくりを支援するサービス」として提示する。
+	const services = (await getServices()).slice(0, 3);
 
 	// 同じ著者が執筆した他の記事の件数（CTA に件数を出すため）
 	const otherAuthorPostsCount = author
@@ -293,6 +298,36 @@ export default async function ArticleDetailPage({
 					<div className="mt-6 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
 						{relatedPosts.map((p) => (
 							<ArticleCard key={p.id} post={p} />
+						))}
+					</div>
+				</section>
+			)}
+
+			{/* 関連サービス（商用導線）。記事 → サービス検討への橋渡し。 */}
+			{services.length > 0 && (
+				<section className="mt-16 border-t border-zinc-200 pt-10 dark:border-zinc-800">
+					<div className="mb-6 flex items-baseline justify-between">
+						<div>
+							<p className="text-xs uppercase tracking-widest text-zinc-500">
+								{t('servicesCtaLabel')}
+							</p>
+							<h2 className="mt-1 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+								{t('servicesCtaTitle')}
+							</h2>
+							<p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+								{t('servicesCtaDescription')}
+							</p>
+						</div>
+						<Link
+							href="/services"
+							className="hidden shrink-0 text-sm text-zinc-500 transition-colors hover:text-zinc-900 sm:block dark:hover:text-zinc-100"
+						>
+							{t('servicesCtaViewAll')}
+						</Link>
+					</div>
+					<div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+						{services.map((service) => (
+							<ServiceCard key={service.id} service={service} />
 						))}
 					</div>
 				</section>

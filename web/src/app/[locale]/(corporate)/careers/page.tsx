@@ -7,6 +7,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getCareers } from '@/lib/wordpress';
 import { CareerCard } from '@/components/corporate/CareerCard';
+import { CtaBanner } from '@/components/common/CtaBanner';
 
 // ISR: 採用情報は更新頻度が低いため24時間
 export const revalidate = 86400;
@@ -67,6 +68,17 @@ export default async function CareersPage({
 					))}
 				</div>
 			)}
+
+			{/* 袋小路回避: 応募前の候補者を会社理解（About）と面談（Contact）へ誘導 */}
+			<CtaBanner
+				className="mt-16"
+				title={t('ctaTitle')}
+				description={t('ctaDescription')}
+				buttons={[
+					{ label: t('ctaContact'), href: '/contact', primary: true },
+					{ label: t('ctaAbout'), href: '/about' },
+				]}
+			/>
 		</main>
 	);
 }

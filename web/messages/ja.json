@@ -121,6 +121,15 @@
 			"title": "お問い合わせ",
 			"description": "サービス導入のご相談・取材のご依頼はこちらから。",
 			"link": "お問い合わせフォームへ →"
+		},
+		"stats": {
+			"label": "Track Record",
+			"title": "数字で見る Nordic Works",
+			"note": "※ ポートフォリオ用に設定した架空の数値です。",
+			"clients": "導入企業",
+			"retention": "平均離職率の改善",
+			"satisfaction": "顧客満足度（5点満点）",
+			"industries": "対応業種"
 		}
 	},
 	"about": {
@@ -186,7 +195,11 @@
 		"empty": "まだ記事がありません。",
 		"fetchError": "⚠️ 記事を取得できませんでした。",
 		"newsletterCtaTitle": "こうした記事を月2回お届けします",
-		"newsletterCtaDescription": "編集部おすすめ記事と新規ホワイトペーパーを、第2・第4金曜日にメールでお送りします。"
+		"newsletterCtaDescription": "編集部おすすめ記事と新規ホワイトペーパーを、第2・第4金曜日にメールでお送りします。",
+		"servicesCtaLabel": "Services",
+		"servicesCtaTitle": "組織づくりを支援します",
+		"servicesCtaDescription": "記事で扱ったような課題の解決を、Nordic Works のサービスで支援します。",
+		"servicesCtaViewAll": "すべてのサービスを見る →"
 	},
 	"services": {
 		"label": "Services",
@@ -217,7 +230,11 @@
 		"externalCtaButton": "外部応募サイトから応募する ↗",
 		"positionTypeFullTime": "正社員",
 		"positionTypeContract": "契約社員",
-		"positionTypeFreelance": "業務委託"
+		"positionTypeFreelance": "業務委託",
+		"ctaTitle": "まずは話を聞いてみませんか",
+		"ctaDescription": "会社の文化やミッション、働き方について詳しくご紹介しています。カジュアル面談も歓迎です。",
+		"ctaAbout": "会社について知る",
+		"ctaContact": "カジュアル面談を申し込む"
 	},
 	"features": {
 		"label": "Features",
@@ -281,7 +298,11 @@
 		"relatedServices": "関連サービス",
 		"viewCase": "事例を読む →",
 		"empty": "現在公開中の事例はありません。",
-		"relatedToService": "このサービスの導入事例"
+		"relatedToService": "このサービスの導入事例",
+		"ctaTitle": "このような成果を、あなたの組織でも",
+		"ctaDescription": "課題に合わせた支援をご提案します。まずはお気軽にご相談ください。",
+		"ctaContact": "お問い合わせ",
+		"ctaServices": "サービスを見る"
 	},
 	"breadcrumbs": {
 		"label": "パンくず"

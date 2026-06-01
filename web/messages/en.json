@@ -121,6 +121,15 @@
 			"title": "Contact",
 			"description": "Service inquiries, interviews, or anything else.",
 			"link": "Go to contact form →"
+		},
+		"stats": {
+			"label": "Track Record",
+			"title": "Nordic Works by the numbers",
+			"note": "* Fictional figures set for this portfolio project.",
+			"clients": "Client companies",
+			"retention": "Avg. attrition reduction",
+			"satisfaction": "Client satisfaction (out of 5)",
+			"industries": "Industries served"
 		}
 	},
 	"about": {
@@ -186,7 +195,11 @@
 		"empty": "No articles yet.",
 		"fetchError": "⚠️ Could not load articles.",
 		"newsletterCtaTitle": "Get articles like this twice a month",
-		"newsletterCtaDescription": "We send editor picks and new whitepapers every second and fourth Friday."
+		"newsletterCtaDescription": "We send editor picks and new whitepapers every second and fourth Friday.",
+		"servicesCtaLabel": "Services",
+		"servicesCtaTitle": "We support your organisation",
+		"servicesCtaDescription": "Nordic Works services help you tackle challenges like the ones in this article.",
+		"servicesCtaViewAll": "View all services →"
 	},
 	"services": {
 		"label": "Services",
@@ -217,7 +230,11 @@
 		"externalCtaButton": "Apply on external site ↗",
 		"positionTypeFullTime": "Full-time",
 		"positionTypeContract": "Contract",
-		"positionTypeFreelance": "Freelance"
+		"positionTypeFreelance": "Freelance",
+		"ctaTitle": "Let's have a conversation first",
+		"ctaDescription": "Learn more about our culture, mission, and ways of working. Casual chats are always welcome.",
+		"ctaAbout": "Learn about us",
+		"ctaContact": "Request a casual chat"
 	},
 	"features": {
 		"label": "Features",
@@ -281,7 +298,11 @@
 		"relatedServices": "Related services",
 		"viewCase": "Read case →",
 		"empty": "No case studies published yet.",
-		"relatedToService": "Case studies for this service"
+		"relatedToService": "Case studies for this service",
+		"ctaTitle": "Achieve results like these in your organisation",
+		"ctaDescription": "We tailor our support to your challenges. Get in touch to start the conversation.",
+		"ctaContact": "Contact us",
+		"ctaServices": "See our services"
 	},
 	"breadcrumbs": {
 		"label": "Breadcrumbs"

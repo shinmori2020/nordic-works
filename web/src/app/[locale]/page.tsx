@@ -18,6 +18,17 @@ import { Reveal } from '@/components/common/Reveal';
 // ISR: 1時間ごとに再生成（docs/06-features.md の方針）
 export const revalidate = 3600;
 
+/**
+ * 社会的証明の数値。架空企業のため値は設定値。
+ * value は言語非依存（数字・記号）、ラベルは翻訳キーで出す。
+ */
+const STATS = [
+	{ value: '50+', key: 'clients' as const },
+	{ value: '-32%', key: 'retention' as const },
+	{ value: '4.6', key: 'satisfaction' as const },
+	{ value: '8', key: 'industries' as const },
+];
+
 export default async function Home({
 	params,
 }: {
@@ -65,6 +76,34 @@ export default async function Home({
 							{t('hero.ctaInsights')}
 						</Link>
 					</div>
+				</div>
+			</section>
+
+			{/* 社会的証明（実績の数字）。ヒーロー直後に置いて信頼を即提示する。
+			    濃色背景で前後セクションとメリハリをつける。 */}
+			<section className="bg-zinc-900 dark:bg-zinc-950">
+				<div className="mx-auto max-w-6xl px-6 py-14">
+					<div className="mb-8">
+						<p className="text-xs uppercase tracking-widest text-zinc-400">
+							{t('stats.label')}
+						</p>
+						<h2 className="mt-1 text-2xl font-semibold text-white">
+							{t('stats.title')}
+						</h2>
+					</div>
+					<dl className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
+						{STATS.map((stat) => (
+							<div key={stat.key}>
+								<dt className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+									{stat.value}
+								</dt>
+								<dd className="mt-2 text-sm text-zinc-400">
+									{t(`stats.${stat.key}`)}
+								</dd>
+							</div>
+						))}
+					</dl>
+					<p className="mt-8 text-xs text-zinc-500">{t('stats.note')}</p>
 				</div>
 			</section>
 

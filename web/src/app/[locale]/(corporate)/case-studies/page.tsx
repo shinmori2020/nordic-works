@@ -11,6 +11,7 @@ import { Link } from '@/i18n/navigation';
 import { getCaseStudies } from '@/lib/wordpress';
 import { getFeaturedImage, stripHtml } from '@/lib/utils';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
+import { CtaBanner } from '@/components/common/CtaBanner';
 
 export const revalidate = 86400;
 
@@ -110,6 +111,17 @@ export default async function CaseStudiesPage({
 					})}
 				</ul>
 			)}
+
+			{/* 袋小路回避: 事例で関心が高まった人をお問い合わせ/サービスへ送る */}
+			<CtaBanner
+				className="mt-16"
+				title={t('ctaTitle')}
+				description={t('ctaDescription')}
+				buttons={[
+					{ label: t('ctaContact'), href: '/contact', primary: true },
+					{ label: t('ctaServices'), href: '/services' },
+				]}
+			/>
 		</main>
 	);
 }
