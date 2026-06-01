@@ -121,15 +121,6 @@
 			"title": "お問い合わせ",
 			"description": "サービス導入のご相談・取材のご依頼はこちらから。",
 			"link": "お問い合わせフォームへ →"
-		},
-		"stats": {
-			"label": "Track Record",
-			"title": "数字で見る Nordic Works",
-			"note": "※ ポートフォリオ用に設定した架空の数値です。",
-			"clients": "導入企業",
-			"retention": "平均離職率の改善",
-			"satisfaction": "顧客満足度（5点満点）",
-			"industries": "対応業種"
 		}
 	},
 	"about": {

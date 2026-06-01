@@ -121,15 +121,6 @@
 			"title": "Contact",
 			"description": "Service inquiries, interviews, or anything else.",
 			"link": "Go to contact form →"
-		},
-		"stats": {
-			"label": "Track Record",
-			"title": "Nordic Works by the numbers",
-			"note": "* Fictional figures set for this portfolio project.",
-			"clients": "Client companies",
-			"retention": "Avg. attrition reduction",
-			"satisfaction": "Client satisfaction (out of 5)",
-			"industries": "Industries served"
 		}
 	},
 	"about": {
