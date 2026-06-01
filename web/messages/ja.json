@@ -8,7 +8,8 @@
 		"required": "必須",
 		"viewAll": "すべて見る →",
 		"minutesToRead": "{minutes}分で読めます",
-		"author": "著者"
+		"author": "著者",
+		"skipToContent": "本文へスキップ"
 	},
 	"nav": {
 		"insights": "Insights",
@@ -313,6 +314,13 @@
 			"about": "会社概要",
 			"contact": "お問い合わせ"
 		}
+	},
+	"error": {
+		"label": "Error",
+		"title": "問題が発生しました",
+		"description": "予期しないエラーが発生しました。お手数ですが、もう一度お試しください。問題が続く場合はお問い合わせください。",
+		"retry": "もう一度試す",
+		"backHome": "ホームに戻る"
 	},
 	"offline": {
 		"label": "Offline",

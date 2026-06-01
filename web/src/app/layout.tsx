@@ -12,6 +12,7 @@ import { PreviewBanner } from '@/components/common/PreviewBanner';
 import { ThemeProvider } from '@/components/common/ThemeProvider';
 import { CookieConsent } from '@/components/common/CookieConsent';
 import { ServiceWorkerRegister } from '@/components/common/ServiceWorkerRegister';
+import { SkipLink } from '@/components/common/SkipLink';
 import {
 	SITE_URL,
 	SITE_NAME,
@@ -107,9 +108,18 @@ export default async function RootLayout({
 				/>
 				<NextIntlClientProvider locale={locale} messages={messages}>
 					<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+						<SkipLink />
 						{isPreview && <PreviewBanner />}
 						<Header />
-						<div className="flex-1">{children}</div>
+						{/* スキップリンクの着地点。各ページ側が <main> ランドマークを持つため、
+						    ここは main をネストさせず div + tabIndex=-1 にする。 */}
+						<div
+							id="main-content"
+							tabIndex={-1}
+							className="flex-1 focus:outline-none"
+						>
+							{children}
+						</div>
 						<Footer />
 						<CookieConsent />
 					</ThemeProvider>

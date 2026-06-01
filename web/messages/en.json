@@ -8,7 +8,8 @@
 		"required": "Required",
 		"viewAll": "View all →",
 		"minutesToRead": "{minutes} min read",
-		"author": "Author"
+		"author": "Author",
+		"skipToContent": "Skip to content"
 	},
 	"nav": {
 		"insights": "Insights",
@@ -313,6 +314,13 @@
 			"about": "About us",
 			"contact": "Contact"
 		}
+	},
+	"error": {
+		"label": "Error",
+		"title": "Something went wrong",
+		"description": "An unexpected error occurred. Please try again. If the problem persists, please contact us.",
+		"retry": "Try again",
+		"backHome": "Back to home"
 	},
 	"offline": {
 		"label": "Offline",
