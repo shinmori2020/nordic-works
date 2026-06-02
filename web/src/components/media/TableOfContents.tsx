@@ -45,13 +45,22 @@ export function TableOfContents({ headings }: { headings: TocHeading[] }) {
 				{headings.map((h) => {
 					const active = h.id === activeId;
 					return (
-						<li key={h.id} className={h.level === 3 ? 'pl-4' : ''}>
+						<li
+							key={h.id}
+							className={
+								h.level === 3
+									? 'ml-2 border-l border-zinc-200 pl-3 dark:border-zinc-700'
+									: 'mt-2 first:mt-0'
+							}
+						>
 							<a
 								href={`#${h.id}`}
 								className={`block text-sm transition-colors ${
 									active
 										? 'font-medium text-zinc-900 dark:text-zinc-100'
-										: 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+										: h.level === 2
+											? 'font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100'
+											: 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
 								}`}
 							>
 								{h.text}
