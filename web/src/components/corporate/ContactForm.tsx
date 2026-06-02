@@ -131,7 +131,7 @@ export function ContactForm({ initialMessage = '' }: { initialMessage?: string }
 			<button
 				type="submit"
 				disabled={pending}
-				className="rounded-md bg-zinc-900 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+				className="block w-full rounded-md bg-zinc-900 px-6 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-60 sm:inline-block sm:w-auto dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
 			>
 				{pending ? tCommon('submitting') : t('submit')}
 			</button>

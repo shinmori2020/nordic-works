@@ -311,7 +311,7 @@ export default async function ServiceDetailPage({
 						</p>
 						<Link
 							href={acf.cta_url || '/contact'}
-							className="mt-4 inline-block rounded-md bg-white dark:bg-zinc-950 px-6 py-2.5 text-sm font-medium text-zinc-900 dark:text-zinc-100 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700"
+							className="mt-4 block w-full rounded-md bg-white dark:bg-zinc-950 px-6 py-2.5 text-sm font-medium text-zinc-900 dark:text-zinc-100 transition-colors hover:bg-zinc-200 sm:inline-block sm:w-auto dark:hover:bg-zinc-700"
 						>
 							{acf.cta_text}
 						</Link>

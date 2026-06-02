@@ -27,25 +27,25 @@ interface Props {
 export function CtaBanner({ title, description, buttons, className = '' }: Props) {
 	return (
 		<section
-			className={`rounded-lg bg-zinc-900 px-8 py-12 text-center dark:bg-zinc-100 ${className}`}
+			className={`rounded-lg bg-zinc-900 px-8 py-12 text-left dark:bg-zinc-100 ${className}`}
 		>
 			<h2 className="text-2xl font-semibold text-white dark:text-zinc-900">
 				{title}
 			</h2>
 			{description && (
-				<p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-zinc-300 dark:text-zinc-600">
+				<p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-300 dark:text-zinc-600">
 					{description}
 				</p>
 			)}
-			<div className="mt-6 flex flex-wrap justify-center gap-3">
+			<div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
 				{buttons.map((btn) => (
 					<Link
 						key={btn.href}
 						href={btn.href}
 						className={
 							btn.primary
-								? 'rounded-md bg-white px-6 py-2.5 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-200 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-800'
-								: 'rounded-md border border-zinc-600 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:border-zinc-400 dark:text-zinc-900 dark:hover:bg-zinc-200'
+								? 'block w-full rounded-md bg-white px-6 py-2.5 text-center text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-200 sm:w-auto dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-800'
+								: 'block w-full rounded-md border border-zinc-600 px-6 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800 sm:w-auto dark:border-zinc-400 dark:text-zinc-900 dark:hover:bg-zinc-200'
 						}
 					>
 						{btn.label}

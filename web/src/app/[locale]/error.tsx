@@ -45,7 +45,7 @@ export default function LocaleError({
 				</p>
 			)}
 
-			<div className="mt-8 flex flex-wrap justify-center gap-3">
+			<div className="mt-8 flex flex-col gap-3 text-center sm:flex-row sm:flex-wrap sm:justify-center">
 				<button
 					type="button"
 					onClick={reset}

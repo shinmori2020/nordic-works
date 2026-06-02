@@ -147,7 +147,7 @@ export default async function CareerDetailPage({
 							href={acf.application_url}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="mt-4 inline-block rounded-md bg-white px-6 py-2.5 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-200 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-700"
+							className="mt-4 block w-full rounded-md bg-white px-6 py-2.5 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-200 sm:inline-block sm:w-auto dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-700"
 						>
 							{t('externalCtaButton')}
 						</Link>

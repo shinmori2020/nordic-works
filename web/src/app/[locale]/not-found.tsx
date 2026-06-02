@@ -49,7 +49,7 @@ export default async function NotFound() {
 					{t('description')}
 				</p>
 
-				<div className="mt-8 flex flex-wrap justify-center gap-3">
+				<div className="mt-8 flex flex-col gap-3 text-center sm:flex-row sm:flex-wrap sm:justify-center">
 					<Link
 						href="/"
 						className="rounded-md bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"

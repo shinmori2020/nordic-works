@@ -67,7 +67,7 @@ export default async function Home({
 					<p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
 						{t('hero.description')}
 					</p>
-					<div className="mt-8 flex flex-wrap gap-3">
+					<div className="mt-8 flex flex-col gap-3 text-center sm:flex-row sm:flex-wrap sm:text-left">
 						<Link
 							href="/services"
 							className="rounded-md bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"

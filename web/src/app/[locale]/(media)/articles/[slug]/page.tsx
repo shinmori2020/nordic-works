@@ -245,7 +245,7 @@ export default async function ArticleDetailPage({
 				{author && (
 					<aside className="mt-8 rounded-lg bg-zinc-50 p-5 dark:bg-zinc-900">
 						<p className="text-xs uppercase tracking-wide text-zinc-400">{t('author')}</p>
-						<div className="mt-3 flex items-start gap-4">
+						<div className="mt-3 flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:text-left">
 							{/* プロフィール写真。authors/[slug] と同じくアイキャッチを使う */}
 							{authorPhoto && (
 								<div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800">
