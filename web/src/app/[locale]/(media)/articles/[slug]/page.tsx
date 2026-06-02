@@ -244,7 +244,7 @@ export default async function ArticleDetailPage({
 				{/* 著者プロフィール */}
 				{author && (
 					<aside className="mt-8 rounded-lg bg-zinc-50 p-5 dark:bg-zinc-900">
-						<p className="text-xs uppercase tracking-wide text-zinc-400">{t('author')}</p>
+						<p className="text-center text-xs uppercase tracking-wide text-zinc-400 sm:text-left">{t('author')}</p>
 						<div className="mt-3 flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:text-left">
 							{/* プロフィール写真。authors/[slug] と同じくアイキャッチを使う */}
 							{authorPhoto && (
@@ -269,7 +269,7 @@ export default async function ArticleDetailPage({
 									<p className="text-sm text-zinc-500">{author.acf.position}</p>
 								)}
 								{author.acf?.bio && (
-									<p className="mt-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
+									<p className="mt-2 text-left text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
 										{author.acf.bio}
 									</p>
 								)}
