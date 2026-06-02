@@ -137,12 +137,12 @@ export function NewsletterForm({
 				)}
 			</div>
 
-			<label className="flex items-start gap-2 text-sm text-zinc-700 dark:text-zinc-300">
+			<label className="flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300">
 				<input
 					name="agreed"
 					type="checkbox"
 					required
-					className="mt-0.5 h-4 w-4 cursor-pointer accent-zinc-900 dark:accent-zinc-100"
+					className="h-4 w-4 shrink-0 cursor-pointer accent-zinc-900 dark:accent-zinc-100"
 				/>
 				<span>
 					{t('agree')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
