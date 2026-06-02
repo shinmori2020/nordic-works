@@ -43,8 +43,8 @@ export async function generateMetadata({
 /** ラベル付きの定義リスト行 */
 function MetaRow({ label, value }: { label: string; value: string }) {
 	return (
-		<div className="flex gap-4 border-b border-zinc-200 dark:border-zinc-800 py-3">
-			<dt className="w-24 shrink-0 text-sm text-zinc-500">{label}</dt>
+		<div className="flex flex-col gap-1 border-b border-zinc-200 dark:border-zinc-800 py-3 sm:flex-row sm:gap-4">
+			<dt className="shrink-0 text-sm text-zinc-500 sm:w-24">{label}</dt>
 			<dd className="text-sm text-zinc-900 dark:text-zinc-100">{value}</dd>
 		</div>
 	);
