@@ -192,7 +192,14 @@
 		"servicesCtaLabel": "Services",
 		"servicesCtaTitle": "組織づくりを支援します",
 		"servicesCtaDescription": "記事で扱ったような課題の解決を、Nordic Works のサービスで支援します。",
-		"servicesCtaViewAll": "すべてのサービスを見る →"
+		"servicesCtaViewAll": "すべてのサービスを見る →",
+		"pageTitle": "記事一覧（{page}/{total} ページ）"
+	},
+	"pagination": {
+		"label": "ページ送り",
+		"previous": "前のページ",
+		"next": "次のページ",
+		"goToPage": "{page} ページ目へ"
 	},
 	"services": {
 		"label": "Services",

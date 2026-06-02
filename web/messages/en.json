@@ -192,7 +192,14 @@
 		"servicesCtaLabel": "Services",
 		"servicesCtaTitle": "We support your organisation",
 		"servicesCtaDescription": "Nordic Works services help you tackle challenges like the ones in this article.",
-		"servicesCtaViewAll": "View all services →"
+		"servicesCtaViewAll": "View all services →",
+		"pageTitle": "Articles (page {page} of {total})"
+	},
+	"pagination": {
+		"label": "Pagination",
+		"previous": "Previous page",
+		"next": "Next page",
+		"goToPage": "Go to page {page}"
 	},
 	"services": {
 		"label": "Services",

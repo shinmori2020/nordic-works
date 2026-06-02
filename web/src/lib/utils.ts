@@ -28,6 +28,9 @@ export const BLUR_DATA_URL =
 		'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="10"><rect width="16" height="10" fill="#e4e4e7"/></svg>',
 	).toString('base64');
 
+/** 記事一覧の1ページあたり表示件数（3カラム × 3行） */
+export const ARTICLES_PER_PAGE = 9;
+
 /** `_embedded` を持つエンティティの最小形 */
 type Embeddable = {
 	_embedded?: {

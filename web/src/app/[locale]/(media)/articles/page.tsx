@@ -10,6 +10,8 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getPosts } from '@/lib/wordpress';
 import { ArticleCard } from '@/components/media/ArticleCard';
+import { Pagination } from '@/components/common/Pagination';
+import { ARTICLES_PER_PAGE } from '@/lib/utils';
 
 // ISR: 1時間ごとに再生成（docs/06-features.md の方針）
 export const revalidate = 3600;
@@ -39,6 +41,10 @@ export default async function ArticlesPage({
 	const t = await getTranslations('articles');
 	const posts = await getPosts();
 
+	// 1ページ目のみを表示。2ページ目以降は /articles/page/[page] が担当する。
+	const totalPages = Math.max(1, Math.ceil(posts.length / ARTICLES_PER_PAGE));
+	const pagePosts = posts.slice(0, ARTICLES_PER_PAGE);
+
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-12">
 			<header className="mb-10">
@@ -59,11 +65,18 @@ export default async function ArticlesPage({
 			{posts.length === 0 ? (
 				<p className="text-sm text-red-600">{t('fetchError')}</p>
 			) : (
-				<div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-					{posts.map((post) => (
-						<ArticleCard key={post.id} post={post} />
-					))}
-				</div>
+				<>
+					<div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+						{pagePosts.map((post) => (
+							<ArticleCard key={post.id} post={post} />
+						))}
+					</div>
+					<Pagination
+						currentPage={1}
+						totalPages={totalPages}
+						basePath="/articles"
+					/>
+				</>
 			)}
 		</main>
 	);
