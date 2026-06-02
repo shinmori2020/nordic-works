@@ -54,7 +54,7 @@ export function ContactForm({ initialMessage = '' }: { initialMessage?: string }
 
 			<div>
 				<label htmlFor="name" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					{t('name')} <span className="text-red-500">*</span>
+					{t('name')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 				</label>
 				<input
 					id="name"
@@ -75,7 +75,7 @@ export function ContactForm({ initialMessage = '' }: { initialMessage?: string }
 
 			<div>
 				<label htmlFor="email" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					{t('email')} <span className="text-red-500">*</span>
+					{t('email')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 				</label>
 				<input
 					id="email"
@@ -109,7 +109,7 @@ export function ContactForm({ initialMessage = '' }: { initialMessage?: string }
 
 			<div>
 				<label htmlFor="message" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					{t('message')} <span className="text-red-500">*</span>
+					{t('message')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 				</label>
 				<textarea
 					id="message"

@@ -69,7 +69,7 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 			<div className="grid gap-5 sm:grid-cols-2">
 				<div>
 					<label htmlFor="ap-name" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-						{t('name')} <span className="text-red-500">*</span>
+						{t('name')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 					</label>
 					<input
 						id="ap-name"
@@ -90,7 +90,7 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 
 				<div>
 					<label htmlFor="ap-email" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-						{t('email')} <span className="text-red-500">*</span>
+						{t('email')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 					</label>
 					<input
 						id="ap-email"
@@ -111,7 +111,7 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 
 				<div>
 					<label htmlFor="ap-phone" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-						{t('phone')} <span className="text-red-500">*</span>
+						{t('phone')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 					</label>
 					<input
 						id="ap-phone"
@@ -160,7 +160,7 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 
 			<div>
 				<label htmlFor="ap-motivation" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					{t('motivation')} <span className="text-red-500">*</span>
+					{t('motivation')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 				</label>
 				<textarea
 					id="ap-motivation"
@@ -215,7 +215,7 @@ export function ApplicationForm({ careerSlug, careerTitle }: Props) {
 					>
 						{tCommon('agreePolicyLink')}
 					</a>
-					{tCommon('agreeSuffix')} <span className="text-red-500">*</span>
+					{tCommon('agreeSuffix')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 				</label>
 			</div>
 			{err.agreed && (

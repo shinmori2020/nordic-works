@@ -119,7 +119,7 @@ export function NewsletterForm({
 					htmlFor={`${idPrefix}-email-std`}
 					className="text-sm font-medium text-zinc-700 dark:text-zinc-300"
 				>
-					{t('emailPlaceholder')} <span className="text-red-500">*</span>
+					{t('emailPlaceholder')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 				</label>
 				<input
 					id={`${idPrefix}-email-std`}
@@ -145,7 +145,7 @@ export function NewsletterForm({
 					className="mt-0.5 h-4 w-4 cursor-pointer accent-zinc-900 dark:accent-zinc-100"
 				/>
 				<span>
-					{t('agree')} <span className="text-red-500">*</span>
+					{t('agree')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 				</span>
 			</label>
 			{err.agreed && (

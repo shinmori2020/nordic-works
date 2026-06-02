@@ -68,7 +68,7 @@ export function WhitepaperRequestForm({
 
 			<div>
 				<label htmlFor="wp-name" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					{t('name')} <span className="text-red-500">*</span>
+					{t('name')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 				</label>
 				<input
 					id="wp-name"
@@ -89,7 +89,7 @@ export function WhitepaperRequestForm({
 
 			<div>
 				<label htmlFor="wp-email" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					{t('email')} <span className="text-red-500">*</span>
+					{t('email')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 				</label>
 				<input
 					id="wp-email"
@@ -110,7 +110,7 @@ export function WhitepaperRequestForm({
 
 			<div>
 				<label htmlFor="wp-company" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-					{t('company')} <span className="text-red-500">*</span>
+					{t('company')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 				</label>
 				<input
 					id="wp-company"
@@ -165,7 +165,7 @@ export function WhitepaperRequestForm({
 					>
 						{tCommon('agreePolicyLink')}
 					</a>
-					{tCommon('agreeSuffix')} <span className="text-red-500">*</span>
+					{tCommon('agreeSuffix')}<span className="whitespace-nowrap text-red-500">&nbsp;*</span>
 				</label>
 			</div>
 			{err.agreed && (
