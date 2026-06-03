@@ -97,7 +97,8 @@
 			"title": "働き方を、北欧の知恵で設計する。",
 			"description": "リモートワーク、心理的安全性、組織デザイン。Nordic Works は、データと北欧の組織文化をもとに、これからの働き方を支援する B2B SaaS 企業です。",
 			"ctaService": "サービスを見る",
-			"ctaInsights": "Insights を読む"
+			"ctaInsights": "Insights を読む",
+			"featuredLabel": "注目記事"
 		},
 		"latestArticles": {
 			"label": "INSIGHTS",

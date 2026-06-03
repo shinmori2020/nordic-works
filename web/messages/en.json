@@ -97,7 +97,8 @@
 			"title": "Design the way you work, with Nordic wisdom.",
 			"description": "Remote work, psychological safety, organisation design. Nordic Works is a B2B SaaS company that helps you build the future of work, grounded in data and Nordic culture.",
 			"ctaService": "See our services",
-			"ctaInsights": "Read Insights"
+			"ctaInsights": "Read Insights",
+			"featuredLabel": "Featured"
 		},
 		"latestArticles": {
 			"label": "INSIGHTS",

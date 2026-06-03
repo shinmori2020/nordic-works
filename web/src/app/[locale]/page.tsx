@@ -8,10 +8,12 @@
  */
 
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { getPosts, getFeatures, getServices } from '@/lib/wordpress';
 import { Link } from '@/i18n/navigation';
 import { localeAlternates } from '@/lib/site';
+import { getFeaturedImage, stripHtml, BLUR_DATA_URL } from '@/lib/utils';
 import { ArticleCard } from '@/components/media/ArticleCard';
 import { FeatureCard } from '@/components/media/FeatureCard';
 import { ServiceCard } from '@/components/corporate/ServiceCard';
@@ -50,31 +52,73 @@ export default async function Home({
 		getServices(),
 	]);
 
-	const latestPosts = posts.slice(0, 6);
+	// ヒーロー右側で1記事を大きく見せ、最新記事グリッドはその次の記事から並べる（重複回避）。
+	const heroPost = posts[0];
+	const heroImage = heroPost ? getFeaturedImage(heroPost) : null;
+	const latestPosts = posts.slice(1, 7);
 	const featuredItems = features.slice(0, 2);
 	const serviceItems = services.slice(0, 3);
 
 	return (
 		<div className="font-brand">
-			{/* ヒーロー */}
+			{/* ヒーロー: 左にコピー、右に注目記事カード（lg以上で2カラム） */}
 			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				<div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
-					<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
-						{t('hero.label')}
-					</p>
-					<h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl sm:leading-tight">
-						{t('hero.title')}
-					</h1>
-					<p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-						{t('hero.description')}
-					</p>
-					<div className="mt-8 flex flex-col gap-3 text-center sm:flex-row sm:flex-wrap sm:text-left">
-						<Button href="/services" variant="primary">
-							{t('hero.ctaService')}
-						</Button>
-						<Button href="/articles" variant="secondary">
-							{t('hero.ctaInsights')}
-						</Button>
+				<div className="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+					<div className="grid items-center gap-12 lg:grid-cols-2">
+						{/* 左: コピー */}
+						<div>
+							<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
+								{t('hero.label')}
+							</p>
+							<h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl sm:leading-tight">
+								{t('hero.title')}
+							</h1>
+							<p className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+								{t('hero.description')}
+							</p>
+							<div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+								<Button href="/services" variant="primary">
+									{t('hero.ctaService')}
+								</Button>
+								<Button href="/articles" variant="secondary">
+									{t('hero.ctaInsights')}
+								</Button>
+							</div>
+						</div>
+
+						{/* 右: 注目記事カード */}
+						{heroPost && (
+							<Link
+								href={`/articles/${heroPost.slug}`}
+								className="group block overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950"
+							>
+								<div className="relative aspect-[16/9] bg-zinc-100 dark:bg-zinc-800">
+									{heroImage && (
+										<Image
+											src={heroImage.source_url}
+											alt={heroImage.alt_text || heroPost.title.rendered}
+											fill
+											sizes="(max-width: 1024px) 100vw, 50vw"
+											placeholder="blur"
+											blurDataURL={BLUR_DATA_URL}
+											className="object-cover transition-transform duration-300 group-hover:scale-105"
+											priority
+										/>
+									)}
+								</div>
+								<div className="p-6">
+									<p className="text-xs uppercase tracking-widest text-accent-text">
+										{t('hero.featuredLabel')}
+									</p>
+									<h2 className="mt-2 text-lg font-semibold leading-snug text-zinc-900 dark:text-zinc-100 transition-colors group-hover:text-zinc-500">
+										{heroPost.title.rendered}
+									</h2>
+									<p className="mt-2 line-clamp-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+										{stripHtml(heroPost.excerpt.rendered)}
+									</p>
+								</div>
+							</Link>
+						)}
 					</div>
 				</div>
 			</section>
