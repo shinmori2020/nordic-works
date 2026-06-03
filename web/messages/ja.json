@@ -242,7 +242,8 @@
 		"description": "テーマ別に編集部が厳選した特集記事。",
 		"empty": "現在公開中の特集はありません。",
 		"period": "掲載期間: {period}",
-		"articlesInFeature": "この特集の記事"
+		"articlesInFeature": "この特集の記事",
+		"cardLabel": "特集"
 	},
 	"authors": {
 		"label": "Authors",

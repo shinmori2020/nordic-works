@@ -6,11 +6,13 @@
  */
 
 import Image from 'next/image';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { WPFeature } from '@/types/wordpress';
 import { getFeaturedImage, stripHtml, BLUR_DATA_URL } from '@/lib/utils';
 
-export function FeatureCard({ feature }: { feature: WPFeature }) {
+export async function FeatureCard({ feature }: { feature: WPFeature }) {
+	const t = await getTranslations('features');
 	const image = getFeaturedImage(feature);
 	const lead = feature.acf?.lead_text
 		? stripHtml(feature.acf.lead_text)
@@ -41,7 +43,7 @@ export function FeatureCard({ feature }: { feature: WPFeature }) {
 				</div>
 
 				<div>
-					<p className="text-xs uppercase tracking-widest text-accent-text">特集</p>
+					<p className="text-xs uppercase tracking-widest text-accent-text">{t('cardLabel')}</p>
 					<h3 className="mt-2 text-xl font-semibold leading-snug text-zinc-900 dark:text-zinc-100 transition-colors group-hover:text-zinc-500">
 						{feature.title.rendered}
 					</h3>

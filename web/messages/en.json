@@ -242,7 +242,8 @@
 		"description": "Curated themed collections from the editorial team.",
 		"empty": "No featured collections at the moment.",
 		"period": "Period: {period}",
-		"articlesInFeature": "Articles in this feature"
+		"articlesInFeature": "Articles in this feature",
+		"cardLabel": "Feature"
 	},
 	"authors": {
 		"label": "Authors",
