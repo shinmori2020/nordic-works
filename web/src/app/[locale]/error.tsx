@@ -29,7 +29,7 @@ export default function LocaleError({
 
 	return (
 		<main className="mx-auto flex min-h-[60vh] max-w-2xl flex-col items-center justify-center px-6 py-20 text-center">
-			<p className="text-xs uppercase tracking-widest text-zinc-500">
+			<p className="text-xs uppercase tracking-widest text-accent-text">
 				{t('label')}
 			</p>
 			<h1 className="mt-2 text-3xl font-semibold text-zinc-900 dark:text-zinc-100 sm:text-4xl">
@@ -49,7 +49,7 @@ export default function LocaleError({
 				<button
 					type="button"
 					onClick={reset}
-					className="rounded-md bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+					className="rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-hover"
 				>
 					{t('retry')}
 				</button>

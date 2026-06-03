@@ -34,7 +34,7 @@ export default async function NotFound() {
 		<main className="mx-auto max-w-6xl px-6 py-16">
 			{/* ヘッダー */}
 			<section className="text-center">
-				<p className="text-xs uppercase tracking-widest text-zinc-500">404</p>
+				<p className="text-xs uppercase tracking-widest text-accent-text">404</p>
 				<h1 className="mt-2 text-3xl font-semibold text-zinc-900 dark:text-zinc-100 sm:text-4xl">
 					ページが見つかりません
 				</h1>
@@ -47,7 +47,7 @@ export default async function NotFound() {
 				<div className="mt-8 flex flex-col gap-3 text-center sm:flex-row sm:flex-wrap sm:justify-center">
 					<Link
 						href="/"
-						className="rounded-md bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+						className="rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-hover"
 					>
 						ホームに戻る
 					</Link>
@@ -62,7 +62,7 @@ export default async function NotFound() {
 
 			{/* セクションリンク（5主要ページ） */}
 			<section className="mt-16 border-t border-zinc-200 pt-10 dark:border-zinc-800">
-				<h2 className="text-xs uppercase tracking-widest text-zinc-500">
+				<h2 className="text-xs uppercase tracking-widest text-accent-text">
 					主要セクション
 				</h2>
 				<ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
@@ -86,7 +86,7 @@ export default async function NotFound() {
 			{recentPosts.length > 0 && (
 				<section className="mt-16 border-t border-zinc-200 pt-10 dark:border-zinc-800">
 					<div className="flex items-baseline justify-between">
-						<h2 className="text-xs uppercase tracking-widest text-zinc-500">
+						<h2 className="text-xs uppercase tracking-widest text-accent-text">
 							最近の記事
 						</h2>
 						<Link

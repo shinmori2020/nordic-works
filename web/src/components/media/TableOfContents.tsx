@@ -38,7 +38,7 @@ export function TableOfContents({ headings }: { headings: TocHeading[] }) {
 			aria-label="目次"
 			className="rounded-lg border border-zinc-200 bg-zinc-50 p-5 dark:border-zinc-800 dark:bg-zinc-900"
 		>
-			<p className="text-xs font-medium uppercase tracking-widest text-zinc-500">
+			<p className="text-xs font-medium uppercase tracking-widest text-accent-text">
 				目次
 			</p>
 			<ul className="mt-3 space-y-1.5">
@@ -57,7 +57,7 @@ export function TableOfContents({ headings }: { headings: TocHeading[] }) {
 								href={`#${h.id}`}
 								className={`block text-sm transition-colors ${
 									active
-										? 'font-medium text-zinc-900 dark:text-zinc-100'
+										? 'font-medium text-accent-text'
 										: h.level === 2
 											? 'font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-100'
 											: 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'

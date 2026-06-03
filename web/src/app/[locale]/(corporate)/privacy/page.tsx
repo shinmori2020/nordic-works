@@ -91,7 +91,7 @@ export default function PrivacyPage() {
 			/>
 
 			<header className="mt-6">
-				<p className="text-xs uppercase tracking-widest text-zinc-500">Privacy</p>
+				<p className="text-xs uppercase tracking-widest text-accent-text">Privacy</p>
 				<h1 className="mt-2 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">
 					プライバシーポリシー
 				</h1>

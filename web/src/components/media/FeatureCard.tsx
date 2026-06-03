@@ -41,7 +41,7 @@ export function FeatureCard({ feature }: { feature: WPFeature }) {
 				</div>
 
 				<div>
-					<p className="text-xs uppercase tracking-widest text-zinc-500">特集</p>
+					<p className="text-xs uppercase tracking-widest text-accent-text">特集</p>
 					<h3 className="mt-2 text-xl font-semibold leading-snug text-zinc-900 dark:text-zinc-100 transition-colors group-hover:text-zinc-500">
 						{feature.title.rendered}
 					</h3>

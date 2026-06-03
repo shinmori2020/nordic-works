@@ -235,7 +235,7 @@ function FacetChips({
 	if (entries.length === 0 && !selected) return null;
 	return (
 		<div className="flex flex-wrap items-center gap-2">
-			<span className="text-xs font-medium uppercase tracking-widest text-zinc-500">
+			<span className="text-xs font-medium uppercase tracking-widest text-accent-text">
 				{label}
 			</span>
 			{entries.map(([name, count]) => {
@@ -247,7 +247,7 @@ function FacetChips({
 						onClick={() => onChange(active ? null : name)}
 						className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs transition-colors ${
 							active
-								? 'border-zinc-900 bg-zinc-900 text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900'
+								? 'border-accent bg-accent text-white'
 								: 'border-zinc-300 text-zinc-700 hover:border-zinc-500 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:bg-zinc-900'
 						}`}
 					>

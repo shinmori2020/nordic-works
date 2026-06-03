@@ -109,7 +109,7 @@ export default async function CareerDetailPage({
 
 			<article className="mt-6">
 				{/* ヘッダー */}
-				<p className="text-xs uppercase tracking-widest text-zinc-500">Careers</p>
+				<p className="text-xs uppercase tracking-widest text-accent-text">Careers</p>
 				<h1 className="mt-2 text-3xl font-semibold leading-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
 					{career.title.rendered}
 				</h1>
@@ -157,7 +157,7 @@ export default async function CareerDetailPage({
 						id="apply"
 						className="mt-14 rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950 sm:p-8"
 					>
-						<p className="text-xs uppercase tracking-widest text-zinc-500">
+						<p className="text-xs uppercase tracking-widest text-accent-text">
 							{t('applicationFormLabel')}
 						</p>
 						<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">

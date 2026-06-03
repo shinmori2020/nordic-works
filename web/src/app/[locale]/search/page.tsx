@@ -46,7 +46,7 @@ export default async function SearchPage({ params, searchParams }: PageProps) {
 						{ label: t('label') },
 					]}
 				/>
-				<p className="mt-3 text-xs uppercase tracking-widest text-zinc-500">
+				<p className="mt-3 text-xs uppercase tracking-widest text-accent-text">
 					{t('label')}
 				</p>
 				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">

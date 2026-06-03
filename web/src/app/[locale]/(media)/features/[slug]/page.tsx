@@ -89,7 +89,7 @@ export default async function FeatureDetailPage({
 
 			<article className="mt-6">
 				{/* ヘッダー */}
-				<p className="text-xs uppercase tracking-widest text-zinc-500">Feature</p>
+				<p className="text-xs uppercase tracking-widest text-accent-text">Feature</p>
 				<h1 className="mt-2 text-3xl font-semibold leading-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
 					{feature.title.rendered}
 				</h1>

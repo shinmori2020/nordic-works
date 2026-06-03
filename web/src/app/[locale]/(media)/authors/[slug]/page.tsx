@@ -100,7 +100,7 @@ export default async function AuthorDetailPage({
 				</div>
 
 				<div className="mt-4 sm:mt-0">
-					<p className="text-xs uppercase tracking-widest text-zinc-500">
+					<p className="text-xs uppercase tracking-widest text-accent-text">
 						{t('detailLabel')}
 					</p>
 					<h1 className="mt-1 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">

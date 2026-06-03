@@ -49,7 +49,7 @@ export default async function CareersPage({
 				>
 					{tArticles('backHome')}
 				</Link>
-				<p className="mt-2 text-xs uppercase tracking-widest text-zinc-500">
+				<p className="mt-2 text-xs uppercase tracking-widest text-accent-text">
 					{t('label')}
 				</p>
 				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">

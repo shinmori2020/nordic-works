@@ -310,7 +310,7 @@ export default async function ArticleDetailPage({
 				<section className="mt-16 border-t border-zinc-200 pt-10 dark:border-zinc-800">
 					<div className="mb-6 flex items-baseline justify-between">
 						<div>
-							<p className="text-xs uppercase tracking-widest text-zinc-500">
+							<p className="text-xs uppercase tracking-widest text-accent-text">
 								{t('servicesCtaLabel')}
 							</p>
 							<h2 className="mt-1 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
@@ -339,7 +339,7 @@ export default async function ArticleDetailPage({
 			<section className="mt-16 rounded-lg bg-zinc-50 p-8 dark:bg-zinc-900 sm:p-10">
 				<div className="grid gap-6 sm:grid-cols-[1.3fr_1fr] sm:items-center">
 					<div>
-						<p className="text-xs uppercase tracking-widest text-zinc-500">
+						<p className="text-xs uppercase tracking-widest text-accent-text">
 							Newsletter
 						</p>
 						<h2 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">

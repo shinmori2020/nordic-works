@@ -39,7 +39,7 @@ export default async function ServicesPage({
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-12">
 			<header className="mb-10">
-				<p className="text-xs uppercase tracking-widest text-zinc-500">
+				<p className="text-xs uppercase tracking-widest text-accent-text">
 					{t('label')}
 				</p>
 				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">

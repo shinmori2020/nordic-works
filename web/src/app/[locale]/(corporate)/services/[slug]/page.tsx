@@ -108,7 +108,7 @@ export default async function ServiceDetailPage({
 
 			<article className="mt-6">
 				{/* ヒーロー */}
-				<p className="text-xs uppercase tracking-widest text-zinc-500">Service</p>
+				<p className="text-xs uppercase tracking-widest text-accent-text">Service</p>
 				<h1 className="mt-2 text-3xl font-semibold leading-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
 					{service.title.rendered}
 				</h1>
@@ -200,7 +200,7 @@ export default async function ServiceDetailPage({
 												href={`/contact?plan=${encodeURIComponent(plan.name)}&service=${encodeURIComponent(stripHtml(service.title.rendered))}`}
 												className={`block rounded-md px-4 py-2 text-center text-sm font-medium transition-colors ${
 													isRecommended
-														? 'bg-zinc-900 text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300'
+														? 'bg-accent text-white hover:bg-accent-hover'
 														: 'border border-zinc-300 text-zinc-900 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800'
 												}`}
 											>

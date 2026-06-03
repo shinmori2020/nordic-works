@@ -43,7 +43,7 @@ export default async function AboutPage({
 			{/* ヒーロー */}
 			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 				<div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-					<p className="text-sm font-medium uppercase tracking-widest text-zinc-500">
+					<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
 						{t('hero.label')}
 					</p>
 					<h1 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
@@ -57,7 +57,7 @@ export default async function AboutPage({
 
 			{/* ミッション */}
 			<section className="mx-auto max-w-6xl px-6 py-16">
-				<p className="text-xs uppercase tracking-widest text-zinc-500">
+				<p className="text-xs uppercase tracking-widest text-accent-text">
 					{t('mission.label')}
 				</p>
 				<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
@@ -71,7 +71,7 @@ export default async function AboutPage({
 			{/* バリュー */}
 			<section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 				<div className="mx-auto max-w-6xl px-6 py-16">
-					<p className="text-xs uppercase tracking-widest text-zinc-500">
+					<p className="text-xs uppercase tracking-widest text-accent-text">
 						{t('values.label')}
 					</p>
 					<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
@@ -97,7 +97,7 @@ export default async function AboutPage({
 
 			{/* 会社情報 */}
 			<section className="mx-auto max-w-6xl px-6 py-16">
-				<p className="text-xs uppercase tracking-widest text-zinc-500">
+				<p className="text-xs uppercase tracking-widest text-accent-text">
 					{t('companyInfo.label')}
 				</p>
 				<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
@@ -127,7 +127,7 @@ export default async function AboutPage({
 						href="/careers"
 						className="group bg-white p-10 transition-colors hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900"
 					>
-						<p className="text-xs uppercase tracking-widest text-zinc-500">
+						<p className="text-xs uppercase tracking-widest text-accent-text">
 							Careers
 						</p>
 						<h3 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
@@ -144,7 +144,7 @@ export default async function AboutPage({
 						href="/contact"
 						className="group bg-white p-10 transition-colors hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900"
 					>
-						<p className="text-xs uppercase tracking-widest text-zinc-500">
+						<p className="text-xs uppercase tracking-widest text-accent-text">
 							Contact
 						</p>
 						<h3 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
