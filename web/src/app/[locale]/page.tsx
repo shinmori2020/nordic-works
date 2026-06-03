@@ -92,7 +92,7 @@ export default async function Home({
 								href={`/articles/${heroPost.slug}`}
 								className="group block overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md lg:col-span-5 lg:ml-auto lg:w-full lg:max-w-lg dark:border-zinc-800 dark:bg-zinc-950"
 							>
-								<div className="relative aspect-[16/9] bg-zinc-100 dark:bg-zinc-800">
+								<div className="relative aspect-[16/9] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
 									{heroImage && (
 										<Image
 											src={heroImage.source_url}
