@@ -20,7 +20,7 @@ export function FeatureCard({ feature }: { feature: WPFeature }) {
 		<article className="group">
 			<Link
 				href={`/features/${feature.slug}`}
-				className="grid gap-5 sm:grid-cols-2 sm:items-center"
+				className="grid gap-5 sm:grid-cols-2 sm:items-start"
 			>
 				<div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800">
 					{image ? (
