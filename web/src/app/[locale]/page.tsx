@@ -64,9 +64,9 @@ export default async function Home({
 			{/* ヒーロー: 左にコピー、右に注目記事カード（lg以上で2カラム） */}
 			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 				<div className="mx-auto max-w-[1500px] px-6 py-20 sm:py-28">
-					<div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
+					<div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-center lg:gap-12">
 						{/* 左: コピー */}
-						<div className="lg:col-span-7">
+						<div className="lg:w-[660px] lg:shrink">
 							<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
 								{t('hero.label')}
 							</p>
@@ -90,7 +90,7 @@ export default async function Home({
 						{heroPost && (
 							<Link
 								href={`/articles/${heroPost.slug}`}
-								className="group block overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md lg:col-span-5 lg:ml-auto lg:w-full lg:max-w-lg dark:border-zinc-800 dark:bg-zinc-950"
+								className="group block overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md lg:w-[440px] lg:shrink-0 dark:border-zinc-800 dark:bg-zinc-950"
 							>
 								<div className="relative aspect-[16/9] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
 									{heroImage && (
@@ -98,7 +98,7 @@ export default async function Home({
 											src={heroImage.source_url}
 											alt={heroImage.alt_text || heroPost.title.rendered}
 											fill
-											sizes="(max-width: 1024px) 100vw, 512px"
+											sizes="(max-width: 1024px) 100vw, 440px"
 											placeholder="blur"
 											blurDataURL={BLUR_DATA_URL}
 											className="object-cover transition-transform duration-300 group-hover:scale-105"
