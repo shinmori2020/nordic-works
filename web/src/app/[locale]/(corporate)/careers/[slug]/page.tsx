@@ -99,7 +99,7 @@ export default async function CareerDetailPage({
 			: (acf?.position_type ?? '');
 
 	return (
-		<main className="mx-auto max-w-6xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
 			<Breadcrumbs
 				items={[
 					{ label: 'Careers', href: '/careers' },

@@ -10,7 +10,7 @@ export default function Loading() {
 		<div
 			role="status"
 			aria-label="Loading"
-			className="mx-auto max-w-6xl px-6 py-12"
+			className="mx-auto max-w-6xl px-6 py-16 sm:py-20"
 		>
 			{/* パンくず */}
 			<Skeleton className="h-3 w-48" />

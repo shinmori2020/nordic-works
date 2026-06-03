@@ -18,7 +18,7 @@ interface Props {
 
 export function TaxonomyArticleList({ taxonomyLabel, term, posts }: Props) {
 	return (
-		<main className="mx-auto max-w-6xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
 			<header className="mb-10">
 				<Breadcrumbs
 					items={[

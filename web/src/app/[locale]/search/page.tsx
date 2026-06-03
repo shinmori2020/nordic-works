@@ -39,7 +39,7 @@ export default async function SearchPage({ params, searchParams }: PageProps) {
 	const { q = '' } = await searchParams;
 
 	return (
-		<main className="mx-auto max-w-6xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
 			<header className="mb-8">
 				<Breadcrumbs
 					items={[

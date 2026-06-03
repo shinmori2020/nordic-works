@@ -72,7 +72,7 @@ export default async function AuthorDetailPage({
 	].filter((l): l is { label: string; url: string } => Boolean(l.url));
 
 	return (
-		<main className="mx-auto max-w-6xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
 			<Breadcrumbs
 				items={[
 					{ label: 'Authors', href: '/authors' },

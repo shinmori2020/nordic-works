@@ -72,7 +72,7 @@ export default async function ArticlesPaginatedPage({
 	const pagePosts = posts.slice(start, start + ARTICLES_PER_PAGE);
 
 	return (
-		<main className="mx-auto max-w-6xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
 			<header className="mb-10">
 				<Link
 					href="/articles"

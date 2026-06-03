@@ -39,7 +39,7 @@ export default async function AuthorsPage({
 	const authors = await getAuthors();
 
 	return (
-		<main className="mx-auto max-w-6xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
 			<header className="mb-10">
 				<Link
 					href="/"

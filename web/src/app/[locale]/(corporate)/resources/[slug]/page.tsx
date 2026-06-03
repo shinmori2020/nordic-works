@@ -54,7 +54,7 @@ export default async function WhitepaperDetailPage({
 	const t = await getTranslations('resources');
 
 	return (
-		<main className="mx-auto max-w-6xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
 			<Breadcrumbs
 				items={[
 					{ label: t('label'), href: '/resources' },

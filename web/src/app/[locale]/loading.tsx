@@ -14,7 +14,7 @@ export default function Loading() {
 		<div
 			role="status"
 			aria-label="Loading"
-			className="mx-auto max-w-6xl px-6 py-12"
+			className="mx-auto max-w-6xl px-6 py-16 sm:py-20"
 		>
 			<div className="mb-10 space-y-3">
 				<Skeleton className="h-4 w-20" />

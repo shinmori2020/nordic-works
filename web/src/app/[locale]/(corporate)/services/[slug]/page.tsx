@@ -91,7 +91,7 @@ export default async function ServiceDetailPage({
 			: null;
 
 	return (
-		<main className="mx-auto max-w-6xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
 			{faqJsonLd && (
 				<script
 					type="application/ld+json"
@@ -169,12 +169,12 @@ export default async function ServiceDetailPage({
 										key={i}
 										className={`flex flex-col rounded-lg border p-6 transition-colors ${
 											isRecommended
-												? 'border-zinc-900 bg-zinc-50 dark:border-zinc-100 dark:bg-zinc-900'
+												? 'border-accent bg-accent/5 dark:bg-accent/10'
 												: 'border-zinc-200 dark:border-zinc-800'
 										}`}
 									>
 										{isRecommended && (
-											<p className="mb-2 text-xs font-semibold uppercase tracking-widest text-zinc-900 dark:text-zinc-100">
+											<p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent-text">
 												{t('recommended')}
 											</p>
 										)}

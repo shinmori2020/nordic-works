@@ -79,7 +79,7 @@ export default async function FeatureDetailPage({
 		: periodStart || periodEnd;
 
 	return (
-		<main className="mx-auto max-w-6xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
 			<Breadcrumbs
 				items={[
 					{ label: 'Features', href: '/features' },

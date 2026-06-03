@@ -37,7 +37,7 @@ export default async function ServicesPage({
 	const services = await getServices();
 
 	return (
-		<main className="mx-auto max-w-6xl px-6 py-12">
+		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
 			<header className="mb-10">
 				<p className="text-xs uppercase tracking-widest text-accent-text">
 					{t('label')}
