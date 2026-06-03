@@ -10,6 +10,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { WPPost } from '@/types/wordpress';
 import { getFeaturedImage, getTerms, stripHtml, formatDate, BLUR_DATA_URL } from '@/lib/utils';
+import { localizeTermName } from '@/lib/taxonomy';
 
 export async function ArticleCard({ post }: { post: WPPost }) {
 	const locale = (await getLocale()) === 'en' ? 'en' : 'ja';
@@ -42,7 +43,7 @@ export async function ArticleCard({ post }: { post: WPPost }) {
 				<div className="mt-3">
 					{topics.length > 0 && (
 						<p className="mb-1 text-xs uppercase tracking-wide text-zinc-500">
-							{topics[0].name}
+							{localizeTermName(topics[0].name, locale)}
 						</p>
 					)}
 					<h2 className="font-semibold leading-snug text-zinc-900 dark:text-zinc-100 transition-colors group-hover:text-zinc-500">
