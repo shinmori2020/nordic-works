@@ -16,6 +16,7 @@ import { ArticleCard } from '@/components/media/ArticleCard';
 import { FeatureCard } from '@/components/media/FeatureCard';
 import { ServiceCard } from '@/components/corporate/ServiceCard';
 import { Reveal } from '@/components/common/Reveal';
+import { Button } from '@/components/common/Button';
 
 // ISR: 1時間ごとに再生成（docs/06-features.md の方針）
 export const revalidate = 3600;
@@ -54,11 +55,11 @@ export default async function Home({
 	const serviceItems = services.slice(0, 3);
 
 	return (
-		<>
+		<div className="font-brand">
 			{/* ヒーロー */}
 			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 				<div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
-					<p className="text-sm font-medium uppercase tracking-widest text-zinc-500">
+					<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
 						{t('hero.label')}
 					</p>
 					<h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl sm:leading-tight">
@@ -68,18 +69,12 @@ export default async function Home({
 						{t('hero.description')}
 					</p>
 					<div className="mt-8 flex flex-col gap-3 text-center sm:flex-row sm:flex-wrap sm:text-left">
-						<Link
-							href="/services"
-							className="rounded-md bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
-						>
+						<Button href="/services" variant="primary">
 							{t('hero.ctaService')}
-						</Link>
-						<Link
-							href="/articles"
-							className="rounded-md border border-zinc-300 px-5 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:border-zinc-400 hover:bg-white dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:bg-zinc-900"
-						>
+						</Button>
+						<Button href="/articles" variant="secondary">
 							{t('hero.ctaInsights')}
-						</Link>
+						</Button>
 					</div>
 				</div>
 			</section>
@@ -88,7 +83,7 @@ export default async function Home({
 			<section className="mx-auto max-w-6xl px-6 py-16">
 				<div className="mb-8 flex items-baseline justify-between">
 					<div>
-						<p className="text-xs uppercase tracking-widest text-zinc-500">
+						<p className="text-xs uppercase tracking-widest text-accent-text">
 							{t('latestArticles.label')}
 						</p>
 						<h2 className="mt-1 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
@@ -97,7 +92,7 @@ export default async function Home({
 					</div>
 					<Link
 						href="/articles"
-						className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
+						className="text-sm font-medium text-accent-text transition-colors hover:underline"
 					>
 						{t('latestArticles.viewAll')}
 					</Link>
@@ -118,9 +113,9 @@ export default async function Home({
 			{/* 注目の特集 */}
 			{featuredItems.length > 0 && (
 				<section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-					<div className="mx-auto max-w-6xl px-6 py-16">
+					<div className="mx-auto max-w-6xl px-6 py-20">
 						<div className="mb-8">
-							<p className="text-xs uppercase tracking-widest text-zinc-500">
+							<p className="text-xs uppercase tracking-widest text-accent-text">
 								{t('featuresPreview.label')}
 							</p>
 							<h2 className="mt-1 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
@@ -142,7 +137,7 @@ export default async function Home({
 			<section className="mx-auto max-w-6xl px-6 py-16">
 				<div className="mb-8 flex items-baseline justify-between">
 					<div>
-						<p className="text-xs uppercase tracking-widest text-zinc-500">
+						<p className="text-xs uppercase tracking-widest text-accent-text">
 							{t('servicesPreview.label')}
 						</p>
 						<h2 className="mt-1 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
@@ -151,7 +146,7 @@ export default async function Home({
 					</div>
 					<Link
 						href="/services"
-						className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
+						className="text-sm font-medium text-accent-text transition-colors hover:underline"
 					>
 						{t('latestArticles.viewAll')}
 					</Link>
@@ -176,7 +171,7 @@ export default async function Home({
 						href="/careers"
 						className="group bg-white p-10 transition-colors hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900"
 					>
-						<p className="text-xs uppercase tracking-widest text-zinc-500">
+						<p className="text-xs uppercase tracking-widest text-accent-text">
 							Careers
 						</p>
 						<h3 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
@@ -185,7 +180,7 @@ export default async function Home({
 						<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
 							{t('careersCta.description')}
 						</p>
-						<span className="mt-4 inline-block text-sm text-zinc-900 group-hover:underline dark:text-zinc-100">
+						<span className="mt-4 inline-block text-sm font-medium text-accent-text group-hover:underline">
 							{t('careersCta.link')}
 						</span>
 					</Link>
@@ -193,7 +188,7 @@ export default async function Home({
 						href="/contact"
 						className="group bg-white p-10 transition-colors hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900"
 					>
-						<p className="text-xs uppercase tracking-widest text-zinc-500">
+						<p className="text-xs uppercase tracking-widest text-accent-text">
 							Contact
 						</p>
 						<h3 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
@@ -202,12 +197,12 @@ export default async function Home({
 						<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
 							{t('contactCta.description')}
 						</p>
-						<span className="mt-4 inline-block text-sm text-zinc-900 group-hover:underline dark:text-zinc-100">
+						<span className="mt-4 inline-block text-sm font-medium text-accent-text group-hover:underline">
 							{t('contactCta.link')}
 						</span>
 					</Link>
 				</div>
 			</section>
-		</>
+		</div>
 	);
 }
