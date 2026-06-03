@@ -9,21 +9,21 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  /* フィヨルド・ブルー（アクセント）。
+  /* フィヨルド・ブルー（アクセント）。彩度を抑えた北欧スレートブルー。
      --accent: 面（ボタン等）用 / --accent-text: 文字・リンク用（背景とのコントラスト確保のため別管理）。 */
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --accent-text: #2563eb;
+  --accent: #3d5a80;
+  --accent-hover: #314a6b;
+  --accent-text: #3d5a80;
 }
 
 .dark {
   --background: #09090b;
   --foreground: #ededed;
 
-  /* 暗背景ではボタンは視認できる青を維持しつつ、リンク文字は1段明るくしてコントラストを確保。 */
-  --accent: #2563eb;
-  --accent-hover: #3b82f6;
-  --accent-text: #60a5fa;
+  /* 暗背景ではボタンは1段明るいスレートブルーに、リンク文字はさらに明るくしてコントラストを確保。 */
+  --accent: #4a6fa5;
+  --accent-hover: #5c81b8;
+  --accent-text: #8faad0;
 }
 
 @theme inline {
