@@ -63,10 +63,10 @@ export default async function Home({
 		<div className="font-brand">
 			{/* ヒーロー: 左にコピー、右に注目記事カード（lg以上で2カラム） */}
 			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				<div className="mx-auto max-w-6xl px-6 py-20 sm:py-24">
-					<div className="grid items-center gap-12 lg:grid-cols-2">
+				<div className="mx-auto max-w-7xl px-6 py-20 sm:py-28">
+					<div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
 						{/* 左: コピー */}
-						<div>
+						<div className="lg:col-span-5">
 							<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
 								{t('hero.label')}
 							</p>
@@ -90,7 +90,7 @@ export default async function Home({
 						{heroPost && (
 							<Link
 								href={`/articles/${heroPost.slug}`}
-								className="group block overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950"
+								className="group block overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md lg:col-span-7 dark:border-zinc-800 dark:bg-zinc-950"
 							>
 								<div className="relative aspect-[16/9] bg-zinc-100 dark:bg-zinc-800">
 									{heroImage && (
