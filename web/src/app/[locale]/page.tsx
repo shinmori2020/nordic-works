@@ -293,37 +293,41 @@ export default async function Home({
 				<div className="grid gap-px bg-zinc-200 sm:grid-cols-2 dark:bg-zinc-800">
 					<Link
 						href="/careers"
-						className="group flex flex-col items-center justify-center bg-white p-10 text-center transition-colors hover:bg-zinc-50 sm:p-12 lg:p-20 dark:bg-zinc-950 dark:hover:bg-zinc-900"
+						className="group flex flex-col items-center justify-center bg-white p-10 transition-colors hover:bg-zinc-50 sm:p-12 lg:p-20 dark:bg-zinc-950 dark:hover:bg-zinc-900"
 					>
-						<p className="text-xs uppercase tracking-widest text-accent-text">
-							Careers
-						</p>
-						<h3 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-							{t('careersCta.title')}
-						</h3>
-						<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-							{t('careersCta.description')}
-						</p>
-						<span className="mt-4 inline-block text-sm font-medium text-accent-text group-hover:underline">
-							{t('careersCta.link')}
-						</span>
+						<div className="text-left">
+							<p className="text-xs uppercase tracking-widest text-accent-text">
+								Careers
+							</p>
+							<h3 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+								{t('careersCta.title')}
+							</h3>
+							<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+								{t('careersCta.description')}
+							</p>
+							<span className="mt-4 inline-block text-sm font-medium text-accent-text group-hover:underline">
+								{t('careersCta.link')}
+							</span>
+						</div>
 					</Link>
 					<Link
 						href="/contact"
-						className="group flex flex-col items-center justify-center bg-white p-10 text-center transition-colors hover:bg-zinc-50 sm:p-12 lg:p-20 dark:bg-zinc-950 dark:hover:bg-zinc-900"
+						className="group flex flex-col items-center justify-center bg-white p-10 transition-colors hover:bg-zinc-50 sm:p-12 lg:p-20 dark:bg-zinc-950 dark:hover:bg-zinc-900"
 					>
-						<p className="text-xs uppercase tracking-widest text-accent-text">
-							Contact
-						</p>
-						<h3 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-							{t('contactCta.title')}
-						</h3>
-						<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-							{t('contactCta.description')}
-						</p>
-						<span className="mt-4 inline-block text-sm font-medium text-accent-text group-hover:underline">
-							{t('contactCta.link')}
-						</span>
+						<div className="text-left">
+							<p className="text-xs uppercase tracking-widest text-accent-text">
+								Contact
+							</p>
+							<h3 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+								{t('contactCta.title')}
+							</h3>
+							<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+								{t('contactCta.description')}
+							</p>
+							<span className="mt-4 inline-block text-sm font-medium text-accent-text group-hover:underline">
+								{t('contactCta.link')}
+							</span>
+						</div>
 					</Link>
 				</div>
 			</section>
