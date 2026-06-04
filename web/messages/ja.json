@@ -124,6 +124,14 @@
 			"label": "Features",
 			"title": "注目の特集"
 		},
+		"caseStudiesPreview": {
+			"label": "Case Studies",
+			"title": "導入事例"
+		},
+		"authorsPreview": {
+			"label": "Authors",
+			"title": "執筆陣"
+		},
 		"emptyArticles": "記事がまだありません。",
 		"careersCta": {
 			"title": "一緒に働きませんか",

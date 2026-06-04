@@ -10,7 +10,13 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { getPosts, getFeatures, getServices } from '@/lib/wordpress';
+import {
+	getPosts,
+	getFeatures,
+	getServices,
+	getCaseStudies,
+	getAuthors,
+} from '@/lib/wordpress';
 import { Link } from '@/i18n/navigation';
 import { localeAlternates } from '@/lib/site';
 import {
@@ -89,10 +95,12 @@ export default async function Home({
 	const dateLocale = locale === 'en' ? 'en' : 'ja';
 
 	const t = await getTranslations('home');
-	const [posts, features, services] = await Promise.all([
+	const [posts, features, services, caseStudies, authors] = await Promise.all([
 		getPosts(),
 		getFeatures(),
 		getServices(),
+		getCaseStudies(),
+		getAuthors(),
 	]);
 
 	// 最新記事は「大フィーチャー1本 + カードグリッド」で見せる（案A）。
@@ -101,7 +109,9 @@ export default async function Home({
 	const leadTopic = leadPost ? getTerms(leadPost, 'topic')[0] : undefined;
 	const gridPosts = posts.slice(1, 4);
 	const featuredItems = features.slice(0, 2);
+	const caseItems = caseStudies.slice(0, 3);
 	const serviceItems = services.slice(0, 3);
+	const authorItems = authors.slice(0, 6);
 
 	// アプローチ帯（テキスト主体）。動的キーを避けて配列に展開。
 	const approachItems = [
@@ -239,6 +249,62 @@ export default async function Home({
 				</section>
 			)}
 
+			{/* 導入事例（実績） */}
+			{caseItems.length > 0 && (
+				<section className="border-t border-zinc-200 dark:border-zinc-800">
+					<div className="mx-auto max-w-6xl px-6 py-20">
+						<SectionHeading
+							label={t('caseStudiesPreview.label')}
+							title={t('caseStudiesPreview.title')}
+							viewAllHref="/case-studies"
+							viewAllText={t('latestArticles.viewAll')}
+						/>
+						<div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+							{caseItems.map((cs, i) => {
+								const image = getFeaturedImage(cs);
+								return (
+									<Reveal key={cs.id} delay={(i % 3) * 0.06}>
+										<Link
+											href={`/case-studies/${cs.slug}`}
+											className="group block h-full overflow-hidden rounded-lg border border-zinc-200 transition-colors hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600"
+										>
+											<div className="relative aspect-[16/9] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+												{image && (
+													<Image
+														src={image.source_url}
+														alt={image.alt_text || stripHtml(cs.title.rendered)}
+														fill
+														sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+														placeholder="blur"
+														blurDataURL={BLUR_DATA_URL}
+														className="object-cover transition-transform duration-300 group-hover:scale-105"
+													/>
+												)}
+											</div>
+											<div className="p-5">
+												{cs.acf?.client_name && (
+													<p className="text-xs uppercase tracking-wide text-accent-text">
+														{cs.acf.client_name}
+													</p>
+												)}
+												<h3 className="mt-2 font-semibold leading-snug text-zinc-900 transition-colors group-hover:text-zinc-500 dark:text-zinc-100">
+													{cs.title.rendered}
+												</h3>
+												{cs.acf?.subtitle && (
+													<p className="mt-2 line-clamp-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+														{cs.acf.subtitle}
+													</p>
+												)}
+											</div>
+										</Link>
+									</Reveal>
+								);
+							})}
+						</div>
+					</div>
+				</section>
+			)}
+
 			{/* サービス紹介: 番号付きの行レイアウトでカードグリッドと差別化 */}
 			<section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 				<div className="mx-auto max-w-6xl px-6 py-20">
@@ -331,6 +397,57 @@ export default async function Home({
 					</Link>
 				</div>
 			</section>
+
+			{/* 執筆陣 */}
+			{authorItems.length > 0 && (
+				<section className="border-t border-zinc-200 dark:border-zinc-800">
+					<div className="mx-auto max-w-6xl px-6 py-20">
+						<SectionHeading
+							label={t('authorsPreview.label')}
+							title={t('authorsPreview.title')}
+							viewAllHref="/authors"
+							viewAllText={t('latestArticles.viewAll')}
+						/>
+						<ul className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
+							{authorItems.map((author) => {
+								const photo = getFeaturedImage(author);
+								return (
+									<li key={author.id}>
+										<Link
+											href={`/authors/${author.slug}`}
+											className="group flex flex-col items-center text-center"
+										>
+											<div className="relative h-20 w-20 overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-800">
+												{photo ? (
+													<Image
+														src={photo.source_url}
+														alt={photo.alt_text || author.title.rendered}
+														fill
+														sizes="80px"
+														className="object-cover"
+													/>
+												) : (
+													<div className="flex h-full items-center justify-center text-[10px] text-zinc-300 dark:text-zinc-600">
+														No Photo
+													</div>
+												)}
+											</div>
+											<p className="mt-3 text-sm font-medium text-zinc-900 transition-colors group-hover:text-zinc-500 dark:text-zinc-100">
+												{author.title.rendered}
+											</p>
+											{author.acf?.position && (
+												<p className="mt-0.5 line-clamp-1 text-xs text-zinc-500">
+													{author.acf.position}
+												</p>
+											)}
+										</Link>
+									</li>
+								);
+							})}
+						</ul>
+					</div>
+				</section>
+			)}
 		</div>
 	);
 }

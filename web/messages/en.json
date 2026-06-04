@@ -124,6 +124,14 @@
 			"label": "Features",
 			"title": "Featured collections"
 		},
+		"caseStudiesPreview": {
+			"label": "Case Studies",
+			"title": "Case studies"
+		},
+		"authorsPreview": {
+			"label": "Authors",
+			"title": "Our authors"
+		},
 		"emptyArticles": "No articles yet.",
 		"careersCta": {
 			"title": "Want to work together?",
