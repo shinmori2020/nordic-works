@@ -360,43 +360,55 @@ export default async function Home({
 				</div>
 			</section>
 
-			{/* 採用・お問い合わせ導線 */}
-			<section className="border-t border-zinc-200 dark:border-zinc-800">
-				<div className="grid gap-px bg-zinc-200 sm:grid-cols-2 dark:bg-zinc-800">
+			{/* 採用・お問い合わせ導線（北欧の写真を背景に、暗幕＋白文字） */}
+			<section className="relative overflow-hidden border-t border-zinc-200 dark:border-zinc-800">
+				{/* 背景画像（帯全体） */}
+				<Image
+					src="/wp-uploads/2026/05/900-30.jpg"
+					alt=""
+					aria-hidden="true"
+					fill
+					sizes="100vw"
+					className="object-cover"
+				/>
+				<div aria-hidden="true" className="absolute inset-0 bg-zinc-950/75" />
+
+				{/* 2つの導線（透過パネル） */}
+				<div className="relative grid sm:grid-cols-2 sm:divide-x sm:divide-white/15">
 					<Link
 						href="/careers"
-						className="group flex flex-col items-center justify-center bg-accent/20 p-10 transition-colors hover:bg-accent/30 sm:p-12 lg:p-20 dark:bg-accent/20 dark:hover:bg-accent/30"
+						className="group flex flex-col items-center justify-center p-10 transition-colors hover:bg-white/5 sm:p-12 lg:p-20"
 					>
 						<div className="text-left">
-							<p className="text-xs uppercase tracking-widest text-accent-text">
+							<p className="text-xs uppercase tracking-widest text-white/75">
 								Careers
 							</p>
-							<h3 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+							<h3 className="mt-2 text-xl font-semibold text-white">
 								{t('careersCta.title')}
 							</h3>
-							<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+							<p className="mt-2 text-sm leading-relaxed text-zinc-100">
 								{t('careersCta.description')}
 							</p>
-							<span className="mt-4 inline-block text-sm font-medium text-accent-text group-hover:underline">
+							<span className="mt-4 inline-block text-sm font-medium text-white group-hover:underline">
 								{t('careersCta.link')}
 							</span>
 						</div>
 					</Link>
 					<Link
 						href="/contact"
-						className="group flex flex-col items-center justify-center bg-accent/20 p-10 transition-colors hover:bg-accent/30 sm:p-12 lg:p-20 dark:bg-accent/20 dark:hover:bg-accent/30"
+						className="group flex flex-col items-center justify-center p-10 transition-colors hover:bg-white/5 sm:p-12 lg:p-20"
 					>
 						<div className="text-left">
-							<p className="text-xs uppercase tracking-widest text-accent-text">
+							<p className="text-xs uppercase tracking-widest text-white/75">
 								Contact
 							</p>
-							<h3 className="mt-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+							<h3 className="mt-2 text-xl font-semibold text-white">
 								{t('contactCta.title')}
 							</h3>
-							<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+							<p className="mt-2 text-sm leading-relaxed text-zinc-100">
 								{t('contactCta.description')}
 							</p>
-							<span className="mt-4 inline-block text-sm font-medium text-accent-text group-hover:underline">
+							<span className="mt-4 inline-block text-sm font-medium text-white group-hover:underline">
 								{t('contactCta.link')}
 							</span>
 						</div>
