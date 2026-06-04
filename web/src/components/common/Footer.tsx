@@ -29,7 +29,7 @@ export async function Footer() {
 	const tFooter = await getTranslations('footer');
 
 	return (
-		<footer className="mt-20 border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
+		<footer className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 			<div className="mx-auto max-w-6xl px-6 py-12">
 				{/* 上段: ブランド + ニュースレター */}
 				<div className="grid gap-10 sm:grid-cols-[1fr_1fr] lg:gap-16">
