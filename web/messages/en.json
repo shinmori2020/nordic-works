@@ -100,6 +100,16 @@
 			"ctaInsights": "Read Insights",
 			"featuredLabel": "Featured"
 		},
+		"approach": {
+			"label": "APPROACH",
+			"title": "Our approach",
+			"p1Title": "Start from the data",
+			"p1Body": "We begin by measuring how your organisation actually works — not how it feels.",
+			"p2Title": "Translate Nordic wisdom",
+			"p2Body": "Flat teams, psychological safety and more — adapted to your context, never just copied.",
+			"p3Title": "Make it last",
+			"p3Body": "Not a one-off initiative, but habits and systems that keep working on the ground."
+		},
 		"latestArticles": {
 			"label": "INSIGHTS",
 			"title": "Latest articles",

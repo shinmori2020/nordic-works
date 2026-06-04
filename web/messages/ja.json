@@ -100,6 +100,16 @@
 			"ctaInsights": "Insights を読む",
 			"featuredLabel": "注目記事"
 		},
+		"approach": {
+			"label": "APPROACH",
+			"title": "私たちのアプローチ",
+			"p1Title": "データで現状を捉える",
+			"p1Body": "感覚ではなく、組織の状態をデータで可視化することから始めます。",
+			"p2Title": "北欧の知恵を翻訳する",
+			"p2Body": "フラットな組織や心理的安全性など、北欧の実践を日本の文脈に合わせて導入します。",
+			"p3Title": "現場に定着させる",
+			"p3Body": "一度きりの施策で終わらせず、続く仕組みとして組織に根づかせます。"
+		},
 		"latestArticles": {
 			"label": "INSIGHTS",
 			"title": "最新の記事",
