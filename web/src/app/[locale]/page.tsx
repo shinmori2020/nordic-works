@@ -95,12 +95,11 @@ export default async function Home({
 		getServices(),
 	]);
 
-	// ヒーロー右側で1記事を大きく見せ、最新記事はその次の記事から並べる（重複回避）。
-	const heroPost = posts[0];
-	const heroImage = heroPost ? getFeaturedImage(heroPost) : null;
-	// 最新記事は「リード1本 + ヘッドラインのリスト」の非対称レイアウトで見せる。
-	const leadPost = posts[1];
-	const listPosts = posts.slice(2, 6);
+	// 最新記事は「大フィーチャー1本 + カードグリッド」で見せる（案A）。
+	const leadPost = posts[0];
+	const leadImage = leadPost ? getFeaturedImage(leadPost) : null;
+	const leadTopic = leadPost ? getTerms(leadPost, 'topic')[0] : undefined;
+	const gridPosts = posts.slice(1, 4);
 	const featuredItems = features.slice(0, 2);
 	const serviceItems = services.slice(0, 3);
 
@@ -115,67 +114,28 @@ export default async function Home({
 		<div className="font-brand">
 			{/* ヒーロー: 左にコピー、右に注目記事カード（lg以上で2カラム） */}
 			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				<div className="mx-auto max-w-[1500px] px-6 py-20 sm:py-28">
-					<div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-center lg:gap-12">
-						{/* 左: コピー */}
-						<div className="lg:w-[660px] lg:shrink">
-							<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
-								{t('hero.label')}
-							</p>
-							<h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl sm:leading-tight">
-								{t('hero.title')}
-							</h1>
-							<p className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-								{t('hero.description')}
-							</p>
-							<div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-								<Button href="/services" variant="primary">
-									{t('hero.ctaService')}
-								</Button>
-								<Button href="/articles" variant="secondary">
-									{t('hero.ctaInsights')}
-								</Button>
-							</div>
-						</div>
-
-						{/* 右: 注目記事カード */}
-						{heroPost && (
-							<Link
-								href={`/articles/${heroPost.slug}`}
-								className="group block overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md lg:w-[440px] lg:shrink-0 dark:border-zinc-800 dark:bg-zinc-950"
-							>
-								<div className="relative aspect-[16/9] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
-									{heroImage && (
-										<Image
-											src={heroImage.source_url}
-											alt={heroImage.alt_text || heroPost.title.rendered}
-											fill
-											sizes="(max-width: 1024px) 100vw, 440px"
-											placeholder="blur"
-											blurDataURL={BLUR_DATA_URL}
-											className="object-cover transition-transform duration-300 group-hover:scale-105"
-											priority
-										/>
-									)}
-								</div>
-								<div className="p-6">
-									<p className="text-xs uppercase tracking-widest text-accent-text">
-										{t('hero.featuredLabel')}
-									</p>
-									<h2 className="mt-2 text-lg font-semibold leading-snug text-zinc-900 dark:text-zinc-100 transition-colors group-hover:text-zinc-500">
-										{heroPost.title.rendered}
-									</h2>
-									<p className="mt-2 line-clamp-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-										{stripHtml(heroPost.excerpt.rendered)}
-									</p>
-								</div>
-							</Link>
-						)}
+				<div className="mx-auto max-w-3xl px-6 py-24 text-center sm:py-32">
+					<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
+						{t('hero.label')}
+					</p>
+					<h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl sm:leading-tight">
+						{t('hero.title')}
+					</h1>
+					<p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+						{t('hero.description')}
+					</p>
+					<div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
+						<Button href="/services" variant="primary">
+							{t('hero.ctaService')}
+						</Button>
+						<Button href="/articles" variant="secondary">
+							{t('hero.ctaInsights')}
+						</Button>
 					</div>
 				</div>
 			</section>
 
-			{/* 最新記事: リード1本を大きく + 残りをヘッドラインのリストで（非対称レイアウト） */}
+			{/* 最新記事: 大フィーチャー1本 + カードグリッド（案A） */}
 			<section className="mx-auto max-w-6xl px-6 py-16">
 				<SectionHeading
 					label={t('latestArticles.label')}
@@ -186,42 +146,57 @@ export default async function Home({
 				{!leadPost ? (
 					<p className="text-sm text-zinc-500">{t('emptyArticles')}</p>
 				) : (
-					<div className="grid gap-x-12 gap-y-10 lg:grid-cols-2">
-						{/* リード記事 */}
+					<>
+						{/* 大フィーチャー（リード記事） */}
 						<Reveal>
-							<ArticleCard post={leadPost} />
+							<Link href={`/articles/${leadPost.slug}`} className="group block">
+								<div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:aspect-[21/9]">
+									{leadImage && (
+										<Image
+											src={leadImage.source_url}
+											alt={leadImage.alt_text || leadPost.title.rendered}
+											fill
+											sizes="(max-width: 1152px) 100vw, 1152px"
+											placeholder="blur"
+											blurDataURL={BLUR_DATA_URL}
+											className="object-cover transition-transform duration-300 group-hover:scale-105"
+											priority
+										/>
+									)}
+								</div>
+								<div className="mt-5">
+									{leadTopic && (
+										<p className="text-xs uppercase tracking-wide text-accent-text">
+											{localizeTermName(leadTopic.name, locale)}
+										</p>
+									)}
+									<h3 className="mt-1 text-2xl font-semibold leading-snug text-zinc-900 transition-colors group-hover:text-zinc-500 dark:text-zinc-100 sm:text-3xl">
+										{leadPost.title.rendered}
+									</h3>
+									<p className="mt-2 line-clamp-2 max-w-3xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-base">
+										{stripHtml(leadPost.excerpt.rendered)}
+									</p>
+									<time
+										dateTime={leadPost.date}
+										className="mt-2 block text-xs text-zinc-400"
+									>
+										{formatDate(leadPost.date, dateLocale)}
+									</time>
+								</div>
+							</Link>
 						</Reveal>
 
-						{/* ヘッドラインのリスト */}
-						<ul className="flex flex-col divide-y divide-zinc-200 dark:divide-zinc-800">
-							{listPosts.map((post) => {
-								const topic = getTerms(post, 'topic')[0];
-								return (
-									<li key={post.id}>
-										<Link
-											href={`/articles/${post.slug}`}
-											className="group block py-4 first:pt-0"
-										>
-											{topic && (
-												<p className="text-xs uppercase tracking-wide text-accent-text">
-													{localizeTermName(topic.name, locale)}
-												</p>
-											)}
-											<h3 className="mt-1 line-clamp-2 text-base font-semibold leading-snug text-zinc-900 transition-colors group-hover:text-zinc-500 dark:text-zinc-100">
-												{post.title.rendered}
-											</h3>
-											<time
-												dateTime={post.date}
-												className="mt-1 block text-xs text-zinc-400"
-											>
-												{formatDate(post.date, dateLocale)}
-											</time>
-										</Link>
-									</li>
-								);
-							})}
-						</ul>
-					</div>
+						{/* 残りの記事グリッド（一覧） */}
+						{gridPosts.length > 0 && (
+							<div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+								{gridPosts.map((post, i) => (
+									<Reveal key={post.id} delay={(i % 3) * 0.06}>
+										<ArticleCard post={post} />
+									</Reveal>
+								))}
+							</div>
+						)}
+					</>
 				)}
 			</section>
 
@@ -315,10 +290,10 @@ export default async function Home({
 
 			{/* 採用・お問い合わせ導線 */}
 			<section className="border-t border-zinc-200 dark:border-zinc-800">
-				<div className="mx-auto grid max-w-6xl gap-px bg-zinc-200 sm:grid-cols-2 dark:bg-zinc-800">
+				<div className="grid gap-px bg-zinc-200 sm:grid-cols-2 dark:bg-zinc-800">
 					<Link
 						href="/careers"
-						className="group bg-white p-10 transition-colors hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900"
+						className="group bg-white p-10 transition-colors hover:bg-zinc-50 sm:p-12 lg:p-20 dark:bg-zinc-950 dark:hover:bg-zinc-900"
 					>
 						<p className="text-xs uppercase tracking-widest text-accent-text">
 							Careers
@@ -335,7 +310,7 @@ export default async function Home({
 					</Link>
 					<Link
 						href="/contact"
-						className="group bg-white p-10 transition-colors hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900"
+						className="group bg-white p-10 transition-colors hover:bg-zinc-50 sm:p-12 lg:p-20 dark:bg-zinc-950 dark:hover:bg-zinc-900"
 					>
 						<p className="text-xs uppercase tracking-widest text-accent-text">
 							Contact
