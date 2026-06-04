@@ -56,28 +56,24 @@ export async function Footer() {
 				</div>
 			</div>
 
-			{/* 中段+下段: サイトマップ + コピーライト（ワイド 1500px） */}
+			{/* 下段: サイトマップ + コピーライトを両端に（狭い画面では左揃えで縦積み） */}
 			<div className="mx-auto max-w-[1500px] px-6 pb-12">
-				<nav className="mt-12 border-t border-zinc-200 pt-8 dark:border-zinc-800">
-					<p className="text-xs uppercase tracking-widest text-zinc-400">
-						{tFooter('sitemap')}
-					</p>
-					<ul className="mt-3 flex flex-wrap gap-x-8 gap-y-2">
-						{FOOTER_LINKS.map((link) => (
-							<li key={link.href}>
-								<Link
-									href={link.href}
-									className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-								>
-									{tNav(link.key)}
-								</Link>
-							</li>
-						))}
-					</ul>
-				</nav>
-
-				<div className="mt-8 border-t border-zinc-200 pt-6 dark:border-zinc-800">
-					<p className="text-xs text-zinc-400">
+				<div className="mt-12 flex flex-col gap-4 border-t border-zinc-200 pt-6 dark:border-zinc-800 sm:flex-row sm:items-center sm:justify-between">
+					<nav aria-label={tFooter('sitemap')}>
+						<ul className="flex flex-wrap gap-x-6 gap-y-2">
+							{FOOTER_LINKS.map((link) => (
+								<li key={link.href}>
+									<Link
+										href={link.href}
+										className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+									>
+										{tNav(link.key)}
+									</Link>
+								</li>
+							))}
+						</ul>
+					</nav>
+					<p className="shrink-0 text-xs text-zinc-400">
 						{tFooter('copyright', { year })}
 					</p>
 				</div>
