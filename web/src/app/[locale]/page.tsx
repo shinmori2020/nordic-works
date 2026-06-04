@@ -114,17 +114,17 @@ export default async function Home({
 		<div className="font-brand">
 			{/* ヒーロー: 左にコピー、右に注目記事カード（lg以上で2カラム） */}
 			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				<div className="mx-auto max-w-3xl px-6 py-24 text-center sm:py-32">
+				<div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
 					<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
 						{t('hero.label')}
 					</p>
-					<h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl sm:leading-tight">
+					<h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl sm:leading-tight">
 						{t('hero.title')}
 					</h1>
-					<p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+					<p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
 						{t('hero.description')}
 					</p>
-					<div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
+					<div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
 						<Button href="/services" variant="primary">
 							{t('hero.ctaService')}
 						</Button>
