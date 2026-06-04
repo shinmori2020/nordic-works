@@ -10,7 +10,8 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { getCaseStudies } from '@/lib/wordpress';
-import { getFeaturedImage, stripHtml, BLUR_DATA_URL } from '@/lib/utils';
+import { stripHtml, BLUR_DATA_URL } from '@/lib/utils';
+import { caseStudyImage } from '@/lib/case-study-image';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { CtaBanner } from '@/components/common/CtaBanner';
 
@@ -67,7 +68,7 @@ export default async function CaseStudiesPage({
 			) : (
 				<ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 					{cases.map((cs) => {
-						const image = getFeaturedImage(cs);
+						const image = caseStudyImage(cs);
 						return (
 							<li key={cs.id}>
 								<Link

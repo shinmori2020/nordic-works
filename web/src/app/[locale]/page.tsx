@@ -27,6 +27,7 @@ import {
 	BLUR_DATA_URL,
 } from '@/lib/utils';
 import { localizeTermName } from '@/lib/taxonomy';
+import { caseStudyImage } from '@/lib/case-study-image';
 import { ArticleCard } from '@/components/media/ArticleCard';
 import { FeatureCard } from '@/components/media/FeatureCard';
 import { Reveal } from '@/components/common/Reveal';
@@ -261,7 +262,7 @@ export default async function Home({
 						/>
 						<div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
 							{caseItems.map((cs, i) => {
-								const image = getFeaturedImage(cs);
+								const image = caseStudyImage(cs);
 								return (
 									<Reveal key={cs.id} delay={(i % 3) * 0.06}>
 										<Link

@@ -15,7 +15,8 @@ import {
 } from '@/lib/wordpress';
 import { Link } from '@/i18n/navigation';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
-import { getFeaturedImage, stripHtml, parseOutcomes, BLUR_DATA_URL } from '@/lib/utils';
+import { stripHtml, parseOutcomes, BLUR_DATA_URL } from '@/lib/utils';
+import { caseStudyImage } from '@/lib/case-study-image';
 import { SITE_NAME, absoluteUrl, localeAlternates } from '@/lib/site';
 import type { SlugPageProps } from '@/types/wordpress';
 
@@ -55,7 +56,7 @@ export default async function CaseStudyDetailPage({
 	const tCommon = await getTranslations('common');
 
 	const acf = cs.acf;
-	const image = getFeaturedImage(cs);
+	const image = caseStudyImage(cs);
 	const outcomes = parseOutcomes(acf?.outcomes);
 
 	// 関連サービス ID 配列を実体に解決
