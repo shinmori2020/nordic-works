@@ -30,8 +30,8 @@ export async function Footer() {
 
 	return (
 		<footer className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-			<div className="mx-auto max-w-6xl px-6 py-12">
-				{/* 上段: ブランド + ニュースレター */}
+			{/* 上段: ブランド + ニュースレター（本文セクション幅 1152px） */}
+			<div className="mx-auto max-w-6xl px-6 pt-12">
 				<div className="grid gap-10 sm:grid-cols-[1fr_1fr] lg:gap-16">
 					<div className="max-w-xs">
 						<p className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
@@ -54,8 +54,10 @@ export async function Footer() {
 						</div>
 					</div>
 				</div>
+			</div>
 
-				{/* 中段: サイトマップ */}
+			{/* 中段+下段: サイトマップ + コピーライト（ワイド 1500px） */}
+			<div className="mx-auto max-w-[1500px] px-6 pb-12">
 				<nav className="mt-12 border-t border-zinc-200 pt-8 dark:border-zinc-800">
 					<p className="text-xs uppercase tracking-widest text-zinc-400">
 						{tFooter('sitemap')}
@@ -74,7 +76,6 @@ export async function Footer() {
 					</ul>
 				</nav>
 
-				{/* 下段: コピーライト */}
 				<div className="mt-8 border-t border-zinc-200 pt-6 dark:border-zinc-800">
 					<p className="text-xs text-zinc-400">
 						{tFooter('copyright', { year })}
