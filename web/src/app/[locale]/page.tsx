@@ -365,7 +365,7 @@ export default async function Home({
 				<div className="grid gap-px bg-zinc-200 sm:grid-cols-2 dark:bg-zinc-800">
 					<Link
 						href="/careers"
-						className="group flex flex-col items-center justify-center bg-accent/5 p-10 transition-colors hover:bg-accent/10 sm:p-12 lg:p-20 dark:bg-zinc-900 dark:hover:bg-zinc-800"
+						className="group flex flex-col items-center justify-center bg-accent/20 p-10 transition-colors hover:bg-accent/30 sm:p-12 lg:p-20 dark:bg-accent/20 dark:hover:bg-accent/30"
 					>
 						<div className="text-left">
 							<p className="text-xs uppercase tracking-widest text-accent-text">
@@ -384,7 +384,7 @@ export default async function Home({
 					</Link>
 					<Link
 						href="/contact"
-						className="group flex flex-col items-center justify-center bg-accent/5 p-10 transition-colors hover:bg-accent/10 sm:p-12 lg:p-20 dark:bg-zinc-900 dark:hover:bg-zinc-800"
+						className="group flex flex-col items-center justify-center bg-accent/20 p-10 transition-colors hover:bg-accent/30 sm:p-12 lg:p-20 dark:bg-accent/20 dark:hover:bg-accent/30"
 					>
 						<div className="text-left">
 							<p className="text-xs uppercase tracking-widest text-accent-text">
