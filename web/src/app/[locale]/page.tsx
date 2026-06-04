@@ -269,7 +269,7 @@ export default async function Home({
 											className="group block h-full overflow-hidden rounded-lg border border-zinc-200 transition-colors hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600"
 										>
 											<div className="relative aspect-[16/9] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
-												{image && (
+												{image ? (
 													<Image
 														src={image.source_url}
 														alt={image.alt_text || stripHtml(cs.title.rendered)}
@@ -279,6 +279,12 @@ export default async function Home({
 														blurDataURL={BLUR_DATA_URL}
 														className="object-cover transition-transform duration-300 group-hover:scale-105"
 													/>
+												) : (
+													<div className="flex h-full items-center justify-center bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-950">
+														<span className="text-xs font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-600">
+															Nordic Works
+														</span>
+													</div>
 												)}
 											</div>
 											<div className="p-5">
@@ -359,7 +365,7 @@ export default async function Home({
 				<div className="grid gap-px bg-zinc-200 sm:grid-cols-2 dark:bg-zinc-800">
 					<Link
 						href="/careers"
-						className="group flex flex-col items-center justify-center bg-white p-10 transition-colors hover:bg-zinc-50 sm:p-12 lg:p-20 dark:bg-zinc-950 dark:hover:bg-zinc-900"
+						className="group flex flex-col items-center justify-center bg-accent/5 p-10 transition-colors hover:bg-accent/10 sm:p-12 lg:p-20 dark:bg-zinc-900 dark:hover:bg-zinc-800"
 					>
 						<div className="text-left">
 							<p className="text-xs uppercase tracking-widest text-accent-text">
@@ -378,7 +384,7 @@ export default async function Home({
 					</Link>
 					<Link
 						href="/contact"
-						className="group flex flex-col items-center justify-center bg-white p-10 transition-colors hover:bg-zinc-50 sm:p-12 lg:p-20 dark:bg-zinc-950 dark:hover:bg-zinc-900"
+						className="group flex flex-col items-center justify-center bg-accent/5 p-10 transition-colors hover:bg-accent/10 sm:p-12 lg:p-20 dark:bg-zinc-900 dark:hover:bg-zinc-800"
 					>
 						<div className="text-left">
 							<p className="text-xs uppercase tracking-widest text-accent-text">
