@@ -37,6 +37,42 @@ export async function generateMetadata({
 	};
 }
 
+/**
+ * トップページのセクション見出し（eyebrow + タイトル + 任意の「すべて見る」）。
+ * 短いアクセント罫線を添えて編集的なリズムを出す。TOP専用。
+ */
+function SectionHeading({
+	label,
+	title,
+	viewAllHref,
+	viewAllText,
+}: {
+	label: string;
+	title: string;
+	viewAllHref?: string;
+	viewAllText?: string;
+}) {
+	return (
+		<div className="mb-10 flex items-end justify-between gap-4">
+			<div>
+				<div className="mb-3 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
+				<p className="text-xs uppercase tracking-widest text-accent-text">{label}</p>
+				<h2 className="mt-1.5 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl">
+					{title}
+				</h2>
+			</div>
+			{viewAllHref && (
+				<Link
+					href={viewAllHref}
+					className="shrink-0 text-sm font-medium text-accent-text transition-colors hover:underline"
+				>
+					{viewAllText}
+				</Link>
+			)}
+		</div>
+	);
+}
+
 export default async function Home({
 	params,
 }: {
@@ -125,22 +161,12 @@ export default async function Home({
 
 			{/* 最新記事 */}
 			<section className="mx-auto max-w-6xl px-6 py-16">
-				<div className="mb-8 flex items-baseline justify-between">
-					<div>
-						<p className="text-xs uppercase tracking-widest text-accent-text">
-							{t('latestArticles.label')}
-						</p>
-						<h2 className="mt-1 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
-							{t('latestArticles.title')}
-						</h2>
-					</div>
-					<Link
-						href="/articles"
-						className="text-sm font-medium text-accent-text transition-colors hover:underline"
-					>
-						{t('latestArticles.viewAll')}
-					</Link>
-				</div>
+				<SectionHeading
+					label={t('latestArticles.label')}
+					title={t('latestArticles.title')}
+					viewAllHref="/articles"
+					viewAllText={t('latestArticles.viewAll')}
+				/>
 				{latestPosts.length === 0 ? (
 					<p className="text-sm text-zinc-500">{t('emptyArticles')}</p>
 				) : (
@@ -158,14 +184,10 @@ export default async function Home({
 			{featuredItems.length > 0 && (
 				<section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 					<div className="mx-auto max-w-6xl px-6 py-20">
-						<div className="mb-8">
-							<p className="text-xs uppercase tracking-widest text-accent-text">
-								{t('featuresPreview.label')}
-							</p>
-							<h2 className="mt-1 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
-								{t('featuresPreview.title')}
-							</h2>
-						</div>
+						<SectionHeading
+							label={t('featuresPreview.label')}
+							title={t('featuresPreview.title')}
+						/>
 						<div className="grid gap-10">
 							{featuredItems.map((feature) => (
 								<Reveal key={feature.id}>
@@ -179,22 +201,12 @@ export default async function Home({
 
 			{/* サービス紹介 */}
 			<section className="mx-auto max-w-6xl px-6 py-16">
-				<div className="mb-8 flex items-baseline justify-between">
-					<div>
-						<p className="text-xs uppercase tracking-widest text-accent-text">
-							{t('servicesPreview.label')}
-						</p>
-						<h2 className="mt-1 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
-							{t('servicesPreview.title')}
-						</h2>
-					</div>
-					<Link
-						href="/services"
-						className="text-sm font-medium text-accent-text transition-colors hover:underline"
-					>
-						{t('latestArticles.viewAll')}
-					</Link>
-				</div>
+				<SectionHeading
+					label={t('servicesPreview.label')}
+					title={t('servicesPreview.title')}
+					viewAllHref="/services"
+					viewAllText={t('latestArticles.viewAll')}
+				/>
 				{serviceItems.length === 0 ? (
 					<p className="text-sm text-zinc-500">{t('servicesPreview.empty')}</p>
 				) : (
