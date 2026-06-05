@@ -125,11 +125,12 @@ export default async function Home({
 		<div className="font-brand">
 			{/* ヒーロー: コピー＋オーロラ風アニメ背景（北欧モチーフ） */}
 			<section className="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				{/* オーロラ（漂う光） */}
-				<div aria-hidden="true" className="hero-aurora">
-					<span className="blob blob-1" />
-					<span className="blob blob-2" />
-					<span className="blob blob-3" />
+				{/* 背景シーン: 等高線リング＋流れる色＋ドット＋スポットライト */}
+				<div aria-hidden="true" className="hero-scene">
+					<div className="rings" />
+					<div className="flow" />
+					<div className="dots" />
+					<div className="spot" />
 				</div>
 				{/* 可読性: テキスト側（左）を地色で落ち着かせ、右にオーロラを見せる */}
 				<div
