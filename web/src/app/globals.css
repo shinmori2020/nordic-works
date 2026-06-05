@@ -64,6 +64,78 @@ summary:focus-visible,
 }
 
 /* -------------------------------------------------------------------------
+ * ヒーローのオーロラ風アニメ背景（北欧=northern lights のモチーフ）。
+ * ぼかした青〜ティールの光がゆっくり漂う。テキストは前面・別レイヤーで可読性確保。
+ * prefers-reduced-motion では動きを止める。
+ * ------------------------------------------------------------------------- */
+.hero-aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-aurora .blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: 0.55;
+  will-change: transform;
+}
+.hero-aurora .blob-1 {
+  width: 42rem;
+  height: 42rem;
+  right: -8rem;
+  top: -14rem;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--accent) 60%, transparent),
+    transparent 70%
+  );
+  animation: aurora-drift-1 19s ease-in-out infinite;
+}
+.hero-aurora .blob-2 {
+  width: 34rem;
+  height: 34rem;
+  right: 4rem;
+  bottom: -16rem;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, #5b8bbf 55%, transparent),
+    transparent 70%
+  );
+  animation: aurora-drift-2 23s ease-in-out infinite;
+}
+.hero-aurora .blob-3 {
+  width: 26rem;
+  height: 26rem;
+  right: 26%;
+  top: -10rem;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, #6fb3b8 50%, transparent),
+    transparent 70%
+  );
+  animation: aurora-drift-3 27s ease-in-out infinite;
+}
+@keyframes aurora-drift-1 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-7%, 6%, 0) scale(1.18); }
+}
+@keyframes aurora-drift-2 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.1); }
+  50% { transform: translate3d(8%, -7%, 0) scale(1); }
+}
+@keyframes aurora-drift-3 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.45; }
+  50% { transform: translate3d(-6%, -5%, 0) scale(1.22); opacity: 0.75; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-aurora .blob {
+    animation: none;
+  }
+}
+
+/* -------------------------------------------------------------------------
  * 記事本文 (WordPress content.rendered) の最小スタイル。
  * Week 4/7 で @tailwindcss/typography 等によるリッチ化を検討。
  * ------------------------------------------------------------------------- */

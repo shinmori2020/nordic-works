@@ -123,9 +123,20 @@ export default async function Home({
 
 	return (
 		<div className="font-brand">
-			{/* ヒーロー: 左にコピー、右に注目記事カード（lg以上で2カラム） */}
-			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				<div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+			{/* ヒーロー: コピー＋オーロラ風アニメ背景（北欧モチーフ） */}
+			<section className="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
+				{/* オーロラ（漂う光） */}
+				<div aria-hidden="true" className="hero-aurora">
+					<span className="blob blob-1" />
+					<span className="blob blob-2" />
+					<span className="blob blob-3" />
+				</div>
+				{/* 可読性: テキスト側（左）を地色で落ち着かせ、右にオーロラを見せる */}
+				<div
+					aria-hidden="true"
+					className="absolute inset-0 bg-gradient-to-r from-zinc-50 via-zinc-50/40 to-transparent dark:from-zinc-900 dark:via-zinc-900/40"
+				/>
+				<div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
 					<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
 						{t('hero.label')}
 					</p>
