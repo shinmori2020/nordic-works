@@ -136,7 +136,7 @@ export default async function Home({
 					aria-hidden="true"
 					className="absolute inset-0 bg-gradient-to-r from-zinc-50 via-zinc-50/40 to-transparent dark:from-zinc-900 dark:via-zinc-900/40"
 				/>
-				<div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
+				<div className="relative mx-auto flex min-h-[72vh] max-w-6xl flex-col justify-center px-6 py-28 sm:min-h-[78vh] sm:py-36">
 					<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
 						{t('hero.label')}
 					</p>
