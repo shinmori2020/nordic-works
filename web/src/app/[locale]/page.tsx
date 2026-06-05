@@ -125,9 +125,23 @@ export default async function Home({
 		<div className="font-brand">
 			{/* ヒーロー: コピー＋オーロラ風アニメ背景（北欧モチーフ） */}
 			<section className="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				{/* 背景シーン: 等高線リング＋流れる色＋ドット＋スポットライト */}
+				{/* 背景シーン: 自然な流線＋流れる色＋ドット＋スポットライト */}
 				<div aria-hidden="true" className="hero-scene">
-					<div className="rings" />
+					<svg
+						className="waves text-accent-text"
+						viewBox="0 0 1200 800"
+						preserveAspectRatio="none"
+						fill="none"
+					>
+						<g stroke="currentColor" strokeWidth="1" opacity="0.2">
+							<path d="M0 150 C 320 90 760 210 1200 140" />
+							<path d="M0 250 C 340 180 820 330 1200 250" />
+							<path d="M0 360 C 300 300 880 420 1200 350" />
+							<path d="M0 470 C 360 400 800 540 1200 460" />
+							<path d="M0 580 C 320 520 860 650 1200 580" />
+							<path d="M0 690 C 340 630 820 760 1200 690" />
+						</g>
+					</svg>
 					<div className="flow" />
 					<div className="dots" />
 					<div className="spot" />

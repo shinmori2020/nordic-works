@@ -79,17 +79,13 @@ summary:focus-visible,
 }
 .hero-scene > * {
   position: absolute;
-  inset: -15%;
+  inset: 0;
   will-change: transform, background-position, opacity;
 }
-.hero-scene .rings {
-  background: repeating-radial-gradient(
-    circle at 76% 28%,
-    color-mix(in oklab, var(--accent) 24%, transparent) 0 1.5px,
-    transparent 1.5px 28px
-  );
-  opacity: 0.5;
-  animation: scene-rings 26s ease-in-out infinite alternate;
+/* 等高線/地形のような流線（自然な曲線）。色は text-accent-text を currentColor で参照。 */
+.hero-scene .waves {
+  height: 100%;
+  width: 100%;
 }
 .hero-scene .flow {
   background: linear-gradient(
@@ -122,10 +118,6 @@ summary:focus-visible,
   background-repeat: no-repeat;
   opacity: 0.4;
   animation: scene-spot 15s ease-in-out infinite alternate;
-}
-@keyframes scene-rings {
-  from { transform: translate3d(0, 0, 0) scale(1); }
-  to   { transform: translate3d(-4%, 3%, 0) scale(1.1); }
 }
 @keyframes scene-flow {
   from { background-position: 0% 50%; }
