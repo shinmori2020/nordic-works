@@ -125,7 +125,7 @@ export default async function Home({
 		<div className="font-brand">
 			{/* ヒーロー: コピー＋オーロラ風アニメ背景（北欧モチーフ） */}
 			<section className="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				{/* 背景シーン: 自然な流線＋流れる色＋ドット＋スポットライト */}
+				{/* 背景シーン: 水面の流れる波（横波3層）＋光の反射 */}
 				<div aria-hidden="true" className="hero-scene">
 					<svg
 						className="waves text-accent-text"
@@ -133,52 +133,16 @@ export default async function Home({
 						preserveAspectRatio="none"
 						fill="none"
 					>
-						<defs>
-							{/* 乱流ノイズを高さ場として階調化し、地形図の等高線を生成 */}
-							<filter
-								id="topo"
-								x="0%"
-								y="0%"
-								width="100%"
-								height="100%"
-								colorInterpolationFilters="sRGB"
-							>
-								<feTurbulence
-									type="fractalNoise"
-									baseFrequency="0.0075 0.011"
-									numOctaves={6}
-									seed={7}
-									result="noise"
-								/>
-								{/* ノイズの1チャンネルを alpha（標高）にする */}
-								<feColorMatrix
-									in="noise"
-									type="matrix"
-									values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0"
-									result="height"
-								/>
-								{/* 一定標高ごとに細いバンド＝等高線を残す */}
-								<feComponentTransfer in="height" result="lines">
-									<feFuncA
-										type="discrete"
-										tableValues="0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 1 0 0 1 0 0 0 0 1 0 0 0 1 0"
-									/>
-								</feComponentTransfer>
-								{/* 等高線をアクセント色で塗る */}
-								<feFlood floodColor="currentColor" result="ink" />
-								<feComposite in="ink" in2="lines" operator="in" />
-							</filter>
-						</defs>
-						<rect
-							width="1200"
-							height="800"
-							fill="black"
-							opacity="0.5"
-							filter="url(#topo)"
-						/>
+						<g className="wave wave-3">
+							<path d="M-480 420 q120 -42 240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 L1680 800 L-480 800 Z" />
+						</g>
+						<g className="wave wave-2">
+							<path d="M-480 540 q120 -28 240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 L1680 800 L-480 800 Z" />
+						</g>
+						<g className="wave wave-1">
+							<path d="M-480 660 q120 -34 240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 L1680 800 L-480 800 Z" />
+						</g>
 					</svg>
-					<div className="flow" />
-					<div className="dots" />
 					<div className="spot" />
 				</div>
 				{/* 可読性: テキスト側（左）を地色で落ち着かせ、右にオーロラを見せる */}
