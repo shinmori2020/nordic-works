@@ -82,10 +82,15 @@ summary:focus-visible,
   inset: 0;
   will-change: transform, background-position, opacity;
 }
-/* 等高線/地形のような流線（自然な曲線）。色は text-accent-text を currentColor で参照。 */
+/* 自然界のような不規則な流線（feTurbulence で歪ませる）。色は currentColor 経由。
+   少し大きめ(inset:-8%)にしてゆっくり漂わせる（端が見えないように）。 */
 .hero-scene .waves {
-  height: 100%;
-  width: 100%;
+  inset: -8%;
+  animation: waves-drift 34s ease-in-out infinite alternate;
+}
+@keyframes waves-drift {
+  from { transform: translate3d(-1.5%, 0, 0) rotate(-0.4deg); }
+  to   { transform: translate3d(1.5%, 1.5%, 0) rotate(0.4deg); }
 }
 .hero-scene .flow {
   background: linear-gradient(

@@ -133,13 +133,45 @@ export default async function Home({
 						preserveAspectRatio="none"
 						fill="none"
 					>
-						<g stroke="currentColor" strokeWidth="1" opacity="0.2">
-							<path d="M0 150 C 320 90 760 210 1200 140" />
-							<path d="M0 250 C 340 180 820 330 1200 250" />
-							<path d="M0 360 C 300 300 880 420 1200 350" />
-							<path d="M0 470 C 360 400 800 540 1200 460" />
-							<path d="M0 580 C 320 520 860 650 1200 580" />
-							<path d="M0 690 C 340 630 820 760 1200 690" />
+						<defs>
+							{/* 乱流ノイズで線を不規則に歪ませ、自然な流線形にする */}
+							<filter
+								id="hero-flow"
+								x="-15%"
+								y="-15%"
+								width="130%"
+								height="130%"
+							>
+								<feTurbulence
+									type="fractalNoise"
+									baseFrequency="0.011 0.016"
+									numOctaves={3}
+									seed={11}
+									result="noise"
+								/>
+								<feDisplacementMap
+									in="SourceGraphic"
+									in2="noise"
+									scale={78}
+									xChannelSelector="R"
+									yChannelSelector="G"
+								/>
+							</filter>
+						</defs>
+						<g
+							stroke="currentColor"
+							strokeWidth="1"
+							opacity="0.22"
+							filter="url(#hero-flow)"
+						>
+							<path d="M-60 110 C 300 90 820 140 1260 105" />
+							<path d="M-60 200 C 340 175 780 235 1260 195" />
+							<path d="M-60 290 C 300 260 860 330 1260 285" />
+							<path d="M-60 380 C 360 350 800 420 1260 375" />
+							<path d="M-60 470 C 320 440 880 520 1260 465" />
+							<path d="M-60 560 C 340 530 800 610 1260 555" />
+							<path d="M-60 650 C 300 620 860 700 1260 645" />
+							<path d="M-60 740 C 360 710 800 790 1260 735" />
 						</g>
 					</svg>
 					<div className="flow" />
