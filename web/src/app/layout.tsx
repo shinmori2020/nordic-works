@@ -1,18 +1,10 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { draftMode } from 'next/headers';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages } from 'next-intl/server';
+import { getLocale } from 'next-intl/server';
 import './globals.css';
-import { Header } from '@/components/common/Header';
-import { Footer } from '@/components/common/Footer';
-import { PreviewBanner } from '@/components/common/PreviewBanner';
-import { ThemeProvider } from '@/components/common/ThemeProvider';
-import { CookieConsent } from '@/components/common/CookieConsent';
 import { ServiceWorkerRegister } from '@/components/common/ServiceWorkerRegister';
-import { SkipLink } from '@/components/common/SkipLink';
 import {
 	SITE_URL,
 	SITE_NAME,
@@ -90,9 +82,9 @@ export default async function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const { isEnabled: isPreview } = await draftMode();
+	// ルートは [locale] の外側のため静的生成では正しい locale を取れない。
+	// lang は初期値として best-effort で入れ、配下の <HtmlLang /> が補正する。
 	const locale = await getLocale();
-	const messages = await getMessages();
 
 	return (
 		<html
@@ -106,24 +98,9 @@ export default async function RootLayout({
 					// 内製の静的JSONで XSS リスクなし
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
 				/>
-				<NextIntlClientProvider locale={locale} messages={messages}>
-					<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-						<SkipLink />
-						{isPreview && <PreviewBanner />}
-						<Header />
-						{/* スキップリンクの着地点。各ページ側が <main> ランドマークを持つため、
-						    ここは main をネストさせず div + tabIndex=-1 にする。 */}
-						<div
-							id="main-content"
-							tabIndex={-1}
-							className="flex-1 focus:outline-none"
-						>
-							{children}
-						</div>
-						<Footer />
-						<CookieConsent />
-					</ThemeProvider>
-				</NextIntlClientProvider>
+				{/* i18n プロバイダーと Header/Footer 等は app/[locale]/layout.tsx 側に置く
+				    （正しい locale を params から渡すため）。 */}
+				{children}
 				{/* PWA Service Worker。本番環境でのみ登録。 */}
 				<ServiceWorkerRegister />
 				{/* Vercel Web Analytics / Speed Insights。
