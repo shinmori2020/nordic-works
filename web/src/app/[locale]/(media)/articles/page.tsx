@@ -1,17 +1,28 @@
 /**
  * 記事一覧ページ — /articles
  *
- * WordPress に投入した全記事をカード形式で一覧表示する。
+ * 1ページ目はリード記事を大きく見せ、残りをグリッドで一覧。
+ * ヘッダーは編集的な様式（eyebrow＋アクセント罫線）＋トピックのチップで回遊性を持たせる。
  */
 
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { localeAlternates } from '@/lib/site';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getPosts } from '@/lib/wordpress';
+import {
+	getFeaturedImage,
+	getTerms,
+	stripHtml,
+	formatDate,
+	BLUR_DATA_URL,
+	ARTICLES_PER_PAGE,
+} from '@/lib/utils';
+import { collectTopics, localizeTermName } from '@/lib/taxonomy';
 import { ArticleCard } from '@/components/media/ArticleCard';
+import { ArticleListIntro } from '@/components/media/ArticleListIntro';
 import { Pagination } from '@/components/common/Pagination';
-import { ARTICLES_PER_PAGE } from '@/lib/utils';
 
 // ISR: 1時間ごとに再生成（docs/06-features.md の方針）
 export const revalidate = 3600;
@@ -37,40 +48,79 @@ export default async function ArticlesPage({
 }) {
 	const { locale } = await params;
 	setRequestLocale(locale);
+	const dateLocale = locale === 'en' ? 'en' : 'ja';
 
 	const t = await getTranslations('articles');
 	const posts = await getPosts();
 
-	// 1ページ目のみを表示。2ページ目以降は /articles/page/[page] が担当する。
 	const totalPages = Math.max(1, Math.ceil(posts.length / ARTICLES_PER_PAGE));
-	const pagePosts = posts.slice(0, ARTICLES_PER_PAGE);
+	const topics = collectTopics(posts);
+
+	// 1ページ目: リード1本（大）＋残りをグリッド。合計は ARTICLES_PER_PAGE 件。
+	const leadPost = posts[0];
+	const leadImage = leadPost ? getFeaturedImage(leadPost) : null;
+	const leadTopic = leadPost ? getTerms(leadPost, 'topic')[0] : undefined;
+	const gridPosts = posts.slice(1, ARTICLES_PER_PAGE);
 
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-			<header className="mb-10">
-				<Link
-					href="/"
-					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-				>
-					{t('backHome')}
-				</Link>
-				<h1 className="mt-2 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">
-					{t('title')}
-				</h1>
-				<p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-					{t('count', { count: posts.length })}
-				</p>
-			</header>
+			<ArticleListIntro topics={topics} locale={locale} />
 
 			{posts.length === 0 ? (
 				<p className="text-sm text-red-600">{t('fetchError')}</p>
 			) : (
 				<>
-					<div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-						{pagePosts.map((post) => (
-							<ArticleCard key={post.id} post={post} />
-						))}
-					</div>
+					{/* リード記事 */}
+					{leadPost && (
+						<Link
+							href={`/articles/${leadPost.slug}`}
+							className="group mb-12 block"
+						>
+							<div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:aspect-[21/9]">
+								{leadImage && (
+									<Image
+										src={leadImage.source_url}
+										alt={leadImage.alt_text || leadPost.title.rendered}
+										fill
+										sizes="(max-width: 1152px) 100vw, 1152px"
+										placeholder="blur"
+										blurDataURL={BLUR_DATA_URL}
+										className="object-cover transition-transform duration-300 group-hover:scale-105"
+										priority
+									/>
+								)}
+							</div>
+							<div className="mt-5">
+								{leadTopic && (
+									<p className="text-xs uppercase tracking-wide text-accent-text">
+										{localizeTermName(leadTopic.name, locale)}
+									</p>
+								)}
+								<h2 className="mt-1 text-2xl font-semibold leading-snug text-zinc-900 transition-colors group-hover:text-zinc-500 dark:text-zinc-100 sm:text-3xl">
+									{leadPost.title.rendered}
+								</h2>
+								<p className="mt-2 line-clamp-2 max-w-3xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-base">
+									{stripHtml(leadPost.excerpt.rendered)}
+								</p>
+								<time
+									dateTime={leadPost.date}
+									className="mt-2 block text-xs text-zinc-400"
+								>
+									{formatDate(leadPost.date, dateLocale)}
+								</time>
+							</div>
+						</Link>
+					)}
+
+					{/* 残りの記事グリッド */}
+					{gridPosts.length > 0 && (
+						<div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+							{gridPosts.map((post) => (
+								<ArticleCard key={post.id} post={post} />
+							))}
+						</div>
+					)}
+
 					<Pagination
 						currentPage={1}
 						totalPages={totalPages}

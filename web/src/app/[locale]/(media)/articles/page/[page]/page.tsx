@@ -9,11 +9,12 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { localeAlternates } from '@/lib/site';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Link } from '@/i18n/navigation';
 import { getPosts } from '@/lib/wordpress';
-import { ArticleCard } from '@/components/media/ArticleCard';
-import { Pagination } from '@/components/common/Pagination';
 import { ARTICLES_PER_PAGE } from '@/lib/utils';
+import { collectTopics } from '@/lib/taxonomy';
+import { ArticleCard } from '@/components/media/ArticleCard';
+import { ArticleListIntro } from '@/components/media/ArticleListIntro';
+import { Pagination } from '@/components/common/Pagination';
 
 export const revalidate = 3600;
 
@@ -59,7 +60,6 @@ export default async function ArticlesPaginatedPage({
 		notFound();
 	}
 
-	const t = await getTranslations('articles');
 	const posts = await getPosts();
 	const totalPages = Math.max(1, Math.ceil(posts.length / ARTICLES_PER_PAGE));
 
@@ -68,25 +68,13 @@ export default async function ArticlesPaginatedPage({
 		notFound();
 	}
 
+	const topics = collectTopics(posts);
 	const start = (pageNum - 1) * ARTICLES_PER_PAGE;
 	const pagePosts = posts.slice(start, start + ARTICLES_PER_PAGE);
 
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-			<header className="mb-10">
-				<Link
-					href="/articles"
-					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-				>
-					{t('backToList')}
-				</Link>
-				<h1 className="mt-2 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">
-					{t('title')}
-				</h1>
-				<p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-					{t('pageTitle', { page: pageNum, total: totalPages })}
-				</p>
-			</header>
+			<ArticleListIntro topics={topics} locale={locale} />
 
 			<div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
 				{pagePosts.map((post) => (

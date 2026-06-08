@@ -196,6 +196,7 @@
 		"label": "Insights",
 		"title": "Articles",
 		"description": "Articles on Nordic-style work practices and organisation design.",
+		"topicsLabel": "Browse by topic",
 		"metaDescription": "Articles on remote work, psychological safety, organisation design, and Nordic ways of working.",
 		"count": "{count} articles",
 		"backHome": "← Home",

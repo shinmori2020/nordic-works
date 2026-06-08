@@ -8,6 +8,9 @@
  * 機械翻訳だと "1on1"・"北欧の働き方" 等が崩れやすいため手動管理する。
  * industry / reading-level など他タクソノミーを訳す場合もこの辞書に追記する。
  */
+import { getTerms } from '@/lib/utils';
+import type { WPPost, WPTerm } from '@/types/wordpress';
+
 const TERM_EN: Record<string, string> = {
 	マネジメント: 'Management',
 	心理的安全性: 'Psychological Safety',
@@ -22,4 +25,15 @@ const TERM_EN: Record<string, string> = {
 /** EN ロケール時、辞書にあれば英語名を返す。それ以外は元の名称をそのまま返す。 */
 export function localizeTermName(name: string, locale: string): string {
 	return locale === 'en' ? (TERM_EN[name] ?? name) : name;
+}
+
+/** 記事群から topic タクソノミーの用語を重複なく集める（出現順）。 */
+export function collectTopics(posts: WPPost[]): WPTerm[] {
+	const map = new Map<string, WPTerm>();
+	for (const post of posts) {
+		for (const term of getTerms(post, 'topic')) {
+			if (!map.has(term.slug)) map.set(term.slug, term);
+		}
+	}
+	return [...map.values()];
 }
