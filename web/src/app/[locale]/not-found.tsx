@@ -38,14 +38,14 @@ export default async function NotFound() {
 
 	return (
 		<main className="mx-auto max-w-6xl px-6 py-16">
-			<section className="text-center">
-				<p className="text-xs uppercase tracking-widest text-accent-text">
+			<section className="py-10 text-center sm:py-16">
+				<p className="font-mono text-7xl font-bold leading-none tracking-tighter text-accent-text sm:text-9xl">
 					{t('label')}
 				</p>
-				<h1 className="mt-2 text-3xl font-semibold text-zinc-900 dark:text-zinc-100 sm:text-4xl">
+				<h1 className="mt-6 text-2xl font-semibold text-zinc-900 dark:text-zinc-100 sm:text-3xl">
 					{t('title')}
 				</h1>
-				<p className="mt-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+				<p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
 					{t('description')}
 				</p>
 
