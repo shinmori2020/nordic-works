@@ -216,7 +216,7 @@ export default async function ArticleDetailPage({
 				)}
 
 				{/* 本文 ＋ 目次サイドバー（lg以上で2カラム。本文が残り幅を埋め、目次を右端に固定） */}
-				<div className="mt-10 lg:grid lg:grid-cols-[minmax(0,1fr)_14rem] lg:gap-12">
+				<div className="mt-10 lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-12">
 					<div className="min-w-0">
 						{/* モバイル目次（lg未満はインライン表示） */}
 						{headings.length >= 2 && (
