@@ -18,6 +18,7 @@ import {
 	getTopics,
 } from '@/lib/wordpress';
 import { absoluteUrl } from '@/lib/site';
+import { termSlug } from '@/lib/taxonomy';
 import { getWhitepapers } from '@/lib/whitepapers';
 import { routing } from '@/i18n/routing';
 
@@ -141,21 +142,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			}),
 		),
 		...topics.flatMap((t) =>
-			withLocaleAlternates(`/topic/${decodeURIComponent(t.slug)}`, {
+			withLocaleAlternates(`/topic/${termSlug(t)}`, {
 				lastModified: now,
 				changeFrequency: 'weekly',
 				priority: 0.5,
 			}),
 		),
 		...industries.flatMap((t) =>
-			withLocaleAlternates(`/industry/${decodeURIComponent(t.slug)}`, {
+			withLocaleAlternates(`/industry/${termSlug(t)}`, {
 				lastModified: now,
 				changeFrequency: 'weekly',
 				priority: 0.5,
 			}),
 		),
 		...readingLevels.flatMap((t) =>
-			withLocaleAlternates(`/reading-level/${decodeURIComponent(t.slug)}`, {
+			withLocaleAlternates(`/reading-level/${termSlug(t)}`, {
 				lastModified: now,
 				changeFrequency: 'weekly',
 				priority: 0.4,

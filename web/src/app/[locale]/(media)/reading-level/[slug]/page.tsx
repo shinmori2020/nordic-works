@@ -13,13 +13,14 @@ import {
 	getTermBySlug,
 } from '@/lib/wordpress';
 import { TaxonomyArticleList } from '@/components/media/TaxonomyArticleList';
+import { termSlug } from '@/lib/taxonomy';
 import type { SlugPageProps } from '@/types/wordpress';
 
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
 	const terms = await getReadingLevels();
-	return terms.map((term) => ({ slug: decodeURIComponent(term.slug) }));
+	return terms.map((term) => ({ slug: termSlug(term) }));
 }
 
 export async function generateMetadata({ params }: SlugPageProps): Promise<Metadata> {
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	return {
 		title: `${term.name}向けの記事`,
 		description: `読了レベル「${term.name}」の Nordic Works 記事一覧。`,
-		alternates: localeAlternates(`/reading-level/${decodeURIComponent(term.slug)}`),
+		alternates: localeAlternates(`/reading-level/${termSlug(term)}`),
 	};
 }
 

@@ -11,7 +11,7 @@ import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getPostBySlug, getPosts, getAuthorById, getServices } from '@/lib/wordpress';
 import { getFeaturedImage, getTerms, stripHtml, formatDate, BLUR_DATA_URL } from '@/lib/utils';
-import { localizeTermName } from '@/lib/taxonomy';
+import { localizeTermName, termSlug } from '@/lib/taxonomy';
 import { buildTableOfContents } from '@/lib/toc';
 import { SITE_NAME, absoluteUrl, localeAlternates } from '@/lib/site';
 import { ArticleCard } from '@/components/media/ArticleCard';
@@ -156,7 +156,7 @@ export default async function ArticleDetailPage({
 						{industries.map((term) => (
 							<Link
 								key={term.id}
-								href={`/industry/${decodeURIComponent(term.slug)}`}
+								href={`/industry/${termSlug(term)}`}
 								className="rounded bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-xs text-zinc-600 dark:text-zinc-400 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-100"
 							>
 								{term.name}
@@ -233,7 +233,7 @@ export default async function ArticleDetailPage({
 						{topics.map((term) => (
 							<Link
 								key={term.id}
-								href={`/topic/${decodeURIComponent(term.slug)}`}
+								href={`/topic/${termSlug(term)}`}
 								className="rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-1 text-xs text-zinc-600 dark:text-zinc-400 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-100"
 							>
 								#{localizeTermName(term.name, locale)}

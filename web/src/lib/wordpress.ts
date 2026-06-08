@@ -20,6 +20,7 @@ import type {
 	WPCaseStudy,
 	WPTerm,
 } from '@/types/wordpress';
+import { termSlug } from '@/lib/taxonomy';
 
 // =============================================================================
 // Configuration
@@ -508,7 +509,12 @@ export async function getTermBySlug(
 		const loader = TAXONOMY_LOADERS[taxonomy];
 		if (!loader) return null;
 		const terms = await loader();
-		return terms.find((t) => safeDecode(t.slug) === target) ?? null;
+		// ASCII スラッグ（termSlug）でも、旧来のデコード済み slug でも引けるようにする。
+		return (
+			terms.find(
+				(t) => termSlug(t) === target || safeDecode(t.slug) === target,
+			) ?? null
+		);
 	}
 	const data = await wpFetch<WPTerm[]>(
 		`${taxonomy}?slug=${encodeURIComponent(target)}`,

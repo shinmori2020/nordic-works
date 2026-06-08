@@ -11,6 +11,7 @@ import {
 	getTopics,
 } from '@/lib/wordpress';
 import { TaxonomyArticleList } from '@/components/media/TaxonomyArticleList';
+import { termSlug } from '@/lib/taxonomy';
 import type { SlugPageProps } from '@/types/wordpress';
 
 export const revalidate = 3600;
@@ -19,7 +20,7 @@ export async function generateStaticParams() {
 	const terms = await getTopics();
 	// API の slug は URL エンコード済み（日本語）。Next.js が再エンコードしないよう
 	// デコードした値で静的パスを生成する。
-	return terms.map((term) => ({ slug: decodeURIComponent(term.slug) }));
+	return terms.map((term) => ({ slug: termSlug(term) }));
 }
 
 export async function generateMetadata({ params }: SlugPageProps): Promise<Metadata> {
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	return {
 		title: `${term.name} の記事`,
 		description: `「${term.name}」に関連する Nordic Works の記事一覧。`,
-		alternates: localeAlternates(`/topic/${decodeURIComponent(term.slug)}`),
+		alternates: localeAlternates(`/topic/${termSlug(term)}`),
 	};
 }
 

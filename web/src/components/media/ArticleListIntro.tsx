@@ -4,7 +4,7 @@
  */
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { localizeTermName } from '@/lib/taxonomy';
+import { localizeTermName, termSlug } from '@/lib/taxonomy';
 import type { WPTerm } from '@/types/wordpress';
 
 export async function ArticleListIntro({
@@ -36,7 +36,7 @@ export async function ArticleListIntro({
 					{topics.map((topic) => (
 						<Link
 							key={topic.id}
-							href={`/topic/${decodeURIComponent(topic.slug)}`}
+							href={`/topic/${termSlug(topic)}`}
 							className="rounded-full border border-zinc-200 px-3 py-1 text-xs text-zinc-600 transition-colors hover:border-accent hover:text-accent-text dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-accent"
 						>
 							{localizeTermName(topic.name, locale)}

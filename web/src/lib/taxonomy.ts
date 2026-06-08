@@ -27,6 +27,48 @@ export function localizeTermName(name: string, locale: string): string {
 	return locale === 'en' ? (TERM_EN[name] ?? name) : name;
 }
 
+function safeDecode(value: string): string {
+	try {
+		return decodeURIComponent(value);
+	} catch {
+		return value;
+	}
+}
+
+/**
+ * URL 用の ASCII スラッグ対応表（デコード済み slug → 英字 slug）。
+ * WordPress の日本語 slug をそのまま使うと URL が `%E7%B5%84…` になり共有しづらいため、
+ * フロント側で英字 slug に差し替える。対応表に無い slug（既に英数字）はそのまま使う。
+ * 用語を追加した場合はここに1行足す。
+ */
+const TERM_SLUG_ASCII: Record<string, string> = {
+	// topic
+	マネジメント: 'management',
+	心理的安全性: 'psychological-safety',
+	リモートワーク: 'remote-work',
+	組織デザイン: 'organization-design',
+	カルチャー: 'culture',
+	北欧の働き方: 'nordic-ways',
+	採用戦略: 'hiring-strategy',
+	// industry
+	コンサルティング: 'consulting',
+	サービス業: 'service-industry',
+	'医療・ヘルスケア': 'healthcare',
+	'小売・ec': 'retail-ec',
+	製造業: 'manufacturing',
+	'金融・保険': 'finance-insurance',
+	// reading-level
+	上級: 'advanced',
+	中級: 'intermediate',
+	初級: 'beginner',
+};
+
+/** タームの URL 用 ASCII スラッグを返す（対応表に無ければデコード済み slug）。 */
+export function termSlug(term: WPTerm): string {
+	const decoded = safeDecode(term.slug);
+	return TERM_SLUG_ASCII[decoded] ?? decoded;
+}
+
 /** 記事群から topic タクソノミーの用語を重複なく集める（出現順）。 */
 export function collectTopics(posts: WPPost[]): WPTerm[] {
 	const map = new Map<string, WPTerm>();

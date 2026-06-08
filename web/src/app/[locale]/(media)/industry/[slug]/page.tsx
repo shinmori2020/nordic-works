@@ -11,13 +11,14 @@ import {
 	getTermBySlug,
 } from '@/lib/wordpress';
 import { TaxonomyArticleList } from '@/components/media/TaxonomyArticleList';
+import { termSlug } from '@/lib/taxonomy';
 import type { SlugPageProps } from '@/types/wordpress';
 
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
 	const terms = await getIndustries();
-	return terms.map((term) => ({ slug: decodeURIComponent(term.slug) }));
+	return terms.map((term) => ({ slug: termSlug(term) }));
 }
 
 export async function generateMetadata({ params }: SlugPageProps): Promise<Metadata> {
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: SlugPageProps): Promise<Metad
 	return {
 		title: `${term.name} の記事`,
 		description: `「${term.name}」業界に関連する Nordic Works の記事一覧。`,
-		alternates: localeAlternates(`/industry/${decodeURIComponent(term.slug)}`),
+		alternates: localeAlternates(`/industry/${termSlug(term)}`),
 	};
 }
 
