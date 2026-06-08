@@ -487,24 +487,31 @@ export async function getReadingLevels(): Promise<WPTerm[]> {
  * 指定タクソノミーから slug でタームを1件取得する。
  * URL の [slug] パラメータから実体ターム（ID・name 等）を解決するのに使う。
  */
+/** decodeURIComponent を安全に行う（不正な % シーケンスはそのまま返す）。 */
+function safeDecode(value: string): string {
+	try {
+		return decodeURIComponent(value);
+	} catch {
+		return value;
+	}
+}
+
 export async function getTermBySlug(
 	taxonomy: string,
 	slug: string,
 ): Promise<WPTerm | null> {
+	// 受け取る slug はエンコード（大文字/小文字差あり）/デコードのいずれの形もありうる。
+	// データ側の slug は日本語が URL エンコード（小文字）で保存されている。
+	// 両辺をデコードして正規化し比較することで、日本語 slug の取りこぼしを防ぐ。
+	const target = safeDecode(slug);
 	if (USE_STATIC) {
 		const loader = TAXONOMY_LOADERS[taxonomy];
 		if (!loader) return null;
 		const terms = await loader();
-		// REST 上の slug は日本語が URL エンコードされた状態で保存されている。
-		// 呼び出し側はデコード済み slug を渡すため、両者の形を寄せて比較する。
-		return (
-			terms.find(
-				(t) => t.slug === slug || decodeURIComponent(t.slug) === slug,
-			) ?? null
-		);
+		return terms.find((t) => safeDecode(t.slug) === target) ?? null;
 	}
 	const data = await wpFetch<WPTerm[]>(
-		`${taxonomy}?slug=${encodeURIComponent(slug)}`,
+		`${taxonomy}?slug=${encodeURIComponent(target)}`,
 		{ revalidate: 86400, tags: ['taxonomies', taxonomy] },
 	);
 	return data?.[0] ?? null;
