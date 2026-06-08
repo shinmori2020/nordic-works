@@ -150,54 +150,57 @@ export default async function ArticleDetailPage({
 			/>
 
 			<article className="mt-6">
-				{/* 業界タグ */}
-				{industries.length > 0 && (
-					<div className="flex flex-wrap gap-2">
-						{industries.map((term) => (
-							<Link
-								key={term.id}
-								href={`/industry/${termSlug(term)}`}
-								className="rounded bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-xs text-zinc-600 dark:text-zinc-400 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-100"
-							>
-								{term.name}
-							</Link>
-						))}
+				{/* ヘッダー（タイトル・メタは読みやすい幅に制限） */}
+				<header className="max-w-3xl">
+					{/* 業界タグ */}
+					{industries.length > 0 && (
+						<div className="flex flex-wrap gap-2">
+							{industries.map((term) => (
+								<Link
+									key={term.id}
+									href={`/industry/${termSlug(term)}`}
+									className="rounded bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-xs text-zinc-600 dark:text-zinc-400 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-100"
+								>
+									{term.name}
+								</Link>
+							))}
+						</div>
+					)}
+
+					{/* タイトル */}
+					<h1 className="mt-3 text-3xl font-semibold leading-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
+						{post.title.rendered}
+					</h1>
+
+					{/* メタ情報 */}
+					<div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-zinc-500">
+						<time dateTime={post.date}>{formatDate(post.date, dateLocale)}</time>
+						{typeof post.acf?.reading_time === 'number' && (
+							<span>· {tCommon('minutesToRead', { minutes: post.acf.reading_time })}</span>
+						)}
+						{author && (
+							<span>
+								· {t('author')}:{' '}
+								<Link
+									href={`/authors/${author.slug}`}
+									className="underline-offset-2 transition-colors hover:text-zinc-900 hover:underline dark:hover:text-zinc-100"
+								>
+									{author.title.rendered}
+								</Link>
+							</span>
+						)}
 					</div>
-				)}
+				</header>
 
-				{/* タイトル */}
-				<h1 className="mt-3 text-3xl font-semibold leading-tight text-zinc-900 dark:text-zinc-100">
-					{post.title.rendered}
-				</h1>
-
-				{/* メタ情報 */}
-				<div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-zinc-500">
-					<time dateTime={post.date}>{formatDate(post.date, dateLocale)}</time>
-					{typeof post.acf?.reading_time === 'number' && (
-						<span>· {tCommon('minutesToRead', { minutes: post.acf.reading_time })}</span>
-					)}
-					{author && (
-						<span>
-							· {t('author')}:{' '}
-							<Link
-								href={`/authors/${author.slug}`}
-								className="underline-offset-2 transition-colors hover:text-zinc-900 hover:underline dark:hover:text-zinc-100"
-							>
-								{author.title.rendered}
-							</Link>
-						</span>
-					)}
-				</div>
-
-				{/* アイキャッチ画像 */}
+				{/* アイキャッチ画像（本文より広いブリード表示） */}
 				{image && (
-					<figure className="mt-6">
-						<div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800">
+					<figure className="mt-8">
+						<div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:aspect-[21/9]">
 							<Image
 								src={image.source_url}
 								alt={image.alt_text || post.title.rendered}
 								fill
-								sizes="(max-width: 768px) 100vw, 768px"
+								sizes="(max-width: 1152px) 100vw, 1152px"
 								placeholder="blur"
 								blurDataURL={BLUR_DATA_URL}
 								className="object-cover"
@@ -212,39 +215,42 @@ export default async function ArticleDetailPage({
 					</figure>
 				)}
 
-				{/* 目次（h2/h3 が2つ以上ある場合のみ表示） */}
-				{headings.length >= 2 && (
-					<div className="mt-8">
-						<TableOfContents headings={headings} />
-					</div>
-				)}
+				{/* 本文 ＋ 目次サイドバー（lg以上で2カラム、本文は読みやすい幅） */}
+				<div className="mt-10 lg:grid lg:grid-cols-[minmax(0,42rem)_14rem] lg:gap-12">
+					<div className="min-w-0">
+						{/* モバイル目次（lg未満はインライン表示） */}
+						{headings.length >= 2 && (
+							<div className="mb-8 lg:hidden">
+								<TableOfContents headings={headings} />
+							</div>
+						)}
 
-				{/* 本文。WordPress の content.rendered は HTML 文字列。
-				    自社管理コンテンツのため dangerouslySetInnerHTML を使用。
-				    bodyHtml は見出しに id を注入済み（目次アンカー用）。 */}
-				<div
-					className="article-body mt-8 text-zinc-800 dark:text-zinc-200"
-					dangerouslySetInnerHTML={{ __html: bodyHtml }}
-				/>
+						{/* 本文。WordPress の content.rendered は HTML 文字列。
+						    自社管理コンテンツのため dangerouslySetInnerHTML を使用。
+						    bodyHtml は見出しに id を注入済み（目次アンカー用）。 */}
+						<div
+							className="article-body text-zinc-800 dark:text-zinc-200"
+							dangerouslySetInnerHTML={{ __html: bodyHtml }}
+						/>
 
-				{/* トピックタグ */}
-				{topics.length > 0 && (
-					<div className="mt-10 flex flex-wrap gap-2 border-t border-zinc-200 dark:border-zinc-800 pt-6">
-						{topics.map((term) => (
-							<Link
-								key={term.id}
-								href={`/topic/${termSlug(term)}`}
-								className="rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-1 text-xs text-zinc-600 dark:text-zinc-400 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-100"
-							>
-								#{localizeTermName(term.name, locale)}
-							</Link>
-						))}
-					</div>
-				)}
+						{/* トピックタグ */}
+						{topics.length > 0 && (
+							<div className="mt-10 flex flex-wrap gap-2 border-t border-zinc-200 dark:border-zinc-800 pt-6">
+								{topics.map((term) => (
+									<Link
+										key={term.id}
+										href={`/topic/${termSlug(term)}`}
+										className="rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-1 text-xs text-zinc-600 dark:text-zinc-400 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-100"
+									>
+										#{localizeTermName(term.name, locale)}
+									</Link>
+								))}
+							</div>
+						)}
 
-				{/* 著者プロフィール */}
-				{author && (
-					<aside className="mt-8 rounded-lg bg-zinc-50 p-5 dark:bg-zinc-900">
+						{/* 著者プロフィール */}
+						{author && (
+							<aside className="mt-8 rounded-lg bg-zinc-50 p-5 dark:bg-zinc-900">
 						<p className="text-center text-xs uppercase tracking-wide text-zinc-400 sm:text-left">{t('author')}</p>
 						<div className="mt-3 flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:text-left">
 							{/* プロフィール写真。authors/[slug] と同じくアイキャッチを使う */}
@@ -290,6 +296,17 @@ export default async function ArticleDetailPage({
 						</div>
 					</aside>
 				)}
+			</div>
+
+					{/* デスクトップ目次（sticky 追従） */}
+					{headings.length >= 2 && (
+						<aside className="hidden lg:block">
+							<div className="sticky top-24">
+								<TableOfContents headings={headings} />
+							</div>
+						</aside>
+					)}
+				</div>
 			</article>
 
 			{/* 関連記事 */}
