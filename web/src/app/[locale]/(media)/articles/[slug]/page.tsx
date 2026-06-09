@@ -251,32 +251,32 @@ export default async function ArticleDetailPage({
 						{/* 著者プロフィール */}
 						{author && (
 							<aside className="mt-8 rounded-lg bg-zinc-50 p-5 dark:bg-zinc-900">
-						<p className="text-center text-xs uppercase tracking-wide text-zinc-400 sm:text-left">{t('author')}</p>
-						<div className="mt-3 flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:text-left">
+						<p className="text-xs uppercase tracking-wide text-zinc-400">{t('author')}</p>
+						<div className="mt-4 flex flex-col items-center gap-4">
 							{/* プロフィール写真。authors/[slug] と同じくアイキャッチを使う */}
 							{authorPhoto && (
-								<div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800">
+								<div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800">
 									<Image
 										src={authorPhoto.source_url}
 										alt={authorPhoto.alt_text || author.title.rendered}
 										fill
-										sizes="64px"
+										sizes="96px"
 										className="object-cover"
 									/>
 								</div>
 							)}
-							<div className="min-w-0 flex-1">
+							<div className="w-full">
 								<Link
 									href={`/authors/${author.slug}`}
-									className="font-semibold text-zinc-900 transition-colors hover:text-zinc-500 dark:text-zinc-100 dark:hover:text-zinc-400"
+									className="block text-center font-semibold text-zinc-900 transition-colors hover:text-zinc-500 dark:text-zinc-100 dark:hover:text-zinc-400"
 								>
 									{author.title.rendered}
 								</Link>
 								{author.acf?.position && (
-									<p className="text-sm text-zinc-500">{author.acf.position}</p>
+									<p className="text-center text-sm text-zinc-500">{author.acf.position}</p>
 								)}
 								{author.acf?.bio && (
-									<p className="mt-2 text-left text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
+									<p className="mt-4 text-left text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
 										{author.acf.bio}
 									</p>
 								)}
