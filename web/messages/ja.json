@@ -215,6 +215,13 @@
 		"servicesCtaViewAll": "すべてのサービスを見る →",
 		"pageTitle": "記事一覧（{page}/{total} ページ）"
 	},
+	"taxonomy": {
+		"count": "該当する記事 {count} 件",
+		"empty": "該当する記事はまだありません。",
+		"metaTitle": "{name} の記事",
+		"metaDescription": "「{name}」に関連する Nordic Works の記事一覧。",
+		"notFound": "ページが見つかりません"
+	},
 	"pagination": {
 		"label": "ページ送り",
 		"previous": "前のページ",

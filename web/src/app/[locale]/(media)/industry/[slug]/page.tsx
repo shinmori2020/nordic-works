@@ -3,6 +3,7 @@
  */
 
 import type { Metadata } from 'next';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { localeAlternates } from '@/lib/site';
 import { notFound } from 'next/navigation';
 import {
@@ -11,7 +12,7 @@ import {
 	getTermBySlug,
 } from '@/lib/wordpress';
 import { TaxonomyArticleList } from '@/components/media/TaxonomyArticleList';
-import { termSlug } from '@/lib/taxonomy';
+import { localizeTermName, termSlug } from '@/lib/taxonomy';
 import type { SlugPageProps } from '@/types/wordpress';
 
 export const revalidate = 3600;
@@ -23,11 +24,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: SlugPageProps): Promise<Metadata> {
 	const { slug } = await params;
+	const t = await getTranslations('taxonomy');
 	const term = await getTermBySlug('industry', slug);
-	if (!term) return { title: '業界が見つかりません' };
+	if (!term) return { title: t('notFound') };
+	const name = localizeTermName(term.name, await getLocale());
 	return {
-		title: `${term.name} の記事`,
-		description: `「${term.name}」業界に関連する Nordic Works の記事一覧。`,
+		title: t('metaTitle', { name }),
+		description: t('metaDescription', { name }),
 		alternates: localeAlternates(`/industry/${termSlug(term)}`),
 	};
 }

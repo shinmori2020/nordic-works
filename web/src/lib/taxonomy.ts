@@ -12,6 +12,7 @@ import { getTerms } from '@/lib/utils';
 import type { WPPost, WPTerm } from '@/types/wordpress';
 
 const TERM_EN: Record<string, string> = {
+	// topic
 	マネジメント: 'Management',
 	心理的安全性: 'Psychological Safety',
 	リモートワーク: 'Remote Work',
@@ -20,6 +21,17 @@ const TERM_EN: Record<string, string> = {
 	カルチャー: 'Culture',
 	北欧の働き方: 'Nordic Ways of Working',
 	採用戦略: 'Hiring Strategy',
+	// industry
+	コンサルティング: 'Consulting',
+	サービス業: 'Service Industry',
+	'医療・ヘルスケア': 'Healthcare',
+	'小売・ec': 'Retail & E-commerce',
+	製造業: 'Manufacturing',
+	'金融・保険': 'Finance & Insurance',
+	// reading-level
+	上級: 'Advanced',
+	中級: 'Intermediate',
+	初級: 'Beginner',
 };
 
 /** EN ロケール時、辞書にあれば英語名を返す。それ以外は元の名称をそのまま返す。 */

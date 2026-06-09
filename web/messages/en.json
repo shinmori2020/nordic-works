@@ -215,6 +215,13 @@
 		"servicesCtaViewAll": "View all services →",
 		"pageTitle": "Articles (page {page} of {total})"
 	},
+	"taxonomy": {
+		"count": "{count} articles",
+		"empty": "No articles yet.",
+		"metaTitle": "{name} — Articles",
+		"metaDescription": "Articles related to “{name}” on Nordic Works.",
+		"notFound": "Page not found"
+	},
 	"pagination": {
 		"label": "Pagination",
 		"previous": "Previous page",

@@ -5,6 +5,7 @@
  */
 
 import type { Metadata } from 'next';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { localeAlternates } from '@/lib/site';
 import { notFound } from 'next/navigation';
 import {
@@ -13,7 +14,7 @@ import {
 	getTermBySlug,
 } from '@/lib/wordpress';
 import { TaxonomyArticleList } from '@/components/media/TaxonomyArticleList';
-import { termSlug } from '@/lib/taxonomy';
+import { localizeTermName, termSlug } from '@/lib/taxonomy';
 import type { SlugPageProps } from '@/types/wordpress';
 
 export const revalidate = 3600;
@@ -25,11 +26,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: SlugPageProps): Promise<Metadata> {
 	const { slug } = await params;
+	const t = await getTranslations('taxonomy');
 	const term = await getTermBySlug('reading_level', slug);
-	if (!term) return { title: '読了レベルが見つかりません' };
+	if (!term) return { title: t('notFound') };
+	const name = localizeTermName(term.name, await getLocale());
 	return {
-		title: `${term.name}向けの記事`,
-		description: `読了レベル「${term.name}」の Nordic Works 記事一覧。`,
+		title: t('metaTitle', { name }),
+		description: t('metaDescription', { name }),
 		alternates: localeAlternates(`/reading-level/${termSlug(term)}`),
 	};
 }
