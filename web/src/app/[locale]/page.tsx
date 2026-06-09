@@ -243,8 +243,13 @@ export default async function Home({
 					<div className="grid gap-10 sm:grid-cols-3">
 						{approachItems.map((item, i) => (
 							<div key={i}>
-								<div className="h-0.5 w-8 rounded-full bg-accent" aria-hidden="true" />
-								<h3 className="mt-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+								<div className="flex items-center gap-3">
+									<span className="text-4xl font-semibold tabular-nums leading-none text-accent-text">
+										{String(i + 1).padStart(2, '0')}
+									</span>
+									<span className="h-px flex-1 bg-zinc-200 dark:bg-zinc-700" aria-hidden="true" />
+								</div>
+								<h3 className="mt-5 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
 									{item.title}
 								</h3>
 								<p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
