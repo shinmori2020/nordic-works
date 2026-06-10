@@ -32,6 +32,7 @@ import { ArticleCard } from '@/components/media/ArticleCard';
 import { FeatureCard } from '@/components/media/FeatureCard';
 import { Reveal } from '@/components/common/Reveal';
 import { Button } from '@/components/common/Button';
+import { SuminagashiCanvas } from '@/components/common/SuminagashiCanvas';
 
 // ISR: 1時間ごとに再生成（docs/06-features.md の方針）
 export const revalidate = 3600;
@@ -125,26 +126,9 @@ export default async function Home({
 		<div className="font-brand">
 			{/* ヒーロー: コピー＋オーロラ風アニメ背景（北欧モチーフ） */}
 			<section className="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				{/* 背景シーン: 水面の流れる波（横波3層）＋光の反射 */}
-				<div aria-hidden="true" className="hero-scene">
-					<svg
-						className="waves text-accent-text"
-						viewBox="0 0 1200 800"
-						preserveAspectRatio="none"
-						fill="none"
-					>
-						<g className="wave wave-3">
-							<path d="M-480 420 q120 -42 240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 L1680 800 L-480 800 Z" />
-						</g>
-						<g className="wave wave-2">
-							<path d="M-480 540 q120 -28 240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 L1680 800 L-480 800 Z" />
-						</g>
-						<g className="wave wave-1">
-							<path d="M-480 660 q120 -34 240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 L1680 800 L-480 800 Z" />
-						</g>
-					</svg>
-					<div className="spot" />
-				</div>
+				{/* 背景: 墨流し風 流体シミュレーション（>900px・モーション可時のみ起動。
+				    モバイル/reduced-motion 時はセクションの地色が静的背景になる） */}
+				<SuminagashiCanvas />
 				{/* 可読性: テキスト側（左）を地色で落ち着かせ、右にオーロラを見せる */}
 				<div
 					aria-hidden="true"
