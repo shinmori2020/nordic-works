@@ -89,10 +89,10 @@ export default async function AboutPage({
 					<h2 className="mt-2 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl">
 						{t('mission.title')}
 					</h2>
-					<p className="mt-5 max-w-3xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+					<p className="mt-5 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
 						{t('hero.description')}
 					</p>
-					<p className="mt-4 max-w-3xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+					<p className="mt-4 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
 						{t('mission.body')}
 					</p>
 				</Reveal>
@@ -140,7 +140,7 @@ export default async function AboutPage({
 					<h2 className="mt-2 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl">
 						{t('companyInfo.title')}
 					</h2>
-					<dl className="mt-8 max-w-3xl border-t border-zinc-200 dark:border-zinc-800">
+					<dl className="mt-8 border-t border-zinc-200 dark:border-zinc-800">
 						{COMPANY_ROW_KEYS.map((key) => (
 							<div
 								key={key}
