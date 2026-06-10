@@ -54,15 +54,11 @@ export default async function AboutPage({
 
 	return (
 		<main>
-			{/* ヒーロー */}
+			{/* ヒーロー: ページ見出しとして「ABOUT」を大きく1語だけ（セクション見出しと差別化） */}
 			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				<div className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
-					<div className="mb-4 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
-					<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
+				<div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+					<h1 className="text-6xl font-semibold uppercase tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-8xl">
 						{t('hero.label')}
-					</p>
-					<h1 className="mt-4 max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-						{t('hero.title')}
 					</h1>
 				</div>
 			</section>
