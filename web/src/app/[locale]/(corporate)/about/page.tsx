@@ -43,6 +43,7 @@ export default async function AboutPage({
 			{/* ヒーロー */}
 			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 				<div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+					<div className="mb-4 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
 					<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
 						{t('hero.label')}
 					</p>
@@ -56,34 +57,37 @@ export default async function AboutPage({
 			</section>
 
 			{/* ミッション */}
-			<section className="mx-auto max-w-6xl px-6 py-16">
+			<section className="mx-auto max-w-6xl px-6 py-20">
+				<div className="mb-3 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
 				<p className="text-xs uppercase tracking-widest text-accent-text">
 					{t('mission.label')}
 				</p>
-				<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
+				<h2 className="mt-2 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl">
 					{t('mission.title')}
 				</h2>
-				<p className="mt-4 leading-relaxed text-zinc-600 dark:text-zinc-400">
+				<p className="mt-5 max-w-3xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
 					{t('mission.body')}
 				</p>
 			</section>
 
 			{/* バリュー */}
 			<section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				<div className="mx-auto max-w-6xl px-6 py-16">
+				<div className="mx-auto max-w-6xl px-6 py-20">
+					<div className="mb-3 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
 					<p className="text-xs uppercase tracking-widest text-accent-text">
 						{t('values.label')}
 					</p>
-					<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
+					<h2 className="mt-2 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl">
 						{t('values.title')}
 					</h2>
-					<div className="mt-8 grid gap-6 sm:grid-cols-3">
+					<div className="mt-10 grid gap-6 sm:grid-cols-3">
 						{VALUE_KEYS.map((key) => (
 							<div
 								key={key}
-								className="rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950"
+								className="rounded-lg border border-zinc-200 bg-white p-6 transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-zinc-700"
 							>
-								<h3 className="font-semibold text-zinc-900 dark:text-zinc-100">
+								<div className="h-0.5 w-8 rounded-full bg-accent" aria-hidden="true" />
+								<h3 className="mt-4 font-semibold text-zinc-900 dark:text-zinc-100">
 									{t(`values.items.${key}.title`)}
 								</h3>
 								<p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
@@ -96,20 +100,21 @@ export default async function AboutPage({
 			</section>
 
 			{/* 会社情報 */}
-			<section className="mx-auto max-w-6xl px-6 py-16">
+			<section className="mx-auto max-w-6xl px-6 py-20">
+				<div className="mb-3 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
 				<p className="text-xs uppercase tracking-widest text-accent-text">
 					{t('companyInfo.label')}
 				</p>
-				<h2 className="mt-2 text-2xl font-semibold text-zinc-900 dark:text-zinc-100">
+				<h2 className="mt-2 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl">
 					{t('companyInfo.title')}
 				</h2>
-				<dl className="mt-8">
+				<dl className="mt-8 max-w-3xl border-t border-zinc-200 dark:border-zinc-800">
 					{COMPANY_ROW_KEYS.map((key) => (
 						<div
 							key={key}
 							className="flex flex-col gap-1 border-b border-zinc-200 py-4 sm:flex-row sm:gap-6 dark:border-zinc-800"
 						>
-							<dt className="w-32 shrink-0 text-sm text-zinc-500">
+							<dt className="w-40 shrink-0 text-sm text-zinc-500">
 								{t(`companyInfo.rows.${key}.label`)}
 							</dt>
 							<dd className="text-sm text-zinc-900 dark:text-zinc-200">
