@@ -15,7 +15,17 @@ import { Link } from '@/i18n/navigation';
 import { Reveal } from '@/components/common/Reveal';
 
 const VALUE_KEYS = ['transparency', 'safety', 'data'] as const;
-const COMPANY_ROW_KEYS = ['name', 'business', 'founded', 'location', 'note'] as const;
+const COMPANY_ROW_KEYS = [
+	'name',
+	'representative',
+	'business',
+	'founded',
+	'capital',
+	'employees',
+	'location',
+	'website',
+	'note',
+] as const;
 
 export async function generateMetadata({
 	params,
@@ -44,36 +54,14 @@ export default async function AboutPage({
 
 	return (
 		<main>
-			{/* ヒーロー: TOP と同じ「水面の波」アニメ背景（北欧モチーフ） */}
-			<section className="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-				<div aria-hidden="true" className="hero-scene">
-					<svg
-						className="waves text-accent-text"
-						viewBox="0 0 1200 800"
-						preserveAspectRatio="none"
-						fill="none"
-					>
-						<g className="wave wave-3">
-							<path d="M-480 420 q120 -42 240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 L1680 800 L-480 800 Z" />
-						</g>
-						<g className="wave wave-2">
-							<path d="M-480 540 q120 -28 240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 L1680 800 L-480 800 Z" />
-						</g>
-						<g className="wave wave-1">
-							<path d="M-480 660 q120 -34 240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 t240 0 L1680 800 L-480 800 Z" />
-						</g>
-					</svg>
-					<div className="spot" />
-				</div>
-				<div
-					aria-hidden="true"
-					className="absolute inset-0 bg-gradient-to-r from-zinc-50 via-zinc-50/40 to-transparent dark:from-zinc-900 dark:via-zinc-900/40"
-				/>
-				<div className="relative mx-auto flex min-h-[56vh] max-w-6xl flex-col justify-center px-6 py-24 sm:min-h-[62vh] sm:py-28">
+			{/* ヒーロー */}
+			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
+				<div className="mx-auto max-w-6xl px-6 py-14 sm:py-16">
+					<div className="mb-4 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
 					<p className="text-sm font-medium uppercase tracking-widest text-accent-text">
 						{t('hero.label')}
 					</p>
-					<h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl sm:leading-tight">
+					<h1 className="mt-4 max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
 						{t('hero.title')}
 					</h1>
 				</div>

@@ -180,9 +180,13 @@
 			"title": "会社情報",
 			"rows": {
 				"name": { "label": "会社名", "value": "Nordic Works 株式会社（架空）" },
-				"business": { "label": "事業内容", "value": "組織開発・働き方改善を支援する B2B SaaS の開発・提供" },
-				"founded": { "label": "設立", "value": "2021年（設定）" },
-				"location": { "label": "所在地", "value": "東京（リモートファースト）" },
+				"representative": { "label": "代表者", "value": "代表取締役 CEO 林 健太郎（架空）" },
+				"business": { "label": "事業内容", "value": "組織開発・働き方改善を支援する B2B SaaS の開発・提供、組織サーベイ・1on1支援・心理的安全性診断" },
+				"founded": { "label": "設立", "value": "2021年4月（設定）" },
+				"capital": { "label": "資本金", "value": "1億2,000万円（架空）" },
+				"employees": { "label": "従業員数", "value": "52名（2026年時点・架空）" },
+				"location": { "label": "所在地", "value": "東京（リモートファースト / フルリモート可）" },
+				"website": { "label": "Webサイト", "value": "nordic-works.vercel.app" },
 				"note": { "label": "備考", "value": "これはポートフォリオ用に制作された架空の企業サイトです。" }
 			}
 		}

@@ -180,9 +180,13 @@
 			"title": "Company information",
 			"rows": {
 				"name": { "label": "Company", "value": "Nordic Works K.K. (fictional)" },
-				"business": { "label": "Business", "value": "Development and delivery of B2B SaaS for organisation development and workplace improvement" },
-				"founded": { "label": "Founded", "value": "2021 (fictional)" },
-				"location": { "label": "Location", "value": "Tokyo (remote-first)" },
+				"representative": { "label": "Representative", "value": "Kentaro Hayashi, CEO (fictional)" },
+				"business": { "label": "Business", "value": "Development and delivery of B2B SaaS for organisation development and workplace improvement; org surveys, 1-on-1 support, psychological-safety diagnostics" },
+				"founded": { "label": "Founded", "value": "April 2021 (fictional)" },
+				"capital": { "label": "Capital", "value": "JPY 120 million (fictional)" },
+				"employees": { "label": "Employees", "value": "52 (as of 2026, fictional)" },
+				"location": { "label": "Location", "value": "Tokyo (remote-first / fully remote available)" },
+				"website": { "label": "Website", "value": "nordic-works.vercel.app" },
 				"note": { "label": "Note", "value": "This is a fictional company website built as a portfolio project." }
 			}
 		}
