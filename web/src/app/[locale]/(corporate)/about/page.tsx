@@ -51,6 +51,7 @@ export default async function AboutPage({
 
 	const t = await getTranslations('about');
 	const tHome = await getTranslations('home');
+	const tNav = await getTranslations('nav');
 
 	return (
 		<main>
@@ -68,11 +69,46 @@ export default async function AboutPage({
 							</p>
 						</div>
 					</div>
+
+					{/* ページ内インデックス（番号付きアンカー） */}
+					<nav
+						aria-label={t('hero.label')}
+						className="mt-10 border-t border-zinc-200 pt-6 dark:border-zinc-800 sm:mt-12"
+					>
+						<ul className="flex flex-wrap items-center gap-x-8 gap-y-3">
+							{[
+								{ href: '#mission', no: '01', label: t('mission.label') },
+								{ href: '#values', no: '02', label: t('values.label') },
+								{ href: '#company', no: '03', label: t('companyInfo.label') },
+							].map((item) => (
+								<li key={item.href}>
+									<a
+										href={item.href}
+										className="group inline-flex items-baseline gap-2 text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+									>
+										<span className="font-mono text-xs text-accent-text">{item.no}</span>
+										<span className="border-b border-transparent pb-0.5 transition-colors group-hover:border-zinc-400 dark:group-hover:border-zinc-500">
+											{item.label}
+										</span>
+									</a>
+								</li>
+							))}
+							<li className="sm:ml-auto">
+								<Link
+									href="/careers"
+									className="inline-flex items-center gap-1 text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+								>
+									{tNav('careers')}
+									<span aria-hidden="true">→</span>
+								</Link>
+							</li>
+						</ul>
+					</nav>
 				</div>
 			</section>
 
 			{/* ミッション */}
-			<section className="mx-auto max-w-6xl px-6 py-20">
+			<section id="mission" className="mx-auto max-w-6xl px-6 py-20 scroll-mt-24">
 				<Reveal>
 					<div className="mb-3 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
 					<p className="text-xs uppercase tracking-widest text-accent-text">
@@ -91,7 +127,7 @@ export default async function AboutPage({
 			</section>
 
 			{/* バリュー: 番号付き（01/02/03）カード */}
-			<section className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
+			<section id="values" className="scroll-mt-24 border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 				<div className="mx-auto max-w-6xl px-6 py-20">
 					<Reveal>
 						<div className="mb-3 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
@@ -123,7 +159,7 @@ export default async function AboutPage({
 			</section>
 
 			{/* 会社情報 */}
-			<section className="mx-auto max-w-6xl px-6 py-20">
+			<section id="company" className="mx-auto max-w-6xl px-6 py-20 scroll-mt-24">
 				<Reveal>
 					<div className="mb-3 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
 					<p className="text-xs uppercase tracking-widest text-accent-text">
