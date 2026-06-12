@@ -5,9 +5,9 @@
 import type { Metadata } from 'next';
 import { localeAlternates } from '@/lib/site';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Link } from '@/i18n/navigation';
 import { getFeatures } from '@/lib/wordpress';
 import { FeatureCard } from '@/components/media/FeatureCard';
+import { PageHero } from '@/components/common/PageHero';
 
 // ISR: 特集は記事より更新頻度が高いため1時間
 export const revalidate = 3600;
@@ -35,38 +35,29 @@ export default async function FeaturesPage({
 	setRequestLocale(locale);
 
 	const t = await getTranslations('features');
-	const tArticles = await getTranslations('articles');
+	const tNav = await getTranslations('nav');
 	const features = await getFeatures();
 
 	return (
-		<main className="mx-auto max-w-4xl px-6 py-16 sm:py-20">
-			<header className="mb-10">
-				<Link
-					href="/"
-					className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-				>
-					{tArticles('backHome')}
-				</Link>
-				<p className="mt-2 text-xs uppercase tracking-widest text-accent-text">
-					{t('label')}
-				</p>
-				<h1 className="mt-1 text-3xl font-semibold text-zinc-900 dark:text-zinc-100">
-					{t('title')}
-				</h1>
-				<p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-					{t('description')}
-				</p>
-			</header>
+		<main>
+			<PageHero
+				breadcrumb={t('title')}
+				wordmark={t('label')}
+				tagline={t('description')}
+				bottomLink={{ href: '/articles', label: tNav('insights') }}
+			/>
 
-			{features.length === 0 ? (
-				<p className="text-sm text-zinc-500">{t('empty')}</p>
-			) : (
-				<div className="space-y-12">
-					{features.map((feature) => (
-						<FeatureCard key={feature.id} feature={feature} />
-					))}
-				</div>
-			)}
+			<section className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+				{features.length === 0 ? (
+					<p className="text-sm text-zinc-500">{t('empty')}</p>
+				) : (
+					<div className="space-y-12">
+						{features.map((feature) => (
+							<FeatureCard key={feature.id} feature={feature} />
+						))}
+					</div>
+				)}
+			</section>
 		</main>
 	);
 }
