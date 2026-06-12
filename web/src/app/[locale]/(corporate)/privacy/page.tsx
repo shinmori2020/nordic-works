@@ -134,7 +134,7 @@ export default function PrivacyPage() {
 
 			{/* 本文 */}
 			<section className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-				<div className="max-w-3xl">
+				<div>
 					{/* 架空サイトであることの明示 */}
 					<aside className="rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900 dark:border-amber-900/50 dark:bg-amber-950/40 dark:text-amber-200">
 						本サイトはポートフォリオ目的で制作された架空企業のウェブサイトです。
