@@ -58,7 +58,30 @@
 			"name": "Name",
 			"email": "Email address",
 			"company": "Company (optional)",
+			"phone": "Phone (optional)",
+			"inquiryType": "Inquiry type",
+			"inquiryTypeOptions": {
+				"service": "Service inquiry",
+				"media": "Interview / speaking request",
+				"recruit": "Careers",
+				"other": "Other"
+			},
+			"orgSize": "Organisation size (optional)",
+			"orgSizeOptions": {
+				"lt50": "Up to 50",
+				"to200": "51–200",
+				"to1000": "201–1,000",
+				"gt1000": "1,001+"
+			},
+			"contactMethod": "Preferred contact method (optional)",
+			"contactMethodOptions": {
+				"email": "Email",
+				"phone": "Phone",
+				"online": "Online meeting"
+			},
+			"selectPlaceholder": "Please select",
 			"message": "Your message",
+			"agreementError": "You must agree to the privacy policy",
 			"submit": "Send message",
 			"successTitle": "Message sent",
 			"errorRequired": "Please fill in the required fields"
@@ -194,6 +217,7 @@
 	"contact": {
 		"label": "Contact",
 		"title": "Contact us",
+		"tagline": "Let's start a conversation.",
 		"description": "Use the form below for service inquiries, interview/speaking requests, or any other questions. We usually reply within 2-3 business days."
 	},
 	"articles": {

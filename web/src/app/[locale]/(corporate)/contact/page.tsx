@@ -60,20 +60,21 @@ export default async function ContactPage({ params, searchParams }: PageProps) {
 						</h1>
 						<div className="md:pb-2">
 							<div className="mb-3 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
-							<p className="max-w-md text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-base">
-								{t('description')}
+							<p className="text-xl font-medium leading-snug tracking-tight text-zinc-700 dark:text-zinc-300 sm:text-2xl">
+								{t('tagline')}
 							</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			{/* フォーム: 中央カード */}
+			{/* フォーム: 補足文 → 全幅カード */}
 			<section className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-				<div className="mx-auto max-w-xl">
-					<div className="rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950 sm:p-8">
-						<ContactForm initialMessage={initialMessage} />
-					</div>
+				<p className="max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+					{t('description')}
+				</p>
+				<div className="mt-8 rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950 sm:p-8">
+					<ContactForm initialMessage={initialMessage} />
 				</div>
 			</section>
 		</main>

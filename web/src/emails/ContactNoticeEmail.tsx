@@ -21,6 +21,10 @@ interface Props {
 	name: string;
 	email: string;
 	company?: string;
+	phone?: string;
+	inquiryType: string;
+	orgSize?: string;
+	contactMethod?: string;
 	message: string;
 	receivedAt: string;
 }
@@ -29,6 +33,10 @@ export function ContactNoticeEmail({
 	name,
 	email,
 	company,
+	phone,
+	inquiryType,
+	orgSize,
+	contactMethod,
 	message,
 	receivedAt,
 }: Props) {
@@ -44,9 +52,13 @@ export function ContactNoticeEmail({
 					<Hr style={hr} />
 
 					<Section>
+						<Row label="種別" value={inquiryType} />
 						<Row label="お名前" value={name} />
 						<Row label="メール" value={email} />
 						{company && <Row label="会社名" value={company} />}
+						{phone && <Row label="電話番号" value={phone} />}
+						{orgSize && <Row label="組織規模" value={orgSize} />}
+						{contactMethod && <Row label="連絡方法" value={contactMethod} />}
 					</Section>
 
 					<Hr style={hr} />

@@ -58,7 +58,30 @@
 			"name": "お名前",
 			"email": "メールアドレス",
 			"company": "会社名（任意）",
+			"phone": "電話番号（任意）",
+			"inquiryType": "お問い合わせ種別",
+			"inquiryTypeOptions": {
+				"service": "サービス導入のご相談",
+				"media": "取材・登壇のご依頼",
+				"recruit": "採用について",
+				"other": "その他"
+			},
+			"orgSize": "組織規模（任意）",
+			"orgSizeOptions": {
+				"lt50": "〜50名",
+				"to200": "51〜200名",
+				"to1000": "201〜1,000名",
+				"gt1000": "1,001名以上"
+			},
+			"contactMethod": "ご希望の連絡方法（任意）",
+			"contactMethodOptions": {
+				"email": "メール",
+				"phone": "電話",
+				"online": "オンライン面談"
+			},
+			"selectPlaceholder": "選択してください",
 			"message": "お問い合わせ内容",
+			"agreementError": "プライバシーポリシーへの同意が必要です",
 			"submit": "送信する",
 			"successTitle": "送信が完了しました",
 			"errorRequired": "必須項目を入力してください"
@@ -194,6 +217,7 @@
 	"contact": {
 		"label": "Contact",
 		"title": "お問い合わせ",
+		"tagline": "まずは、お気軽にご相談ください。",
 		"description": "サービス導入のご相談、取材・登壇のご依頼、その他お問い合わせは下記フォームよりお送りください。通常2〜3営業日以内にご返信します。"
 	},
 	"articles": {
