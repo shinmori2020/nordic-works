@@ -21,7 +21,9 @@ interface PageHeroProps {
 	tagline: string;
 	/** 区切り線の行・右下のリンク（例: Insights →）。 */
 	bottomLink?: { href: string; label: string };
-	/** 区切り線の行・左側に置く要素（例: トピックチップ・索引ナビ）。 */
+	/** 区切り線の行・左側の番号付きアンカー（ページ内リンク。例: 01 特集）。 */
+	anchors?: { no: string; label: string; href: string }[];
+	/** 区切り線の行・左側に置く任意要素（例: トピックチップ）。 */
 	bottomStart?: ReactNode;
 }
 
@@ -30,9 +32,10 @@ export function PageHero({
 	wordmark,
 	tagline,
 	bottomLink,
+	anchors,
 	bottomStart,
 }: PageHeroProps) {
-	const hasBottom = Boolean(bottomLink || bottomStart);
+	const hasBottom = Boolean(bottomLink || bottomStart || anchors?.length);
 	return (
 		<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 			<div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
@@ -53,6 +56,18 @@ export function PageHero({
 				{hasBottom && (
 					<div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-zinc-200 pt-6 dark:border-zinc-800 sm:mt-12">
 						{bottomStart}
+						{anchors?.map((a) => (
+							<a
+								key={a.href}
+								href={a.href}
+								className="group inline-flex items-baseline gap-2 text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+							>
+								<span className="font-mono text-xs text-accent-text">{a.no}</span>
+								<span className="border-b border-transparent pb-0.5 transition-colors group-hover:border-zinc-400 dark:group-hover:border-zinc-500">
+									{a.label}
+								</span>
+							</a>
+						))}
 						{bottomLink && (
 							<Link
 								href={bottomLink.href}

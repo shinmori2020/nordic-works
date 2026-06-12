@@ -45,10 +45,14 @@ export default async function AuthorsPage({
 				breadcrumb={t('title')}
 				wordmark={t('label')}
 				tagline={t('description')}
+				anchors={[{ no: '01', label: t('title'), href: '#authors-list' }]}
 				bottomLink={{ href: '/articles', label: tNav('insights') }}
 			/>
 
-			<section className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+			<section
+				id="authors-list"
+				className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 sm:py-20"
+			>
 				{authors.length === 0 ? (
 					<p className="text-sm text-red-600">⚠️ {tArticles('fetchError')}</p>
 				) : (

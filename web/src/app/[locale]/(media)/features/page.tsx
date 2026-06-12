@@ -44,10 +44,14 @@ export default async function FeaturesPage({
 				breadcrumb={t('title')}
 				wordmark={t('label')}
 				tagline={t('description')}
+				anchors={[{ no: '01', label: t('title'), href: '#features-list' }]}
 				bottomLink={{ href: '/articles', label: tNav('insights') }}
 			/>
 
-			<section className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+			<section
+				id="features-list"
+				className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 sm:py-20"
+			>
 				{features.length === 0 ? (
 					<p className="text-sm text-zinc-500">{t('empty')}</p>
 				) : (
