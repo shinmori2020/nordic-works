@@ -50,29 +50,32 @@ export default async function ContactPage({ params, searchParams }: PageProps) {
 	const initialMessage = buildInitialMessage(service, plan);
 
 	return (
-		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-			<div className="lg:grid lg:grid-cols-2 lg:gap-16">
-				{/* 左: 見出し＋説明 */}
-				<div className="lg:py-2">
-					<div className="mb-3 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
-					<p className="text-xs uppercase tracking-widest text-accent-text">
-						{t('label')}
-					</p>
-					<h1 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-						{t('title')}
-					</h1>
-					<p className="mt-4 max-w-md text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-						{t('description')}
-					</p>
+		<main>
+			{/* ヒーロー: 左に特大 CONTACT、右に説明（about と統一の扉ページ） */}
+			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
+				<div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+					<div className="grid gap-6 md:grid-cols-[auto_1fr] md:items-end md:gap-12">
+						<h1 className="text-6xl font-semibold uppercase leading-none tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-7xl md:text-8xl">
+							{t('label')}
+						</h1>
+						<div className="md:pb-2">
+							<div className="mb-3 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
+							<p className="max-w-md text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-base">
+								{t('description')}
+							</p>
+						</div>
+					</div>
 				</div>
+			</section>
 
-				{/* 右: フォーム（カード） */}
-				<div className="mt-10 lg:mt-0">
+			{/* フォーム: 中央カード */}
+			<section className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+				<div className="mx-auto max-w-xl">
 					<div className="rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950 sm:p-8">
 						<ContactForm initialMessage={initialMessage} />
 					</div>
 				</div>
-			</div>
+			</section>
 		</main>
 	);
 }
