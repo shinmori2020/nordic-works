@@ -312,7 +312,7 @@
 	"resources": {
 		"label": "Resources",
 		"title": "Download resources",
-		"description": "Practical whitepapers on organisation development, remote work operations, and goal management. After filling in the form, a team member will send you the PDF.",
+		"description": "Practical whitepapers on org development, remote work and goal management.",
 		"download": "Download resource →",
 		"pageCount": "PDF · {count} pages",
 		"readingTime": "~{minutes} min",

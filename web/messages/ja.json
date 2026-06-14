@@ -312,7 +312,7 @@
 	"resources": {
 		"label": "Resources",
 		"title": "資料ダウンロード",
-		"description": "組織開発・リモートワーク運用・目標管理に関する実務向けホワイトペーパーを公開しています。フォームへの記入後、担当者よりPDFをお送りします。",
+		"description": "組織開発・リモートワーク・目標管理の実務向けホワイトペーパー集。",
 		"download": "資料をダウンロード →",
 		"pageCount": "PDF · {count} ページ",
 		"readingTime": "約 {minutes} 分",

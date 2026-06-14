@@ -47,7 +47,7 @@ export function PageHero({
 					</h1>
 					<div className="mt-6">
 						<div className="mb-3 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
-						<p className="max-w-2xl text-xl font-medium leading-snug tracking-tight text-zinc-700 dark:text-zinc-300 sm:text-2xl">
+						<p className="text-xl font-medium leading-snug tracking-tight text-zinc-700 dark:text-zinc-300 sm:text-2xl">
 							{tagline}
 						</p>
 					</div>
