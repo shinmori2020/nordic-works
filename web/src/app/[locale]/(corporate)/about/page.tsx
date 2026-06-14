@@ -13,6 +13,7 @@ import { localeAlternates } from '@/lib/site';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { Reveal } from '@/components/common/Reveal';
+import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 
 const VALUE_KEYS = ['transparency', 'safety', 'data'] as const;
 const COMPANY_ROW_KEYS = [
@@ -58,7 +59,8 @@ export default async function AboutPage({
 			{/* ヒーロー: 左に特大 ABOUT、右にタグライン（雑誌の扉ページ風・2カラム） */}
 			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 				<div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-					<div>
+					<Breadcrumbs items={[{ label: t('metaTitle') }]} />
+					<div className="mt-6">
 						<h1 className="text-6xl font-semibold uppercase leading-none tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-7xl md:text-8xl">
 							{t('hero.label')}
 						</h1>

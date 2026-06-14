@@ -9,6 +9,7 @@ import type { Metadata } from 'next';
 import { localeAlternates } from '@/lib/site';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ContactForm } from '@/components/corporate/ContactForm';
+import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 
 export async function generateMetadata({
 	params,
@@ -54,7 +55,8 @@ export default async function ContactPage({ params, searchParams }: PageProps) {
 			{/* ヒーロー: 左に特大 CONTACT、右に説明（about と統一の扉ページ） */}
 			<section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
 				<div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-					<div>
+					<Breadcrumbs items={[{ label: t('title') }]} />
+					<div className="mt-6">
 						<h1 className="text-6xl font-semibold uppercase leading-none tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-7xl md:text-8xl">
 							{t('label')}
 						</h1>
