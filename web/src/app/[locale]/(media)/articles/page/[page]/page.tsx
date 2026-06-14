@@ -15,6 +15,7 @@ import { collectTopics } from '@/lib/taxonomy';
 import { ArticleCard } from '@/components/media/ArticleCard';
 import { ArticleListIntro } from '@/components/media/ArticleListIntro';
 import { Pagination } from '@/components/common/Pagination';
+import { PageHero } from '@/components/common/PageHero';
 
 export const revalidate = 3600;
 
@@ -68,25 +69,40 @@ export default async function ArticlesPaginatedPage({
 		notFound();
 	}
 
+	const t = await getTranslations('articles');
+	const tNav = await getTranslations('nav');
 	const topics = collectTopics(posts);
 	const start = (pageNum - 1) * ARTICLES_PER_PAGE;
 	const pagePosts = posts.slice(start, start + ARTICLES_PER_PAGE);
 
 	return (
-		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-			<ArticleListIntro topics={topics} locale={locale} />
-
-			<div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-				{pagePosts.map((post) => (
-					<ArticleCard key={post.id} post={post} />
-				))}
-			</div>
-
-			<Pagination
-				currentPage={pageNum}
-				totalPages={totalPages}
-				basePath="/articles"
+		<main>
+			<PageHero
+				breadcrumb={t('title')}
+				wordmark={t('label')}
+				tagline={t('description')}
+				anchors={[{ no: '01', label: t('title'), href: '#articles-list' }]}
+				bottomLink={{ href: '/features', label: tNav('features') }}
 			/>
+
+			<section
+				id="articles-list"
+				className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 sm:py-20"
+			>
+				<ArticleListIntro topics={topics} locale={locale} />
+
+				<div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+					{pagePosts.map((post) => (
+						<ArticleCard key={post.id} post={post} />
+					))}
+				</div>
+
+				<Pagination
+					currentPage={pageNum}
+					totalPages={totalPages}
+					basePath="/articles"
+				/>
+			</section>
 		</main>
 	);
 }
