@@ -95,11 +95,11 @@ export default function PrivacyPage() {
 				<div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
 					<Breadcrumbs items={[{ label: 'プライバシーポリシー' }]} />
 
-					<div className="mt-6 grid gap-6 md:grid-cols-[auto_1fr] md:items-end md:gap-12">
+					<div className="mt-6">
 						<h1 className="text-6xl font-semibold uppercase leading-none tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-7xl md:text-8xl">
 							Privacy
 						</h1>
-						<div className="md:pb-2">
+						<div className="mt-6">
 							<div className="mb-3 h-0.5 w-10 rounded-full bg-accent" aria-hidden="true" />
 							<p className="text-xl font-medium leading-snug tracking-tight text-zinc-700 dark:text-zinc-300 sm:text-2xl">
 								個人情報の取り扱いについて。
