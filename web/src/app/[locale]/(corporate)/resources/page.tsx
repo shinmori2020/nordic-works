@@ -10,7 +10,7 @@ import { localeAlternates } from '@/lib/site';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getWhitepapers } from '@/lib/whitepapers';
-import { Breadcrumbs } from '@/components/common/Breadcrumbs';
+import { PageHero } from '@/components/common/PageHero';
 import type { Locale } from '@/i18n/routing';
 
 export async function generateMetadata({
@@ -36,66 +36,62 @@ export default async function ResourcesPage({
 	setRequestLocale(locale);
 
 	const t = await getTranslations('resources');
+	const tNav = await getTranslations('nav');
 	const whitepapers = getWhitepapers(locale as Locale);
 
 	return (
-		<main className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-			<Breadcrumbs
-				items={[
-					{ label: t('label') },
-				]}
+		<main>
+			<PageHero
+				breadcrumb={t('title')}
+				wordmark={t('label')}
+				tagline={t('description')}
+				anchors={[{ no: '01', label: t('title'), href: '#resources-list' }]}
+				bottomLink={{ href: '/contact', label: tNav('contact') }}
 			/>
 
-			<header className="mt-6">
-				<p className="text-xs uppercase tracking-widest text-accent-text">
-					{t('label')}
-				</p>
-				<h1 className="mt-2 text-3xl font-semibold text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-					{t('title')}
-				</h1>
-				<p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-					{t('description')}
-				</p>
-			</header>
+			<section
+				id="resources-list"
+				className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 sm:py-20"
+			>
+				<ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+					{whitepapers.map((wp) => (
+						<li key={wp.slug}>
+							<article className="flex h-full flex-col rounded-lg border border-zinc-200 p-6 transition-colors hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600">
+								<div className="flex flex-wrap gap-1.5">
+									{wp.topics.slice(0, 2).map((topic) => (
+										<span
+											key={topic}
+											className="rounded bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
+										>
+											{topic}
+										</span>
+									))}
+								</div>
 
-			<ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-				{whitepapers.map((wp) => (
-					<li key={wp.slug}>
-						<article className="flex h-full flex-col rounded-lg border border-zinc-200 p-6 transition-colors hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600">
-							<div className="flex flex-wrap gap-1.5">
-								{wp.topics.slice(0, 2).map((topic) => (
-									<span
-										key={topic}
-										className="rounded bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
-									>
-										{topic}
-									</span>
-								))}
-							</div>
+								<h2 className="mt-3 font-semibold leading-snug text-zinc-900 dark:text-zinc-100">
+									{wp.title}
+								</h2>
 
-							<h2 className="mt-3 font-semibold leading-snug text-zinc-900 dark:text-zinc-100">
-								{wp.title}
-							</h2>
+								<p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+									{wp.summary}
+								</p>
 
-							<p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-								{wp.summary}
-							</p>
+								<div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-xs text-zinc-400">
+									<span>{t('pageCount', { count: wp.pageCount })}</span>
+									<span>· {t('readingTime', { minutes: wp.readingTime })}</span>
+								</div>
 
-							<div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-xs text-zinc-400">
-								<span>{t('pageCount', { count: wp.pageCount })}</span>
-								<span>· {t('readingTime', { minutes: wp.readingTime })}</span>
-							</div>
-
-							<Link
-								href={`/resources/${wp.slug}`}
-								className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-zinc-900 transition-colors hover:text-zinc-500 dark:text-zinc-100 dark:hover:text-zinc-400"
-							>
-								{t('download')}
-							</Link>
-						</article>
-					</li>
-				))}
-			</ul>
+								<Link
+									href={`/resources/${wp.slug}`}
+									className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-zinc-900 transition-colors hover:text-zinc-500 dark:text-zinc-100 dark:hover:text-zinc-400"
+								>
+									{t('download')}
+								</Link>
+							</article>
+						</li>
+					))}
+				</ul>
+			</section>
 		</main>
 	);
 }
