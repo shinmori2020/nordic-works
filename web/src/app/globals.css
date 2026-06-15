@@ -92,6 +92,12 @@ summary:focus-visible,
   }
 }
 
+/* type=search のブラウザ標準クリアボタンを抑止（独自の × ボタンに一本化） */
+input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 /* -------------------------------------------------------------------------
  * 記事本文 (WordPress content.rendered) の最小スタイル。
  * Week 4/7 で @tailwindcss/typography 等によるリッチ化を検討。
