@@ -10,7 +10,6 @@ import { localeAlternates } from '@/lib/site';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Link } from '@/i18n/navigation';
 import { getFeatureBySlug, getFeatures, getPostsByIds } from '@/lib/wordpress';
 import { ArticleCard } from '@/components/media/ArticleCard';
 import { getFeaturedImage, stripHtml, formatDate, BLUR_DATA_URL } from '@/lib/utils';

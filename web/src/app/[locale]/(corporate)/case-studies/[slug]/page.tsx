@@ -53,7 +53,6 @@ export default async function CaseStudyDetailPage({
 	if (!cs) notFound();
 
 	const t = await getTranslations('caseStudies');
-	const tCommon = await getTranslations('common');
 
 	const acf = cs.acf;
 	const image = caseStudyImage(cs);
