@@ -333,6 +333,8 @@
 		"facetTopic": "トピック",
 		"facetIndustry": "業界",
 		"clear": "クリア",
+		"clearAll": "すべてクリア",
+		"suggested": "おすすめの記事",
 		"clearAria": "{label} の絞り込みをクリア"
 	},
 	"caseStudies": {
