@@ -56,10 +56,14 @@ export function Header() {
 						))}
 					</nav>
 
-					{/* 検索ボタン → /search */}
+					{/* 検索ボタン → 検索モーダルを開く（JS無効時は /search へ遷移） */}
 					<Link
 						href="/search"
 						aria-label={t('openSearch')}
+						onClick={(e) => {
+							e.preventDefault();
+							window.dispatchEvent(new Event('nordic:open-search'));
+						}}
 						className="flex h-9 w-9 items-center justify-center rounded-md text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
 					>
 						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
