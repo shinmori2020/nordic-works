@@ -56,7 +56,8 @@ export function Header() {
 						))}
 					</nav>
 
-					{/* 検索ボタン → 検索モーダルを開く（JS無効時は /search へ遷移） */}
+					{/* 検索 → 検索モーダルを開く（JS無効時は /search へ遷移）。
+					    デスクトップは検索バー風、モバイルはアイコンのみ。 */}
 					<Link
 						href="/search"
 						aria-label={t('openSearch')}
@@ -64,7 +65,7 @@ export function Header() {
 							e.preventDefault();
 							window.dispatchEvent(new Event('nordic:open-search'));
 						}}
-						className="flex h-9 w-9 items-center justify-center rounded-md text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
+						className="flex h-9 w-9 items-center justify-center gap-2 rounded-md text-zinc-600 transition-colors hover:bg-zinc-100 sm:w-auto sm:justify-start sm:border sm:border-zinc-200 sm:bg-zinc-50 sm:px-2.5 sm:text-zinc-500 sm:hover:border-zinc-300 sm:hover:bg-white dark:text-zinc-300 dark:hover:bg-zinc-800 sm:dark:border-zinc-800 sm:dark:bg-zinc-900 sm:dark:text-zinc-400 sm:dark:hover:border-zinc-700 sm:dark:hover:bg-zinc-950"
 					>
 						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 							<circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.8" />
@@ -75,6 +76,10 @@ export function Header() {
 								strokeLinecap="round"
 							/>
 						</svg>
+						<span className="hidden text-sm sm:inline">{t('search')}</span>
+						<kbd className="ml-2 hidden rounded border border-zinc-300 px-1.5 py-0.5 font-sans text-[11px] text-zinc-400 sm:inline dark:border-zinc-700 dark:text-zinc-500">
+							⌘K
+						</kbd>
 					</Link>
 
 					{/* 言語切替 */}
