@@ -173,10 +173,10 @@ export function SearchPalette() {
 				onClick={close}
 				onMouseEnter={() => setActive(i)}
 				aria-selected={i === active}
-				className={`block border-l-2 px-4 py-2.5 transition-colors ${
+				className={`block rounded-lg px-4 py-2.5 transition-colors ${
 					i === active
-						? 'border-accent bg-zinc-100 dark:bg-zinc-900'
-						: 'border-transparent'
+						? 'bg-zinc-100 dark:bg-zinc-800'
+						: 'hover:bg-zinc-100 dark:hover:bg-zinc-800'
 				}`}
 			>
 				{hit.topics?.[0] && (
@@ -223,7 +223,7 @@ export function SearchPalette() {
 			/>
 
 			{/* パネル */}
-			<div className="sp-panel relative mt-[10vh] flex w-full max-w-xl flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-950">
+			<div className="sp-panel relative mt-[10vh] flex w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-950">
 				{/* 入力 */}
 				<div className="flex items-center gap-3 border-b border-zinc-200 px-4 dark:border-zinc-800">
 					<svg
@@ -250,7 +250,7 @@ export function SearchPalette() {
 				</div>
 
 				{/* 本体 */}
-				<div className="max-h-[60vh] overflow-y-auto">
+				<div className="max-h-[65vh] overflow-y-auto p-2">
 					{!ALGOLIA_CONFIGURED ? (
 						<p className="px-4 py-6 text-sm text-zinc-500">{t('notConfigured')}</p>
 					) : query.trim() ? (
