@@ -19,7 +19,6 @@
 		"careers": "Careers",
 		"caseStudies": "Case Studies",
 		"resources": "Resources",
-		"search": "Search",
 		"about": "About",
 		"contact": "Contact",
 		"privacy": "Privacy",
@@ -35,6 +34,8 @@
 		"sitemap": "Sitemap",
 		"newsletter": "Newsletter",
 		"newsletterDescription": "月2回、編集部おすすめ記事と新規レポートをお届けします。",
+		"searchTitle": "検索",
+		"searchPlaceholder": "記事を検索…",
 		"copyright": "© {year} Nordic Works. This is a fictional company built as a portfolio project."
 	},
 	"newsletter": {
