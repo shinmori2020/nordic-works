@@ -18,6 +18,7 @@ const FOOTER_LINKS = [
 	{ href: '/careers', key: 'careers' as const },
 	{ href: '/case-studies', key: 'caseStudies' as const },
 	{ href: '/resources', key: 'resources' as const },
+	{ href: '/search', key: 'search' as const },
 	{ href: '/about', key: 'about' as const },
 	{ href: '/contact', key: 'contact' as const },
 	{ href: '/privacy', key: 'privacy' as const },
