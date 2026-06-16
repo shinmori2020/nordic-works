@@ -98,6 +98,24 @@ input[type='search']::-webkit-search-cancel-button {
   appearance: none;
 }
 
+/* 検索パレットの入場アニメ（モーション可時のみ） */
+@media (prefers-reduced-motion: no-preference) {
+  .sp-backdrop {
+    animation: sp-fade 0.15s ease-out;
+  }
+  .sp-panel {
+    animation: sp-pop 0.18s ease-out;
+  }
+}
+@keyframes sp-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes sp-pop {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
 /* -------------------------------------------------------------------------
  * 記事本文 (WordPress content.rendered) の最小スタイル。
  * Week 4/7 で @tailwindcss/typography 等によるリッチ化を検討。

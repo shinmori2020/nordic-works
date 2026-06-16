@@ -336,6 +336,10 @@
 		"clearAll": "すべてクリア",
 		"suggested": "おすすめの記事",
 		"seeAllResults": "すべての結果を見る",
+		"popularTopics": "人気のトピック",
+		"kbdMove": "移動",
+		"kbdSelect": "開く",
+		"kbdClose": "閉じる",
 		"clearAria": "{label} の絞り込みをクリア"
 	},
 	"caseStudies": {

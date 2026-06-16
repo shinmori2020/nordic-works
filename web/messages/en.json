@@ -336,6 +336,10 @@
 		"clearAll": "Clear all",
 		"suggested": "Suggested articles",
 		"seeAllResults": "See all results",
+		"popularTopics": "Popular topics",
+		"kbdMove": "Navigate",
+		"kbdSelect": "Open",
+		"kbdClose": "Close",
 		"clearAria": "Clear {label} filter"
 	},
 	"caseStudies": {

@@ -3,14 +3,20 @@
  *
  * 起動: Cmd/Ctrl+K、またはヘッダー検索ボタンが投げる 'nordic:open-search' イベント。
  * 操作: 入力でライブ検索（Algolia）／↑↓で候補移動／Enterで遷移／Escで閉じる。
- * /search ページはそのまま残し、本モーダルは「どこからでも開ける入口」を足すもの。
+ *
+ * リッチ化:
+ * - 空状態に「人気のトピック」＋「おすすめの記事」（空クエリの結果/ファセット）
+ * - 各候補にスニペット（ハイライト付き）
+ * - フッターにキーボードヒント
+ * - アクティブ候補を左アクセントバーで強調＋自動スクロール
+ * - 入場アニメ（globals.css の sp-* / prefers-reduced-motion 対応）
  *
  * layout に常設（NextIntlClientProvider 配下）。開いている間だけ DOM を描画する。
  */
 
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Link, useRouter } from '@/i18n/navigation';
 import {
@@ -21,6 +27,7 @@ import {
 } from '@/lib/algolia';
 
 const MAX_HITS = 7;
+const SUGGEST_HITS = 6;
 
 export function SearchPalette() {
 	const t = useTranslations('searchPage');
@@ -31,9 +38,13 @@ export function SearchPalette() {
 	const [open, setOpen] = useState(false);
 	const [query, setQuery] = useState('');
 	const [hits, setHits] = useState<AlgoliaPostHit[]>([]);
+	const [suggestHits, setSuggestHits] = useState<AlgoliaPostHit[]>([]);
+	const [popularTopics, setPopularTopics] = useState<string[]>([]);
 	const [loading, setLoading] = useState(false);
 	const [active, setActive] = useState(0);
-	const inputRef = useRef<HTMLInputElement>(null);
+	const inputRef = (el: HTMLInputElement | null) => {
+		if (el && open) el.focus();
+	};
 
 	// 起動: Cmd/Ctrl+K トグル ＋ カスタムイベント
 	useEffect(() => {
@@ -54,60 +65,79 @@ export function SearchPalette() {
 		};
 	}, []);
 
-	// 開いたら入力にフォーカス＋背景スクロールロック
-	useEffect(() => {
-		if (!open) return;
-		const prevOverflow = document.body.style.overflow;
-		document.body.style.overflow = 'hidden';
-		const id = window.setTimeout(() => inputRef.current?.focus(), 0);
-		return () => {
-			document.body.style.overflow = prevOverflow;
-			window.clearTimeout(id);
-		};
-	}, [open]);
-
-	// 閉じたら状態をリセット（次回開いたとき素の状態に）
+	// 開いている間は背景スクロールロック。閉じたら状態リセット。
 	useEffect(() => {
 		if (!open) {
 			setQuery('');
 			setHits([]);
 			setActive(0);
+			return;
 		}
+		const prevOverflow = document.body.style.overflow;
+		document.body.style.overflow = 'hidden';
+		return () => {
+			document.body.style.overflow = prevOverflow;
+		};
 	}, [open]);
 
-	// 検索（デバウンス）
+	// 検索（デバウンス）。空クエリ時は「おすすめ＋人気トピック」を取得。
 	useEffect(() => {
 		if (!open) return;
 		const client = algoliaClient;
 		if (!client) return;
-		if (!query.trim()) {
-			setHits([]);
-			setLoading(false);
-			return;
-		}
+		const q = query.trim();
 		setLoading(true);
-		const id = window.setTimeout(async () => {
-			try {
-				const res = await client.search({
-					requests: [{ indexName, query, hitsPerPage: MAX_HITS }],
-				});
-				const first = (res.results ?? [])[0] as
-					| { hits?: AlgoliaPostHit[] }
-					| undefined;
-				setHits(first?.hits ?? []);
-				setActive(0);
-			} catch (err) {
-				console.error('[algolia]', err);
-				setHits([]);
-			} finally {
-				setLoading(false);
-			}
-		}, 150);
+		const id = window.setTimeout(
+			async () => {
+				try {
+					const res = await client.search({
+						requests: [
+							{
+								indexName,
+								query: q,
+								hitsPerPage: q ? MAX_HITS : SUGGEST_HITS,
+								facets: q ? [] : ['topics'],
+							},
+						],
+					});
+					const first = (res.results ?? [])[0] as
+						| {
+								hits?: AlgoliaPostHit[];
+								facets?: Record<string, Record<string, number>>;
+						  }
+						| undefined;
+					const resultHits = first?.hits ?? [];
+					if (q) {
+						setHits(resultHits);
+					} else {
+						setSuggestHits(resultHits);
+						setPopularTopics(
+							Object.entries(first?.facets?.topics ?? {})
+								.sort((a, b) => b[1] - a[1])
+								.slice(0, 8)
+								.map(([name]) => name),
+						);
+					}
+					setActive(0);
+				} catch (err) {
+					console.error('[algolia]', err);
+					if (q) setHits([]);
+				} finally {
+					setLoading(false);
+				}
+			},
+			q ? 150 : 0,
+		);
 		return () => window.clearTimeout(id);
 	}, [open, query, indexName]);
 
-	const close = useCallback(() => setOpen(false), []);
+	// キーボードで選択中の候補を表示領域内へスクロール
+	useEffect(() => {
+		if (!open) return;
+		document.getElementById(`sp-hit-${active}`)?.scrollIntoView({ block: 'nearest' });
+	}, [active, open]);
 
+	const close = useCallback(() => setOpen(false), []);
 	const go = useCallback(
 		(url: string) => {
 			setOpen(false);
@@ -116,22 +146,62 @@ export function SearchPalette() {
 		[router],
 	);
 
+	const list = query.trim() ? hits : suggestHits;
+
 	function onKeyDown(e: React.KeyboardEvent) {
 		if (e.key === 'Escape') {
 			e.preventDefault();
 			close();
 		} else if (e.key === 'ArrowDown') {
 			e.preventDefault();
-			setActive((a) => Math.min(a + 1, hits.length - 1));
+			setActive((a) => Math.min(a + 1, list.length - 1));
 		} else if (e.key === 'ArrowUp') {
 			e.preventDefault();
 			setActive((a) => Math.max(a - 1, 0));
 		} else if (e.key === 'Enter') {
 			e.preventDefault();
-			if (hits[active]) go(hits[active].url);
+			if (list[active]) go(list[active].url);
 			else if (query.trim()) go(`/search?q=${encodeURIComponent(query)}`);
 		}
 	}
+
+	const renderRow = (hit: AlgoliaPostHit, i: number) => (
+		<li key={hit.objectID}>
+			<Link
+				id={`sp-hit-${i}`}
+				href={hit.url}
+				onClick={close}
+				onMouseEnter={() => setActive(i)}
+				aria-selected={i === active}
+				className={`block border-l-2 px-4 py-2.5 transition-colors ${
+					i === active
+						? 'border-accent bg-zinc-100 dark:bg-zinc-900'
+						: 'border-transparent'
+				}`}
+			>
+				{hit.topics?.[0] && (
+					<span className="text-[11px] uppercase tracking-wide text-zinc-500">
+						{hit.topics[0]}
+					</span>
+				)}
+				<span
+					className="block text-sm font-medium text-zinc-900 dark:text-zinc-100 [&_em]:not-italic [&_em]:text-accent-text"
+					dangerouslySetInnerHTML={{
+						__html: hit._highlightResult?.title?.value ?? hit.title,
+					}}
+				/>
+				<span
+					className="mt-0.5 block line-clamp-1 text-xs text-zinc-500 [&_em]:not-italic [&_em]:text-accent-text"
+					dangerouslySetInnerHTML={{
+						__html:
+							hit._snippetResult?.content?.value ??
+							hit._snippetResult?.excerpt?.value ??
+							hit.excerpt,
+					}}
+				/>
+			</Link>
+		</li>
+	);
 
 	if (!open) return null;
 
@@ -149,11 +219,11 @@ export function SearchPalette() {
 				aria-hidden="true"
 				tabIndex={-1}
 				onClick={close}
-				className="absolute inset-0 cursor-default bg-zinc-900/40 backdrop-blur-sm"
+				className="sp-backdrop absolute inset-0 cursor-default bg-zinc-900/40 backdrop-blur-sm"
 			/>
 
 			{/* パネル */}
-			<div className="relative mt-[10vh] w-full max-w-xl overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-950">
+			<div className="sp-panel relative mt-[10vh] flex w-full max-w-xl flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-950">
 				{/* 入力 */}
 				<div className="flex items-center gap-3 border-b border-zinc-200 px-4 dark:border-zinc-800">
 					<svg
@@ -180,53 +250,79 @@ export function SearchPalette() {
 				</div>
 
 				{/* 本体 */}
-				{!ALGOLIA_CONFIGURED ? (
-					<p className="px-4 py-6 text-sm text-zinc-500">{t('notConfigured')}</p>
-				) : !query.trim() ? (
-					<p className="px-4 py-6 text-sm text-zinc-500">{t('enterKeyword')}</p>
-				) : loading ? (
-					<p className="px-4 py-6 text-sm text-zinc-500">{t('searching')}</p>
-				) : hits.length === 0 ? (
-					<p className="px-4 py-6 text-sm text-zinc-500">{t('noResults')}</p>
-				) : (
-					<ul className="max-h-[60vh] overflow-y-auto py-2">
-						{hits.map((hit, i) => (
-							<li key={hit.objectID}>
-								<Link
-									href={hit.url}
-									onClick={close}
-									onMouseEnter={() => setActive(i)}
-									className={`block px-4 py-2.5 transition-colors ${
-										i === active ? 'bg-zinc-100 dark:bg-zinc-900' : ''
-									}`}
-								>
-									{hit.topics?.[0] && (
-										<span className="text-[11px] uppercase tracking-wide text-zinc-500">
-											{hit.topics[0]}
-										</span>
-									)}
-									<span
-										className="block text-sm font-medium text-zinc-900 dark:text-zinc-100 [&_em]:not-italic [&_em]:text-accent-text"
-										dangerouslySetInnerHTML={{
-											__html: hit._highlightResult?.title?.value ?? hit.title,
-										}}
-									/>
-								</Link>
-							</li>
-						))}
-					</ul>
-				)}
+				<div className="max-h-[60vh] overflow-y-auto">
+					{!ALGOLIA_CONFIGURED ? (
+						<p className="px-4 py-6 text-sm text-zinc-500">{t('notConfigured')}</p>
+					) : query.trim() ? (
+						loading ? (
+							<p className="px-4 py-6 text-sm text-zinc-500">{t('searching')}</p>
+						) : hits.length === 0 ? (
+							<p className="px-4 py-6 text-sm text-zinc-500">{t('noResults')}</p>
+						) : (
+							<ul className="py-2">{hits.map(renderRow)}</ul>
+						)
+					) : (
+						<div className="pb-2">
+							{popularTopics.length > 0 && (
+								<div className="px-4 pt-4">
+									<p className="text-[11px] font-medium uppercase tracking-widest text-accent-text">
+										{t('popularTopics')}
+									</p>
+									<div className="mt-2 flex flex-wrap gap-2">
+										{popularTopics.map((name) => (
+											<button
+												key={name}
+												type="button"
+												onClick={() => go(`/search?topic=${encodeURIComponent(name)}`)}
+												className="rounded-full border border-zinc-300 px-3 py-1 text-xs text-zinc-700 transition-colors hover:border-zinc-500 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:bg-zinc-900"
+											>
+												{name}
+											</button>
+										))}
+									</div>
+								</div>
+							)}
+							{suggestHits.length > 0 && (
+								<div className="pt-4">
+									<p className="px-4 text-[11px] font-medium uppercase tracking-widest text-accent-text">
+										{t('suggested')}
+									</p>
+									<ul className="mt-2">{suggestHits.map(renderRow)}</ul>
+								</div>
+							)}
+							{!loading && popularTopics.length === 0 && suggestHits.length === 0 && (
+								<p className="px-4 py-6 text-sm text-zinc-500">{t('enterKeyword')}</p>
+							)}
+						</div>
+					)}
+				</div>
 
-				{/* すべての結果へ */}
-				{query.trim() && (
-					<button
-						type="button"
-						onClick={() => go(`/search?q=${encodeURIComponent(query)}`)}
-						className="block w-full border-t border-zinc-200 px-4 py-3 text-left text-sm text-accent-text transition-colors hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900"
-					>
-						{t('seeAllResults')} →
-					</button>
-				)}
+				{/* フッター: キーボードヒント＋すべての結果へ */}
+				<div className="flex items-center justify-between gap-3 border-t border-zinc-200 px-4 py-2.5 dark:border-zinc-800">
+					<div className="hidden items-center gap-3 text-[11px] text-zinc-400 sm:flex">
+						<span className="inline-flex items-center gap-1">
+							<kbd className="rounded border border-zinc-300 px-1 py-0.5 dark:border-zinc-700">↑↓</kbd>
+							{t('kbdMove')}
+						</span>
+						<span className="inline-flex items-center gap-1">
+							<kbd className="rounded border border-zinc-300 px-1 py-0.5 dark:border-zinc-700">↵</kbd>
+							{t('kbdSelect')}
+						</span>
+						<span className="inline-flex items-center gap-1">
+							<kbd className="rounded border border-zinc-300 px-1 py-0.5 dark:border-zinc-700">esc</kbd>
+							{t('kbdClose')}
+						</span>
+					</div>
+					{query.trim() && (
+						<button
+							type="button"
+							onClick={() => go(`/search?q=${encodeURIComponent(query)}`)}
+							className="ml-auto shrink-0 text-sm text-accent-text underline-offset-2 transition-colors hover:underline"
+						>
+							{t('seeAllResults')} →
+						</button>
+					)}
+				</div>
 			</div>
 		</div>
 	);
