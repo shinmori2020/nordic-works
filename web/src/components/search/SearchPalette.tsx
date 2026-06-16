@@ -244,9 +244,16 @@ export function SearchPalette() {
 						className="w-full bg-transparent py-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:outline-none dark:text-zinc-100"
 						aria-label={t('title')}
 					/>
-					<kbd className="hidden shrink-0 rounded border border-zinc-300 px-1.5 py-0.5 text-[10px] text-zinc-500 sm:block dark:border-zinc-700">
-						Esc
-					</kbd>
+					<button
+						type="button"
+						onClick={close}
+						aria-label={t('kbdClose')}
+						className="shrink-0 cursor-pointer rounded-md p-1.5 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-700 dark:hover:bg-zinc-800 dark:hover:text-zinc-200"
+					>
+						<svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+							<path d="M5 5l10 10M15 5L5 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+						</svg>
+					</button>
 				</div>
 
 				{/* 本体 */}
@@ -274,7 +281,7 @@ export function SearchPalette() {
 												key={name}
 												type="button"
 												onClick={() => go(`/search?topic=${encodeURIComponent(name)}`)}
-												className="rounded-full border border-zinc-300 px-3 py-1 text-xs text-zinc-700 transition-colors hover:border-zinc-500 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:bg-zinc-900"
+												className="cursor-pointer rounded-full border border-zinc-300 px-3 py-1 text-xs text-zinc-700 transition-colors hover:border-zinc-500 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:bg-zinc-900"
 											>
 												{name}
 											</button>
@@ -317,7 +324,7 @@ export function SearchPalette() {
 						<button
 							type="button"
 							onClick={() => go(`/search?q=${encodeURIComponent(query)}`)}
-							className="ml-auto shrink-0 text-sm text-accent-text underline-offset-2 transition-colors hover:underline"
+							className="ml-auto shrink-0 cursor-pointer text-sm text-accent-text underline-offset-2 transition-colors hover:underline"
 						>
 							{t('seeAllResults')} →
 						</button>
