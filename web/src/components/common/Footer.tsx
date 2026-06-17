@@ -11,7 +11,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { NewsletterForm } from './NewsletterForm';
-import { FooterSearch } from './FooterSearch';
 
 const FOOTER_LINKS = [
 	{ href: '/articles', key: 'insights' as const },
@@ -41,14 +40,6 @@ export async function Footer() {
 						<p className="mt-2 text-sm leading-relaxed text-zinc-500">
 							{tFooter('description')}
 						</p>
-						<div className="mt-5">
-							<p className="text-xs uppercase tracking-widest text-zinc-400">
-								{tFooter('searchTitle')}
-							</p>
-							<div className="mt-3">
-								<FooterSearch />
-							</div>
-						</div>
 					</div>
 
 					<div>

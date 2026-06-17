@@ -23,7 +23,6 @@ import { ThemeProvider } from '@/components/common/ThemeProvider';
 import { CookieConsent } from '@/components/common/CookieConsent';
 import { SkipLink } from '@/components/common/SkipLink';
 import { HtmlLang } from '@/components/common/HtmlLang';
-import { SearchPalette } from '@/components/search/SearchPalette';
 
 export function generateStaticParams() {
 	return routing.locales.map((locale) => ({ locale }));
@@ -53,7 +52,6 @@ export default async function LocaleLayout({
 				<SkipLink />
 				{isPreview && <PreviewBanner />}
 				<Header />
-				<SearchPalette />
 				{/* スキップリンクの着地点。各ページ側が <main> ランドマークを持つため、
 				    ここは main をネストさせず div + tabIndex=-1 にする。 */}
 				<div

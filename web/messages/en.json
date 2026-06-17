@@ -34,8 +34,6 @@
 		"sitemap": "Sitemap",
 		"newsletter": "Newsletter",
 		"newsletterDescription": "Twice a month: editor picks and new research reports straight to your inbox.",
-		"searchTitle": "Search",
-		"searchPlaceholder": "Search articles…",
 		"copyright": "© {year} Nordic Works. This is a fictional company built as a portfolio project."
 	},
 	"newsletter": {

@@ -14,6 +14,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { HeaderSearch } from '@/components/search/HeaderSearch';
 
 const NAV_LINKS = [
 	{ href: '/articles', key: 'insights' as const },
@@ -30,6 +31,7 @@ const NAV_LINKS = [
 export function Header() {
 	const t = useTranslations('nav');
 	const [open, setOpen] = useState(false);
+	const [searchOpen, setSearchOpen] = useState(false);
 
 	return (
 		<header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/90">
@@ -42,40 +44,24 @@ export function Header() {
 					Nordic Works
 				</Link>
 
-				<div className="flex items-center gap-2">
-					{/* デスクトップナビ */}
-					<nav className="hidden gap-7 md:flex">
-						{NAV_LINKS.map((link) => (
-							<Link
-								key={link.href}
-								href={link.href}
-								className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-							>
-								{t(link.key)}
-							</Link>
-						))}
-					</nav>
+				<div className="flex flex-1 items-center justify-end gap-2">
+					{/* デスクトップナビ（検索展開中は隠してその場を入力欄に明け渡す） */}
+					{!searchOpen && (
+						<nav className="hidden gap-7 md:flex">
+							{NAV_LINKS.map((link) => (
+								<Link
+									key={link.href}
+									href={link.href}
+									className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+								>
+									{t(link.key)}
+								</Link>
+							))}
+						</nav>
+					)}
 
-					{/* 検索ボタン → 検索モーダルを開く（JS無効時は /search へ遷移） */}
-					<Link
-						href="/search"
-						aria-label={t('openSearch')}
-						onClick={(e) => {
-							e.preventDefault();
-							window.dispatchEvent(new Event('nordic:open-search'));
-						}}
-						className="flex h-9 w-9 items-center justify-center rounded-md text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
-					>
-						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-							<circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.8" />
-							<path
-								d="m20 20-3.5-3.5"
-								stroke="currentColor"
-								strokeWidth="1.8"
-								strokeLinecap="round"
-							/>
-						</svg>
-					</Link>
+					{/* 検索: 平常時はアイコン、押すとその場で横に伸びる（策2a） */}
+					<HeaderSearch open={searchOpen} setOpen={setSearchOpen} />
 
 					{/* 言語切替 */}
 					<LanguageSwitcher />
