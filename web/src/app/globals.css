@@ -98,6 +98,17 @@ input[type='search']::-webkit-search-cancel-button {
   appearance: none;
 }
 
+/* ヘッダー検索の候補パネル入場アニメ（モーション可時のみ） */
+@media (prefers-reduced-motion: no-preference) {
+  .hs-pop {
+    animation: hs-pop 0.18s ease-out;
+  }
+}
+@keyframes hs-pop {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+
 /* -------------------------------------------------------------------------
  * 記事本文 (WordPress content.rendered) の最小スタイル。
  * Week 4/7 で @tailwindcss/typography 等によるリッチ化を検討。

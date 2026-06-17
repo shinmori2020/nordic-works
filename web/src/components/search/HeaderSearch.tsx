@@ -44,6 +44,8 @@ export function HeaderSearch({ open, setOpen }: Props) {
 	const [popularTopics, setPopularTopics] = useState<string[]>([]);
 	const [loading, setLoading] = useState(false);
 	const [active, setActive] = useState(0);
+	// 入力欄が開ききってから候補パネルを出すためのフラグ
+	const [expanded, setExpanded] = useState(false);
 
 	const rootRef = useRef<HTMLDivElement>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -60,15 +62,19 @@ export function HeaderSearch({ open, setOpen }: Props) {
 		return () => window.removeEventListener('keydown', onKey);
 	}, [open, setOpen]);
 
-	// 開いたら入力にフォーカス。閉じたら状態リセット。
+	// 開いたら入力にフォーカスし、伸びるアニメ完了後に候補パネルを出す。
+	// 閉じたら状態リセット。reduced-motion 環境では即座に表示。
 	useEffect(() => {
 		if (open) {
 			inputRef.current?.focus();
-		} else {
-			setQuery('');
-			setHits([]);
-			setActive(0);
+			const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			const id = window.setTimeout(() => setExpanded(true), reduce ? 0 : 520);
+			return () => window.clearTimeout(id);
 		}
+		setExpanded(false);
+		setQuery('');
+		setHits([]);
+		setActive(0);
 	}, [open]);
 
 	// 外側クリックで閉じる
@@ -226,11 +232,13 @@ export function HeaderSearch({ open, setOpen }: Props) {
 
 			{/* 入力欄: アイコン位置に右端固定で重ね、width を 0→full にして左へ伸びる */}
 			<div
-				className={`absolute inset-y-0 right-0 overflow-hidden transition-[width] duration-300 ease-out motion-reduce:transition-none ${
-					open ? 'w-full' : 'w-0'
+				className={`absolute right-0 top-1/2 -translate-y-1/2 overflow-hidden rounded-md border bg-white transition-[width,border-color,padding] duration-500 ease-out focus-within:border-zinc-500 focus-within:ring-1 focus-within:ring-zinc-500 motion-reduce:transition-none dark:bg-zinc-900 ${
+					open
+						? 'w-full border-zinc-300 px-3 dark:border-zinc-700 sm:w-3/4'
+						: 'w-0 border-transparent px-0'
 				}`}
 			>
-				<div className="flex h-9 w-full items-center gap-2 rounded-md border border-zinc-300 bg-white px-3 focus-within:border-zinc-500 focus-within:ring-1 focus-within:ring-zinc-500 dark:border-zinc-700 dark:bg-zinc-900">
+				<div className="flex h-9 w-full items-center gap-2">
 					<svg
 						aria-hidden="true"
 						viewBox="0 0 20 20"
@@ -265,9 +273,9 @@ export function HeaderSearch({ open, setOpen }: Props) {
 				</div>
 			</div>
 
-			{/* 候補ドロップダウン（ヘッダー直下）。開いている時のみ */}
-			{open && (
-			<div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-950">
+			{/* 候補ドロップダウン（ヘッダー直下）。入力欄が開ききってから表示 */}
+			{expanded && (
+			<div className="hs-pop absolute right-0 top-full z-50 mt-2 w-full overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-2xl sm:w-3/4 dark:border-zinc-800 dark:bg-zinc-950">
 				<div className="max-h-[70vh] overflow-y-auto p-2">
 					{!ALGOLIA_CONFIGURED ? (
 						<p className="px-4 py-6 text-sm text-zinc-500">{t('notConfigured')}</p>
