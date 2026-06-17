@@ -71,6 +71,7 @@ export function HeaderSearch({ open, setOpen }: Props) {
 			const id = window.setTimeout(() => setExpanded(true), reduce ? 0 : 520);
 			return () => window.clearTimeout(id);
 		}
+		inputRef.current?.blur();
 		setExpanded(false);
 		setQuery('');
 		setHits([]);
@@ -232,9 +233,9 @@ export function HeaderSearch({ open, setOpen }: Props) {
 
 			{/* 入力欄: アイコン位置に右端固定で重ね、width を 0→full にして左へ伸びる */}
 			<div
-				className={`absolute right-0 top-1/2 -translate-y-1/2 overflow-hidden rounded-md border bg-white transition-[width,border-color,padding] duration-500 ease-out focus-within:border-zinc-500 focus-within:ring-1 focus-within:ring-zinc-500 motion-reduce:transition-none dark:bg-zinc-900 ${
+				className={`absolute right-0 top-1/2 -translate-y-1/2 overflow-hidden rounded-md border bg-white transition-[width,border-color,padding] duration-500 ease-out motion-reduce:transition-none dark:bg-zinc-900 ${
 					open
-						? 'w-full border-zinc-300 px-3 dark:border-zinc-700 sm:w-3/4'
+						? 'w-full border-zinc-300 px-3 focus-within:border-zinc-500 focus-within:ring-1 focus-within:ring-zinc-500 dark:border-zinc-700 sm:w-3/4'
 						: 'w-0 border-transparent px-0'
 				}`}
 			>
