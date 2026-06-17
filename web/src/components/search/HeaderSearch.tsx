@@ -206,58 +206,67 @@ export function HeaderSearch({ open, setOpen }: Props) {
 		</li>
 	);
 
-	// 閉じている時はアイコンボタンのみ（幅を占有しない）
-	if (!open) {
-		return (
+	return (
+		<div ref={rootRef} className="contents">
+			{/* 閉じている時のアイコン（開くとフェードアウト。スペースを確保して右端固定） */}
 			<button
 				type="button"
 				onClick={() => setOpen(true)}
 				aria-label={tNav('openSearch')}
-				className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-md text-zinc-600 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
+				tabIndex={open ? -1 : 0}
+				className={`flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-md text-zinc-600 transition-opacity duration-200 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800 ${
+					open ? 'pointer-events-none opacity-0' : 'opacity-100'
+				}`}
 			>
 				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 					<circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.8" />
 					<path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
 				</svg>
 			</button>
-		);
-	}
 
-	return (
-		<div ref={rootRef} className="relative flex-1" onKeyDown={onKeyDown}>
-			{/* 入力欄（ナビ位置にその場で展開） */}
-			<div className="flex h-9 items-center gap-2 rounded-md border border-zinc-300 bg-white px-3 focus-within:border-zinc-500 focus-within:ring-1 focus-within:ring-zinc-500 dark:border-zinc-700 dark:bg-zinc-900">
-				<svg
-					aria-hidden="true"
-					viewBox="0 0 20 20"
-					fill="none"
-					className="h-4 w-4 shrink-0 text-zinc-400"
-				>
-					<circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.6" />
-					<path d="m14 14 4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-				</svg>
-				<input
-					ref={inputRef}
-					type="text"
-					value={query}
-					onChange={(e) => setQuery(e.target.value)}
-					placeholder={t('placeholder')}
-					aria-label={t('title')}
-					className="w-full bg-transparent text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none dark:text-zinc-100"
-				/>
-				<button
-					type="button"
-					onClick={close}
-					aria-label={t('kbdClose')}
-					className="shrink-0 cursor-pointer rounded p-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-700 dark:hover:bg-zinc-800 dark:hover:text-zinc-200"
-				>
-					<svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-						<path d="M5 5l10 10M15 5L5 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+			{/* 入力欄: アイコン位置に右端固定で重ね、width を 0→full にして左へ伸びる */}
+			<div
+				className={`absolute inset-y-0 right-0 overflow-hidden transition-[width] duration-300 ease-out motion-reduce:transition-none ${
+					open ? 'w-full' : 'w-0'
+				}`}
+			>
+				<div className="flex h-9 w-full items-center gap-2 rounded-md border border-zinc-300 bg-white px-3 focus-within:border-zinc-500 focus-within:ring-1 focus-within:ring-zinc-500 dark:border-zinc-700 dark:bg-zinc-900">
+					<svg
+						aria-hidden="true"
+						viewBox="0 0 20 20"
+						fill="none"
+						className="h-4 w-4 shrink-0 text-zinc-400"
+					>
+						<circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.6" />
+						<path d="m14 14 4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
 					</svg>
-				</button>
+					<input
+						ref={inputRef}
+						type="text"
+						value={query}
+						onChange={(e) => setQuery(e.target.value)}
+						onKeyDown={onKeyDown}
+						placeholder={t('placeholder')}
+						aria-label={t('title')}
+						tabIndex={open ? 0 : -1}
+						className="w-full min-w-0 bg-transparent text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none dark:text-zinc-100"
+					/>
+					<button
+						type="button"
+						onClick={close}
+						aria-label={t('kbdClose')}
+						tabIndex={open ? 0 : -1}
+						className="shrink-0 cursor-pointer rounded p-1 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-700 dark:hover:bg-zinc-800 dark:hover:text-zinc-200"
+					>
+						<svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+							<path d="M5 5l10 10M15 5L5 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+						</svg>
+					</button>
+				</div>
 			</div>
 
-			{/* 候補ドロップダウン（ヘッダー直下） */}
+			{/* 候補ドロップダウン（ヘッダー直下）。開いている時のみ */}
+			{open && (
 			<div className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-800 dark:bg-zinc-950">
 				<div className="max-h-[70vh] overflow-y-auto p-2">
 					{!ALGOLIA_CONFIGURED ? (
@@ -319,6 +328,7 @@ export function HeaderSearch({ open, setOpen }: Props) {
 					</div>
 				)}
 			</div>
+			)}
 		</div>
 	);
 }

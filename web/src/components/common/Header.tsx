@@ -45,23 +45,29 @@ export function Header() {
 				</Link>
 
 				<div className="flex flex-1 items-center justify-end gap-2">
-					{/* デスクトップナビ（検索展開中は隠してその場を入力欄に明け渡す） */}
-					{!searchOpen && (
-						<nav className="hidden gap-7 md:flex">
+					{/* ナビ＋検索の領域。検索の入力欄はこの領域に重ねて横へ伸びる（策2a） */}
+					<div className="relative flex flex-1 items-center justify-end gap-2">
+						<nav
+							aria-hidden={searchOpen}
+							className={`hidden gap-7 md:flex ${
+								searchOpen ? 'pointer-events-none' : ''
+							}`}
+						>
 							{NAV_LINKS.map((link) => (
 								<Link
 									key={link.href}
 									href={link.href}
+									tabIndex={searchOpen ? -1 : 0}
 									className="text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
 								>
 									{t(link.key)}
 								</Link>
 							))}
 						</nav>
-					)}
 
-					{/* 検索: 平常時はアイコン、押すとその場で横に伸びる（策2a） */}
-					<HeaderSearch open={searchOpen} setOpen={setSearchOpen} />
+						{/* 検索: 平常時はアイコン、押すとその場で横に伸びる */}
+						<HeaderSearch open={searchOpen} setOpen={setSearchOpen} />
+					</div>
 
 					{/* 言語切替 */}
 					<LanguageSwitcher />
