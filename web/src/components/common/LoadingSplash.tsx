@@ -20,9 +20,10 @@ const WORD = 'Nordic Works';
 export function LoadingSplash() {
 	const [show, setShow] = useState(true);
 
-	// 表示時間（TODO: 確認用に一時的に 5 秒。確認後 reduce ? 600 : 1400 へ戻す）
+	// 表示時間。入場（描画→塗り→スピン→文字スタッガー）が一通り再生される長さ。
 	useEffect(() => {
-		const id = window.setTimeout(() => setShow(false), 5000);
+		const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const id = window.setTimeout(() => setShow(false), reduce ? 700 : 2100);
 		return () => window.clearTimeout(id);
 	}, []);
 
