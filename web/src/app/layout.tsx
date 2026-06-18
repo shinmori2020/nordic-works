@@ -86,6 +86,12 @@ export default async function RootLayout({
 	// lang は初期値として best-effort で入れ、配下の <HtmlLang /> が補正する。
 	const locale = await getLocale();
 
+	// Algolia 検索の初回接続を速める preconnect 先（未設定時は出力しない）。
+	const algoliaAppId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID;
+	const algoliaHost = algoliaAppId
+		? `https://${algoliaAppId}-dsn.algolia.net`
+		: null;
+
 	return (
 		<html
 			lang={locale}
@@ -93,6 +99,14 @@ export default async function RootLayout({
 			className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
 		>
 			<body className="flex min-h-full flex-col bg-white dark:bg-zinc-950">
+				{/* Algolia への事前接続（DNS/TLS を先行確立し初回検索を短縮）。
+				    CORS fetch に合わせて crossOrigin 指定。React が <head> へ持ち上げる。 */}
+				{algoliaHost && (
+					<>
+						<link rel="preconnect" href={algoliaHost} crossOrigin="anonymous" />
+						<link rel="dns-prefetch" href={algoliaHost} />
+					</>
+				)}
 				<script
 					type="application/ld+json"
 					// 内製の静的JSONで XSS リスクなし
