@@ -119,7 +119,8 @@ input[type='search']::-webkit-search-cancel-button {
   align-items: center;
   justify-content: center;
   gap: 1.1rem;
-  animation: nw-dismiss 0.45s ease-out 0.95s forwards;
+  /* TODO: 確認用に退場を遅らせて約5秒表示。確認後に 0.45s ease-out 0.95s へ戻す。 */
+  animation: nw-dismiss 0.45s ease-out 4.55s forwards;
 }
 @keyframes nw-dismiss {
   to { opacity: 0; visibility: hidden; }

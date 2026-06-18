@@ -19,9 +19,9 @@ export function LoadingSplash() {
 	const [show, setShow] = useState(true);
 
 	useEffect(() => {
-		const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 		document.body.style.overflow = 'hidden';
-		const id = window.setTimeout(() => setShow(false), reduce ? 600 : 1400);
+		// TODO: 確認用に一時的に 5 秒固定。確認後に reduce ? 600 : 1400 へ戻す。
+		const id = window.setTimeout(() => setShow(false), 5000);
 		return () => {
 			window.clearTimeout(id);
 			document.body.style.overflow = '';
