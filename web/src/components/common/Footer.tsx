@@ -11,6 +11,7 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { NewsletterForm } from './NewsletterForm';
+import { StarMark } from './StarMark';
 
 const FOOTER_LINKS = [
 	{ href: '/articles', key: 'insights' as const },
@@ -34,9 +35,12 @@ export async function Footer() {
 			<div className="mx-auto max-w-6xl px-6 pt-12">
 				<div className="grid gap-10 sm:grid-cols-[1fr_1fr] lg:gap-16">
 					<div className="max-w-xs">
-						<p className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
-							Nordic Works
-						</p>
+						<div className="flex items-center gap-2.5">
+							<StarMark className="h-6 w-6 shrink-0 text-accent-text" />
+							<p className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
+								Nordic Works
+							</p>
+						</div>
 						<p className="mt-2 text-sm leading-relaxed text-zinc-500">
 							{tFooter('description')}
 						</p>

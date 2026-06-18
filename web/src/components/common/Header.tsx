@@ -15,6 +15,7 @@ import { Link } from '@/i18n/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { HeaderSearch } from '@/components/search/HeaderSearch';
+import { StarMark } from './StarMark';
 
 const NAV_LINKS = [
 	{ href: '/articles', key: 'insights' as const },
@@ -42,14 +43,7 @@ export function Header() {
 					onClick={() => setOpen(false)}
 				>
 					{/* 北極星マーク（Nordic=北）。アクセント色＝フィヨルドブルー。ホバーで微回転 */}
-					<svg
-						viewBox="0 0 24 24"
-						fill="currentColor"
-						aria-hidden="true"
-						className="h-8 w-8 shrink-0 text-accent-text transition-transform duration-500 ease-out group-hover:rotate-45 motion-reduce:transition-none motion-reduce:group-hover:rotate-0"
-					>
-						<path d="M12 2 L13.4 10.6 L22 12 L13.4 13.4 L12 22 L10.6 13.4 L2 12 L10.6 10.6 Z" />
-					</svg>
+					<StarMark className="h-8 w-8 shrink-0 text-accent-text transition-transform duration-500 ease-out group-hover:rotate-45 motion-reduce:transition-none motion-reduce:group-hover:rotate-0" />
 					{/* 縦罫 */}
 					<span aria-hidden="true" className="h-9 w-px bg-zinc-200 dark:bg-zinc-700" />
 					{/* ワードマーク＋極小タグライン（ロックアップ） */}
@@ -58,7 +52,7 @@ export function Header() {
 							Nordic Works
 						</span>
 						<span className="mt-1.5 hidden text-[10px] font-medium uppercase tracking-[0.18em] text-accent-text sm:block">
-							Nordic ways of working
+							Ways of working
 						</span>
 					</span>
 				</Link>
