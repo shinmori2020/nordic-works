@@ -38,20 +38,28 @@ export function Header() {
 			<div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-4">
 				<Link
 					href="/"
-					className="group flex items-center gap-2.5"
+					className="group flex items-center gap-3"
 					onClick={() => setOpen(false)}
 				>
-					{/* 北極星マーク（Nordic=北）。アクセント色＝フィヨルドブルー */}
+					{/* 北極星マーク（Nordic=北）。アクセント色＝フィヨルドブルー。ホバーで微回転 */}
 					<svg
 						viewBox="0 0 24 24"
 						fill="currentColor"
 						aria-hidden="true"
-						className="h-6 w-6 shrink-0 text-accent-text transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+						className="h-7 w-7 shrink-0 text-accent-text transition-transform duration-500 ease-out group-hover:rotate-45 motion-reduce:transition-none motion-reduce:group-hover:rotate-0"
 					>
 						<path d="M12 2 L13.4 10.6 L22 12 L13.4 13.4 L12 22 L10.6 13.4 L2 12 L10.6 10.6 Z" />
 					</svg>
-					<span className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl dark:text-zinc-100">
-						Nordic Works
+					{/* 縦罫 */}
+					<span aria-hidden="true" className="h-8 w-px bg-zinc-200 dark:bg-zinc-700" />
+					{/* ワードマーク＋極小タグライン（ロックアップ） */}
+					<span className="flex flex-col leading-none">
+						<span className="text-xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
+							Nordic Works
+						</span>
+						<span className="mt-1.5 hidden text-[10px] font-medium uppercase tracking-[0.18em] text-accent-text sm:block">
+							Nordic ways of working
+						</span>
 					</span>
 				</Link>
 
