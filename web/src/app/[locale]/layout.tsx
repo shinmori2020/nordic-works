@@ -23,6 +23,7 @@ import { ThemeProvider } from '@/components/common/ThemeProvider';
 import { CookieConsent } from '@/components/common/CookieConsent';
 import { SkipLink } from '@/components/common/SkipLink';
 import { HtmlLang } from '@/components/common/HtmlLang';
+import { LoadingSplash } from '@/components/common/LoadingSplash';
 
 export function generateStaticParams() {
 	return routing.locales.map((locale) => ({ locale }));
@@ -48,6 +49,7 @@ export default async function LocaleLayout({
 	return (
 		<NextIntlClientProvider locale={locale} messages={messages}>
 			<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+				<LoadingSplash />
 				<HtmlLang />
 				<SkipLink />
 				{isPreview && <PreviewBanner />}
