@@ -125,10 +125,11 @@ input[type='search']::-webkit-search-cancel-button {
 @keyframes nw-dismiss {
   to { opacity: 0; visibility: hidden; }
 }
+.nw-splash .nw-letter { display: inline-block; }
 @media (prefers-reduced-motion: no-preference) {
   .nw-splash .nw-star {
     transform-origin: center;
-    animation: nw-twinkle 1s ease-in-out 0.8s;
+    animation: nw-spin 1s ease-in-out 0.6s both;
   }
   .nw-splash .nw-star path {
     fill: transparent;
@@ -140,17 +141,17 @@ input[type='search']::-webkit-search-cancel-button {
       nw-draw 0.6s ease-out forwards,
       nw-fill 0.35s ease-out 0.5s forwards;
   }
-  .nw-splash .nw-word {
+  .nw-splash .nw-letter {
     opacity: 0;
-    transform: translateY(6px);
-    animation: nw-rise 0.5s ease-out 0.6s forwards;
+    transform: translateY(8px);
+    animation: nw-rise 0.4s ease-out forwards;
   }
 }
 @keyframes nw-draw { to { stroke-dashoffset: 0; } }
 @keyframes nw-fill { to { fill: currentColor; } }
-@keyframes nw-twinkle {
-  0%, 100% { transform: scale(1) rotate(0); }
-  50% { transform: scale(1.1) rotate(10deg); }
+@keyframes nw-spin {
+  from { transform: rotate(0) scale(0.9); }
+  to { transform: rotate(360deg) scale(1); }
 }
 @keyframes nw-rise { to { opacity: 1; transform: none; } }
 

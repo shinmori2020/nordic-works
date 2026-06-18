@@ -15,18 +15,25 @@
 import { useEffect, useState } from 'react';
 import { StarMark } from './StarMark';
 
+const WORD = 'Nordic Works';
+
 export function LoadingSplash() {
 	const [show, setShow] = useState(true);
 
+	// 表示時間（TODO: 確認用に一時的に 5 秒。確認後 reduce ? 600 : 1400 へ戻す）
 	useEffect(() => {
-		document.body.style.overflow = 'hidden';
-		// TODO: 確認用に一時的に 5 秒固定。確認後に reduce ? 600 : 1400 へ戻す。
 		const id = window.setTimeout(() => setShow(false), 5000);
+		return () => window.clearTimeout(id);
+	}, []);
+
+	// 表示中だけ背景スクロールを止める。show が false になったら確実に解除。
+	useEffect(() => {
+		if (!show) return;
+		document.body.style.overflow = 'hidden';
 		return () => {
-			window.clearTimeout(id);
 			document.body.style.overflow = '';
 		};
-	}, []);
+	}, [show]);
 
 	if (!show) return null;
 
@@ -34,7 +41,15 @@ export function LoadingSplash() {
 		<div className="nw-splash bg-zinc-50 text-accent-text dark:bg-zinc-950" aria-hidden="true">
 			<StarMark className="nw-star h-14 w-14" />
 			<span className="nw-word text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
-				Nordic Works
+				{WORD.split('').map((ch, i) => (
+					<span
+						key={i}
+						className="nw-letter"
+						style={{ animationDelay: `${0.6 + i * 0.05}s` }}
+					>
+						{ch === ' ' ? ' ' : ch}
+					</span>
+				))}
 			</span>
 		</div>
 	);
