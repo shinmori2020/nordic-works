@@ -13,6 +13,13 @@ import { SITE_NAME } from '@/lib/site';
 
 export const OG_SIZE = { width: 1200, height: 630 };
 
+// アクセント色（フィヨルドブルー）の北極星。白い角丸スクエアの中に配置する。
+const STAR_ACCENT_DATA_URI =
+	'data:image/svg+xml;base64,' +
+	btoa(
+		"<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='#3d5a80'><path d='M12 2 L13.4 10.6 L22 12 L13.4 13.4 L12 22 L10.6 13.4 L2 12 L10.6 10.6 Z'/></svg>",
+	);
+
 export function renderBrandOgImage() {
 	return new ImageResponse(
 		(
@@ -37,15 +44,13 @@ export function renderBrandOgImage() {
 							height: 64,
 							borderRadius: 12,
 							background: '#ffffff',
-							color: '#09090b',
 							display: 'flex',
 							alignItems: 'center',
 							justifyContent: 'center',
-							fontSize: 44,
-							fontWeight: 700,
 						}}
 					>
-						N
+						{/* eslint-disable-next-line @next/next/no-img-element */}
+						<img width={40} height={40} src={STAR_ACCENT_DATA_URI} alt="" />
 					</div>
 					<span style={{ fontSize: 30, fontWeight: 600, letterSpacing: '-0.02em' }}>
 						{SITE_NAME}
