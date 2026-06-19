@@ -17,6 +17,12 @@ const CASE_STUDY_IMAGES: Record<string, string> = {
 	'consulting-firm-okr-rollout': `${BASE}/900-25.jpg`,
 	'global-manufacturer-hybrid-onboarding': `${BASE}/900-15.jpg`,
 	'saas-startup-retention-turnaround': `${BASE}/900-40.jpg`,
+	'saas-scaleup-eng-org-redesign': `${BASE}/900-8.jpg`,
+	'healthcare-hybrid-1on1-redesign': `${BASE}/900-12.jpg`,
+	'manufacturer-frontline-voice-system': `${BASE}/900-18.jpg`,
+	'insurance-psych-safety-rollout': `${BASE}/900-22.jpg`,
+	'service-multisite-manager-enablement': `${BASE}/900-30.jpg`,
+	'ecommerce-remote-async-culture': `${BASE}/900-36.jpg`,
 };
 
 export function caseStudyImage(
