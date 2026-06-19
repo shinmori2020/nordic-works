@@ -1094,5 +1094,460 @@
         ]
       ]
     }
+  },
+  {
+    "id": 901,
+    "date": "2025-09-22T10:00:00",
+    "date_gmt": "2025-09-22T10:00:00",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/saas-scaleup-eng-org-redesign"
+    },
+    "modified": "2025-09-22T10:00:00",
+    "modified_gmt": "2025-09-22T10:00:00",
+    "slug": "saas-scaleup-eng-org-redesign",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/saas-scaleup-eng-org-redesign",
+    "title": {
+      "rendered": "Engineering Org Redesign for a Fast-Growing SaaS"
+    },
+    "content": {
+      "rendered": "<p>A SaaS company that doubled its engineering headcount in a single year. Cross-team dependencies and review queues had become chronic, dragging down deployment frequency and concentrating on-call load on a few people. We redesigned around the flow of value rather than the org chart.</p>\n<p>Using Team Topologies as a foundation, we moved to stream-aligned teams, established a platform team, and made dependency maps and interaction modes explicit to reduce cognitive load.</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      2
+    ],
+    "class_list": [
+      "post-901",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-it-saas"
+    ],
+    "acf": {
+      "client_name": "Aurora Cloud (Fictional)",
+      "client_industry": "IT / SaaS",
+      "company_size": "140 employees",
+      "subtitle": "Redesigning the cognitive load of a dev org that scaled from 3 to 9 teams",
+      "challenge": "Engineering headcount doubled in a year, making cross-team dependencies and review waits chronic. Deployment frequency dropped and on-call load was skewed toward a handful of people.",
+      "solution": "We reorganized into stream-aligned teams based on Team Topologies, created a platform team, and defined dependency maps and interaction modes. Org Design Lab supported the work over three months.",
+      "outcomes": "Deployment frequency | 2.1/wk → 7.4/wk | nearly 4x\nReview wait time (median) | 26h → 7h | cut to about a quarter\nOn-call load skew (Gini) | 0.48 → 0.22 | leveled out",
+      "testimonial_body": "\"Designing around flow rather than the org chart changed the very nature of our bottlenecks.\"",
+      "testimonial_author": "VPoE Ryo Sato (Fictional)",
+      "project_period": "June 2025 – September 2025 (3 months)",
+      "related_services": [
+        51,
+        49
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/901",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ]
+    }
+  },
+  {
+    "id": 902,
+    "date": "2025-11-05T10:00:00",
+    "date_gmt": "2025-11-05T10:00:00",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/healthcare-hybrid-1on1-redesign"
+    },
+    "modified": "2025-11-05T10:00:00",
+    "modified_gmt": "2025-11-05T10:00:00",
+    "slug": "healthcare-hybrid-1on1-redesign",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/healthcare-hybrid-1on1-redesign",
+    "title": {
+      "rendered": "Redesigning 1:1s and Preventing Burnout at a Healthcare Startup"
+    },
+    "content": {
+      "rendered": "<p>A healthcare startup under heavy pressure from both regulatory work and product development, seeing rising attrition and signs of burnout. We turned its perfunctory 1:1s into recovery-oriented conversations.</p>\n<p>We helped managers address the psychological state of their reports through better questions and an early-detection flow, with monthly measurement to surface warning signs before it was too late.</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      6
+    ],
+    "class_list": [
+      "post-902",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-healthcare"
+    ],
+    "acf": {
+      "client_name": "Medika Lab (Fictional)",
+      "client_industry": "Healthcare",
+      "company_size": "90 employees",
+      "subtitle": "Turning perfunctory 1:1s into recovery-oriented dialogue in a high-stress setting",
+      "challenge": "Dual pressure from regulation and product drove up attrition and burnout signals. 1:1s stayed focused on progress checks and never addressed psychological state.",
+      "solution": "We introduced a recovery-oriented 1:1 framework and question design to 20 managers, measured monthly with PsychSafe Score, and built an early-detection flow for warning signs.",
+      "outcomes": "Share in burnout warning zone | 23% → 9% | monthly survey\nFeeling able to speak honestly in 1:1s | 48% → 81% | company-wide\nVoluntary attrition (annualized) | 18% → 7% | major improvement",
+      "testimonial_body": "\"We shifted from meetings that chase numbers to meetings that face the person. Our managers' perspective changed.\"",
+      "testimonial_author": "COO Misaki Inoue (Fictional)",
+      "project_period": "August 2025 – November 2025 (3 months)",
+      "related_services": [
+        49,
+        50
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/902",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ]
+    }
+  },
+  {
+    "id": 903,
+    "date": "2025-12-18T10:00:00",
+    "date_gmt": "2025-12-18T10:00:00",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/manufacturer-frontline-voice-system"
+    },
+    "modified": "2025-12-18T10:00:00",
+    "modified_gmt": "2025-12-18T10:00:00",
+    "slug": "manufacturer-frontline-voice-system",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/manufacturer-frontline-voice-system",
+    "title": {
+      "rendered": "Building a System to Carry the Frontline Voice to Management"
+    },
+    "content": {
+      "rendered": "<p>A large manufacturer whose frontline improvement ideas stalled in middle management and never reached leadership. Generational and site-to-site divides meant tacit knowledge went unshared and was lost as veterans retired.</p>\n<p>We redesigned the \"path of voice\" connecting the floor to management—an anonymous channel, regular cross-boundary dialogue, and a dashboard that made proposals visible—so frontline knowledge connected to decisions.</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      3
+    ],
+    "class_list": [
+      "post-903",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-manufacturing"
+    ],
+    "acf": {
+      "client_name": "Kitamori Industries (Fictional)",
+      "client_industry": "Manufacturing",
+      "company_size": "1,200 employees",
+      "subtitle": "Connecting factory-floor knowledge to decisions across silos",
+      "challenge": "Frontline improvement ideas stalled in middle layers and never reached leadership. Generational and site divides kept tacit knowledge unshared, lost as people retired.",
+      "solution": "We redesigned the path of voice from floor to leadership with an anonymous channel, recurring cross-boundary dialogue, and a proposal-visibility dashboard via Org Design Lab.",
+      "outcomes": "Adopted frontline proposals (quarterly) | 12 → 57 | ~4.7x\nCross-site knowledge-sharing satisfaction | 2.7 → 4.0 | out of 5\nProposals reaching leadership | 14% → 63% | major increase",
+      "testimonial_body": "\"The felt sense that the frontline voice actually gets through changed the speed of improvement itself.\"",
+      "testimonial_author": "Executive Officer, Head of Manufacturing, Makoto Ono (Fictional)",
+      "project_period": "September 2025 – December 2025 (4 months)",
+      "related_services": [
+        51
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/903",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ]
+    }
+  },
+  {
+    "id": 904,
+    "date": "2026-02-10T10:00:00",
+    "date_gmt": "2026-02-10T10:00:00",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/insurance-psych-safety-rollout"
+    },
+    "modified": "2026-02-10T10:00:00",
+    "modified_gmt": "2026-02-10T10:00:00",
+    "slug": "insurance-psych-safety-rollout",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/insurance-psych-safety-rollout",
+    "title": {
+      "rendered": "Embedding Psychological Safety in a Legacy Insurance Org"
+    },
+    "content": {
+      "rendered": "<p>A large insurer with deep hierarchy where mistakes and risks tended to be reported late. A compliance-first culture left frank pointers feeling stifled.</p>\n<p>We engaged leadership to introduce a shared language of psychological safety company-wide, measured state by department, and raised the quality of dialogue—turning a \"can't report failure\" culture into a learning organization.</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      7
+    ],
+    "class_list": [
+      "post-904",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-finance"
+    ],
+    "acf": {
+      "client_name": "Nordhaven Insurance (Fictional)",
+      "client_industry": "Finance & Insurance",
+      "company_size": "3,400 employees",
+      "subtitle": "Turning a \"can't report failure\" culture into a learning organization",
+      "challenge": "A deep hierarchy meant mistakes and risks were reported late, and a compliance-first stance made frank input feel stifled.",
+      "solution": "We engaged leadership to roll out a shared language of psychological safety, measured by department with PsychSafe Score, and lifted dialogue quality through remote culture diagnosis.",
+      "outcomes": "Early incident reporting rate | 41% → 79% | major improvement\nPsychological safety score | 3.1 → 4.0 | out of 5\nCross-department proposals | 8/mo → 29/mo | ~3.6x",
+      "testimonial_body": "\"The biggest change was erasing the unspoken assumption that reporting lowers your rating.\"",
+      "testimonial_author": "HR Executive Naoko Takahashi (Fictional)",
+      "project_period": "October 2025 – February 2026 (5 months)",
+      "related_services": [
+        49,
+        50
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/904",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ]
+    }
+  },
+  {
+    "id": 905,
+    "date": "2026-03-12T10:00:00",
+    "date_gmt": "2026-03-12T10:00:00",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/service-multisite-manager-enablement"
+    },
+    "modified": "2026-03-12T10:00:00",
+    "modified_gmt": "2026-03-12T10:00:00",
+    "slug": "service-multisite-manager-enablement",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/service-multisite-manager-enablement",
+    "title": {
+      "rendered": "Empowering Store Managers Across a Multi-Site Service Business"
+    },
+    "content": {
+      "rendered": "<p>A multi-site service business where every decision concentrated at HQ, slowing store-level choices. Store managers varied widely in management skill, and attrition differed sharply by location.</p>\n<p>We designed delegation guidelines and a management learning program for store managers, made each store's state visible, and redefined HQ's role so frontline leaders could act autonomously.</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      5
+    ],
+    "class_list": [
+      "post-905",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-service"
+    ],
+    "acf": {
+      "client_name": "Lagom Hospitality (Fictional)",
+      "client_industry": "Service",
+      "company_size": "650 employees (40 stores)",
+      "subtitle": "Breaking HQ dependence so frontline leaders can act on their own",
+      "challenge": "Every decision concentrated at HQ, slowing stores. Store managers varied in skill, and attrition differed sharply by location.",
+      "solution": "We designed delegation guidelines and a management learning program for store managers, visualized each store with PsychSafe Score, and redefined HQ's role via Org Design Lab.",
+      "outcomes": "Decisions completed at the store | 31% → 72% | more autonomy\nVariation in manager evaluations (SD) | 0.9 → 0.4 | more consistent\nStore staff retention | 68% → 84% | improved",
+      "testimonial_body": "\"HQ shifted from the place that decides to the place that supports, and stores started moving all at once.\"",
+      "testimonial_author": "Head of Operations Kenta Morita (Fictional)",
+      "project_period": "December 2025 – March 2026 (4 months)",
+      "related_services": [
+        51,
+        49
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/905",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ]
+    }
+  },
+  {
+    "id": 906,
+    "date": "2026-04-20T10:00:00",
+    "date_gmt": "2026-04-20T10:00:00",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/ecommerce-remote-async-culture"
+    },
+    "modified": "2026-04-20T10:00:00",
+    "modified_gmt": "2026-04-20T10:00:00",
+    "slug": "ecommerce-remote-async-culture",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/ecommerce-remote-async-culture",
+    "title": {
+      "rendered": "Rebuilding a Full-Remote, Async-First Culture at an E-commerce Company"
+    },
+    "content": {
+      "rendered": "<p>An e-commerce company where meetings multiplied after going remote, exhausting members across time zones. Decisions scattered between Slack and meetings, left no record, and caused frequent rework.</p>\n<p>We introduced an async-first decision protocol—a proposal-document culture and criteria for cutting meetings—and made the reality of meetings and Slack visible, reclaiming focus time.</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      4
+    ],
+    "class_list": [
+      "post-906",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-ecommerce"
+    ],
+    "acf": {
+      "client_name": "Fjord Retail (Fictional)",
+      "client_industry": "Retail & E-commerce",
+      "company_size": "210 employees",
+      "subtitle": "Turning meeting-heavy remote work into an async-first way of working",
+      "challenge": "Meetings multiplied after going remote and exhausted members across time zones. Decisions scattered between Slack and meetings, left no record, and caused frequent rework.",
+      "solution": "We introduced an async-first decision protocol (a proposal-document culture and criteria for cutting meetings) and visualized the reality of meetings and Slack via remote culture diagnosis.",
+      "outcomes": "Meeting hours per person per week | 11.4h → 5.2h | more than halved\nDecisions with a written record | 22% → 88% | major increase\nProtected focus time | +37% | self-reported",
+      "testimonial_body": "\"Just dropping the default meeting freed up more time than we ever expected.\"",
+      "testimonial_author": "CEO Aya Yamaguchi (Fictional)",
+      "project_period": "January 2026 – April 2026 (4 months)",
+      "related_services": [
+        50,
+        51
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/906",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ]
+    }
   }
 ]

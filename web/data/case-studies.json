@@ -1094,5 +1094,460 @@
         ]
       ]
     }
+  },
+  {
+    "id": 901,
+    "date": "2025-09-22T10:00:00",
+    "date_gmt": "2025-09-22T10:00:00",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/saas-scaleup-eng-org-redesign"
+    },
+    "modified": "2025-09-22T10:00:00",
+    "modified_gmt": "2025-09-22T10:00:00",
+    "slug": "saas-scaleup-eng-org-redesign",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/saas-scaleup-eng-org-redesign",
+    "title": {
+      "rendered": "急成長SaaSのエンジニア組織再設計"
+    },
+    "content": {
+      "rendered": "<p>1年でエンジニアが倍増した SaaS 企業。チーム間の依存とレビュー待ちが慢性化し、デプロイ頻度の低下とオンコール負荷の偏りが課題になっていました。組織図ではなく「価値の流れ」を起点に再設計しました。</p>\n<p>Team Topologies を下敷きに、ストリームアライン型のチーム編成へ移行。プラットフォームチームを新設し、依存関係マップとインタラクションモードを明文化することで、認知負荷を下げる構造を作りました。</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      2
+    ],
+    "class_list": [
+      "post-901",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-it-saas"
+    ],
+    "acf": {
+      "client_name": "Aurora Cloud（架空）",
+      "client_industry": "IT / SaaS",
+      "company_size": "従業員140名",
+      "subtitle": "3チーム→9チームへ急拡大した開発組織の「認知負荷」を再設計",
+      "challenge": "1年でエンジニアが倍増し、チーム間の依存とレビュー待ちが慢性化。デプロイ頻度が落ち、オンコール負荷が一部のメンバーに偏っていました。",
+      "solution": "Team Topologies を下敷きにストリームアライン型へ再編。プラットフォームチームを新設し、依存関係マップとインタラクションモードを定義。Org Design Lab で3ヶ月伴走しました。",
+      "outcomes": "デプロイ頻度 | 週2.1 → 週7.4 | 4倍弱に向上\nレビュー待ち時間(中央値) | 26h → 7h | 約4分の1に短縮\nオンコール負荷の偏り(Gini係数) | 0.48 → 0.22 | 平準化",
+      "testimonial_body": "「組織図ではなく『流れ』で設計するという発想が、ボトルネックの本質を変えました。」",
+      "testimonial_author": "VPoE 佐藤亮（架空）",
+      "project_period": "2025年6月〜2025年9月（3ヶ月）",
+      "related_services": [
+        51,
+        49
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/901",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ]
+    }
+  },
+  {
+    "id": 902,
+    "date": "2025-11-05T10:00:00",
+    "date_gmt": "2025-11-05T10:00:00",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/healthcare-hybrid-1on1-redesign"
+    },
+    "modified": "2025-11-05T10:00:00",
+    "modified_gmt": "2025-11-05T10:00:00",
+    "slug": "healthcare-hybrid-1on1-redesign",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/healthcare-hybrid-1on1-redesign",
+    "title": {
+      "rendered": "医療スタートアップの1on1再設計とバーンアウト予防"
+    },
+    "content": {
+      "rendered": "<p>規制対応とプロダクト開発の両面でプレッシャーが高く、離職とバーンアウトの兆候が増えていた医療スタートアップ。形だけになっていた1on1を、回復志向の対話へと作り替えました。</p>\n<p>マネージャーが部下の心理状態を扱えるよう、問いかけの設計と早期検知のフローを導入。月次の計測で危険サインを可視化し、手遅れになる前に介入できる体制を整えました。</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      6
+    ],
+    "class_list": [
+      "post-902",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-healthcare"
+    ],
+    "acf": {
+      "client_name": "Medika Lab（架空）",
+      "client_industry": "医療・ヘルスケア",
+      "company_size": "従業員90名",
+      "subtitle": "高ストレス環境での「形だけの1on1」を、回復志向の対話へ",
+      "challenge": "規制対応とプロダクト開発の二重のプレッシャーで離職とバーンアウト兆候が増加。1on1は進捗確認に終始し、心理的な状態を扱えていませんでした。",
+      "solution": "マネージャー20名に回復志向1on1のフレームと問いかけ設計を導入。PsychSafe Score で月次計測し、危険サインの早期検知フローを構築しました。",
+      "outcomes": "バーンアウト警戒域の比率 | 23% → 9% | 月次サーベイ\n1on1で本音が話せる感覚 | 48% → 81% | 全社調査\n自発的離職率(年換算) | 18% → 7% | 大幅に改善",
+      "testimonial_body": "「数字を追う面談から、人の状態に向き合う面談へ。マネージャーの目線が変わりました。」",
+      "testimonial_author": "COO 井上美咲（架空）",
+      "project_period": "2025年8月〜2025年11月（3ヶ月）",
+      "related_services": [
+        49,
+        50
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/902",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ]
+    }
+  },
+  {
+    "id": 903,
+    "date": "2025-12-18T10:00:00",
+    "date_gmt": "2025-12-18T10:00:00",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/manufacturer-frontline-voice-system"
+    },
+    "modified": "2025-12-18T10:00:00",
+    "modified_gmt": "2025-12-18T10:00:00",
+    "slug": "manufacturer-frontline-voice-system",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/manufacturer-frontline-voice-system",
+    "title": {
+      "rendered": "製造業の現場の声を経営に届ける仕組みづくり"
+    },
+    "content": {
+      "rendered": "<p>現場の改善提案が中間層で止まり、経営まで届かない大手製造業。世代・拠点間の断絶で暗黙知が共有されず、ベテランの退職とともに失われていました。</p>\n<p>現場から経営までをつなぐ「声の経路」を再設計。匿名チャネル、定例の越境対話、提案を可視化するダッシュボードを導入し、現場知が意思決定に接続される流れを作りました。</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      3
+    ],
+    "class_list": [
+      "post-903",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-manufacturing"
+    ],
+    "acf": {
+      "client_name": "Kitamori Industries（架空）",
+      "client_industry": "製造業",
+      "company_size": "従業員1,200名",
+      "subtitle": "工場の現場知を、サイロを越えて意思決定に接続する",
+      "challenge": "現場の改善提案が中間層で止まり経営に届かない。世代・拠点間の断絶で暗黙知が共有されず、退職とともに失われていました。",
+      "solution": "現場〜経営をつなぐ「声の経路」を再設計。匿名チャネル、定例の越境対話、提案の可視化ダッシュボードを Org Design Lab で導入しました。",
+      "outcomes": "採用された現場提案数(四半期) | 12 → 57 | 約4.7倍\n拠点間の知識共有満足度 | 2.7 → 4.0 | 5点満点\n改善提案の経営到達率 | 14% → 63% | 大幅に向上",
+      "testimonial_body": "「現場の声が“通る”という実感が、改善のスピードそのものを変えました。」",
+      "testimonial_author": "執行役員 製造本部長 大野誠（架空）",
+      "project_period": "2025年9月〜2025年12月（4ヶ月）",
+      "related_services": [
+        51
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/903",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ]
+    }
+  },
+  {
+    "id": 904,
+    "date": "2026-02-10T10:00:00",
+    "date_gmt": "2026-02-10T10:00:00",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/insurance-psych-safety-rollout"
+    },
+    "modified": "2026-02-10T10:00:00",
+    "modified_gmt": "2026-02-10T10:00:00",
+    "slug": "insurance-psych-safety-rollout",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/insurance-psych-safety-rollout",
+    "title": {
+      "rendered": "保険会社のレガシー組織に心理的安全性を根づかせる"
+    },
+    "content": {
+      "rendered": "<p>階層が厚く、ミスやリスクの報告が遅れがちだった大手保険会社。コンプライアンス重視ゆえに、率直な指摘が萎縮する空気がありました。</p>\n<p>経営層を巻き込み、心理的安全性の共通言語を全社に導入。部門別に状態を計測し、対話の質を底上げすることで「失敗を報告できない文化」を学習する組織へ転換しました。</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      7
+    ],
+    "class_list": [
+      "post-904",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-finance"
+    ],
+    "acf": {
+      "client_name": "Nordhaven Insurance（架空）",
+      "client_industry": "金融・保険",
+      "company_size": "従業員3,400名",
+      "subtitle": "「失敗を報告できない文化」を、学習する組織へ転換",
+      "challenge": "階層が厚くミスやリスクの報告が遅れがち。コンプライアンス重視ゆえに率直な指摘が萎縮する空気がありました。",
+      "solution": "経営層を巻き込み心理的安全性の共通言語を全社導入。PsychSafe Score で部門別に計測し、リモート文化診断で対話の質を底上げしました。",
+      "outcomes": "インシデント早期報告率 | 41% → 79% | 大幅に改善\n心理的安全性スコア | 3.1 → 4.0 | 5点満点\n部門横断の改善提案 | 月8件 → 月29件 | 約3.6倍",
+      "testimonial_body": "「“報告すると評価が下がる”という暗黙の前提が消えたことが、最大の変化です。」",
+      "testimonial_author": "人事担当役員 高橋直子（架空）",
+      "project_period": "2025年10月〜2026年2月（5ヶ月）",
+      "related_services": [
+        49,
+        50
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/904",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ]
+    }
+  },
+  {
+    "id": 905,
+    "date": "2026-03-12T10:00:00",
+    "date_gmt": "2026-03-12T10:00:00",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/service-multisite-manager-enablement"
+    },
+    "modified": "2026-03-12T10:00:00",
+    "modified_gmt": "2026-03-12T10:00:00",
+    "slug": "service-multisite-manager-enablement",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/service-multisite-manager-enablement",
+    "title": {
+      "rendered": "多店舗サービス業の店長エンパワーメント"
+    },
+    "content": {
+      "rendered": "<p>すべての判断が本部に集中し、店舗の意思決定が遅れていた多店舗サービス業。店長のマネジメント力にばらつきがあり、離職率も店舗差が大きいことが課題でした。</p>\n<p>店長への権限委譲ガイドラインとマネジメント学習プログラムを設計。店舗別の状態を見える化し、本部の役割も再定義することで、現場リーダーが自律的に動ける組織へ移行しました。</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      5
+    ],
+    "class_list": [
+      "post-905",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-service"
+    ],
+    "acf": {
+      "client_name": "Lagom Hospitality（架空）",
+      "client_industry": "サービス業",
+      "company_size": "従業員650名（40店舗）",
+      "subtitle": "本部依存からの脱却。現場リーダーが自律的に動ける組織へ",
+      "challenge": "すべての判断が本部に集中し店舗の意思決定が遅い。店長のマネジメント力にばらつきがあり、離職も店舗差が大きい状態でした。",
+      "solution": "店長向けに権限委譲のガイドラインとマネジメント学習プログラムを設計。PsychSafe Score で店舗別の状態を可視化し、Org Design Lab で本部の役割も再定義しました。",
+      "outcomes": "店舗単独で完結する意思決定比率 | 31% → 72% | 自律化が進展\n店長マネジメント評価のばらつき(SD) | 0.9 → 0.4 | 均質化\n店舗スタッフ定着率 | 68% → 84% | 改善",
+      "testimonial_body": "「本部が“決める場所”から“支える場所”に変わり、店舗が一気に動き始めました。」",
+      "testimonial_author": "運営本部長 森田健太（架空）",
+      "project_period": "2025年12月〜2026年3月（4ヶ月）",
+      "related_services": [
+        51,
+        49
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/905",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ]
+    }
+  },
+  {
+    "id": 906,
+    "date": "2026-04-20T10:00:00",
+    "date_gmt": "2026-04-20T10:00:00",
+    "guid": {
+      "rendered": "http://localhost:3000/case-studies/ecommerce-remote-async-culture"
+    },
+    "modified": "2026-04-20T10:00:00",
+    "modified_gmt": "2026-04-20T10:00:00",
+    "slug": "ecommerce-remote-async-culture",
+    "status": "publish",
+    "type": "case_study",
+    "link": "http://localhost:3000/case-studies/ecommerce-remote-async-culture",
+    "title": {
+      "rendered": "EC企業のフルリモート×非同期文化の再構築"
+    },
+    "content": {
+      "rendered": "<p>リモート化後に会議が増え、時差のあるメンバーが疲弊していた EC 企業。意思決定が Slack とミーティングに分散し、記録が残らず手戻りが多発していました。</p>\n<p>非同期ファーストの意思決定プロトコルを導入し、提案ドキュメント文化と会議の削減基準を整備。会議と Slack の実態を可視化することで、集中作業の時間を取り戻しました。</p>\n",
+      "protected": false
+    },
+    "featured_media": 0,
+    "template": "",
+    "meta": {
+      "_acf_changed": false,
+      "footnotes": ""
+    },
+    "industry": [
+      4
+    ],
+    "class_list": [
+      "post-906",
+      "case_study",
+      "type-case_study",
+      "status-publish",
+      "hentry",
+      "industry-ecommerce"
+    ],
+    "acf": {
+      "client_name": "Fjord Retail（架空）",
+      "client_industry": "小売・EC",
+      "company_size": "従業員210名",
+      "subtitle": "会議過多のリモートを、非同期ファーストの働き方へ",
+      "challenge": "リモート化後に会議が増え、時差のあるメンバーが疲弊。意思決定が Slack とMTGに分散し、記録が残らず手戻りが多発していました。",
+      "solution": "非同期ファーストの意思決定プロトコル（提案ドキュメント文化、会議の削減基準）を導入。リモート文化診断で会議と Slack の実態を可視化しました。",
+      "outcomes": "週あたり会議時間(1人) | 11.4h → 5.2h | 半減以下\n意思決定の記録率 | 22% → 88% | 大幅に向上\n集中作業時間の確保 | +37% | 自己申告ベース",
+      "testimonial_body": "「“とりあえず会議”をやめただけで、こんなに時間が生まれるとは思いませんでした。」",
+      "testimonial_author": "CEO 山口彩（架空）",
+      "project_period": "2026年1月〜2026年4月（4ヶ月）",
+      "related_services": [
+        50,
+        51
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study/906",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/case_study"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://nordic-works.local/wp-json/wp/v2/types/case_study"
+        }
+      ]
+    }
   }
 ]
